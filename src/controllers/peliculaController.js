@@ -1,16 +1,23 @@
 const path = require('path');
-const fs = require ("fs");
-
+const fs = require("fs");
+let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
 
 const controlador = {
-    detallePelicula: (req, res) => {
-      const peliculas = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/noticiasPelis.json" ))) 
-      const idM = req.params.id;
-      let movie = peliculas.find( (pelicula) => pelicula.id == idM )   ;
-       console.log(movie)
-      
-      res.render("movies/detallePelicula", { movie} )
-    },
+  detallePelicula: (req, res) => {
+    const peliculas = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/noticiasPelis.json")))
+    const idM = req.params.id;
+    let movie = peliculas.find((pelicula) => pelicula.id == idM);
+    console.log(movie)
+
+    res.render("movies/detallePelicula", { movie })
+  },
+
+  /* peliculas estrenos*/
+  estrenos: (req, res) => {
+
+   res.render('movies/estrenos',{ estrenos: ultimosEstrenos })
+  },
+
 
 
 
@@ -22,10 +29,7 @@ const controlador = {
     res.render(path.resolve(__dirname, '../views/movies/peliculas2023.ejs'));
   },
 
-  /* peliculas estrenos*/
-  estrenos: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/estrenos.ejs'))
-  },
+
 
   aspromonte: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/estrenos/aspromonte.ejs'))
@@ -117,7 +121,7 @@ const controlador = {
   },
 
   /* rutas carpetas top MOVIES2023*/
-    movies2023: (req, res) => {
+  movies2023: (req, res) => {
     const idM = req.params.idMovies;
     let movie;
 
@@ -128,27 +132,9 @@ const controlador = {
       }
     }
 
-    res.render("movies/movies2023/noticiasMasVistas", {datos: movie})
+    res.render("movies/movies2023/noticiasMasVistas", { datos: movie })
 
   }
-
-
-  /*Avatar2023: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/movies2023/avatar2023.ejs'))
-  },
-  Exorsista: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/movies2023/elexorsista.ejs'))
-  },
-  Mario2023: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/movies2023/mario2023.ejs'))
-  },
-  Johnwick4: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/movies2023/elexorsista.ejs'))
-  },
-  Laherederadelamafia: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/movies2023/lahedereda.ejs'))
-  }*/
-
 
 };
 

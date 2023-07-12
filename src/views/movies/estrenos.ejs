@@ -7,15 +7,12 @@
 
       <!--MAIN-->
       <main>
-        <div class="padre-imagen">
+        <!--<div class="padre-imagen">
 
-          <h1 class="h1">
-            "Descubre los Mejores Estrenos."
-          </h1>
+          <h1 class="h1">"Descubre los Mejores Estrenos"</h1>
+          <p>"Nos complace recomendar los mejores estrenos. Abarcando una variedad de géneros y temas."</p>
 
-          <p>"Nos complace recomendar los mejores estrenos. Abarcando una variedad de géneros y temas."
-          </p>
-
+        
           <p class="top"> Aspromonte</p>
 
           <p>
@@ -79,7 +76,7 @@
             <img class="img44" src="http://emilianogieco.alwaysdata.net/boogeyman1.jpg">
           </a>
 
-          <p class="top"> Maremoto </p>
+          <p class="top">Maremoto</p>
 
           <p>
             Una plataforma petrolífera se hunde dramáticamente en la costa noruega, y los investigadores intentan
@@ -87,9 +84,21 @@
           <p>click en la imagen para leer mas</p>
           <a href="maremoto">
             <img class="img44" src="http://emilianogieco.alwaysdata.net/maremoto1.jpg">
-          </a>
+          </a>-->
 
       </main>
+
+             <!--VISTA DINAMICA CON EJS-->
+             <h1 class="titulo2">"Descubre los Mejores Estrenos"</h1>
+          <p>"Nos complace recomendar los mejores estrenos. Abarcando una variedad de géneros y temas."</p>
+            
+             <% for(let i=0; i<estrenos.length ; i++) {%>
+               <div class="contenedor"> 
+               <h4 class="tituloSecundario"><%= estrenos[i].titulo %></h4>
+               <p><%= estrenos[i].descripcion %></p>
+               <a href="./peliculas/estrenos/<%= estrenos[i].id %>"><img class="img444" src=" <%= estrenos[i].imagen %>"> </img></a>   
+            </div>
+               <% } %>
 
       <!-- FOOTER -->
       <%- include("./../partials/footer.ejs") %>

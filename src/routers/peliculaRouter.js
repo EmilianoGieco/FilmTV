@@ -3,20 +3,24 @@ const peliculaController = require ('../controllers/peliculaController');
 const express = require('express');
 const router = express.Router();
 
+/* ruta carpeta detalle pelicula*/
 router.get("/detalle/:id", peliculaController.detallePelicula);
+
+/*peliculas de la carpetas estrenos*/
+router.get("/estrenos/:id", peliculaController.estrenos);
 
 
 router.get('/noticias', peliculaController.noticia );
 router.get('/peliculas2023', peliculaController.peliculas2023 );
-router.get('/estrenos', peliculaController.estrenos );
+
 
 /*peliculas de la carpetas estrenos*/
-router.get('/aspromonte', peliculaController.aspromonte );
+/*router.get('/aspromonte', peliculaController.aspromonte );
 router.get('/blondi', peliculaController.blondi );
 router.get('/boogeyman', peliculaController.boogeyman );
 router.get('/elementos', peliculaController.elementos );
 router.get('/maremoto', peliculaController.maremoto );
-router.get('/misantropo', peliculaController.misantropo );
+router.get('/misantropo', peliculaController.misantropo );*/
 
 /* rutas carpetas las 5 mejores peliculas*/
 router.get('/barbie', peliculaController.barbie );
@@ -44,16 +48,5 @@ router.get('/Topa3', peliculaController.Topa3 );
 router.get('/Top1D', peliculaController.Top1D);
 router.get('/Top2D', peliculaController.Top2D);
 router.get('/Top3D', peliculaController.Top3D);
-
-/* rutas carpetas top MOVIES2023*/
-router.get("/noticiasMasVistas/:idMovies", peliculaController.movies2023)
-/*/router.get('/Avatar2023', peliculaController.Avatar2023 );
-router.get('/Exorsista', peliculaController.Exorsista );
-router.get('/Mario2023', peliculaController.Mario2023 );
-router.get('/Johnwick4', peliculaController.Johnwick4 );
-router.get('/Laherederadelamafia', peliculaController.Laherederadelamafia );*/
-
-
-
 
 module.exports = router;
