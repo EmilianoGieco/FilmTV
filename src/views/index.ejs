@@ -97,7 +97,7 @@
         <h2 class="titulo2"> Mirá las noticias mas vistas</h2>
         <% for(let i=0; i<datos.length ; i++) {%>   
           <h4 class="tituloSecundario"><%= datos[i].nombre %></h4>
-          <a href="./views/movies/movies2023/noticiasMasVistas.ejs/<%= datos[i].id %>"><img class="img444" src=" <%= datos[i].imagen %>"> </img></a>         
+          <a href="./peliculas/detalle/<%= datos[i].id %>"><img class="img444" src=" <%= datos[i].imagen %>"> </img></a>         
           <% } %>
 
       </main>
