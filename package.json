@@ -1,0 +1,28 @@
+{
+  "name": "filmtv",
+  "version": "1.0.0",
+  "description": "Cine Tips es el lugar perfecto para los amantes del cine. Nuestro objetivo es brindar una experiencia completa y sencilla, llena de recomendaciones de películas y series tanto para cines como plataformas de streaming.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.4",
+    "nodemon": "^2.0.22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmilianoGieco/FilmTV.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EmilianoGieco/FilmTV/issues"
+  },
+  "homepage": "https://github.com/EmilianoGieco/FilmTV#readme"
+}

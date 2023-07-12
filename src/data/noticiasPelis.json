@@ -1,0 +1,105 @@
+    [
+        {
+            "id": 1,
+            "nombre": "AVATAR: EL CAMINO DEL AGUA",
+            "imagen": "https://emilianogieco.alwaysdata.net/avatar2023.jpg",
+            "descripcion": "Más de una década después de los acontecimientos de ‘Avatar’, los Na’vi Jake Sully, Neytiri y sus hijos viven en paz en los bosques de Pandora hasta que regresan los hombres del cielo. Entonces comienzan los problemas que persiguen sin descanso a la familia Sully, que decide hacer un gran sacrificio para mantener a su pueblo a salvo y seguir ellos con vida.",
+            "video": "https://www.youtube.com/embed/jYRtFFa4hT8",
+            "fichatecnica": [
+                "TÍTULO: Avatar: el camino del agua",
+                "TÍTULO ORIGINAL: Avatar: The Way of Wate / Avatar 2",
+                "AÑO: 2022",
+                "DURACIÓN: 3h 12min 38s",
+                "PAÍS: Estados Unidos",
+                "DIRECCIÓN: James Cameron",
+                "GUION: James Cameron, Rick Jaffa, Amanda Silver. Historia: James Cameron",
+                "MÚSICA: Simon Franglen",
+                "FOTOGRAFÍA: Russell Carpenter",
+                "REPARTO: Sam Worthington, Zoe Saldana, Sigourney Weaver, Kate Winslet, Stephen Lang, Cliff Curtis, Joel David Moore, Giovanni Ribisi, Edie Falco, CCH Pounder",
+                "COMPAÑÍAS: 20th Century Studios, Lightstorm Entertainment, TSG Entertainment. Productor: James Cameron. Distribuidora: Walt Disney Pictures",
+                "GÉNERO: Ciencia ficción. Aventuras. Fantástico. Acción | Familia. Extraterrestres. Secuela. 3-D"
+            ]
+        },
+        {
+            "id": 2,
+            "nombre": "EL EXORCISTA DEL PAPA",
+            "imagen": "https://emilianogieco.alwaysdata.net/ELEXORCISTADELPAPA.jpg",
+            "descripcion": "Película sobre Gabriele Amorth, un sacerdote que ejerció como exorcista principal del Vaticano, realizando más de cien mil exorcismos a lo largo de su vida. Amorth escribió dos libros de memorias donde detalló sus experiencias luchando contra Satanás.",
+            "video": "https://www.youtube.com/embed/SoIOGkxB-Rk",
+            "fichatecnica": [
+                "TÍTULO: El exorcista del papa",
+                "TÍTULO ORIGINAL: The Pope’s Exorcist",
+                "AÑO: 2023",
+                "DURACIÓN: 01:43:31s",
+                "PAÍS: Estados Unidos",
+                "DIRECCIÓN: Julius Avery",
+                "GUION: Evan Spiliotopoulos, Michael Petroni. Biografía sobre: Gabriele Amorth. Historia: R. Dean McCreary, Chester Hastings",
+                "MÚSICA: Jed Kurzel",
+                "FOTOGRAFÍA: Khalid Mohtaseb",
+                "REPARTO: Russell Crowe, Alex Essoe, Daniel Zovatto, Peter DeSouza-Feighoney, Franco Nero, Laurel Marsden, Cornell John, Bianca Bardoe, Ryan O’Grady, Santi Bayón",
+                "COMPAÑÍAS: Screen Gems, 2.0 Entertainment, Jesus & Mary, Loyola Productions. Distribuidora: Screen Gems",
+                "GÉNERO: Terror | Biográfico. Religión. Posesiones / Exorcismos. Años 80"
+            ]
+        },
+        {
+            "id": 3,
+            "nombre": "SUPER MARIOBROS",
+            "imagen": "https://emilianogieco.alwaysdata.net/SUPERMARIOBROS.LAPELÍCULA.jpg",
+            "descripcion": "Mientras trabajan en una avería subterránea, los fontaneros de Brooklyn, Mario y su hermano Luigi, viajan por una misteriosa tubería hasta un nuevo mundo mágico. Pero, cuando los hermanos se separan, Mario deberá emprender una épica misión para encontrar a Luigi. Con la ayuda del champiñón local Toad y unas cuantas nociones de combate de la guerrera líder del Reino Champiñón, la princesa Peach, Mario descubre todo el poder que alberga en su interior.",
+            "video": "https://www.youtube.com/embed/VvCyqVG1HPI",
+            "fichatecnica": [
+                "TÍTULO: Super Mario Bros. La Película",
+                "TÍTULO ORIGINAL: The Super Mario Bros. Movie",
+                "AÑO: 2023",
+                "DURACIÓN: 1h 32min 24s",
+                "PAÍS: Estados Unidos",
+                "DIRECCIÓN: Aaron Horvath, Michael Jelenic ",
+                "GUION: Matthew Fogel. Personajes: Shigeru Miyamoto. Videojuego: Nintendo, Shigeru Miyamoto",
+                "MÚSICA: Kōji Kondō, Brian Tyler",
+                "FOTOGRAFÍA: Animación",
+                "REPARTO: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black, Keegan-Michael Key, Seth Rogen, Fred Armisen, Kevin Michael Richardson, Sebastian Maniscalco, Charles Martinet…",
+                "COMPAÑÍAS: Coproducción Estados Unidos-Japón; Illumination Entertainment, Nintendo, Universal Pictures. Distribuidora: Universal Pictures",
+                "GÉNERO: Animación. Aventuras. Infantil. Fantástico. Comedia | Cine familiar. Videojuego"
+            ]
+        },
+        {
+            "id": 4,
+            "nombre": "JOHN WICK capitulo 4",
+            "imagen": "https://emilianogieco.alwaysdata.net/johnwick44.jpg",
+            "descripcion": "John Wick, legendario asesino retirado, vuelve de nuevo a la acción impulsado por una incontrolable búsqueda de venganza. Al tener que luchar contra asesinos sedientos de sangre que le persiguen, John tendrá que llevar sus habilidades al límite si quiere salir esta vez con vida.",
+            "video": "https://www.youtube.com/embed/ePbVj3jmixE",
+            "fichatecnica": [
+                "TÍTULO: John Wick 4",
+                "TÍTULO ORIGINAL: John Wick: Chapter 4",
+                "AÑO: 2023",
+                "DURACIÓN: 2h 49min 18s",
+                "PAÍS: Estados Unidos",
+                "DIRECCIÓN: Chad Stahelski",
+                "GUION: Michael Finch, Shay Hatten. Personaje: Derek Kolstad",
+                "MÚSICA: Tyler Bates, Joel J. Richard",
+                "FOTOGRAFÍA: Dan Laustsen",
+                "REPARTO: Keanu Reeves, Laurence Fishburne, Ian McShane, Lance Reddick, Rina Sawayama, Donnie Yen, Shamier Anderson, Bill Skarsgård, Hiroyuki Sanada, Scott Adkins, Clancy Brown…",
+                "COMPAÑÍAS: Lionsgate, Thunder Road Pictures, Summit Entertainment, 87Eleven Entertainment. Distribuidora: Lionsgate",
+                "GÉNERO: Acción. Thriller | Crimen. Secuela. Artes marciales"
+            ]
+        },
+        {
+            "id": 5,
+            "nombre": "LA HEREDERA DE LA MAFIA",
+            "imagen": "https://emilianogieco.alwaysdata.net/LAHEREDERADELAMAFIA.jpg",
+            "descripcion": "Una mujer estadounidense de los suburbios que hereda el imperio mafioso de su abuelo, y guiada por el consigliere de confianza de la Firma, desafía las expectativas de todos, incluida la suya propia, como la nueva jefa del negocio familiar.",
+            "video": "https://www.youtube.com/embed/b-IwXL8HiXY",
+            "fichatecnica": [
+                "TÍTULO: La Heredera De La Mafia",
+                "TÍTULO ORIGINAL: Mafia Mamma",
+                "AÑO: 2023",
+                "DURACIÓN: 1h 40min 46s",
+                "PAÍS: Estados Unidos",
+                "DIRECCIÓN: Catherine Hardwicke",
+                "GUION: J. Michael Feldman, Debbie Jhoon. Idea: Amanda Sthers",
+                "REPARTO: Toni Collette, Monica Bellucci, Eduardo Scarpetta, Giulio Corso, Alfonso Perugini, Rob Huebel, Yonv Joseph",
+                "COMPAÑÍAS: Cattleya, Edver Films, Ingenious Media, New Sparta Films. Distribuidora: Bleecker Street",
+                "GÉNERO: Comedia | Mafia"
+            ]
+        }
+    ]
