@@ -7,20 +7,12 @@ const router = express.Router();
 router.get("/detalle/:id", peliculaController.detallePelicula);
 
 /*peliculas de la carpetas estrenos*/
-router.get("/estrenos/:id", peliculaController.estrenos);
+router.get("/estrenos", peliculaController.estrenos);
 
 
 router.get('/noticias', peliculaController.noticia );
 router.get('/peliculas2023', peliculaController.peliculas2023 );
 
-
-/*peliculas de la carpetas estrenos*/
-/*router.get('/aspromonte', peliculaController.aspromonte );
-router.get('/blondi', peliculaController.blondi );
-router.get('/boogeyman', peliculaController.boogeyman );
-router.get('/elementos', peliculaController.elementos );
-router.get('/maremoto', peliculaController.maremoto );
-router.get('/misantropo', peliculaController.misantropo );*/
 
 /* rutas carpetas las 5 mejores peliculas*/
 router.get('/barbie', peliculaController.barbie );

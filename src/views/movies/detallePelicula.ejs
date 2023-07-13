@@ -1,30 +1,37 @@
 <html>
 <!--HEAD-->
-<%- include("../partials/head") %>
+<%- include("../partials/headDetallePelicula") %>
 
   <body>
     <%- include("../partials/header") %>
 
       <!--MAIN-->
       <main>
-        <h1>
+        <div>
+        <h1 class="tituloDetalle">
           <%=movie.nombre%>
         </h1>
-        <img class="img444" src=" <%= movie.imagen %>"> </img>
+        <img class="imgDetalle" width="40%" src=" <%= movie.imagen %>"> </img>
 
-        <p>
-          <%= movie.descripcion %>
-        </p>
+        <div class="descripcion">
+          <p>
+            <%= movie.descripcion %>
+          </p>
+        </div>
 
-        <div class="videodeyoutube"><iframe width="560" height="315" src="<%= movie.video %>"
+        <div class="videodeyoutube"><iframe width="800" height="450" src="<%= movie.video %>"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></div> </iframe>
-
-        <span>
+        <br>
+        <p class="descripcion">
           <%= movie.fichatecnica%>
-        </span>
+        </p>
+      </div>
+
       </main>
+
+
 
       <!--FOOTER-->
       <%- include("../partials/footer") %>
