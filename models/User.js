@@ -29,15 +29,19 @@ const user = {
     
     //preguntar como hacer para que traiga mas de un users//
 
-    findByEmail: function(email, text){
+    findByField: function(field, text){
         let allUsers = this.findAll();
-        let userFound = allUsers.find( oneUser => oneUser[Email] === text )
+        let userFound = allUsers.find( oneUser => oneUser[field] === text )
         return userFound 
     
     },
 
     create : function (userData){
         let allUsers = this.findAll();
+        let newUser = {
+            id: this.generateId(),
+            ...userData 
+        }
         allUsers.push(userData);
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, " "));
         return true;
@@ -46,4 +50,4 @@ const user = {
 }
 
 
-console.log(User.findByPk(2));
+console.log(user.create({ name: "juana", emanil: "juana@dh.com"}));

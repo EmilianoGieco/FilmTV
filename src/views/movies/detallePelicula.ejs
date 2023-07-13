@@ -1,26 +1,33 @@
 <html>
 <!--HEAD-->
-<%- include("../partials/head.ejs") %>
+<%- include("../partials/head") %>
 
   <body>
-    <%- include("../partials/header.ejs") %>
+    <%- include("../partials/header") %>
 
       <!--MAIN-->
-                <main>
-                        <h1><%=movie.nombre%></h1>
-                    <img class="img444" src=" <%= movie.imagen %>"> </img> 
+      <main>
+        <h1>
+          <%=movie.nombre%>
+        </h1>
+        <img class="img444" src=" <%= movie.imagen %>"> </img>
 
-                    <p> <%= movie.descripcion %> </p> 
+        <p>
+          <%= movie.descripcion %>
+        </p>
 
-                    <div class="videodeyoutube"><iframe width="560" height="315" src="<%= movie.video %>"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></div>
-                        
-                        <span> <%= movie.fichatecnica%> </span>
-                    </main>
+        <div class="videodeyoutube"><iframe width="560" height="315" src="<%= movie.video %>"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></div>
 
- <!--FOOTER-->
- <%- include("../partials/footer.ejs") %>
-        </body>
-        </html>
+        <span>
+          <%= movie.fichatecnica%>
+        </span>
+      </main>
+
+      <!--FOOTER-->
+      <%- include("../partials/footer") %>
+  </body>
+
+</html>
