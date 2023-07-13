@@ -2,13 +2,17 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
 
+}
 
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  background-color: #ececec;
+
+}
+
+.bgPrincipal {
+  background-color: #0d0d0d !important;
 }
 
 /*MENU LOGO*/
@@ -81,6 +85,7 @@ li:hover {
   text-transform: uppercase;
   margin: 2em 1em 1em 1em;
   border-left: 3px solid #fa320a;
+  color: white;
 }
 
 .tituloSecundario {
@@ -89,6 +94,7 @@ li:hover {
   padding-left: 9px;
   text-transform: uppercase;
   margin: 2em 1em 1em 1em;
+  color: #ececec;
 }
 
 /*SLIDER*/
@@ -154,7 +160,8 @@ li:hover {
 .img444 {
   width: 100%;
   height: auto;
- 
+  border-radius: 2rem;
+
 }
 
 
@@ -207,10 +214,11 @@ li:hover {
   }
 
 }
+
 .texto {
-    position: absolute;
-    top: 65%;
-    
+  position: absolute;
+  top: 65%;
+
 }
 
 /*RESPONSIVE MOBILE*/

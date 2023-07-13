@@ -89,14 +89,14 @@
       </main>
 
              <!--VISTA DINAMICA CON EJS-->
-             <h1 class="titulo2">"Descubre los Mejores Estrenos"</h1>
+             <h1 >"Descubre los Mejores Estrenos"</h1>
           <p>"Nos complace recomendar los mejores estrenos. Abarcando una variedad de géneros y temas."</p>
             
              <% for(let i=0; i<estrenos.length ; i++) {%>
-               <div class="contenedor"> 
-               <h4 class="tituloSecundario"><%= estrenos[i].titulo %></h4>
+               <div > 
+               <h4 ><%= estrenos[i].titulo %></h4>
                <p><%= estrenos[i].descripcion %></p>
-               <a href="./peliculas/estrenos/<%= estrenos[i].id %>"><img class="img444" src=" <%= estrenos[i].imagen %>"> </img></a>   
+               <a href="./peliculas/estrenos/<%= estrenos[i].id %>"><img  src=" <%= estrenos[i].imagen %>"> </img></a>   
             </div>
                <% } %>
 
