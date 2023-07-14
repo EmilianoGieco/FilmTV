@@ -62,6 +62,20 @@ body {
   color: #0d0d0d;
 }
 
+/*TEXTO LEGALES DE REGISTRO*/
+.legales {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  padding: 1rem 1rem 1rem 1rem;
+  font-size: 14px;
+  color: #ececec;
+  align-items: center;
+}
+
+.legales label {
+  margin: 0rem 1rem;
+}
 .campo p {
   margin-top: 1rem;
   color: rgba(209, 35, 42, 0.7);

@@ -89,8 +89,8 @@ li:hover {
 }
 
 .tituloSecundario {
-  font-size: 0.8rem;
-  line-height: 1.2;
+  font-size: 1rem;
+  text-align: left;
   padding-left: 9px;
   text-transform: uppercase;
   margin: 2em 1em 1em 1em;
@@ -160,7 +160,7 @@ li:hover {
 .img444 {
   width: 100%;
   height: auto;
-  border-radius: 2rem;
+  border-radius: 1rem;
 
 }
 
