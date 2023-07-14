@@ -1,0 +1,40 @@
+<html>
+<!--HEAD-->
+<%- include("../partials/headDetallePelicula") %>
+
+  <body>
+    <%- include("../partials/header") %>
+
+      <!--MAIN-->
+      <main>
+        <div>
+        <h1 class="tituloDetalle">
+          <%=movie.nombre%>
+        </h1>
+        <img class="imgDetalle" width="40%" src=" <%= movie.imagen %>"> </img>
+
+        <div class="descripcion">
+          <p>
+            <%= movie.descripcion %>
+          </p>
+        </div>
+
+        <div class="videodeyoutube"><iframe width="800" height="450" src="<%= movie.video %>"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></div> </iframe>
+        <br>
+        <p class="descripcion">
+          <%= movie.fichatecnica%>
+        </p>
+      </div>
+
+      </main>
+
+
+
+      <!--FOOTER-->
+      <%- include("../partials/footer") %>
+  </body>
+
+</html>

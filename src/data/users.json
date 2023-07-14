@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "nombre": "Usuario 1",
+      "email": "usuario1@example.com",
+      "password": "contraseña1",
+      "pais": "País 1",
+      "foto_perfil": "https://example.com/usuario1.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "Usuario 2",
+      "email": "usuario2@example.com",
+      "password": "contraseña2",
+      "pais": "País 2",
+      "foto_perfil": "https://example.com/usuario2.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Usuario 3",
+      "email": "usuario3@example.com",
+      "password": "contraseña3",
+      "pais": "País 3",
+      "foto_perfil": "https://example.com/usuario3.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Usuario 4",
+      "email": "usuario4@example.com",
+      "password": "contraseña4",
+      "pais": "País 4",
+      "foto_perfil": "https://example.com/usuario4.jpg"
+    },
+    {
+      "id": 5,
+      "nombre": "Usuario 5",
+      "email": "usuario5@example.com",
+      "password": "contraseña5",
+      "pais": "País 5",
+      "foto_perfil": "https://example.com/usuario5.jpg"
+    }
+  ]
