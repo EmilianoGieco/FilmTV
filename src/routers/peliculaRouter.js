@@ -6,11 +6,13 @@ const router = express.Router();
 /* ruta carpeta detalle pelicula*/
 router.get("/detalle/:id", peliculaController.detallePelicula);
 
-/*peliculas de la carpetas estrenos*/
+/*peliculas del archivo estrenos*/
 router.get("/estrenos", peliculaController.estrenos);
 
-
+/*peliculas del archivo noticias*/
 router.get('/noticias', peliculaController.noticia );
+
+/*peliculas del archivo peliculas2023*/
 router.get('/peliculas2023', peliculaController.peliculas2023 );
 
 

@@ -5,7 +5,7 @@
     <!--HEADER-->
     <%- include(".././partials/header") %>
     
-    <h1 class="h1">Noticias de película</h1>
+    <!--<h1 class="h1">Noticias de película</h1>
 
     <h2 class="h2">“Barbie”, la película más esperada de 2023</h2>
     <a href="barbie">
@@ -35,8 +35,18 @@
     <h2 class="h2"> “Rápidos y furiosos 10” tiene un elenco gigante, muchas sorpresas y toda la acción de siempre </h2>
     <a href="rapi">
         <img class="img44" src="https://emilianogieco.alwaysdata.net/rapi1.jpeg"></a>
-    <p> El comienzo del final de la saga es una producción descomunal preparada especialmente para los fans</p>
+    <p> El comienzo del final de la saga es una producción descomunal preparada especialmente para los fans</p>-->
 
+ <!--VISTA DINAMICA CON EJS-->
+ 
+ <h1 class="h1">Noticias de película</h1>
+    <% for(let i=0; i<noticias.length ; i++) {%>
+      <div > 
+      <h4 ><%= noticias[i].titulo %></h4>
+      <p><%= noticias[i].descripcion %></p>
+      <img  src=" <%= noticias[i].imagen %>"> </img></a>   
+   </div>
+      <% } %>
 
     <!-- FOOTER -->
     <%- include(".././partials/footer.ejs") %>

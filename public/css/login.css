@@ -16,7 +16,7 @@ body {
 
 /*MAIN FORMULARIO*/
 .campo-negro {
-  background: #111;
+  background-color: #0d0d0d;
   width: 300px;
   margin: 30px auto;
   border-radius: 0.4em;

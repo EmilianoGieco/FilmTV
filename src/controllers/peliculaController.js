@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require("fs");
 let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
+let informativoN = require(".././data/informativoN.json");
 
 const controlador = {
   detallePelicula: (req, res) => {
@@ -15,15 +16,14 @@ const controlador = {
   /* peliculas estrenos*/
   estrenos: (req, res) => {
 
-   res.render('movies/estrenos',{ estrenos: ultimosEstrenos })
+    res.render('movies/estrenos', { estrenos: ultimosEstrenos })
   },
 
-
-
-
+  /* peliculas noticias*/
   noticia: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/noticias.ejs'));
+    res.render('movies/noticias.ejs', { noticias: informativoN });
   },
+
 
   peliculas2023: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/peliculas2023.ejs'));
