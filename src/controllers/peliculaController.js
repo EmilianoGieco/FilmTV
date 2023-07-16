@@ -1,26 +1,56 @@
 const path = require('path');
 const fs = require("fs");
 let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
+const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json")
+
 
 const controlador = {
   detallePelicula: (req, res) => {
-    const peliculas = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/noticiasPelis.json")))
+    const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8" ))
     const idM = req.params.id;
     let movie = peliculas.find((pelicula) => pelicula.id == idM);
     console.log(movie)
 
+    /*consultar despues
+    if (peliculas) {
+      res.render("peliculas/detalle", { peliculas });
+    } else {
+      res.send(
+            <div style="text-align: center; padding-top:30px">
+            <h1>El producto no existe</h1>
+            <img style="width:40%;" src="http://emilianogieco.alwaysdata.net/esteproductonoexite.jpg">
+            </div>
+            );}*/
+
     res.render("movies/detallePelicula", { movie })
   },
 
+  getCrearFilm: function (req, res){
+    res.render ("user/CrearFilm")
+  },
+
+  postCrearFilm:  function (req, res){
+    const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8" ))
+    console.log (req.body);
+    nuevoFilm = {
+      id: uuidv4(),
+      nombre: req.body.nombre,
+      imagen: req.body.file,
+      } 
+    peliculas.push (nuevoFilm);
+    const peliculasJSON = JSON.stringify(peliculas, null, " ");
+    fs.writeFileSync(peliculaPath,peliculasJSON)
+    res.redirect ("/")
+  },
+
+  
   /* peliculas estrenos*/
   estrenos: (req, res) => {
 
    res.render('movies/estrenos',{ estrenos: ultimosEstrenos })
   },
 
-
-
-
+  
   noticia: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/noticias.ejs'));
   },
