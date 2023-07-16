@@ -45,6 +45,7 @@ const controlador = {
 
   
   /* peliculas estrenos*/
+  
   estrenos: (req, res) => {
 
    res.render('movies/estrenos',{ estrenos: ultimosEstrenos })
