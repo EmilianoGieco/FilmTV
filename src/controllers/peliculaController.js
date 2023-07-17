@@ -27,8 +27,8 @@ const controlador = {
     res.render("movies/detallePelicula", { movie })
   },
 
-  getCrearFilm: function (req, res){
-    res.render ("/CrearFilm")
+  getCrearFilm: function (req, res) {
+    res.render("/CrearFilm")
   },
 
   postCrearFilm: function (req, res) {
@@ -50,17 +50,16 @@ const controlador = {
     });
   },
 
-  
+
   /* peliculas estrenos*/
-  
   estrenos: (req, res) => {
 
-   res.render('movies/estrenos',{ estrenos: ultimosEstrenos })
+    res.render('movies/estrenos', { estrenos: ultimosEstrenos })
   },
 
-  
+  /* peliculas noticias*/
   noticia: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/noticias.ejs'));
+    res.render('movies/noticias.ejs', { noticias: informativoN });
   },
 
   /* peliculas 2023*/
@@ -70,7 +69,7 @@ const controlador = {
 
   /* noticas de peliculas slide principal*/
   noticiaDePelicula: (req, res) => {
-    
+
     res.render("movies/mejoresPeliculas.ejs", { mejoresPeliculas: slide });
   },
 
