@@ -2,6 +2,9 @@ const path = require('path');
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
+let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
+let informativoN = require(".././data/informativoN.json");
+let slide = require(".././data/slide.json");
 
 const controlador = {
   detallePelicula: (req, res) => {
@@ -60,8 +63,15 @@ const controlador = {
     res.render(path.resolve(__dirname, '../views/movies/noticias.ejs'));
   },
 
+  /* peliculas 2023*/
   peliculas2023: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/peliculas2023.ejs'));
+    res.render('movies/peliculas2023.ejs');
+  },
+
+  /* noticas de peliculas slide principal*/
+  noticiaDePelicula: (req, res) => {
+    
+    res.render("movies/mejoresPeliculas.ejs", { mejoresPeliculas: slide });
   },
 
 

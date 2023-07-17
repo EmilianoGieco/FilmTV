@@ -1,0 +1,25 @@
+<!--HEAD-->
+<%- include("../../partials/head") %>
+
+  <body>
+    <!--HEADER-->
+    <%- include("../../partials/header") %>
+
+      <!--MAIN-->
+      <main>
+        
+ <!--VISTA DINAMICA CON EJS-->
+    <% for(let i=0; i<mejoresPeliculas.length ; i++) {%>
+      <div > 
+      <h4 ><%= mejoresPeliculas[i].titulo %></h4>
+      <p><%= mejoresPeliculas[i].descripcion %></p>
+         
+   </div>
+      <% } %>
+      </main>
+      <!-- FOOTER -->
+      <%- include("../../partials/footer.ejs") %>
+
+  </body>
+
+  </html>

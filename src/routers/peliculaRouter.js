@@ -36,11 +36,13 @@ router.get('/peliculas2023', peliculaController.peliculas2023 );
 
 
 /* rutas carpetas las 5 mejores peliculas*/
-router.get('/barbie', peliculaController.barbie );
+router.get("/noticias/:id", peliculaController.noticiaDePelicula);
+
+/*router.get('/barbie', peliculaController.barbie );
 router.get('/flash', peliculaController.flash );
 router.get('/lasirenita', peliculaController.lasirenita );
 router.get('/rapido-y-furioso-x', peliculaController.rapidoyfuriosox );
-router.get('/transformers', peliculaController.transformers );
+router.get('/transformers', peliculaController.transformers );*/
 
 /* rutas carpetas recomendacionesDeSeries*/
 router.get('/recomendacionesSerieNetflix', peliculaController.recomendacionesSerieNetflix );
