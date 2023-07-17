@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
 let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
 let informativoN = require(".././data/informativoN.json");
-let slide = require(".././data/slide.json");
+const slideNoticia = path.join(__dirname, "../data/slide.json");
 
 const controlador = {
   detallePelicula: (req, res) => {
@@ -12,17 +12,6 @@ const controlador = {
     const idM = req.params.id;
     let movie = peliculas.find((pelicula) => pelicula.id == idM);
     console.log(movie);
-
-    /*consultar despues
-    if (peliculas) {
-      res.render("peliculas/detalle", { peliculas });
-    } else {
-      res.send(
-            <div style="text-align: center; padding-top:30px">
-            <h1>El producto no existe</h1>
-            <img style="width:40%;" src="http://emilianogieco.alwaysdata.net/esteproductonoexite.jpg">
-            </div>
-            );}*/
 
     res.render("movies/detallePelicula", { movie })
   },
@@ -67,12 +56,18 @@ const controlador = {
     res.render('movies/peliculas2023.ejs');
   },
 
-  /* noticas de peliculas slide principal*/
-  noticiaDePelicula: (req, res) => {
-    res.render("movies/mejoresPeliculas.ejs", { mejoresPeliculas: slide });
+  /* noticias de peliculas slide principal*/
+  detalleNoticia: (req, res) => {
+
+    const detalleNoticia = JSON.parse(fs.readFileSync(slideNoticia, "utf-8"));
+    let noticia = detalleNoticia.find((noticia) => noticia.id == req.params.id);
+    console.log(noticia);
+
+    res.render("/movies/detalleNoticia", { noticia });
   },
 
 
+  
 
   aspromonte: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/estrenos/aspromonte.ejs'))
@@ -177,8 +172,9 @@ const controlador = {
 
     res.render("movies/movies2023/noticiasMasVistas", { datos: movie })
 
-  }
+  }, 
 
-};
+}
+
 
 module.exports = controlador;

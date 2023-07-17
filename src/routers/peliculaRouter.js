@@ -24,19 +24,17 @@ router.get("/detalle/:id", peliculaController.detallePelicula);
 router.get("/CrearFilm", peliculaController.getCrearFilm);
 router.post("/CrearFilm", upload.single ("imagen"), peliculaController.postCrearFilm );
 
-
-
-
 /*peliculas de la carpetas estrenos*/
 router.get("/estrenos", peliculaController.estrenos);
 
-
+/*peliculas del archivo noticias*/
 router.get('/noticias', peliculaController.noticia );
+
+/*peliculas del archivo peliculas2023*/
 router.get('/peliculas2023', peliculaController.peliculas2023 );
 
-
 /* rutas carpetas las 5 mejores peliculas*/
-router.get("/noticias/:id", peliculaController.noticiaDePelicula);
+router.get("/detalleNoticia/:id", peliculaController.detalleNoticia);
 
 /*router.get('/barbie', peliculaController.barbie );
 router.get('/flash', peliculaController.flash );
