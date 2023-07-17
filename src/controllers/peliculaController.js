@@ -1,15 +1,14 @@
 const path = require('path');
 const fs = require("fs");
-let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
-const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json")
-
+const { v4: uuidv4 } = require('uuid');
+const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
 
 const controlador = {
   detallePelicula: (req, res) => {
-    const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8" ))
+    const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
     const idM = req.params.id;
     let movie = peliculas.find((pelicula) => pelicula.id == idM);
-    console.log(movie)
+    console.log(movie);
 
     /*consultar despues
     if (peliculas) {
@@ -29,18 +28,23 @@ const controlador = {
     res.render ("user/CrearFilm")
   },
 
-  postCrearFilm:  function (req, res){
-    const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8" ))
-    console.log (req.body);
-    nuevoFilm = {
+  postCrearFilm: function (req, res) {
+    const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
+    console.log(req.body);
+    const nuevoFilm = {
       id: uuidv4(),
       nombre: req.body.nombre,
       imagen: req.body.file,
-      } 
-    peliculas.push (nuevoFilm);
+    };
+    peliculas.push(nuevoFilm);
     const peliculasJSON = JSON.stringify(peliculas, null, " ");
-    fs.writeFileSync(peliculaPath,peliculasJSON)
-    res.redirect ("/")
+    fs.writeFile(peliculaPath, peliculasJSON, err => {
+      if (err) {
+        console.error(err);
+      } else {
+        res.redirect("/");
+      }
+    });
   },
 
   
