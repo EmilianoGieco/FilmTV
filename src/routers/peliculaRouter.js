@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 /* ruta carpeta detalle pelicula*/
 router.get("/detalle/:id", peliculaController.detallePelicula); 
 router.get("/CrearFilm", peliculaController.getCrearFilm);
-router.post("/CrearFilm",  upload.single ("imagen"), peliculaController.postCrearFilm );
+router.post("/CrearFilm", upload.single ("imagen"), peliculaController.postCrearFilm );
 
 
 

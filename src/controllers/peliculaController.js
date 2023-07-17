@@ -28,7 +28,7 @@ const controlador = {
   },
 
   getCrearFilm: function (req, res){
-    res.render ("user/CrearFilm")
+    res.render ("/CrearFilm")
   },
 
   postCrearFilm: function (req, res) {
@@ -41,9 +41,9 @@ const controlador = {
     };
     peliculas.push(nuevoFilm);
     const peliculasJSON = JSON.stringify(peliculas, null, " ");
-    fs.writeFile(peliculaPath, peliculasJSON, err => {
-      if (err) {
-        console.error(err);
+    fs.writeFile(peliculaPath, peliculasJSON, error => {
+      if (error) {
+        console.error(error);
       } else {
         res.redirect("/");
       }

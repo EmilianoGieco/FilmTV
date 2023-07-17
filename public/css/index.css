@@ -133,7 +133,6 @@ li:hover {
 .texto {
   font-size: 20px;
   text-transform: uppercase;
-  /* margin: 0em 0em 0em 0em; */
   border-left: 3px solid #fa320a;
   position: absolute;
   top: 70%;
@@ -142,11 +141,16 @@ li:hover {
   padding: 1em;
 }
 
+.texto:hover {
+  border-left: 3px solid white;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+
 
 .baner {
   width: 100%;
   height: auto;
-
 }
 
 
