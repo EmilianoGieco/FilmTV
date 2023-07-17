@@ -69,7 +69,6 @@ const controlador = {
 
   /* noticas de peliculas slide principal*/
   noticiaDePelicula: (req, res) => {
-
     res.render("movies/mejoresPeliculas.ejs", { mejoresPeliculas: slide });
   },
 
