@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
     {
         "id": 1,
@@ -35,4 +36,43 @@
         "descripcion": " Una plataforma petrolífera se hunde dramáticamente en la costa noruega, y los investigadores intentanaveriguar qué ha pasado cuando se dan cuenta de que esto es solo el comienzo de algo aún más grave.",
         "imagen": "http://emilianogieco.alwaysdata.net/maremoto1.jpg"
     }
+=======
+[
+    {
+        "id": 1,
+        "titulo": "Aspromonte",
+        "descripcion": "En 1951, Africo es un pueblo el valle de Aspromonte sin carretera alguna; cuando una mujer muere dando a luz por falta de acceso para el doctor, el pueblo se vuelca en construir un acceso, aunque...",
+        "imagen": "http://mmpc1910.alwaysdata.net/aspromonte1.jpg"
+    },
+    {
+        "id": 2,
+        "titulo": "Elementos",
+        "descripcion": " Sigue a Ember y Wade, en una ciudad donde los residentes del fuego, el agua, la tierra y el aire viven juntos.",
+        "imagen": "https://mmpc1910.alwaysdata.net/elementos1.jpg"
+    },
+    {
+        "id": 3,
+        "titulo": "Misantropo",
+        "descripcion": "Un feroz ataque producido por un único hombre deja un saldo de 29 muertos y ni una sola pista. Eleanor Falco (Shailene Woodley), una retraída pero talentosa mujer policía de bajo rango, es reclutada por el agente especial del FBI Geoffrey Lammark (Ben Mendelsohn) para integrar el equipo a cargo de la identificación y captura del homicida.",
+        "imagen": "http://mmpc1910.alwaysdata.net/misantro.webp"
+    },
+    {
+        "id": 4,
+        "titulo": "Blondi",
+        "descripcion": " Es una película que, en tono de comedia, abre imperceptiblemente temas enormes y trascendentes.",
+        "imagen": "http://emilianogieco.alwaysdata.net/Blondi3.jpg"
+    },
+    {
+        "id": 5,
+        "titulo": "“Boogeyman” Tu miedo es real",
+        "descripcion": "Sadie Harper, una estudiante del colegio secundario y su hermana pequeña, Sawyer, están conmocionadas por la reciente muerte de su madre y no reciben mucho apoyo de su padre, Will, un terapeuta que está lidiando con su propio dolor.",
+        "imagen": "http://emilianogieco.alwaysdata.net/boogeyman1.jpg"
+    },
+    {
+        "id": 6,
+        "titulo": "Maremoto",
+        "descripcion": " Una plataforma petrolífera se hunde dramáticamente en la costa noruega, y los investigadores intentanaveriguar qué ha pasado cuando se dan cuenta de que esto es solo el comienzo de algo aún más grave.",
+        "imagen": "http://emilianogieco.alwaysdata.net/maremoto1.jpg"
+    }
+>>>>>>> 7ee94c792bad43c2471c572754a2161a59c90c7b
 ]

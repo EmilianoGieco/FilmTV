@@ -6,7 +6,6 @@ const path = require('path')
 /* app */
 const app = express()
 
-
 /* rutas importadas */
 const rutaIndex = require('./routers/indexRouter');
 const rutaUsuario = require('./routers/usuarioRouter');

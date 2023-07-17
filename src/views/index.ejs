@@ -5,9 +5,15 @@
     <%- include("./partials/header") %>
 
       <!--MAIN-->
+<<<<<<< HEAD
     
       <main>
         <img src="https://abisulkes.alwaysdata.net/banerPrincipal1.jpg" class="baner">
+=======
+
+      <main>
+        <img class="banerPrincipal" src="https://abisulkes.alwaysdata.net/banerPrincipal1.jpg" />
+>>>>>>> 7ee94c792bad43c2471c572754a2161a59c90c7b
         <h2 class="titulo2">5 peliculas mas esperadas 2023</h2>
 
         <div class="carrucelcentral">
@@ -26,11 +32,18 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
+<<<<<<< HEAD
                 <img src="https://abisulkes.alwaysdata.net/rapidosFuriosos1.jpg" class="d-block w-100"
                   alt="rápidos-y-furiosos">
                 <div class="texto">
                   <p> <a href="rapido-y-furioso-x" class="textoenlasimagenes"> Todo sobre la pelicula rapido y furioso x
                   </p>
+=======
+                <img src="https://abisulkes.alwaysdata.net/flash6.jpg"  class="d-block w-100"
+                  alt="flash">
+                <div class="texto">
+                  <a href="/peliculas/flash" class="textoenlasimagenes">“Flash” y los 5 datos imperdibles que debes conocer
+>>>>>>> 7ee94c792bad43c2471c572754a2161a59c90c7b
                   </a>
                 </div>
                 <div class="carousel-caption d-none d-md-block">
@@ -38,9 +51,15 @@
                 </div>
               </div>
               <div class="carousel-item">
+<<<<<<< HEAD
                <img src="https://abisulkes.alwaysdata.net/barbie2.jpg" class="d-block w-100" alt="barbie">
                 <div class="texto">
                   <p> <a href="barbie" class="textoenlasimagenes"> la película más esperada de 2023</p></a>
+=======
+                <img src="https://abisulkes.alwaysdata.net/barbieM2.jpg" class="d-block w-100" alt="barbie">
+                <div class="texto">
+                  <a href="/peliculas/barbie" class="textoenlasimagenes"> la película más esperada de 2023</a>
+>>>>>>> 7ee94c792bad43c2471c572754a2161a59c90c7b
                 </div>
                 <div class="carousel-caption d-none d-md-block">
 
@@ -49,7 +68,11 @@
               <div class="carousel-item">
                 <img src="https://abisulkes.alwaysdata.net/laSirenita3.jpg" class="d-block w-100" alt="laSinerita">
                 <div class="texto">
+<<<<<<< HEAD
                   <p> <a href="lasirenita" class="textoenlasimagenes"> crítica sobre el nuevo live-action de Disney</p>
+=======
+                  <a href="/peliculas/lasirenita" class="textoenlasimagenes"> crítica sobre el nuevo live-action de Disney
+>>>>>>> 7ee94c792bad43c2471c572754a2161a59c90c7b
                   </a>
                 </div>
 
@@ -60,7 +83,11 @@
               <div class="carousel-item">
                 <img src="https://abisulkes.alwaysdata.net/transformers4.jpg" class="d-block w-100" alt="transformers">
                 <div class="texto">
+<<<<<<< HEAD
                   <p> <a href="transformers" class="textoenlasimagenes"> Transformers 7 todo lo que necesitas saber </p>
+=======
+               <a href="/peliculas/transformers" class="textoenlasimagenes"> Transformers 7 todo lo que necesitas saber 
+>>>>>>> 7ee94c792bad43c2471c572754a2161a59c90c7b
                   </a>
                 </div>
 
@@ -69,10 +96,17 @@
                 </div>
               </div>
               <div class="carousel-item">
+<<<<<<< HEAD
                 <img src="https://abisulkes.alwaysdata.net/flash6.jpg" class="d-block w-100" alt="Flash">
                 <div class="texto">
                   <p> <a href="flash" class="textoenlasimagenes"> “Flash” y los 5 datos imperdibles que debes conocer
                   </p>
+=======
+                <img src="https://abisulkes.alwaysdata.net/rapidosFuriosos1.jpg"                
+                class="d-block w-100" alt="rápidos-y-furiosos" />
+                <div class="texto">
+                  <a href="/peliculas/rapido-y-furioso-x" class="textoenlasimagenes"> Todo sobre la pelicula rapido y furioso x
+>>>>>>> 7ee94c792bad43c2471c572754a2161a59c90c7b
                   </a>
                 </div>
 
@@ -94,6 +128,7 @@
         </div>
 
 
+<<<<<<< HEAD
        <!--VISTA DINAMICA CON EJS-->
         <h2 class="titulo2"> Mirá las noticias mas vistas</h2>
         <% for(let i=0; i<datos.length ; i++) {%>
@@ -101,6 +136,18 @@
           <h4 class="tituloSecundario"><%= datos[i].nombre %></h4>
           <a href="./peliculas/detalle/<%= datos[i].id %>"><img class="img444" src=" <%= datos[i].imagen %>"> </img></a>   
        </div>
+=======
+        <!--VISTA DINAMICA CON EJS-->
+        <h2 class="titulo2"> Mirá las noticias mas vistas</h2>
+        <% for(let i=0; i<datos.length ; i++) {%>
+          <div class="contenedor">
+            <h4 class="tituloSecundario">
+              <%= datos[i].nombre %>
+            </h4>
+            <a href="./peliculas/detalle/<%= datos[i].id %>"><img class="img444" src=" <%= datos[i].imagen %>">
+              </img></a>
+          </div>
+>>>>>>> 7ee94c792bad43c2471c572754a2161a59c90c7b
           <% } %>
 
       </main>
