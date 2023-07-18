@@ -1,6 +1,6 @@
 <html>
 <!--HEAD-->
-<%- include("../partials/head") %>
+<%- include("../partials/headDetalleNoticia") %>
 
   <body>
     <!--HEADER-->
@@ -10,9 +10,12 @@
       <main>
 
        <!--EJS-->
-       <h2 class="titulo2"> <%= data.titulo %></h2>
-    
-         <div class="contenedor"> 
+       <h2> <%= data.titulo %></h2>
+       <iframe width="1000" height="550" src="<%= data.video %>"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
          <p><%= data.descripcion %></p>
       </main>
 
