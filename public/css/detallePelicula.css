@@ -4,6 +4,7 @@
 
 }
 
+/*color de fondo del cuerpo del sitio*/
 .bg1 {
   background-color: #0d0d0d !important;
 }
@@ -49,4 +50,9 @@
 .ficha {
   margin: 1rem 1rem 3rem 0rem;
   text-align: left;
+}
+
+.bg{
+  background-color: red !important;
+  border-color: red !important;
 }
