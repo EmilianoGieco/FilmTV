@@ -7,7 +7,6 @@ const methodOverride = require("method-override")
 /* app */
 const app = express()
 
-
 /* rutas importadas */
 const rutaIndex = require('./routers/indexRouter');
 const rutaUsuario = require('./routers/usuarioRouter');
