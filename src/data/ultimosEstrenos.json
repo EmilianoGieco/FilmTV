@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "titulo": "Elementos",
+        "titulo": "ELEMENTOS",
         "descripcion": "Los cuatro elementos (fuego, agua, tierra y aire) viven en armonía en Ciudad Elemento, un mundo fascinante y hogar de diversos personajes. La ciudad, sin embargo, tiene una regla clara para mantener el orden y el equilibrio: los distintos elementos no pueden mezclarse. Ember, una joven del elemento fuego, pondrá a prueba esta regla. Y es que forja una amistad con Wade, del elemento agua. ¡Juntos vivirán grandes aventuras!",
         "imagen": "https://abisulkes.alwaysdata.net/elementos.jpg",
         "fecha": "15 de junio de 2023",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "titulo": "Misantropo",
+        "titulo": "MISANTROPO",
         "descripcion": "Baltimore, la noche de año nuevo. Un feroz ataque producido por un único hombre deja un saldo de 29 muertos y ni una sola pista. Eleanor Falco (Shailene Woodley), una retraída pero talentosa mujer policía de bajo rango, es reclutada por el agente especial del FBI Geoffrey Lammark (Ben Mendelsohn) para integrar el equipo a cargo de la identificación y captura del homicida. MISÁNTROPO Del griego, mīsos 'odio' y ānthropos 'hombre'. Que siente rechazo o desconfianza por la especie humana. La aversión puede ser leve, manifestándose en actos de crítica social y aislamiento, o severa, con tendencia a la autodestrucción y a la destrucción de los demás. En casos extremos, la misantropía ha conducido a asesinatos en masa.",
         "imagen": "https://abisulkes.alwaysdata.net/misantropo.jpg",
         "fecha": "4 de mayo de 2023",
@@ -17,15 +17,15 @@
     },
     {
         "id": 3,
-        "titulo": "Blondi",
-        "descripcion": " Es una película que, en tono de comedia, abre imperceptiblemente temas enormes y trascendentes.",
+        "titulo": "BLONDI",
+        "descripcion": "Blondi y Mirko son mejores amigos. Les encanta vivir juntos: escuchan la misma música, fuman marihuana, tienen los mismos amigos y todo resulta perfecto entre ellos, pero, aunque parecen casi de la misma edad, Blondi es la madre de Mirko.",
         "imagen": "https://abisulkes.alwaysdata.net/blondi.jpg",
         "fecha": "1 de junio de 2023",
         "duracion": "1h 27m"
     },
     {
         "id": 4,
-        "titulo": "“Boogeyman” Tu miedo es real",
+        "titulo": "“BOOGEYMAN” TU MIEDO ES REAL",
         "descripcion": "Sadie Harper, una estudiante del colegio secundario y su hermana pequeña, Sawyer, están conmocionadas por la reciente muerte de su madre y no reciben mucho apoyo de su padre, Will, un terapeuta que está lidiando con su propio dolor.",
         "imagen": "https://abisulkes.alwaysdata.net/boogeman.jpeg",
         "fecha": "1 de junio de 2023",
@@ -33,7 +33,7 @@
     },
     {
         "id": 5,
-        "titulo": "Maremoto",
+        "titulo": "MAREMOTO",
         "descripcion": "Una plataforma petrolífera se hunde dramáticamente en la costa noruega, y los investigadores intentanaveriguar qué ha pasado cuando se dan cuenta de que esto es solo el comienzo de algo aún más grave.",
         "imagen": "https://abisulkes.alwaysdata.net/maremoto.jpg",
         "fecha": "8 de junio de 2023",
