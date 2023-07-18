@@ -3,7 +3,7 @@ const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
 let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
-let informativoN = require(".././data/informativoN.json");
+let informacionCarrucel = require(".././data/informacionCarrucel.json");
 let slideNoticia = (".././data/slide.json");
 
 const controlador = {
@@ -48,7 +48,7 @@ const controlador = {
 
   /* peliculas noticias*/
   noticia: (req, res) => {
-    res.render('movies/noticias.ejs', { noticias: informativoN });
+    res.render('movies/noticias.ejs', { noticias: informacionCarrucel });
   },
 
   /* peliculas 2023*/
@@ -190,7 +190,7 @@ const controlador = {
 
     res.render("movies/movies2023/noticiasMasVistas", { datos: carrucel })
 
-  }
+  }}
 
 
 module.exports = controlador;
