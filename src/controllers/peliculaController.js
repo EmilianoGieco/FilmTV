@@ -188,6 +188,7 @@ const controlador = {
     res.render("movies/movies2023/noticiasMasVistas", { datos: carrucel })
 
   }
+}
 
 
 module.exports = controlador;
