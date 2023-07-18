@@ -1,0 +1,104 @@
+<html>
+<!--HEAD-->
+<%- include("../partials/headDetallePelicula",) %>
+
+  <body>
+    <%- include("../partials/header") %>
+
+  <main class="container" >
+    <form action="/peliculas/CrearFilm" method="post" class="needs-validation" novalidate 
+         enctype="multipart/form-data" >
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="nombre">nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="imagen">imagen</label>
+                <input type="file" class="form-control" id="imagen" placeholder="imagen"  name="imagen" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+          <div class="col-md-4 mb-3">
+            <label for="descripcion">descripcion</label>
+            <input type="text" class="form-control" id="descripcion" placeholder="descripcion" value="descripcion" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="video">video</label>
+              <input type="video" class="form-control" id="video" placeholder="video" value="video" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+          </div>
+                    <div class="col-md-4 mb-3">
+            <label for="validationCustomUsername">Subido Por </label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+              </div>
+              <input type="text" class="form-control" id="validationCustomUsername" placeholder="nombre de usuario" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Por favor, elija un nombre de usuario.
+              </div>
+              
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                </div>
+                <br>
+                <select class="input-group-text" id="inputGroupSelect01">
+                  
+                  <option selected >Genero</option>
+                  <option value="1">Acción</option>
+                  <option value="2">Comedia</option>
+                  <option value="3">Drama</option>
+                  <option value="4">Ciencia ficción</option>
+                  <option value="5">Terror</option>
+                  <option value="6">Suspenso</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+              </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Subir Film</button>
+      </form>
+      
+      <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+        
+      })();
+      </script>
+
+  </main>
+
+    <!--FOOTER-->
+    <%- include("../partials/footer") %>
+</body>
+
+</html>

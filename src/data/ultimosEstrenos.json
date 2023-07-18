@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "titulo": "Elementos",
+        "descripcion": "Los cuatro elementos (fuego, agua, tierra y aire) viven en armonía en Ciudad Elemento, un mundo fascinante y hogar de diversos personajes. La ciudad, sin embargo, tiene una regla clara para mantener el orden y el equilibrio: los distintos elementos no pueden mezclarse. Ember, una joven del elemento fuego, pondrá a prueba esta regla. Y es que forja una amistad con Wade, del elemento agua. ¡Juntos vivirán grandes aventuras!",
+        "imagen": "https://mmpc1910.alwaysdata.net/elementos1.jpg",
+        "fecha": "15 de junio de 2023",
+        "duracion": "1h 42m"
+    },
+    {
+        "id": 2,
+        "titulo": "Misantropo",
+        "descripcion": "Baltimore, la noche de año nuevo. Un feroz ataque producido por un único hombre deja un saldo de 29 muertos y ni una sola pista. Eleanor Falco (Shailene Woodley), una retraída pero talentosa mujer policía de bajo rango, es reclutada por el agente especial del FBI Geoffrey Lammark (Ben Mendelsohn) para integrar el equipo a cargo de la identificación y captura del homicida. MISÁNTROPO Del griego, mīsos 'odio' y ānthropos 'hombre'. Que siente rechazo o desconfianza por la especie humana. La aversión puede ser leve, manifestándose en actos de crítica social y aislamiento, o severa, con tendencia a la autodestrucción y a la destrucción de los demás. En casos extremos, la misantropía ha conducido a asesinatos en masa.",
+        "imagen": "http://mmpc1910.alwaysdata.net/misantro.webp",
+        "fecha": "4 de mayo de 2023",
+        "duracion": "1h 59m"
+    },
+    {
+        "id": 3,
+        "titulo": "Blondi",
+        "descripcion": " Es una película que, en tono de comedia, abre imperceptiblemente temas enormes y trascendentes.",
+        "imagen": "http://emilianogieco.alwaysdata.net/Blondi3.jpg",
+        "fecha": "1 de junio de 2023",
+        "duracion": "1h 27m"
+    },
+    {
+        "id": 4,
+        "titulo": "“Boogeyman” Tu miedo es real",
+        "descripcion": "Sadie Harper, una estudiante del colegio secundario y su hermana pequeña, Sawyer, están conmocionadas por la reciente muerte de su madre y no reciben mucho apoyo de su padre, Will, un terapeuta que está lidiando con su propio dolor.",
+        "imagen": "http://emilianogieco.alwaysdata.net/boogeyman1.jpg",
+        "fecha": "1 de junio de 2023",
+        "duracion": "1h 38m"
+    },
+    {
+        "id": 5,
+        "titulo": "Maremoto",
+        "descripcion": " Una plataforma petrolífera se hunde dramáticamente en la costa noruega, y los investigadores intentanaveriguar qué ha pasado cuando se dan cuenta de que esto es solo el comienzo de algo aún más grave.",
+        "imagen": "http://emilianogieco.alwaysdata.net/maremoto1.jpg",
+        "fecha": "8 de junio de 2023",
+        "duracion": "1h 44m"
+    }
+]

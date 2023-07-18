@@ -1,0 +1,147 @@
+  <!--HEAD-->
+  <%- include(".././partials/head") %>
+
+    <body>
+      <!--HEADER-->
+      <%- include(".././partials/header") %>
+
+        <!--MAIN-->
+        <main>
+              <!--VISTA DINAMICA CON EJS-->
+              <h1 >"Descubre los Mejores Estrenos"</h1>
+            <p>Nos complace recomendar los mejores estrenos. Abarcando una variedad de géneros y temas</p>
+              
+              <% for(let i=0; i<estrenos.length ; i++) {%>
+                <div > 
+                <h4 ><%= estrenos[i].titulo %></h4>
+                <p><%= estrenos[i].descripcion %></p>
+                <a href="./peliculas/estrenos/<%= estrenos[i].id %>"><img  src=" <%= estrenos[i].imagen %>"> </img></a>   
+              </div>
+                <% } %>
+
+                <!--ejemplo -->
+                <div class="row row-cols-1 row-cols-md-3">
+                  <div class="col mb-4">
+                    <!-- Card -->
+                    <div class="card">
+                
+                      <!--Card image-->
+                      <div class="view overlay">
+                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
+                          alt="Card image cap">
+                        <a href="#!">
+                          <div class="mask rgba-white-slight"></div>
+                        </a>
+                      </div>
+                
+                      <!--Card content-->
+                      <div class="card-body">
+                
+                        <!--Title-->
+                        <h4 class="card-title">Card title</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                
+                      </div>
+                
+                    </div>
+                    <!-- Card -->
+                  </div>
+                  <div class="col mb-4">
+                    <!-- Card -->
+                    <div class="card">
+                
+                      <!--Card image-->
+                      <div class="view overlay">
+                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
+                          alt="Card image cap">
+                        <a href="#!">
+                          <div class="mask rgba-white-slight"></div>
+                        </a>
+                      </div>
+                
+                      <!--Card content-->
+                      <div class="card-body">
+                
+                        <!--Title-->
+                        <h4 class="card-title">Card title</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                
+                      </div>
+                
+                    </div>
+                    <!-- Card -->
+                  </div>
+                  <div class="col mb-4">
+                    <!-- Card -->
+                    <div class="card">
+                
+                      <!--Card image-->
+                      <div class="view overlay">
+                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
+                          alt="Card image cap">
+                        <a href="#!">
+                          <div class="mask rgba-white-slight"></div>
+                        </a>
+                      </div>
+                
+                      <!--Card content-->
+                      <div class="card-body">
+                
+                        <!--Title-->
+                        <h4 class="card-title">Card title</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                
+                      </div>
+                
+                    </div>
+                    <!-- Card -->
+                  </div>
+                  <div class="col mb-4">
+                    <!-- Card -->
+                    <div class="card">
+                
+                      <!--Card image-->
+                      <div class="view overlay">
+                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
+                          alt="Card image cap">
+                        <a href="#!">
+                          <div class="mask rgba-white-slight"></div>
+                        </a>
+                      </div>
+                
+                      <!--Card content-->
+                      <div class="card-body">
+                
+                        <!--Title-->
+                        <h4 class="card-title">Card title</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                
+                      </div>
+                
+                    </div>
+                    <!-- Card -->
+                  </div>
+                </div>
+        </main>
+        <!-- FOOTER -->
+        <%- include("../partials/footer") %>
+    </body>
+
+    </html>
+

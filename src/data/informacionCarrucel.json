@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "titulo": "“Barbie”, la película más esperada de 2023",
+        "imagen": "https://emilianogieco.alwaysdata.net/barbie1.jpeg",
+        "descripcion": "Margot Robbie y Ryan Gosling actúan juntos en el próximo film de la aclamada directora Greta Gerwig."
+       
+    },
+    {
+        "id": 2,
+        "titulo":"“Flash” y los 5 datos imperdibles que debes conocer antes de su estreno",
+        "imagen":"https://emilianogieco.alwaysdata.net/flashh1.jpeg",
+        "descripcion": "Película dirigida por Andy Muschietti y protagonizada por Ezra Miller llegará a los cines el 15 de junio."
+       
+    },
+    {
+        "id": 3,
+        "titulo": "“La Sirenita”: qué dice la crítica sobre el nuevo live-action de Disney",
+        "imagen": "https://emilianogieco.alwaysdata.net/sire1.jpeg",
+        "descripcion": "Parte de la crítica internacional se rinde ante la película protagonizada por Halle Bailey y otros sólo destacan la actuación de la estrella en el rol de Ariel."
+        
+    },
+    {
+        "id": 4,
+        "titulo":"“Rápidos y furiosos 10” tiene un elenco gigante, muchas sorpresas y toda la acción de siempre",
+        "imagen": "https://emilianogieco.alwaysdata.net/rapi1.jpeg",
+        "descripcion": "El comienzo del final de la saga es una producción descomunal preparada especialmente para los fans."
+        
+    },
+    {
+        "id": 5,
+        "titulo":"“Flash” y los 5 datos imperdibles que debes conocer antes de su estreno",
+        "imagen":"https://emilianogieco.alwaysdata.net/flashh1.jpeg",
+        "descripcion": "ff"
+    }
+]
