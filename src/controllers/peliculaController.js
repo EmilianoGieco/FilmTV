@@ -5,6 +5,7 @@ const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
 let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
 let slideNoticia = require(".././data/slide.json");
 
+ /*detalle de las noticias*/
 const controlador = {
   detallePelicula: (req, res) => {
     const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
@@ -15,6 +16,7 @@ const controlador = {
     res.render("movies/detallePelicula", { movie })
   },
 
+   /*carga de producto film*/
   getCrearFilm: function (req, res) {
     res.render("/CrearFilm")
   },
@@ -31,13 +33,12 @@ const controlador = {
     const peliculasJSON = JSON.stringify(peliculas, null, " ");
     fs.writeFile(peliculaPath, peliculasJSON, error => {
       if (error) {
-        console.error(err);
+        console.error(error);
       } else {
         res.redirect("/");
       }
     });
   },
-
 
   /* peliculas estrenos*/
   estrenos: (req, res) => {
@@ -47,7 +48,7 @@ const controlador = {
 
   /* peliculas noticias*/
   noticia: (req, res) => {
-    res.render('movies/noticias.ejs', { noticias: informativoN });
+    res.render('movies/noticias.ejs', { noticias: slideNoticia });
   },
 
   /* peliculas 2023*/
@@ -58,8 +59,8 @@ const controlador = {
   /* noticias de peliculas slide principal*/
   detalleNoticia: (req, res) => {
     let datoP
-    for(let obj of slideNoticia){
-      if(obj.id === parseInt(req.params.idN)){
+    for (let obj of slideNoticia) {
+      if (obj.id === parseInt(req.params.idN)) {
         console.log(obj)
         return res.render("movies/detalleNoticia", { data: obj });
       }
@@ -89,28 +90,6 @@ const controlador = {
 
   misantropo: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/estrenos/misantropo.ejs'))
-  },
-
-  /* las 5 mejores peliculas*/
-
-  barbie: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/las5mejorespelis/barbie.ejs'))
-  },
-
-  flash: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/las5mejorespelis/flash.ejs'))
-  },
-
-  lasirenita: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/las5mejorespelis/lasirenita.ejs'))
-  },
-
-  rapidoyfuriosox: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/las5mejorespelis/rapido-y-furioso-x.ejs'))
-  },
-
-  transformers: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/las5mejorespelis/transformers.ejs'))
   },
 
   /* rutas carpetas recomendacionesDeSeries*/
@@ -155,40 +134,6 @@ const controlador = {
   Top3D: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/top/top3disney.ejs'))
   },
-
-  /* rutas carpetas top MOVIES2023*/
-  movies2023: (req, res) => {
-    const idM = req.params.idMovies;
-    let movie;
-
-    for (let obj of noticiasPelis) {
-      if (obj.id == idM) {
-        movie = obj;
-        break;
-      }
-    }
-
-    res.render("movies/movies2023/noticiasMasVistas", { datos: movie })
-
-  },
-
-  
-  /* rutas carrucel*/
-  movies2023: (req, res) => {
-    const idC = req.params.idC;
-    let carrucel;
-
-    for (let obj of informacionCarrucel) {
-      if (obj.id == idC) {
-        carrucel = obj;
-        break;
-      }
-    }
-
-    res.render("movies/movies2023/noticiasMasVistas", { datos: carrucel })
-
-  }
 }
-
 
 module.exports = controlador;
