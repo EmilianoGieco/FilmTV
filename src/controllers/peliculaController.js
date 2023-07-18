@@ -47,7 +47,7 @@ const controlador = {
 
   /* peliculas noticias*/
   noticia: (req, res) => {
-    res.render('movies/noticias.ejs', { noticias: slideNoticia });
+    res.render('movies/noticias.ejs', { noticias: informativoN });
   },
 
   /* peliculas 2023*/
@@ -172,7 +172,22 @@ const controlador = {
 
   },
 
-}
+  
+  /* rutas carrucel*/
+  movies2023: (req, res) => {
+    const idC = req.params.idC;
+    let carrucel;
+
+    for (let obj of informacionCarrucel) {
+      if (obj.id == idC) {
+        carrucel = obj;
+        break;
+      }
+    }
+
+    res.render("movies/movies2023/noticiasMasVistas", { datos: carrucel })
+
+  }
 
 
 module.exports = controlador;
