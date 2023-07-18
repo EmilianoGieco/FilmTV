@@ -2,20 +2,19 @@
   <!--HEAD-->
   <%- include("../partials/headDetallePelicula") %>
 
-    <body>
+    <body class="bg1">
       <%- include("../partials/header") %>
 
         <!--MAIN-->
         <main>
-          <div>
-            <h1 class="tituloDetalle"> <%=movie.nombre%> </h1>
-
-            <div class="videodeyoutube"><iframe width="900" height="550" src="<%= movie.video %>"
+          <h1 class="tituloDetalle"> <%=movie.nombre%> </h1>
+          <div class="contenedorPrincipal">
+            <div class="videodeyoutube"><iframe width="1000" height="550" src="<%= movie.video %>"
               title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen></div> </iframe>
 
-              <div class="card mb-3" style="max-width: 900px;">
+              <div class="card mb-3" style="max-width: 1000px;">
                 <div class="row g-0">
                   <div class="col-md-4">
                     <img src="<%= movie.imagen %>" class="img-fluid rounded-start" alt="...">
@@ -29,8 +28,6 @@
                   </div>
                 </div>
               </div>
-
-
         </main>
       <!--FOOTER-->
       <%- include("../partials/footer") %>

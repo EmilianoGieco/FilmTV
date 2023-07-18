@@ -1,38 +1,52 @@
 /*MAIN NOTICIAS DETALLE*/
-.body{
+.body {
   font-family: "Poppins", sans-serif;
+
 }
 
-.descripcion{
-    text-align: left;
-    margin:0.2rem 5rem 1rem 5rem;
-  }
-  
-  .descripcion2{
-    text-align: left;
-    margin:0.2rem 5rem 1rem 0rem;
-  
-  }
+.bg1 {
+  background-color: #0d0d0d !important;
+}
 
-  .imgDetalle{
-    margin:0.5rem 5rem 1rem 5rem;
-  }
-  
-  .tituloDetalle{
+.contenedorPrincipal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.descripcion {
+  text-align: left;
+  margin: 0.2rem 5rem 1rem 5rem;
+}
+
+.descripcion2 {
+  text-align: left;
+  margin: 0.2rem 5rem 1rem 0rem;
+
+}
+
+.imgDetalle {
+  margin: 0.5rem 5rem 1rem 5rem;
+}
+
+.tituloDetalle {
+  margin-top: 2rem;
+  margin-left: 3rem;
+  margin-right: 24rem;
   font-size: 1.5rem;
   line-height: 1.2;
   padding-left: 9px;
   text-transform: uppercase;
-  margin:3rem 5rem -1.5rem 5rem;
-  border-left: 3px solid #fa320a;
-  }
-  
-  .videodeyoutube{
-    margin:3rem 5rem 1rem 5rem;
-    
-  }
-  
-  .ficha{
-    margin:1rem 1rem 3rem 0rem;
-    text-align: left;
-  }
+  border-bottom: 0.2px solid #fa320a;
+  color: white;
+}
+
+.videodeyoutube {
+  margin: 2rem 5rem 3rem 5rem;
+
+}
+
+.ficha {
+  margin: 1rem 1rem 3rem 0rem;
+  text-align: left;
+}
