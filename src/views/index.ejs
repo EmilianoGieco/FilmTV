@@ -95,7 +95,9 @@
         <% for(let i=0; i<datos.length ; i++) {%>
           <div class="contenedor"> 
           <h4 class="tituloSecundario"><%= datos[i].nombre %></h4>
-          <a href="./peliculas/detalle/<%= datos[i].id %>"><img class="img444" src=" <%= datos[i].imagen %>"> </img></a>   
+          <div class="contenido">
+          <a href="./peliculas/detalle/<%= datos[i].id %>"><img class="img444" src=" <%= datos[i].imagen %>"> </img></a> 
+         </div>
        </div>
           <% } %>
 

@@ -38,8 +38,6 @@ body {
   margin: 1em;
 }
 
-
-
 .navbar-nav .nav-link.active {
   color: white !important;
 }
@@ -148,12 +146,10 @@ li:hover {
 }
 
 
-
 .baner {
   width: 100%;
   height: auto;
 }
-
 
 /*MAIN NOTICIAS*/
 .contenedor {
@@ -169,6 +165,9 @@ li:hover {
 
 }
 
+.contenido{
+  margin: 1rem 1rem 1rem 1rem;
+}
 
 /*FOOTER*/
 .fondo-color {
