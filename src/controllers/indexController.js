@@ -1,6 +1,5 @@
 const path = require('path');
 let noticiasPelis = require(".././data/noticiasPelis.json");
-const { noticia } = require('./peliculaController');
 let slideNoticia = require(".././data/slide.json");
 
 const controlador = {

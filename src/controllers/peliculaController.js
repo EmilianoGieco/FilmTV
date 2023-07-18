@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
 let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
 let slideNoticia = require(".././data/slide.json");
+//let noticiasPelis = require(".././data/noticiasPelis.json");
 
  /*detalle de las noticias*/
 const controlador = {

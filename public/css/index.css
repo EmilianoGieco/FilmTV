@@ -86,6 +86,16 @@ li:hover {
   color: white;
 }
 
+.titulo3 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  padding-left: 9px;
+  text-transform: uppercase;
+  margin: 2em 1em 0em 1em;
+  border-left: 3px solid #fa320a;
+  color: white;
+}
+
 .tituloSecundario {
   font-size: 1rem;
   text-align: left;
@@ -162,8 +172,10 @@ li:hover {
   width: 100%;
   height: auto;
   border-radius: 2rem;
-
 }
+
+.contenido:hover{
+  filter: grayscale(80%);}
 
 .contenido{
   margin: 1rem 1rem 1rem 1rem;
