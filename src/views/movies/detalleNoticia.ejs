@@ -1,3 +1,4 @@
+<html>
 <!--HEAD-->
 <%- include("../../partials/head") %>
 
@@ -7,17 +8,17 @@
 
       <!--MAIN-->
       <main>
-        
- <!--VISTA DINAMICA CON EJS-->
-   
-      <h4 ><%= noticia.titulo %></h4>
-      <p><%=noticia.descripcion %></p>
- 
- 
+
+       <!--EJS-->
+       <h2 class="titulo2"> <%= data.titulo %></h2>
+    
+         <div class="contenedor"> 
+         <p><%= data.descripcion %></p>
       </main>
+
       <!-- FOOTER -->
       <%- include("../../partials/footer.ejs") %>
 
   </body>
 
-  </html>
+</html>

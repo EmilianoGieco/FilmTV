@@ -1,9 +1,19 @@
 /*MAIN NOTICIAS DETALLE*/
+.body{
+  font-family: "Poppins", sans-serif;
+}
+
 .descripcion{
     text-align: left;
     margin:0.2rem 5rem 1rem 5rem;
   }
   
+  .descripcion2{
+    text-align: left;
+    margin:0.2rem 5rem 1rem 0rem;
+  
+  }
+
   .imgDetalle{
     margin:0.5rem 5rem 1rem 5rem;
   }
@@ -13,7 +23,7 @@
   line-height: 1.2;
   padding-left: 9px;
   text-transform: uppercase;
-  margin:3rem 5rem 1rem 5rem;
+  margin:3rem 5rem -1.5rem 5rem;
   border-left: 3px solid #fa320a;
   }
   

@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
 let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
 let informativoN = require(".././data/informativoN.json");
-const slideNoticia = path.join(__dirname, "../data/slide.json");
+let slideNoticia = (".././data/slide.json");
 
 const controlador = {
   detallePelicula: (req, res) => {
@@ -58,16 +58,17 @@ const controlador = {
 
   /* noticias de peliculas slide principal*/
   detalleNoticia: (req, res) => {
-
-    const detalleNoticia = JSON.parse(fs.readFileSync(slideNoticia, "utf-8"));
-    let noticia = detalleNoticia.find((noticia) => noticia.id == req.params.id);
-    console.log(noticia);
-
-    res.render("/movies/detalleNoticia", { noticia });
+    let datoP
+    for(let obj of slideNoticia){
+      if(obj.id==idN){
+        datoP=obj
+        break;
+      }
+    }
+    res.render("movies/detalleNoticia", { data:datoP });
   },
 
 
-  
 
   aspromonte: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/estrenos/aspromonte.ejs'))
@@ -172,7 +173,7 @@ const controlador = {
 
     res.render("movies/movies2023/noticiasMasVistas", { datos: movie })
 
-  }, 
+  },
 
 }
 
