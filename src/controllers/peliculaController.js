@@ -3,8 +3,7 @@ const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
 let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
-let informativoN = require(".././data/informativoN.json");
-let slideNoticia = (".././data/slide.json");
+let slideNoticia = require(".././data/slide.json");
 
 const controlador = {
   detallePelicula: (req, res) => {
@@ -48,7 +47,7 @@ const controlador = {
 
   /* peliculas noticias*/
   noticia: (req, res) => {
-    res.render('movies/noticias.ejs', { noticias: informativoN });
+    res.render('movies/noticias.ejs', { noticias: slideNoticia });
   },
 
   /* peliculas 2023*/
@@ -60,15 +59,13 @@ const controlador = {
   detalleNoticia: (req, res) => {
     let datoP
     for(let obj of slideNoticia){
-      if(obj.id==idN){
-        datoP=obj
-        break;
+      if(obj.id === parseInt(req.params.idN)){
+        console.log(obj)
+        return res.render("movies/detalleNoticia", { data: obj });
       }
     }
-    res.render("movies/detalleNoticia", { data:datoP });
+    // TODO: Aca estaria bueno mandar a una pagina de error
   },
-
-
 
   aspromonte: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/estrenos/aspromonte.ejs'))
@@ -175,22 +172,7 @@ const controlador = {
 
   },
 
-  
-  /* rutas carrucel*/
-  movies2023: (req, res) => {
-    const idC = req.params.idC;
-    let carrucel;
-
-    for (let obj of informacionCarrucel) {
-      if (obj.id == idC) {
-        carrucel = obj;
-        break;
-      }
-    }
-
-    res.render("movies/movies2023/noticiasMasVistas", { datos: carrucel })
-
-  }
+}
 
 
 module.exports = controlador;

@@ -4,6 +4,8 @@
         "titulo": "“Flash” y los 5 datos imperdibles que debes conocer antes de su estreno",
         "descripcion": "La película dirigida por Andy Muschietti y protagonizada por Ezra Miller llegará a los cines el 15 de junio",
         "video": "https://www.youtube.com/embed/8dFTgXriXWg",
+        "imagen":"https://abisulkes.alwaysdata.net/rapidosFuriosos1.jpg",
+        "banner": "https://abisulkes.alwaysdata.net/flash6.jpg",
         "texto": "Aunque Flash es la película que dará inicio a la nueva etapa del universo de DC, se podría decir que el film es el más importante para la compañía desde el estreno de El hombre de acero. El próximo largometraje dirigido por Andy Muschietti (It) será una especie de culminación de todos los títulos del Universo extendido DC (DCEU, por sus siglas en inglés) durante la última década. Se trata de una aventura de saltos en el tiempo causada por Barry Allen (Ezra Miller), quien jugará con el pasado para poder salvar a su madre de la muerte. Sin embargo, cuando viaje a otra época, cambiará la historia misma, incluidos algunos de los momentos más cruciales de su universo. Esto significa que los fans y la audiencia en general deberán recordar algunos de los momentos más importantes de la saga cinematográfica."
     },
     {
@@ -11,6 +13,8 @@
         "titulo": " “Barbie”, la película más esperada de 2023",
         "descripcion": "Margot Robbie y Ryan Gosling actúan juntos en el próximo film de la aclamada directora Greta Gerwig",
         "video": "https://www.youtube.com/embed/gH2mRECr6y4",
+        "imagen": "https://emilianogieco.alwaysdata.net/barbie1.jpeg",
+        "banner": "https://abisulkes.alwaysdata.net/barbieM2.jpg",
         "texto": "Barbie es uno de los estrenos más esperados del año y con justa razón, pues marca el regreso de Greta Gerwig (Lady Bird) como directora de cine y sitúa a Margot Robbie (Yo, Tonya y El escuadrón suicida) un rol muy particular. Este jueves, Warner Bros. compartió un nuevo tráiler de la anticipada película y deja a ver a la protagonista junto a su adorado Ken (Ryan Gosling) en situaciones increíbles. “Vivir en la tierra de Barbie es ser un ser perfecto en un lugar perfecto. A menos que tengas una crisis existencial total. O seas un Ken”, así se define en su premisa oficial este largometraje inspirado en la famosa línea de juguetes de la compañía Mattel. Gerwig se encargó de la dirección y coescribió el guion junto a Noah Baumbach (Historia de un matrimonio), su esposo y colaborador más cercano."
     },
     {
@@ -18,20 +22,26 @@
         "titulo": "“La Sirenita”: qué dice la crítica sobre el nuevo live-action de Disney",
         "descripcion": "Parte de la crítica internacional se rinde ante la película protagonizada por Halle Bailey y otros sólo destacan la actuación de la estrella en el rol de Ariel",
         "video": "https://www.youtube.com/embed/8LECfkm4fJA",
+        "imagen": "https://emilianogieco.alwaysdata.net/sire1.jpeg",
+        "banner": "https://abisulkes.alwaysdata.net/laSirenita3.jpg",
         "texto": "Por fin se conocieron las críticas oficiales sobre La Sirenita (The Little Mermaid) luego de su proyección temprana para la prensa en Estados Unidos. Halle Bailey es la protagonista de esta película que adapta el clásico cuento de Hans Christian Andersen y la producción animada musical de 1989. El elenco también cuenta con la participación de Melissa McCarthy (Úrsula), Javier Bardem (rey Tritón), Jonah Hauer-King (príncipe Eric), Noma Dumezweni (la reina) y Art Malik (Ser Grimsby) Rob Marshall (El regreso de Mary Poppins) estuvo detrás de la dirección del proyecto con un guion del dos veces nominado al Oscar David Magee (La vida de Pi). Las canciones incluyen música del ganador de varios premios de la Academia Alan Menken (La bella y la bestia y Aladino) y letras de Howard Ashman. Asimismo, se sumaron nuevas letras de Lin-Manuel Miranda (En el barrio)."
     },
     {
         "id": 4,
-        "titulo": "‘Transformers 7 es el mayor estreno en Perú: ¿cuánto recaudó en taquilla en su primera semana en los cines?",
+        "titulo": "Transformers 7 todo lo que necesitas saber ",
         "descripcion": "La película estadounidense que tiene como escenario las ciudades peruanas Cusco y Tarapoto lidera el ranking de las cintas más vistas. Descubre cuanto dinero recaudó.",
         "video": "https://www.youtube.com/embed/jYRtFFa4hT8",
+        "imagen": "https://emilianogieco.alwaysdata.net/sire1.jpeg",
+        "banner": "https://abisulkes.alwaysdata.net/transformers4.jpg",
         "texto":"‘Transformers 7: El despertar de las bestias’ es la aclamada cinta que forma parte de la saga de los robots, consiguió números bastantes atractivos a pocos de cumplir su prima semana en las salas de cine no solamente del Perú sino en el mundo."
     },
     {
         "id": 5,
-        "titulo": "AVATAR: EL CAMINO DEL AGUA",
+        "titulo": "Todo sobre la pelicula rapido y furioso x",
         "descripcion": "Más de una década después de los acontecimientos de ‘Avatar’, los Na’vi Jake Sully, Neytiri y sus hijos viven en paz en los bosques de Pandora hasta que regresan los hombres del cielo. Entonces comienzan los problemas que persiguen sin descanso a la familia Sully, que decide hacer un gran sacrificio para mantener a su pueblo a salvo y seguir ellos con vida.",
         "video": "https://www.youtube.com/embed/v0d0id78XdE",
+        "imagen": "https://emilianogieco.alwaysdata.net/sire1.jpeg",
+        "banner": "https://abisulkes.alwaysdata.net/rapidosFuriosos1.jpg",
         "texto": "Transformers 7: El despertar de las bestias’ es la aclamada cinta que forma parte de la saga de los robots, consiguió números bastantes atractivos a pocos de cumplir su prima semana en las salas de cine no solamente del Perú sino en el mundo."
     }
 ]
