@@ -2,6 +2,9 @@ const path = require('path');
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
+let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
+let informativoN = require(".././data/informativoN.json");
+let slideNoticia = (".././data/slide.json");
 
 const controlador = {
   detallePelicula: (req, res) => {
@@ -10,22 +13,11 @@ const controlador = {
     let movie = peliculas.find((pelicula) => pelicula.id == idM);
     console.log(movie);
 
-    /*consultar despues
-    if (peliculas) {
-      res.render("peliculas/detalle", { peliculas });
-    } else {
-      res.send(
-            <div style="text-align: center; padding-top:30px">
-            <h1>El producto no existe</h1>
-            <img style="width:40%;" src="http://emilianogieco.alwaysdata.net/esteproductonoexite.jpg">
-            </div>
-            );}*/
-
     res.render("movies/detallePelicula", { movie })
   },
 
-  getCrearFilm: function (req, res){
-    res.render ("user/CrearFilm")
+  getCrearFilm: function (req, res) {
+    res.render("/CrearFilm")
   },
 
   postCrearFilm: function (req, res) {
@@ -47,21 +39,33 @@ const controlador = {
     });
   },
 
-  
+
   /* peliculas estrenos*/
-  
   estrenos: (req, res) => {
 
-   res.render('movies/estrenos',{ estrenos: ultimosEstrenos })
+    res.render('movies/estrenos', { estrenos: ultimosEstrenos })
   },
 
-  
+  /* peliculas noticias*/
   noticia: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/noticias.ejs'));
+    res.render('movies/noticias.ejs', { noticias: informativoN });
   },
 
+  /* peliculas 2023*/
   peliculas2023: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/peliculas2023.ejs'));
+    res.render('movies/peliculas2023.ejs');
+  },
+
+  /* noticias de peliculas slide principal*/
+  detalleNoticia: (req, res) => {
+    let datoP
+    for(let obj of slideNoticia){
+      if(obj.id==idN){
+        datoP=obj
+        break;
+      }
+    }
+    res.render("movies/detalleNoticia", { data:datoP });
   },
 
 
@@ -188,6 +192,5 @@ const controlador = {
 
   }
 
-};
 
 module.exports = controlador;

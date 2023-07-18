@@ -8,6 +8,7 @@ const router = express.Router();
 router.get('/login', usuarioController.usuario);
 router.get('/register', usuarioController.registro);
 router.get('/CrearFilm', usuarioController.getCrearFilm);
+router.post('/CrearFilm', usuarioController.postCrearFilm);
 
 
 

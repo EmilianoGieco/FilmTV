@@ -1,0 +1,24 @@
+<html>
+<!--HEAD-->
+<%- include("../../partials/head") %>
+
+  <body>
+    <!--HEADER-->
+    <%- include("../../partials/header") %>
+
+      <!--MAIN-->
+      <main>
+
+       <!--EJS-->
+       <h2 class="titulo2"> <%= data.titulo %></h2>
+    
+         <div class="contenedor"> 
+         <p><%= data.descripcion %></p>
+      </main>
+
+      <!-- FOOTER -->
+      <%- include("../../partials/footer.ejs") %>
+
+  </body>
+
+</html>

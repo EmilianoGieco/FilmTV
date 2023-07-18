@@ -1,0 +1,31 @@
+.img44 {
+    width: 380px;
+    height: 300px;
+  }
+  
+  .top {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    
+  }
+
+  
+.padre-imagen {
+ 
+  background-color: #ececec;
+}
+
+.fondo-color{
+  background-color:black;
+}
+
+.tipografia{
+  color:#ececec;
+}
+
+.color{
+  text-decoration: none;
+  color: #d1232a;
+}

@@ -1,0 +1,80 @@
+.videodeyoutube iframe {
+  width: 380px;
+  height: 200px;
+}
+
+.narrado{
+  font-size: 26px
+}
+
+.padre-imagen {
+ 
+  background-color: #ececec;
+}
+
+.img44 {
+  width: 380px;
+  height: 200px;
+}
+
+/*FOOTER*/
+.fondo-color{
+  background-color:black;
+}
+
+.tipografia{
+  color:#ececec;
+}
+
+.color{
+  text-decoration: none;
+  color: #d1232a;
+}
+
+.padre-imagen {
+ 
+  background-color: #ececec;
+}
+
+@media only screen and (max-width: 1780px) and (min-width: 1000px) {
+  
+    .img44 {
+      width: 100%;
+      height: 550px;
+          }
+
+    .videodeyoutube iframe {
+            width: 100%;
+            height: 900px;
+          }
+            
+  }
+
+    
+   
+
+@media only screen and (max-width: 499px) and (min-width: 270px) {
+ 
+
+  
+      .img44 {
+        width: 100%;
+        height: 150px;
+    
+      }
+          }
+
+    @media only screen and (max-width: 999px) and (min-width: 500px){
+
+      .img44 {
+        width: 100%;
+        height: 250px;
+    
+      }
+      .videodeyoutube iframe {
+        width: 100%;
+        height: 500px;
+      }
+    }
+     
+      
