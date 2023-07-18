@@ -2,21 +2,32 @@
 <!--HEAD-->
 <%- include("../partials/headDetalleNoticia") %>
 
-  <body>
+  <body class="bg1 " >
     <!--HEADER-->
     <%- include("../partials/header") %>
 
       <!--MAIN-->
       <main>
+         <h1 class="tituloDetalle"> <%=data.titulo%> </h1>
+         <div class="contenedorPrincipal">
+           <div class="videodeyoutube"><iframe width="1000" height="550" src="<%= data.video %>"
+             title="YouTube video player" frameborder="0"
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+             allowfullscreen></div> </iframe>
 
-       <!--EJS-->
-       <h2> <%= data.titulo %></h2>
-       <iframe width="1000" height="550" src="<%= data.video %>"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-
-         <p><%= data.descripcion %></p>
+             <div class="card mb-3" style="max-width: 1000px;">
+               <div class="row g-0">
+                 <div class="col-md-4">
+                   <img src="<%= data.imagen %>" class="img-fluid rounded-start" alt="...">
+                 </div>
+                 <div class="col-md-8">
+                   <div class="card-body">
+                     <h5 class="card-title"><%=data.descripcion%></h5>
+                     <p class="card-text"><%= data.texto %></p>
+                   </div>
+                 </div>
+               </div>
+             </div>
       </main>
 
       <!-- FOOTER -->
