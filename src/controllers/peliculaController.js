@@ -34,12 +34,12 @@ const controlador = {
     const nuevoFilm = {
       id: uuidv4(),
       nombre: req.body.nombre,
-      imagen: req.body.file,
+      imagen: req.file.filename,
     };
     peliculas.push(nuevoFilm);
     const peliculasJSON = JSON.stringify(peliculas, null, " ");
-    fs.writeFile(peliculaPath, peliculasJSON, err => {
-      if (err) {
+    fs.writeFile(peliculaPath, peliculasJSON, error => {
+      if (error) {
         console.error(err);
       } else {
         res.redirect("/");
@@ -168,6 +168,23 @@ const controlador = {
     }
 
     res.render("movies/movies2023/noticiasMasVistas", { datos: movie })
+
+  },
+
+  
+  /* rutas carrucel*/
+  movies2023: (req, res) => {
+    const idC = req.params.idC;
+    let carrucel;
+
+    for (let obj of informacionCarrucel) {
+      if (obj.id == idC) {
+        carrucel = obj;
+        break;
+      }
+    }
+
+    res.render("movies/movies2023/noticiasMasVistas", { datos: carrucel })
 
   }
 

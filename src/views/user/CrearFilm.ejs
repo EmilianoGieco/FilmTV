@@ -6,21 +6,20 @@
     <%- include("../partials/header") %>
 
   <main class="container" >
-    <form action="/user/CrearFilm" method="post" class="needs-validation" novalidate 
+    <form action="/peliculas/CrearFilm" method="post" class="needs-validation" novalidate 
          enctype="multipart/form-data" >
         <div class="form-row">
           <div class="col-md-4 mb-3">
             <label for="nombre">nombre</label>
-            <input type="text" class="form-control" id="nombre" placeholder="nombre" value="nombre" required>
+            <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" required>
             <div class="valid-feedback">
               Looks good!
             </div>
           </div>
-          <form class="needs-validation" novalidate>
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label for="imagen">imagen</label>
-                <input type="file" class="form-control" id="imagen" placeholder="imagen" value="imagen" required>
+                <input type="file" class="form-control" id="imagen" placeholder="imagen"  name="imagen" required>
                 <div class="valid-feedback">
                   Looks good!
                 </div>

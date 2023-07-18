@@ -4,11 +4,14 @@ const express = require('express');
 const router = express.Router();
 const path = require("path");
 
+console.log( path.join(__dirname,'../../public/img'))
 
 /*guardado de imagen */
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function (req, file, cb)
+     {
       cb(null, path.join(__dirname,'../../public/img'))
+
       },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now()
@@ -21,8 +24,9 @@ const storage = multer.diskStorage({
 
 /* ruta carpeta detalle pelicula*/
 router.get("/detalle/:id", peliculaController.detallePelicula); 
+
 router.get("/CrearFilm", peliculaController.getCrearFilm);
-router.post("/CrearFilm",  upload.single ("imagen"), peliculaController.postCrearFilm );
+router.post("/CrearFilm",upload.single("imagen"), peliculaController.postCrearFilm );
 
 
 

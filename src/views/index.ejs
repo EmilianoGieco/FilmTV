@@ -26,6 +26,16 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
+
+                <% for(let i=0; i<datos.length ; i++) {%>
+                  <div class="contenedor"> 
+                  <h4 class="tituloSecundario"><%= datos[i].nombre %></h4>
+                  <a href="./peliculas/carrucel/<%= datos[i].id %>"><img class="img444" src=" <%= datos[i].imagen %>"> </img></a>   
+               </div>
+                  <% } %>
+
+
+                <!--
                 <img src="https://abisulkes.alwaysdata.net/rapidosFuriosos1.jpg" class="d-block w-100"
                   alt="rápidos-y-furiosos">
                 <div class="texto">
@@ -74,7 +84,7 @@
                   <p> <a href="flash" class="textoenlasimagenes"> “Flash” y los 5 datos imperdibles que debes conocer
                   </p>
                   </a>
-                </div>
+                </div>-->
 
                 <div class="carousel-caption d-none d-md-block">
                 </div>
