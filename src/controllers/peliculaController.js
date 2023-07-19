@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
 let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
 let slideNoticia = require(".././data/slide.json");
-//let noticiasPelis = require(".././data/noticiasPelis.json");
+let noticiasPelis = require(".././data/noticiasPelis.json");
 
  /*detalle de las noticias*/
 const controlador = {
@@ -111,7 +111,7 @@ const controlador = {
 
   /* peliculas 2023*/
   peliculas2023: (req, res) => {
-    res.render('movies/peliculas2023.ejs');
+    res.render('movies/peliculas2023.ejs', { datos: noticiasPelis});
   },
 
   /* noticias de peliculas slide principal*/

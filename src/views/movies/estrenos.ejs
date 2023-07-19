@@ -1,152 +1,3 @@
-<<<<<<< HEAD
-  <!--HEAD-->
-  <%- include(".././partials/head") %>
-
-    <body>
-      <!--HEADER-->
-      <%- include(".././partials/header") %>
-
-        <!--MAIN-->
-        <main>
-              <!--VISTA DINAMICA CON EJS-->
-              <h1 >"Descubre los Mejores Estrenos"</h1>
-            <p>Nos complace recomendar los mejores estrenos. Abarcando una variedad de géneros y temas</p>
-              
-              <% for(let i=0; i<estrenos.length ; i++) {%>
-                <div > 
-                <h4 ><%= estrenos[i].titulo %></h4>
-                <p><%= estrenos[i].descripcion %></p>
-                <a href="./peliculas/estrenos/<%= estrenos[i].id %>"><img  src=" <%= estrenos[i].imagen %>"> </img></a>   
-              </div>
-                <% } %>
-
-                <!--ejemplo -->
-                <div class="row row-cols-1 row-cols-md-3">
-                  <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-                
-                      <!--Card image-->
-                      <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
-                          alt="Card image cap">
-                        <a href="#!">
-                          <div class="mask rgba-white-slight"></div>
-                        </a>
-                      </div>
-                
-                      <!--Card content-->
-                      <div class="card-body">
-                
-                        <!--Title-->
-                        <h4 class="card-title">Card title</h4>
-                        <!--Text-->
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                          card's content.</p>
-                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-                
-                      </div>
-                
-                    </div>
-                    <!-- Card -->
-                  </div>
-                  <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-                
-                      <!--Card image-->
-                      <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
-                          alt="Card image cap">
-                        <a href="#!">
-                          <div class="mask rgba-white-slight"></div>
-                        </a>
-                      </div>
-                
-                      <!--Card content-->
-                      <div class="card-body">
-                
-                        <!--Title-->
-                        <h4 class="card-title">Card title</h4>
-                        <!--Text-->
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                          card's content.</p>
-                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-                
-                      </div>
-                
-                    </div>
-                    <!-- Card -->
-                  </div>
-                  <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-                
-                      <!--Card image-->
-                      <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
-                          alt="Card image cap">
-                        <a href="#!">
-                          <div class="mask rgba-white-slight"></div>
-                        </a>
-                      </div>
-                
-                      <!--Card content-->
-                      <div class="card-body">
-                
-                        <!--Title-->
-                        <h4 class="card-title">Card title</h4>
-                        <!--Text-->
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                          card's content.</p>
-                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-                
-                      </div>
-                
-                    </div>
-                    <!-- Card -->
-                  </div>
-                  <div class="col mb-4">
-                    <!-- Card -->
-                    <div class="card">
-                
-                      <!--Card image-->
-                      <div class="view overlay">
-                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
-                          alt="Card image cap">
-                        <a href="#!">
-                          <div class="mask rgba-white-slight"></div>
-                        </a>
-                      </div>
-                
-                      <!--Card content-->
-                      <div class="card-body">
-                
-                        <!--Title-->
-                        <h4 class="card-title">Card title</h4>
-                        <!--Text-->
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                          card's content.</p>
-                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-                
-                      </div>
-                
-                    </div>
-                    <!-- Card -->
-                  </div>
-                </div>
-        </main>
-        <!-- FOOTER -->
-        <%- include("../partials/footer") %>
-    </body>
-
-    </html>
-
-=======
 <!--HEAD-->
 <%- include(".././partials/headEstrenos") %>
 
@@ -156,166 +7,48 @@
 
       <!--MAIN-->
       <main>
-        <!--VISTA DINAMICA CON EJS-->
-        <h1 class="titulo2">"Descubre los Mejores Estrenos"</h1>
-        <p class="descripcion">Nos complace recomendar los mejores estrenos. Abarcando una variedad de géneros y temas</p>
-        <!--ejemplo -->
-        <div class="row row-cols-1 row-cols-md-3" >
-          <div class="col mb-4">
-            <!-- Card -->
-            <div class="card">
+   
+          <!--EJS-->
+          <h1 class="tituloDetalle">Ultimos estrenos</h1>
+          <div class="row row-cols-1 row-cols-md-2 ">
 
-              <!--imagen-->
-              <div class="view overlay">
-                <img class="card-img-top" src="https://abisulkes.alwaysdata.net/elementos.jpg" alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
+              <div class="col mb-4">
+                  <!-- Contenido -->
+                  <div class="card">
+                      <% for(let i=0; i<estrenos.length ; i++) {%>
+                          <!--Contenido imagen-->
+                          <div class="view overlay">
+                              <img class="card-img-top" src="<%= estrenos[i].imagen %>" alt="Card image cap">
+                              <a href="#!">
+                                  <div class="mask rgba-white-slight"></div>
+                              </a>
+                          </div>
 
-              <!--Contenido-->
-              <div class="card-body">
+                          <!--contenido-->
+                          <div class="card-body">
 
-                <!--Titulo-->
-                <h4 class="card-title">ELEMENTOS</h4>
-                <!--Texto-->
-                <p class="card-text">Los cuatro elementos (fuego, agua, tierra y aire) viven en armonía en Ciudad
-                  Elemento, un mundo fascinante y hogar de diversos personajes. La ciudad, sin embargo, tiene una
-                  regla clara para mantener el orden y el equilibrio: los distintos elementos no pueden mezclarse.
-                  Ember, una joven del elemento fuego, pondrá a prueba esta regla. Y es que forja una amistad con
-                  Wade, del elemento agua. ¡Juntos vivirán grandes aventuras!</p>
-                <!-- detalles -->
-                <h6 class="card-title">Fecha estreno: 15 de junio de 2023</h6>
-                <h6 class="card-title">duracion: 1h 42m</h6>
-              </div>
+                              <!--Titulo-->
+                              <h4 class="card-title">
+                                  <%= estrenos[i].titulo %>
+                              </h4>
+                              <!--Texto-->
+                              <p class="card-text">
+                                  <%=estrenos[i].descripcion%>
+                              </p>
+                              <h6 class="card-text">Fecha de estreno:
+                                <%=estrenos[i].fecha%>
+                              </h6>
+                              <h6 class="card-text"> Duración:
+                                <%=estrenos[i].duracion%>
+                              </h6>
+                          </div>
 
-            </div>
-            <!-- Card -->
-          </div>
-          <div class="col mb-4">
-            <!-- Card -->
-            <div class="card">
-
-              <!--imagen-->
-              <div class="view overlay">
-                <img class="card-img-top" src="https://abisulkes.alwaysdata.net/misantropoNueva.jpg" alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-              <!--contenido-->
-              <div class="card-body">
-
-                <!--Titulo-->
-                <h4 class="card-title">MISANTROPO</h4>
-                <!--Texto-->
-                <p class="card-text">Baltimore, la noche de año nuevo. Un feroz ataque producido por un único hombre
-                  deja un saldo de 29 muertos y ni una sola pista. Eleanor Falco (Shailene Woodley), una retraída pero
-                  talentosa mujer policía de bajo rango, es reclutada por el agente especial del FBI Geoffrey Lammark
-                  (Ben Mendelsohn) para integrar el equipo a cargo de la identificación y captura del homicida.
-                  Que siente rechazo o desconfianza por la
-                  especie humana. La aversión puede ser leve, manifestándose en actos de crítica social y
-                  aislamiento, o severa, con tendencia a la autodestrucción y a la destrucción de los demás. En casos
-                  extremos, la misantropía ha conducido a asesinatos en masa.</p>
-                <!-- detalles -->
-                <h6 class="card-title">Fecha estreno: 4 de mayo de 2023</h6>
-                <h6 class="card-title">duracion: 1h 59m</h6>
-
-              </div>
-
-            </div>
-            <!-- Card -->
-          </div>
-          <div class="col mb-4">
-            <!-- Card -->
-            <div class="card">
-
-              <!--imagen-->
-              <div class="view overlay">
-                <img class="card-img-top" src="https://abisulkes.alwaysdata.net/blondi_1.jpg" alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-              <!--Contenido-->
-              <div class="card-body">
-
-                <!--Titulo-->
-                <h4 class="card-title">BLONDI</h4>
-                <!--Texto-->
-                <p class="card-text">Blondi y Mirko son mejores amigos. Les encanta vivir juntos: escuchan la misma música, fuman marihuana, tienen los mismos amigos y todo resulta perfecto entre ellos, pero, aunque parecen casi de la misma edad, Blondi es la madre de Mirko.</p>
-                <!-- detalles -->
-                <h6 class="card-title">Fecha estreno: 1 de junio de 2023</h6>
-                <h6 class="card-title">duracion: 1h 27m</h6>
-
-              </div>
-
-            </div>
-            <!-- Card -->
-          </div>
-          <div class="col mb-4">
-            <!-- Card -->
-            <div class="card">
-
-              <!--Imagen-->
-              <div class="view overlay">
-                <img class="card-img-top" src="https://abisulkes.alwaysdata.net/boogeman.jpeg"
-                  alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-              <!--Contenido-->
-              <div class="card-body">
-
-                <!--Titulo-->
-                <h4 class="card-title">BOOGEYMAN” TU MIEDO ES REAL</h4>
-                <!--Texto-->
-                <p class="card-text">Sadie Harper, una estudiante del colegio secundario y su hermana pequeña, Sawyer, están conmocionadas por la reciente muerte de su madre y no reciben mucho apoyo de su padre, Will, un terapeuta que está lidiando con su propio dolor.</p>
-                <!-- detalles -->
-                <h6 class="card-title">Fecha estreno: 1 de junio de 2023</h6>
-                <h6 class="card-title">duracion: 1h 38m</h6>
-
-              </div>
-
-            </div>
-                        <!-- Card -->
-          </div>
-          <div class="col mb-4">
-            <!-- Card -->
-            <div class="card">
-
-              <!--Imagen-->
-              <div class="view overlay">
-                <img class="card-img-top" src="https://abisulkes.alwaysdata.net/maremoto.jpg"
-                  alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-              <!--Contenido-->
-              <div class="card-body">
-
-                <!--Titulo-->
-                <h4 class="card-title">MAREMOTO</h4>
-                <!--Texto-->
-                <p class="card-text">Una plataforma petrolífera se hunde dramáticamente en la costa noruega, y los investigadores intentanaveriguar qué ha pasado cuando se dan cuenta de que esto es solo el comienzo de algo aún más grave.</p>
-                <!-- detalles -->
-                <h6 class="card-title">Fecha estreno: 8 de junio de 2023</h6>
-                <h6 class="card-title">duracion: 1h 44m</h6>
-
-              </div>
-            <!-- Card -->
-          </div>
-        </div>
+                          <% } %>
+                      </div>
+      </main>
       </main>
       <!-- FOOTER -->
       <%- include("../partials/footer") %>
   </body>
 
   </html>
->>>>>>> 42a53ad29df79964e8f61e4470a9bd768301dbe9
