@@ -262,6 +262,28 @@ li:hover {
 
 }
 
+/*ANIMACION*/
+@keyframes opacidad {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.baner {
+  animation-name: opacidad;
+  animation-duration: 1200ms;
+  animation-iteration-count:initial;
+  animation-direction: normal;
+}
+
 /*RESPONSIVE MOBILE*/
 @media only screen and (max-width: 500px) and (min-width: 270px) {
   .baner {
