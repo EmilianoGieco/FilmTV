@@ -14,8 +14,7 @@ body {
 .bgPrincipal {
   background-color: #0d0d0d !important;
 }
-<<<<<<< HEAD
-=======
+
 /*ANIMACION EN BANNER PRINCIPAL*/
 @keyframes opacidad {
   0% {
@@ -30,14 +29,12 @@ body {
     opacity: 1;
   }
 }
-
-.img ,.baner {
+.baner {
   animation-name: opacidad;
   animation-duration: 1200ms;
   animation-iteration-count:initial;
   animation-direction: normal;
 }
->>>>>>> 42a53ad29df79964e8f61e4470a9bd768301dbe9
 
 /*MENU LOGO*/
 .logoPrincipal {
