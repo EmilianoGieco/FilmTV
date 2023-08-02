@@ -1,11 +1,11 @@
 /* require */
-const express = require('express')
-const path = require('path')
-const methodOverride = require("method-override")
+const express = require('express');
+const path = require('path');
+const methodOverride = require("method-override");
 
 
 /* app */
-const app = express()
+const app = express();
 
 /* rutas importadas */
 const rutaIndex = require('./routers/indexRouter');
@@ -23,10 +23,12 @@ app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "/views"));
 
 
-/* form config */
-app.use(express.json())
+/* formulario configuracion */
+app.use(express.json());
+/* capturar informacion del formulario */
 app.use(express.urlencoded({extended:false}));
-app.use(methodOverride('_method'))
+
+app.use(methodOverride('_method'));
 
 
 /* router */
@@ -36,7 +38,7 @@ app.use('/peliculas', rutaPeliculas);
 
 /* servidor */
 const port = 3020
-app.listen(port, () => console.log('Servidor corriendo http://localhost:' + port))
+app.listen(port, () => console.log('Servidor corriendo http://localhost:' + port));
 
 
 

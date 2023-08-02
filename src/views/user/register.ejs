@@ -27,9 +27,10 @@
                 <h2 class="titulo1">Registrate</h2>
 
                 <div>
-                    <form action="registro" method="post" class="campo-negro">
+                    <form action="/usuarios/register" method="POST" class="campo-negro">
 
                         <div class="campo">
+                            <input type="file" id="imagen" placeholder="imagen"  name="imagen" class="relleno2" required></input>
                             <input type="text" name="email" id="email" placeholder="email" class="relleno"
                                 required></input>
 
@@ -53,8 +54,8 @@
                 </div>
                 <div>
                     <div class="campo">
-                        <a href="./"><input type="button" value="registrarse" class="boton"></a>
-              
+                        <button class="boton" type="submit">registrarse</button>
+                        
                         <div class="centrado">
                           <h5 class="separar-h5">Registrate con</h5>
               
