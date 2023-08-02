@@ -1,6 +1,6 @@
 const { log } = require('console');
 const path = require('path');
-const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
+const { validationResult } = require("express-validator");
 
 const controlador = {
     usuario: (req, res) => {
@@ -11,10 +11,11 @@ const controlador = {
         res.render(path.resolve(__dirname, '../views/user/register.ejs'));
     },
 
-    procesarRegistro:(req, res) => {
-      return res.send(req.body);
+    procesarRegistro: (req, res) => {
+        const validaciones = validationResult(req);
+        return res.send(validaciones)
     },
-    
+
     /*perfilUsuario: function (req, res) {
 
         return res.render("perfilUsuario");

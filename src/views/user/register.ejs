@@ -27,7 +27,7 @@
                 <h2 class="titulo1">Registrate</h2>
 
                 <div>
-                    <form action="/usuarios/register" method="POST" class="campo-negro">
+                    <form action="/usuarios/register" method="POST" enctype="multipart/form-data"   class="campo-negro">
 
                         <div class="campo">
                             <input type="file" id="imagen" placeholder="imagen"  name="imagen" class="relleno2" required></input>
@@ -39,7 +39,7 @@
                             <input type="password" name="password" placeholder="confirmar contraseña" class="relleno"
                                 required />
 
-                            <input type="text" name="email" id="nombreUsuario" placeholder="nombre usuario"
+                            <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="nombre usuario"
                                 class="relleno" required></input>
 
                             <div class="legales">
