@@ -1,6 +1,6 @@
 const { log } = require('console');
 const path = require('path');
-const { validationResult } = require("express-validator");
+const { validationResult } = require('express-validator');
 
 const controlador = {
     usuario: (req, res) => {
@@ -13,7 +13,13 @@ const controlador = {
 
     procesarRegistro: (req, res) => {
         const validaciones = validationResult(req);
-        return res.send(validaciones)
+
+        if (validaciones.errors.length > 0) {
+			return res.render('register', {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+        }
     },
 
     /*perfilUsuario: function (req, res) {
