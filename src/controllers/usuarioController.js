@@ -13,13 +13,14 @@ const controlador = {
 
     procesarRegistro: (req, res) => {
         const validaciones = validationResult(req);
-
+        
         if (validaciones.errors.length > 0) {
-			return res.render('register', {
-				errors: resultValidation.mapped(),
-				oldData: req.body
-			});
+            return res.render('register', {
+                errors: validaciones.mapped(),
+                oldData: req.body
+            });
         }
+        res.send({ errors: validaciones.array() });
     },
 
     /*perfilUsuario: function (req, res) {

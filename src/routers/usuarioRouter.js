@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const multer = require("multer");
-const { body} = require("express-validator");
+const { body } = require("express-validator");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -20,9 +20,14 @@ const usuarioController = require('./../controllers/usuarioController');
 
 //validaciones del registro
 const validacion = [
-    body("email").notEmpty().withMessage("escribe un correo electronico"),
+    body("email").notEmpty().withMessage("Escribe un correo electrónico").isEmail().withMessage("El correo electrónico no es válido"),
     body("password").notEmpty().withMessage("escribe una contraseña"),
-    body("passwordD").notEmpty().withMessage("vuelve a escribir la contraseña"),
+    body("passwordD").notEmpty().withMessage("vuelve a escribir la contraseña").custom((value, { req }) => {
+        if (value !== req.body.password) {
+            throw new Error("Las contraseñas no coinciden");
+        }
+        return true;
+    }),
     body("nombreUsuario").notEmpty().withMessage("escribe un nombre de usuario")
 ]
 
