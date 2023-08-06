@@ -20,14 +20,11 @@ app.set('view engine', 'ejs');
 /*en que carpeta se encuentra la carpeta "views"*/
 app.set("views", path.join(__dirname, "/views"));
 
-
 /* formulario configuracion */
 app.use(express.json());
 /* capturar informacion del formulario */
 app.use(express.urlencoded({extended:false}));
-
 app.use(methodOverride('_method'));
-
 
 /* router */
 app.use('/', rutaIndex);
