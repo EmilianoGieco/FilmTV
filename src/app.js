@@ -3,8 +3,6 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require("method-override");
 
-
-
 /* app */
 const app = express();
 
@@ -12,7 +10,6 @@ const app = express();
 const rutaIndex = require('./routers/indexRouter');
 const rutaUsuario = require('./routers/usuarioRouter');
 const rutaPeliculas = require('./routers/peliculaRouter');
-
 
 /* config */
 app.use(express.static(path.join(__dirname, '../public')));

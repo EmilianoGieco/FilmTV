@@ -1,4 +1,25 @@
-const { Console } = require("console");
+//1.guardar al usuario en la DB
+//2.buscar al ususario que se quiere loguear por su email
+//3.buscar al usuario por su ID
+//4.editar la informacion de un usuario
+//5.eliminar a un usuario de la BD
+
+//CRUD...create/read/update/delete
+const fs = require("fs");
+
+const User = {
+    fileName: "./data/users.json",
+
+    getData: function () {
+        return fs.readFileSync(this.fileName, "utf-8");
+    },
+
+    create: function (userData) {
+
+    }
+}
+
+/*const { Console } = require("console");
 const fs = require("fs");
 
 const user = {
@@ -50,4 +71,4 @@ const user = {
 }
 
 
-console.log(user.create({ name: "juana", emanil: "juana@dh.com"}));
+console.log(user.create({ name: "juana", emanil: "juana@dh.com"}));*/

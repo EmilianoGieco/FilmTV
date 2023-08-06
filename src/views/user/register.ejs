@@ -70,8 +70,8 @@
                                             <%}%>
 
                                     <input type="text" name="nombreUsuario" id="nombreUsuario"
-                                        placeholder="nombre usuario" class="relleno <%= locals.errors && errors.email ? 'is-invalid' : null %>"
-                                        value="<%= locals.oldData ? oldData.email : null %>" ></input>
+                                        placeholder="nombre usuario" class="relleno <%= locals.errors && errors.nombreUsuario ? 'is-invalid' : null %>"
+                                        value="<%= locals.oldData ? oldData.nombreUsuario : null %>" ></input>
 
                                         <% if(locals.errors && errors.nombreUsuario){%>
                                             <div class="validacion">

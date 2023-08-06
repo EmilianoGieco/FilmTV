@@ -2,8 +2,6 @@ const { log } = require('console');
 const path = require('path');
 const { validationResult } = require('express-validator');
 
-
-
 const controlador = {
     usuario: (req, res) => {
         res.render(path.resolve(__dirname, '../views/user/login.ejs'));
@@ -12,15 +10,7 @@ const controlador = {
     registro: (req, res) => {
         res.render(path.resolve(__dirname, '../views/user/register.ejs'));
     },
-
-    /*procesarRegistro:    (req, res) => {
-        return res.send({
-        body:req.body,
-        file:req.file
-        });
-        },*/
-
-        
+     
   procesarRegistro: (req, res) => { 
         const validaciones = validationResult(req);
         console.log(validaciones);
