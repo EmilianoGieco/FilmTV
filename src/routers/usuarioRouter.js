@@ -20,15 +20,30 @@ const usuarioController = require('./../controllers/usuarioController');
 
 //validaciones del registro
 const validacion = [
-    body("email").notEmpty().withMessage("Escribe un correo electrónico").isEmail().withMessage("El correo electrónico no es válido"),
-    body("password").notEmpty().withMessage("escribe una contraseña"),
-    body("passwordD").notEmpty().withMessage("vuelve a escribir la contraseña").custom((value, { req }) => {
+    body("email").notEmpty().withMessage("Escribe un correo electrónico").bail().isEmail().withMessage("El correo electrónico no es válido"),
+    body("password").notEmpty().withMessage("Escribe una contraseña"),
+    body("passwordD").notEmpty().withMessage("Vuelve a escribir la contraseña").custom((value, { req }) => {
         if (value !== req.body.password) {
             throw new Error("Las contraseñas no coinciden");
         }
         return true;
     }),
-    body("nombreUsuario").notEmpty().withMessage("escribe un nombre de usuario")
+    body("nombreUsuario").notEmpty().withMessage("Escribe un nombre de usuario"),
+    body('imagen').custom((value, { req }) => {
+		let file = req.file;
+		let acceptedExtensions = ['.jpg', '.png', '.gif'];
+		
+		if (!file) {
+			throw new Error('Cargar una imagen');
+        } else {
+			let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+			}
+		}
+
+		return true;
+	})
 ]
 
 //formulario de login

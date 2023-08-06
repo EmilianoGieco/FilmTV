@@ -28,11 +28,11 @@ const controlador = {
         console.log(errors);
     
         if (!validaciones.isEmpty()) {
-           /* return res.render('user/register', {
+           return res.render('user/register', {
                 errors: errors, 
-            });*/
-            return res.send({
-                body:req.body})
+                oldData: req.body
+            });
+            
         }},
     
     /*perfilUsuario: function (req, res) {

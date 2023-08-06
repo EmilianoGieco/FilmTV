@@ -1,6 +1,6 @@
-
 <html>
 <!-- HEAD -->
+
 <head>
     <%- include(".././partials/headLoginRegister.ejs") %>
 </head>
@@ -9,10 +9,10 @@
     <!-- HEADER -->
     <header>
         <%- include(".././partials/header.ejs") %>
-                </form>
+            </form>
 
             </div>
-        </nav> 
+            </nav>
 
     </header>
 
@@ -24,28 +24,66 @@
             </div>
 
             <div class="seccion-login">
+
                 <h2 class="titulo1">Registrate</h2>
 
                 <div>
-                    <form action="/usuarios/register" method="POST" enctype="multipart/form-data"   class="campo-negro">
+                    <form action="/usuarios/register" method="POST" enctype="multipart/form-data" class="campo-negro">
 
                         <div class="campo">
-                            <input type="file" id="imagen" placeholder="imagen"  name="imagen" class="relleno2" required></input>
-                            <input type="text" name="email" id="email" placeholder="email" class="relleno"
-                                required></input>
+                            <input type="file" id="imagen" placeholder="imagen" name="imagen" class="relleno2"
+                                ></input>
+                                <% if(locals.errors && errors.imagen){%>
+                                    <div class="validacion">
+                                        <%= errors.imagen.msg%>
+                                    </div>
+                                    <%}%>
 
-                            <input type="password" name="password" placeholder="contraseña" class="relleno" required />
+                            <input type="text" name="email" id="email" placeholder="email" class="relleno <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.email : null %>"
+                                ></input>
 
-                            <input type="password" name="passwordD" placeholder="confirmar contraseña" class="relleno"
-                                required />
+                            <% if(locals.errors && errors.email){%>
+                                <div class="validacion">
+                                    <%= errors.email.msg%>
+                                </div>
+                                <%}%>
 
-                            <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="nombre usuario"
-                                class="relleno" required></input>
+                                    <input type="password" name="password" placeholder="contraseña" class="relleno <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                                    value="<%= locals.oldData ? oldData.email : null %>"
+                                        />
 
-                            <div class="legales">
-                                <label for="terminos">Estoy de acuerdo con las bases y condiciones</label>
-                                <input type="checkbox" id="terminos" name="terminos" required />
-                            </div>
+                                        <% if(locals.errors && errors.password){%>
+                                            <div class="validacion">
+                                                <%= errors.password.msg%>
+                                            </div>
+                                            <%}%>
+
+                                    <input type="password" name="passwordD" placeholder="confirmar contraseña"
+                                        class="relleno <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                                        value="<%= locals.oldData ? oldData.email : null %>" />
+
+                                        <% if(locals.errors && errors.passwordD){%>
+                                            <div class="validacion">
+                                                <%= errors.passwordD.msg%>
+                                            </div>
+                                            <%}%>
+
+                                    <input type="text" name="nombreUsuario" id="nombreUsuario"
+                                        placeholder="nombre usuario" class="relleno <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                                        value="<%= locals.oldData ? oldData.email : null %>" ></input>
+
+                                        <% if(locals.errors && errors.nombreUsuario){%>
+                                            <div class="validacion">
+                                                <%= errors.nombreUsuario.msg%>
+                                            </div>
+                                            <%}%>
+
+                                    <div class="legales">
+                                        <label for="terminos">Estoy de acuerdo con las bases y
+                                            condiciones</label>
+                                        <input type="checkbox" id="terminos" name="terminos" required />
+                                    </div>
 
 
 
@@ -55,21 +93,24 @@
                 <div>
                     <div class="campo">
                         <button class="boton" type="submit">registrarse</button>
-                        
+
                         <div class="centrado">
-                          <h5 class="separar-h5">Registrate con</h5>
-              
-                          <div class="fila-botones">
-                            <a href="./"><button type="button" value="Continuar con Facebook" class="boton2"><i
-                                  class="fi fi-brands-facebook"></i> Continuar con Facebook</button></a>
-                            <a href="./"><button type="button" value="Continuar con Facebook" class="boton2 google"><i
-                                  class="fi fi-brands-google"></i>Continuar con Google</button></a>
-                          </div>
+                            <h5 class="separar-h5">Registrate con</h5>
+
+                            <div class="fila-botones">
+                                <a href="./"><button type="button" value="Continuar con Facebook" class="boton2"><i
+                                            class="fi fi-brands-facebook"></i> Continuar
+                                        con
+                                        Facebook</button></a>
+                                <a href="./"><button type="button" value="Continuar con Facebook"
+                                        class="boton2 google"><i class="fi fi-brands-google"></i>Continuar con
+                                        Google</button></a>
+                            </div>
                         </div>
 
-                </form>
-            </div>
-        </div>
+                        </form>
+                    </div>
+                </div>
     </main>
 
     <!-- FOOTER -->

@@ -78,6 +78,11 @@ body {
   color: rgba(209, 35, 42, 0.7);
 }
 
+.validacion{
+ margin: 0;
+  color: rgba(209, 35, 42, 0.7);
+}
+
 /*BOTONES FORMULARIO*/
 /*BOTONES EFECTO*/
 .boton:hover {
