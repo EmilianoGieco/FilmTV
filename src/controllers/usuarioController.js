@@ -2,6 +2,8 @@ const { log } = require('console');
 const path = require('path');
 const { validationResult } = require('express-validator');
 
+
+
 const controlador = {
     usuario: (req, res) => {
         res.render(path.resolve(__dirname, '../views/user/login.ejs'));
@@ -11,18 +13,28 @@ const controlador = {
         res.render(path.resolve(__dirname, '../views/user/register.ejs'));
     },
 
-    procesarRegistro: (req, res) => {
-        const validaciones = validationResult(req);
-        
-        if (validaciones.errors.length > 0) {
-            return res.render('register', {
-                errors: validaciones.mapped(),
-                oldData: req.body
-            });
-        }
-        res.send({ errors: validaciones.array() });
-    },
+    /*procesarRegistro:    (req, res) => {
+        return res.send({
+        body:req.body,
+        file:req.file
+        });
+        },*/
 
+        
+  procesarRegistro: (req, res) => { 
+        const validaciones = validationResult(req);
+        console.log(validaciones);
+        const errors = validaciones.mapped();
+        console.log(errors);
+    
+        if (!validaciones.isEmpty()) {
+           /* return res.render('user/register', {
+                errors: errors, 
+            });*/
+            return res.send({
+                body:req.body})
+        }},
+    
     /*perfilUsuario: function (req, res) {
 
         return res.render("perfilUsuario");

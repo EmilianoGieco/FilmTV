@@ -38,7 +38,7 @@ router.get('/login', usuarioController.usuario);
 router.get('/register', usuarioController.registro);
 
 //procesar el registro
-router.post('/register', uploadFile.single("imagen"), validacion, usuarioController.procesarRegistro);
+router.post('/register', validacion ,uploadFile.single("imagen"), usuarioController.procesarRegistro);
 
 //formulario de Usuario
 //router.get('/perfilUsuario', usuarioController.perfilUsuario);
