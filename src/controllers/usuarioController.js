@@ -14,8 +14,13 @@ const controlador = {
 
     procesarRegistro: (req, res) => {
         const validaciones = validationResult(req);
-
-        console.log(validaciones);
+       
+        if (validaciones.errors.length > 0) {
+			return res.render('./user/register', {
+				errors: validaciones.mapped(),
+				oldData: req.body
+			});
+        /*console.log(validaciones);
         const errors = validaciones.mapped();
         console.log(errors);
 
@@ -23,9 +28,10 @@ const controlador = {
             return res.render('user/register', {
                 errors: errors,
                 oldData: req.body
-            });
+            });*/
 
         }
+        return res.send('Ok, las validaciones se pasaron y no tienes errores');
     },
 
     /*perfilUsuario: function (req, res) {

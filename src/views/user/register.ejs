@@ -31,50 +31,53 @@
                     <form action="/usuarios/register" method="POST" enctype="multipart/form-data" class="campo-negro">
 
                         <div class="campo">
-                            <input type="file" id="imagen" placeholder="imagen" name="imagen" class="relleno2"
+                            <input type="file" id="imagen" placeholder="imagen" name="imagen" class=".form-control relleno2"
                                 ></input>
+                                
                                 <% if(locals.errors && errors.imagen){%>
-                                    <div class="validacion">
+                                    <div class="text-danger">
                                         <%= errors.imagen.msg%>
                                     </div>
                                     <%}%>
 
-                            <input type="text" name="email" id="email" placeholder="email" class="relleno <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                            <input type="text" name="email" id="email" 
+                            placeholder="email" 
+                            class="form-control relleno <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.email : null %>"
                                 ></input>
 
-                            <% if(locals.errors && errors.email){%>
-                                <div class="validacion">
-                                    <%= errors.email.msg%>
-                                </div>
-                                <%}%>
+                                <% if (locals.errors && errors.email) {%>
+									<div class="text-danger">
+										<%= errors.email.msg %> 
+									</div>
+								<%}%>
 
-                                    <input type="password" name="password" placeholder="contraseña" class="relleno <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                                    <input type="password" name="password" placeholder="contraseña" class="form-control relleno <%= locals.errors && errors.password ? 'is-invalid' : null %>"
                                     value="<%= locals.oldData ? oldData.password : null %>"
                                         />
 
                                         <% if(locals.errors && errors.password){%>
-                                            <div class="validacion">
+                                            <div class="text-danger">
                                                 <%= errors.password.msg%>
                                             </div>
                                             <%}%>
 
                                     <input type="password" name="passwordD" placeholder="confirmar contraseña"
-                                        class="relleno <%= locals.errors && errors.passwordD ? 'is-invalid' : null %>"
+                                        class="form-control relleno <%= locals.errors && errors.passwordD ? 'is-invalid' : null %>"
                                         value="<%= locals.oldData ? oldData.passwordD : null %>" />
 
                                         <% if(locals.errors && errors.passwordD){%>
-                                            <div class="validacion">
+                                            <div class="text-danger">
                                                 <%= errors.passwordD.msg%>
                                             </div>
                                             <%}%>
 
                                     <input type="text" name="nombreUsuario" id="nombreUsuario"
-                                        placeholder="nombre usuario" class="relleno <%= locals.errors && errors.nombreUsuario ? 'is-invalid' : null %>"
+                                        placeholder="nombre usuario" class="form-control relleno <%= locals.errors && errors.nombreUsuario ? 'is-invalid' : null %>"
                                         value="<%= locals.oldData ? oldData.nombreUsuario : null %>" ></input>
 
-                                        <% if(locals.errors && errors.nombreUsuario){%>
-                                            <div class="validacion">
+                                        <% if (locals.errors && errors.nombreUsuario){%>
+                                            <div class="text-danger">
                                                 <%= errors.nombreUsuario.msg%>
                                             </div>
                                             <%}%>

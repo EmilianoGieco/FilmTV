@@ -26,26 +26,18 @@ body {
   box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
+.form-control,
 .relleno {
-  width: 80%;
-  padding: 10px 5px 5px 10px;
-  background: linear-gradient(#1f2124, #27292c);
-  border: 1px solid #222;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
-  border-radius: 1em;
-  margin: 10px 5px 10px 5px;
-  color: white;
+  width: 80% !important;
+  margin: 10px 5px 10px 5px !important;
+  color: black !important;
 }
 
-.relleno2{
-  width: 80%;
-  padding: 10px 5px 5px 10px;
-  background: linear-gradient(#1f2124, #27292c);
-  border: 1px solid #222;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
-  border-radius: 1em;
-  margin: 10px 5px 10px 5px;
-  color: #727272;
+.form-control,
+.relleno2 {
+  width: 80% !important;
+  margin: 10px 5px 10px 5px !important;
+  color: black !important;
 }
 
 .campo {
@@ -73,13 +65,17 @@ body {
   color: #0d0d0d;
 }
 
+.legales {
+  color: white !important;
+}
+
 .campo p {
   margin-top: 1rem;
   color: rgba(209, 35, 42, 0.7);
 }
 
-.validacion{
- margin: 0;
+.validacion {
+  margin: 0;
   color: rgba(209, 35, 42, 0.7);
 }
 
@@ -190,18 +186,18 @@ body {
 .seccion-imagen img {
   animation-name: opacidad;
   animation-duration: 1200ms;
-  animation-iteration-count:initial;
+  animation-iteration-count: initial;
   animation-direction: normal;
 }
 
 
 /*FOOTER*/
-.fondo-color{
-  background-color:black;
+.fondo-color {
+  background-color: black;
 }
 
-.tipografia{
-  color:#ececec;
+.tipografia {
+  color: #ececec;
 }
 
 /*NAVEGACION MOBILE*/
