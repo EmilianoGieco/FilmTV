@@ -5,15 +5,14 @@ const User = require('../../models/User');
 
 const controlador = {
     usuario: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/user/login.ejs'));
+        res.render('./user/login');
     },
 
     registro: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/user/register.ejs'));
+        res.render('./user/register');
     },
 
     procesarRegistro: (req, res) => {
-
         const validaciones = validationResult(req);
 
         console.log(validaciones);
@@ -27,7 +26,6 @@ const controlador = {
             });
 
         }
-
     },
 
     /*perfilUsuario: function (req, res) {
@@ -36,7 +34,7 @@ const controlador = {
     },*/
 
     getCrearFilm: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/user/CrearFilm.ejs'))
+        res.render('./user/CrearFilm')
     },
 
     postCrearFilm: function (req, res) {
