@@ -31,7 +31,7 @@ router.post("/CrearFilm",upload.single("imagen"), peliculaController.postCrearFi
 
 /*ruta actualizacionFilm*/
 router.get("/actualizarFilm/:id", peliculaController.getActualizarFilm);
-router.put("/actualizarFilm/id",upload.single("imagen"), peliculaController.postActualizarFilm );
+router.put("/actualizarFilm/:id",upload.single("imagen"), peliculaController.postActualizarFilm );
 
 /* delete pelicula */
 router.delete("/delete/:id", peliculaController.delete)

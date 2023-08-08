@@ -6,7 +6,7 @@ let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
 let slideNoticia = require(".././data/slide.json");
 let noticiasPelis = require(".././data/noticiasPelis.json");
 
- /*detalle de las noticias*/
+/*detalle de las noticias*/
 const controlador = {
   detallePelicula: (req, res) => {
     const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
@@ -17,7 +17,7 @@ const controlador = {
     res.render("movies/detallePelicula", { movie })
   },
 
-   /*carga de producto film*/
+  /*carga de producto film*/
   getCrearFilm: function (req, res) {
     res.render("/CrearFilm")
   },
@@ -28,7 +28,10 @@ const controlador = {
     const nuevoFilm = {
       id: uuidv4(),
       nombre: req.body.nombre,
-      imagen: req.file.filename,
+      imagen: req.file
+        ? `/img/${req.file.filename}`
+        : "/img/default-film.jpg",
+
     };
     peliculas.push(nuevoFilm);
     const peliculasJSON = JSON.stringify(peliculas, null, " ");
@@ -39,7 +42,7 @@ const controlador = {
         res.redirect("/");
       }
     });
-  } ,
+  },
 
   getActualizarFilm: function (req, res) {
     const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
@@ -47,9 +50,9 @@ const controlador = {
     let movie = peliculas.find((pelicula) => pelicula.id == idM);
     console.log(movie);
 
-    res.render ("peleiculas/actualizarFilm" , { movie })
-  }, 
-  
+    res.render("peleiculas/actualizarFilm", { movie })
+  },
+
 
   postActualizarFilm: function (req, res) {
     const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
@@ -71,8 +74,8 @@ const controlador = {
       </div>
       `);
     }
- 
-  }, 
+
+  },
 
   /* proceso de borrado */
   delete: (req, res) => {
@@ -111,7 +114,7 @@ const controlador = {
 
   /* peliculas 2023*/
   peliculas2023: (req, res) => {
-    res.render('movies/peliculas2023.ejs', { datos: noticiasPelis});
+    res.render('movies/peliculas2023.ejs', { datos: noticiasPelis });
   },
 
   /* noticias de peliculas slide principal*/
