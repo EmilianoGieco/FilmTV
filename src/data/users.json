@@ -38,5 +38,58 @@
   "password": "contraseña5",
   "nombreUsuario": "Usuario 5",
   "imagen": "https://example.com/usuario5.jpg"
+ },
+ {
+  "id": 6,
+  "email": "abigailsulkes@hotmail.com",
+  "password": "abita",
+  "passwordD": "abita",
+  "nombreUsuario": "abita22",
+  "terminos": "on"
+ },
+ {
+  "id": 7,
+  "email": "mario55@gmail.com",
+  "password": "marito55",
+  "passwordD": "marito55",
+  "nombreUsuario": "marianaso",
+  "terminos": "on",
+  "imagen": "1691607565686.jpg"
+ },
+ {
+  "id": 8,
+  "email": "mariamarta@gmail.com",
+  "password": "$2a$10$3/4mqHewwoAKp6L3KWcdfeTRPJScuyhdjpPudfnmuBg/qjme1cLZy",
+  "passwordD": "marilucha",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691608370636.jpg"
+ },
+ {
+  "id": 9,
+  "email": "mariamarta@gmail.com",
+  "password": "$2a$10$2FnEOMa1rz2fw8GCM.cLP.U2L2PHEB/zRtXng.0lQYVN8dOwnhA3K",
+  "passwordD": "$2a$10$Vx35XjnDIPueJSWcoc2pnupttk1WFmzvfbneLcVsQc7KjmfkE8nxu",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691608469504.jpg"
+ },
+ {
+  "id": 10,
+  "email": "pipia@gmail.com",
+  "password": "$2a$10$sFHi1QXsfqxUricPCotF..m/uBpSaKsC0gRgXyJwO8QLV1YPuKOGW",
+  "passwordD": "marilucha",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691608503801.jpg"
+ },
+ {
+  "id": 11,
+  "email": "tototo@gmail.com",
+  "password": "$2a$10$rRLn7gEZke8K1b/6JH9/x.GYGgXnCsPgAQPWUndrfEqyg/nJUd2v6",
+  "passwordD": "$2a$10$imRlNcgnGDydRRlkQ3BoBOsdYxm5ywezMkoQJqF3V9MEkSU0hXpba",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691608533899.jpg"
  }
 ]

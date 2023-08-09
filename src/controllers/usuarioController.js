@@ -1,7 +1,9 @@
 //const { log } = require('console');
+const bcrypt = require('bcryptjs');
 const path = require('path');
 const { validationResult } = require('express-validator');
 const User = require('../../models/User');
+
 
 const controlador = {
     usuario: (req, res) => {
@@ -14,7 +16,7 @@ const controlador = {
 
     procesarRegistro: (req, res) => {
         const validaciones = validationResult(req);
-    
+
         console.log(validaciones);
         const errors = validaciones.mapped();
         console.log(errors);
@@ -26,8 +28,15 @@ const controlador = {
             });
 
         }
-        
-        User.create(req.body);
+
+        let usuarioCreaImg = {
+            ...req.body,
+            password: bcrypt.hashSync(req.body.password, 10),
+            passwordD: bcrypt.hashSync(req.body.password, 10),
+            imagen: req.file.filename
+        }
+
+        User.create(usuarioCreaImg);
         return res.send('Ok, las validaciones se pasaron y no tienes errores');
     },
 

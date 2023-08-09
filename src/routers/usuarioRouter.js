@@ -4,7 +4,7 @@ const path = require('path');
 const multer = require("multer");
 const { body } = require("express-validator");
 
-const storage = multer.diskStorage({
+const multerDiskStorage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "./public/imagenes");
     },
@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 });
 
 //corregir esto
-const uploadFile = multer({storage});
+const uploadFile = multer({storage: multerDiskStorage});
 
 const usuarioController = require('./../controllers/usuarioController');
 
@@ -54,7 +54,7 @@ router.get('/login', usuarioController.usuario);
 router.get('/register', usuarioController.registro);
 
 //procesar el registro
-router.post('/register', validacion ,uploadFile.single("imagen"), usuarioController.procesarRegistro);
+router.post('/register',uploadFile.single("imagen"), validacion , usuarioController.procesarRegistro);
 
 //formulario de Usuario
 //router.get('/perfilUsuario', usuarioController.perfilUsuario);
