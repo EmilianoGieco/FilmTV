@@ -50,7 +50,7 @@ const controlador = {
     let movie = peliculas.find((pelicula) => pelicula.id == idM);
     console.log(movie);
 
-    res.render("peleiculas/actualizarFilm", { movie })
+    res.render("user/actualizarFilm", { movie })
   },
 
 

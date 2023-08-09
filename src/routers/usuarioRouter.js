@@ -14,7 +14,8 @@ const storage = multer.diskStorage({
     }
 });
 
-const uploadFile = multer({ storage });
+//corregir esto
+const uploadFile = multer({storage});
 
 const usuarioController = require('./../controllers/usuarioController');
 
