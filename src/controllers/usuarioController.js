@@ -18,19 +18,20 @@ const controlador = {
         if (usuarioLogueo) {
 //no estaria validando el compareSync
             let contrasenaOk = bcryptjs.compareSync(req.body.password, usuarioLogueo.password);
-            if (contrasenaOk) {
-                return res.render("Ok, puedes ingresar");
+           if (contrasenaOk) {
+                return res.send("Ok, puedes ingresar");
             }
-
+            
             return res.render('./user/login', {
                 errors: {
                     email: {
-                        msg: "Las credenciales son inválidas"
+                        msg: "Usuario no encontrado"
                     }
                 }
             });
 
         }
+
     },
 
     registro: (req, res) => {
@@ -66,8 +67,8 @@ const controlador = {
 
         let usuarioCreacion = {
             ...req.body,
-            password: bcrypt.hashSync(req.body.password, 10),
-            passwordD: bcrypt.hashSync(req.body.password, 10),
+            password: bcryptjs.hashSync(req.body.password, 10),
+            //passwordD: bcryptjs.hashSync(req.body.password, 10),
             imagen: req.file.filename
         }
 
