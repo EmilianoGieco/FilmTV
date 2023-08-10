@@ -30,7 +30,10 @@ const controlador = {
       nombre: req.body.nombre,
       imagen: req.file
         ? `/img/${req.file.filename}`
-        : "/img/default-film.jpg",
+        : "/img/error-critico.jpg",
+      descripcion: req.body.descripcion,
+      video: req.body.video,
+      fichatecnica: req.body.fichatecnica
 
     };
     peliculas.push(nuevoFilm);
@@ -60,17 +63,17 @@ const controlador = {
     let movie = peliculas.find((pelicula) => pelicula.id == idM);
     console.log(movie);
     if (movie) {
-      movie.title = req.body.title;
+      movie.nombre = req.body.nombre;
       movie.imegen = req.file ? `/img/${req.file.filename}` : movie.imagen;
-      movie.genre = req.body.genre;
+      movie.genero = req.body.genero;
       /* escribo el json nuevamente y redirecciono */
-      fs.writeFileSync(peliculaPath, JSON.stringify(games, null, " "));
+      fs.writeFileSync(peliculaPath, JSON.stringify(peliculas, null, " "));
       res.redirect("/");
     } else {
       res.send(`
       <div style="text-align: center; padding-top:30px">
       <h1>El producto no se puede editar</h1>
-      <img style="width:40%;" src="/img/default-game.jpg">
+      <img style="width:40%;" src="/img/error-critico.jpg">
       </div>
       `);
     }

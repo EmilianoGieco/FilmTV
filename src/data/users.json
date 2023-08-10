@@ -91,5 +91,14 @@
   "nombreUsuario": "gggg",
   "terminos": "on",
   "imagen": "1691608533899.jpg"
+ },
+ {
+  "id": 12,
+  "email": "emiliano_jobs@hotmail.com",
+  "password": "$2a$10$g5XYOlcDgeRoSclVuLJhcOgIJnHdvcVYdc50unGGwIni7r7WUNbfq",
+  "passwordD": "$2a$10$Jivi2gDk6ZVrNX7HRI1UGOaxJJRBUQROvVDQBYJrrBJ7bpnUXbEnW",
+  "nombreUsuario": "NEaL",
+  "terminos": "on",
+  "imagen": "1691612577807.jpg"
  }
 ]
