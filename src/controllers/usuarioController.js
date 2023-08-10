@@ -16,22 +16,31 @@ const controlador = {
         const usuarioLogueo = User.findByField('email', req.body.email);
 
         if (usuarioLogueo) {
-//no estaria validando el compareSync
             let contrasenaOk = bcryptjs.compareSync(req.body.password, usuarioLogueo.password);
-           if (contrasenaOk) {
-                return res.send("Ok, puedes ingresar");
+            if (contrasenaOk) {
+                return res.redirect("perfilUsuario");
+            } else {
+
+                return res.render('./user/login', {
+                    errors: {
+                        password: {
+                            msg: "Contraseña incorrecta"
+                        }
+                    },
+                    oldData: req.body
+                });
             }
-            
+        }
+        else {
+
             return res.render('./user/login', {
                 errors: {
                     email: {
-                        msg: "Usuario no encontrado"
+                        msg: "el email con el que intenta ingresar no existe"
                     }
-                }
+                },
             });
-
         }
-
     },
 
     registro: (req, res) => {
@@ -76,8 +85,8 @@ const controlador = {
         return res.render('user/login');
     },
 
-perfilUsuario: function (req, res) {
- 
+    perfilUsuario: function (req, res) {
+
         return res.render("./user/perfilUsuario");
     },
 

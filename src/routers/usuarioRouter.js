@@ -23,12 +23,6 @@ const usuarioController = require('./../controllers/usuarioController');
 const validacion = [
     body("email").notEmpty().withMessage("Escribe un correo electrónico").bail().isEmail().withMessage("El correo electrónico no es válido"),
     body("password").notEmpty().withMessage("Escribe una contraseña"),
-    body("passwordD").notEmpty().withMessage("Vuelve a escribir la contraseña").custom((value, { req }) => {
-        if (value !== req.body.password) {
-            throw new Error("Las contraseñas no coinciden");
-        }
-        return true;
-    }),
     body("nombreUsuario").notEmpty().withMessage("Escribe un nombre de usuario"),
     body('imagen').custom((value, { req }) => {
         let file = req.file;

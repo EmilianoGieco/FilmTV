@@ -127,5 +127,31 @@
   "nombreUsuario": "gggg",
   "terminos": "on",
   "imagen": "1691610387372.jpg"
+ },
+ {
+  "id": 16,
+  "email": "pablo50@gmail.com",
+  "password": "$2a$10$hT5CpOIjdO52XI.L8rVl9OyPsNmECPzU345V7hMPDKiQsQ99KOMb.",
+  "passwordD": "pablito50",
+  "nombreUsuario": "pablo",
+  "terminos": "on",
+  "imagen": "1691676876246.jpg"
+ },
+ {
+  "id": 17,
+  "email": "juan10@gmail.com",
+  "password": "$2a$10$I9ZV890ueX5gSxhhJ7ThmuU.e/pivqp9ajdnFg9bIhiz2D7L7mzze",
+  "passwordD": "hola123",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691684112069.jpg"
+ },
+ {
+  "id": 18,
+  "email": "agustina22@gmail.com",
+  "password": "$2a$10$CLkkYs4GkSZCF0Z8JJPgtOeECd39fvOqf8DZXMYAsn0tcZ3Lr3K0K",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691684365752.jpg"
  }
 ]
