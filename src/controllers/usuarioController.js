@@ -77,7 +77,6 @@ const controlador = {
         let usuarioCreacion = {
             ...req.body,
             password: bcryptjs.hashSync(req.body.password, 10),
-            //passwordD: bcryptjs.hashSync(req.body.password, 10),
             imagen: req.file.filename
         }
 
