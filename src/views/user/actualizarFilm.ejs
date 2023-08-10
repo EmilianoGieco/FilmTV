@@ -11,7 +11,7 @@
                 <div class="form-row">
                   <div class="col-md-4 mb-3">
                     <label for="nombre"><%= movie.nombre %></label>
-                    <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" required value="<%= movie.title %>">
+                    <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" required value="<%= movie.nombre %>">
                     <div class="valid-feedback">
                       Looks good!
                     </div>
@@ -19,20 +19,20 @@
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="imagen">imagen</label>
-                        <input type="file" class="form-control" id="imagen" placeholder="imagen"  name="imagen" required>
+                        <input type="file" class="form-control" id="imagen" placeholder="imagen"  name="imagen" required value="<%= movie.imagen %>">
                         <div class="valid-feedback">
                           Looks good!
                         </div>
                       </div>
                   <div class="col-md-4 mb-3">
                     <label for="descripcion">descripcion</label>
-                    <input type="text" class="form-control" id="descripcion" placeholder="descripcion" value="descripcion" required>
+                    <input type="text" class="form-control" id="descripcion" placeholder="descripcion" value="descripcion" required value="<%= movie.descripcion %>">
                     <div class="valid-feedback">
                       Looks good!
                     </div>
                     <div class="col-md-4 mb-3">
                       <label for="video">video</label>
-                      <input type="video" class="form-control" id="video" placeholder="video" value="video" required>
+                      <input type="video" class="form-control" id="video" placeholder="video" value="video" required value="<%= movie.video %>">
                       <div class="valid-feedback">
                         Looks good!
                       </div>
@@ -54,7 +54,7 @@
                         <br>
                         <select class="input-group-text" id="inputGroupSelect01">
                           
-                          <option selected value="<%= movie.nombre %>" ><%= movie.nombre %></option>
+                          <option selected value="<%= movie.genero %>" ></option>
                           <option value="1">Acción</option>
                           <option value="2">Comedia</option>
                           <option value="3">Drama</option>
@@ -70,7 +70,7 @@
                       </div>
                   </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Subir Film</button>
+                <button class="btn btn-primary" type="submit">actualizar</button>
               </form>
               
               <script>
