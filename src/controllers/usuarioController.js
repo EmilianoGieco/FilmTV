@@ -11,13 +11,15 @@ const controlador = {
         res.render('./user/login');
     },
 
-    //realizando
     procesarlogin: (req, res) => {
         const usuarioLogueo = User.findByField('email', req.body.email);
 
         if (usuarioLogueo) {
             let contrasenaOk = bcryptjs.compareSync(req.body.password, usuarioLogueo.password);
             if (contrasenaOk) {
+                //eliminacion de la contraseña en sesion para seguridad
+                delete usuarioLogueo.password;
+                req.session.userLogged = usuarioLogueo;
                 return res.redirect("perfilUsuario");
             } else {
 
@@ -85,8 +87,9 @@ const controlador = {
     },
 
     perfilUsuario: function (req, res) {
-
-        return res.render("./user/perfilUsuario");
+        return res.render("./user/perfilUsuario", {
+            user: req.session.userLogged
+        });
     },
 
     getCrearFilm: (req, res) => {

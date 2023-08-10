@@ -1,17 +1,25 @@
 /* require */
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const methodOverride = require("method-override");
 
 /* app */
 const app = express();
 
+/* middleware de app */
+app.use(session( {
+    secret: "Este es mi secreto",
+    resave:false,
+    saveUninitialized:false
+} )); 
+
 /* rutas importadas */
 const rutaIndex = require('./routers/indexRouter');
 const rutaUsuario = require('./routers/usuarioRouter');
 const rutaPeliculas = require('./routers/peliculaRouter');
 
-/* config */
+/* config carpeta public */
 app.use(express.static(path.join(__dirname, '../public')));
 
 /*motor de plantilla ejs*/
@@ -22,6 +30,7 @@ app.set("views", path.join(__dirname, "/views"));
 
 /* formulario configuracion */
 app.use(express.json());
+
 /* capturar informacion del formulario */
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));

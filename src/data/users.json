@@ -153,5 +153,21 @@
   "nombreUsuario": "gggg",
   "terminos": "on",
   "imagen": "1691684365752.jpg"
+ },
+ {
+  "id": 19,
+  "email": "juana22@gmail.com",
+  "password": "$2a$10$ixi1qvqrvU1A3tiPPh9IoO7jNZdq83zaf0onSo0ymNLuqJ0y0IZ6K",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691686315416.jpg"
+ },
+ {
+  "id": 20,
+  "email": "pablo12@gmail.com",
+  "password": "$2a$10$kvFXcX5lEaCr1j3lL8OZEeGhRKyGi4bmUsFLV/HuycbmPaPAL9fj6",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691689947027.jpg"
  }
 ]
