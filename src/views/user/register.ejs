@@ -9,11 +9,6 @@
     <!-- HEADER -->
     <header>
         <%- include(".././partials/header.ejs") %>
-            </form>
-
-            </div>
-            </nav>
-
     </header>
 
     <!-- MAIN -->
@@ -52,7 +47,8 @@
 									</div>
 								<%}%>
 
-                                    <input type="password" name="password" placeholder="contraseña" class="form-control relleno <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                                    <input type="password" name="password" placeholder="contraseña" 
+                                    class="form-control relleno <%= locals.errors && errors.password ? 'is-invalid' : null %>"
                                     value="<%= locals.oldData ? oldData.password : null %>"
                                         />
 
@@ -62,15 +58,7 @@
                                             </div>
                                             <%}%>
 
-                                    <input type="password" name="passwordD" placeholder="confirmar contraseña"
-                                        class="form-control relleno <%= locals.errors && errors.passwordD ? 'is-invalid' : null %>"
-                                        value="<%= locals.oldData ? oldData.passwordD : null %>" />
-
-                                        <% if(locals.errors && errors.passwordD){%>
-                                            <div class="text-danger">
-                                                <%= errors.passwordD.msg%>
-                                            </div>
-                                            <%}%>
+                                    
 
                                     <input type="text" name="nombreUsuario" id="nombreUsuario"
                                         placeholder="nombre usuario" class="form-control relleno <%= locals.errors && errors.nombreUsuario ? 'is-invalid' : null %>"
