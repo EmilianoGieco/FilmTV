@@ -91,5 +91,41 @@
   "nombreUsuario": "gggg",
   "terminos": "on",
   "imagen": "1691608533899.jpg"
+ },
+ {
+  "id": 12,
+  "email": "papa@gmail.com",
+  "password": "$2a$10$ktitDz279afGJiVsRX9jjeAtB7acXGy29aOqdjYSlghwK4QyNGVKe",
+  "passwordD": "$2a$10$eWAe.zwySH9EQUK58uRlHOccVjikeF4v3owUuIkmaSYxMYp.NgzkC",
+  "nombreUsuario": "marianaso",
+  "terminos": "on",
+  "imagen": "1691609967826.jpg"
+ },
+ {
+  "id": 13,
+  "email": "sulkesabi@hotmail.com",
+  "password": "$2a$10$YCSsMyXFiPdAxD1is6IeYOUuRDRiB.UADiLUswsjUNwftjXJxTMtO",
+  "passwordD": "$2a$10$eOUJx0pZx39GXEQxdaZyKusX8r4T.vYglusSdsaMxL7TF1Hh1XSAq",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691610275405.jpg"
+ },
+ {
+  "id": 14,
+  "email": "papa@hotmail.com",
+  "password": "$2a$10$/yNfa0dYYaIR/VYinTLppuTRLJ9DVzanKoA44OiIfFVREJuRsFRla",
+  "passwordD": "$2a$10$qi5G/EMYqp1t5McZC6uaCuz/RS105UOSRBHHrmKdfKB.VYYYq3MMS",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691610320217.jpg"
+ },
+ {
+  "id": 15,
+  "email": "tuwqui@hotmail.com",
+  "password": "$2a$10$aw2gW/EJFjG0WRzy0ZQWCOdwJlqeznhE5JB72cVHGuCsc4AH/o7a.",
+  "passwordD": "$2a$10$wlTDUb1If/o4ZEf3OKvGlejWpBwmcuBnOYTPOQq8VX/K0iQf.GiXu",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691610387372.jpg"
  }
 ]

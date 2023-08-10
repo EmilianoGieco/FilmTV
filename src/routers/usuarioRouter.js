@@ -15,7 +15,7 @@ const multerDiskStorage = multer.diskStorage({
 });
 
 //corregir esto
-const uploadFile = multer({storage: multerDiskStorage});
+const uploadFile = multer({ storage: multerDiskStorage });
 
 const usuarioController = require('./../controllers/usuarioController');
 
@@ -31,35 +31,38 @@ const validacion = [
     }),
     body("nombreUsuario").notEmpty().withMessage("Escribe un nombre de usuario"),
     body('imagen').custom((value, { req }) => {
-		let file = req.file;
-		let acceptedExtensions = ['.jpg', '.png', '.gif'];
-		
-		if (!file) {
-			throw new Error('Cargar una imagen');
-        } else {
-			let fileExtension = path.extname(file.originalname);
-			if (!acceptedExtensions.includes(fileExtension)) {
-				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
-			}
-		}
+        let file = req.file;
+        let acceptedExtensions = ['.jpg', '.png', '.gif'];
 
-		return true;
-	})
+        if (!file) {
+            throw new Error('Cargar una imagen');
+        } else {
+            let fileExtension = path.extname(file.originalname);
+            if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            }
+        }
+
+        return true;
+    })
 ]
 
 //formulario de login
 router.get('/login', usuarioController.usuario);
 
+//procesar el login
+router.post('/login', usuarioController.procesarlogin);
+
 //formulario de registro
 router.get('/register', usuarioController.registro);
 
 //procesar el registro
-router.post('/register',uploadFile.single("imagen"), validacion , usuarioController.procesarRegistro);
+router.post('/register', uploadFile.single("imagen"), validacion, usuarioController.procesarRegistro);
 
 //formulario de Usuario
-//router.get('/perfilUsuario', usuarioController.perfilUsuario);
+router.get('/perfilUsuario', usuarioController.perfilUsuario);
 
 router.get('/CrearFilm', usuarioController.getCrearFilm);
-router.post('/CrearFilm', usuarioController.postCrearFilm);
+router.post('/CrearFilm',  usuarioController.postCrearFilm);
 
 module.exports = router;
