@@ -1,18 +1,25 @@
 /* require */
 const express = require('express');
 const session = require('express-session');
+const cookies = require('cookie-parser');
 const path = require('path');
 const methodOverride = require("method-override");
+const usuarioLogueoMiddleware = require('./middlewares/usuarioLogueoMiddleware');
 
 /* app */
 const app = express();
 
-/* middleware de app */
+/* middleware de session */
 app.use(session( {
     secret: "Este es mi secreto",
     resave:false,
     saveUninitialized:false
 } )); 
+
+/* middleware cookie */
+app.use(cookies());
+
+app.use(usuarioLogueoMiddleware);
 
 /* rutas importadas */
 const rutaIndex = require('./routers/indexRouter');

@@ -20,6 +20,11 @@ const controlador = {
                 //eliminacion de la contraseña en sesion para seguridad
                 delete usuarioLogueo.password;
                 req.session.userLogged = usuarioLogueo;
+
+                if(req.body.recordarUsuario) {
+					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+				}
+
                 return res.redirect("perfilUsuario");
             } else {
 
@@ -87,6 +92,7 @@ const controlador = {
     },
 
     perfilUsuario: function (req, res) {
+        console.log(req.cookies.userEmail)
         return res.render("./user/perfilUsuario", {
             user: req.session.userLogged
         });
@@ -99,8 +105,14 @@ const controlador = {
     postCrearFilm: function (req, res) {
 
         console.log(req.body)
-    }
+    },
 
+    cerrarSesion:function (req, res) {
+        res.clearCookie('userEmail');
+        req.session.destroy();
+        return res.redirect("/")
+       
+    }
 };
 
 module.exports = controlador;

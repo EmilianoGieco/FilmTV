@@ -169,5 +169,13 @@
   "nombreUsuario": "gggg",
   "terminos": "on",
   "imagen": "1691689947027.jpg"
+ },
+ {
+  "id": 21,
+  "email": "hola123@gmail.com",
+  "password": "$2a$10$tam2gIibUWqMJk5p1g7L8OFWJVpq9ihlE1/R6dWGke.5SYaWyeqNS",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691691573314.jpg"
  }
 ]
