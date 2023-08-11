@@ -31,6 +31,7 @@ const controlador = {
       imagen: req.file
         ? `/img/${req.file.filename}`
         : "/img/error-critico.jpg",
+        //en preceso de correccion
       descripcion: req.body.descripcion,
       video: req.body.video,
       fichatecnica: req.body.fichatecnica
@@ -64,8 +65,11 @@ const controlador = {
     console.log(movie);
     if (movie) {
       movie.nombre = req.body.nombre;
-      movie.imegen = req.file ? `/img/${req.file.filename}` : movie.imagen;
+      movie.imagen = req.file ? `/img/${req.file.filename}` : movie.imagen;
       movie.genero = req.body.genero;
+      movie.descripcion = req.body.descripcion;
+      movie.video = req.body.video;
+      movie.fichatecnica = req.body.fichatecnica;
       /* escribo el json nuevamente y redirecciono */
       fs.writeFileSync(peliculaPath, JSON.stringify(peliculas, null, " "));
       res.redirect("/");

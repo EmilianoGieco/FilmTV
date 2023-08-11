@@ -7,12 +7,16 @@
 
         <!--MAIN-->
         <main>
-          <h1 class="tituloDetalle"> <%=movie.nombre%> </h1>
+          <h1 class="tituloDetalle"><%= movie.nombre %></h1>
           <div class="contenedorPrincipal">
-            <div class="videodeyoutube"><iframe width="1000" height="550" src="<%= movie.video %>"
+          
+            <div class="videodeyoutube">
+            <iframe width="1000" height="550" src="<%= movie.video %>"
               title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></div> </iframe>
+              allowfullscreen></iframe>
+          </div>
+          
 
               <div class="card mb-3" style="max-width: 1000px;">
                 <div class="row g-0">
@@ -36,11 +40,12 @@
                       </form>
                       
                       <!-- <a href="#" class="btn btn-primary bg">Eliminar</a>-->
-
+           
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
         </main>
       <!--FOOTER-->
       <%- include("../partials/footer") %>
