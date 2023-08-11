@@ -85,8 +85,11 @@
   "fichatecnica9": "GÉNERO: Comedia | Mafia"
  },
  {
-  "id": "3f57ea43-eba6-48f2-b729-2f26924b628b",
-  "nombre": "de si me que si",
-  "imagen": "/img/imgFilm-1691632562906.jpg"
+  "id": "5113c2b5-ec22-4245-b834-8fcaa56650db",
+  "nombre": "Emiliano2",
+  "imagen": "/img/imgFilm-1691718037005.jpeg",
+  "genero": "4",
+  "descripcion": "esta pelicula es  muy super mala",
+  "video": "https://www.youtube.com/embed/gtW-GPo1ttE"
  }
 ]

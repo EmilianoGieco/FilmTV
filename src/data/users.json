@@ -100,5 +100,13 @@
   "nombreUsuario": "NEaL",
   "terminos": "on",
   "imagen": "1691612577807.jpg"
+ },
+ {
+  "id": 13,
+  "email": "juegosps3rg@hotmail.com",
+  "password": "$2a$10$kNBqP3reL3mckQLPacCuf.Da3Aq8hjzxk0roBmzkVB/T7TYdmEnvO",
+  "nombreUsuario": "asdasd",
+  "terminos": "on",
+  "imagen": "1691690465373.jpg"
  }
 ]
