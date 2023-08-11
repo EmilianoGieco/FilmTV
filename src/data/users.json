@@ -177,5 +177,13 @@
   "nombreUsuario": "gggg",
   "terminos": "on",
   "imagen": "1691691573314.jpg"
+ },
+ {
+  "id": 22,
+  "email": "juegosps3@hotmail.com",
+  "password": "$2a$10$uHABDXouKeLps3iw3DYN6uEuEDKYuR1ElB63jwTxRO68sVz3m.kuq",
+  "nombreUsuario": "NEaL",
+  "terminos": "on",
+  "imagen": "1691719304503.jpg"
  }
 ]
