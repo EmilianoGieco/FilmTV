@@ -177,5 +177,13 @@
   "nombreUsuario": "gggg",
   "terminos": "on",
   "imagen": "1691691573314.jpg"
+ },
+ {
+  "id": 22,
+  "email": "abilucha@hotmail.com",
+  "password": "$2a$10$bpOB9KjyyVWHOTaIjJnwA.rdlDJ8J6WNjPo/dLC/67yyvSwECQaua",
+  "nombreUsuario": "abita22",
+  "terminos": "on",
+  "imagen": "1691703147474.jpg"
  }
 ]
