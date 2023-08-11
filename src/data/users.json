@@ -99,14 +99,83 @@
   "passwordD": "$2a$10$Jivi2gDk6ZVrNX7HRI1UGOaxJJRBUQROvVDQBYJrrBJ7bpnUXbEnW",
   "nombreUsuario": "NEaL",
   "terminos": "on",
-  "imagen": "1691612577807.jpg"
+  "imagen": "1691609967826.jpg"
  },
  {
   "id": 13,
-  "email": "juegosps3rg@hotmail.com",
-  "password": "$2a$10$kNBqP3reL3mckQLPacCuf.Da3Aq8hjzxk0roBmzkVB/T7TYdmEnvO",
-  "nombreUsuario": "asdasd",
+  "email": "sulkesabi@hotmail.com",
+  "password": "$2a$10$YCSsMyXFiPdAxD1is6IeYOUuRDRiB.UADiLUswsjUNwftjXJxTMtO",
+  "passwordD": "$2a$10$eOUJx0pZx39GXEQxdaZyKusX8r4T.vYglusSdsaMxL7TF1Hh1XSAq",
+  "nombreUsuario": "gggg",
   "terminos": "on",
-  "imagen": "1691690465373.jpg"
+  "imagen": "1691610275405.jpg"
+ },
+ {
+  "id": 14,
+  "email": "papa@hotmail.com",
+  "password": "$2a$10$/yNfa0dYYaIR/VYinTLppuTRLJ9DVzanKoA44OiIfFVREJuRsFRla",
+  "passwordD": "$2a$10$qi5G/EMYqp1t5McZC6uaCuz/RS105UOSRBHHrmKdfKB.VYYYq3MMS",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691610320217.jpg"
+ },
+ {
+  "id": 15,
+  "email": "tuwqui@hotmail.com",
+  "password": "$2a$10$aw2gW/EJFjG0WRzy0ZQWCOdwJlqeznhE5JB72cVHGuCsc4AH/o7a.",
+  "passwordD": "$2a$10$wlTDUb1If/o4ZEf3OKvGlejWpBwmcuBnOYTPOQq8VX/K0iQf.GiXu",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691610387372.jpg"
+ },
+ {
+  "id": 16,
+  "email": "pablo50@gmail.com",
+  "password": "$2a$10$hT5CpOIjdO52XI.L8rVl9OyPsNmECPzU345V7hMPDKiQsQ99KOMb.",
+  "passwordD": "pablito50",
+  "nombreUsuario": "pablo",
+  "terminos": "on",
+  "imagen": "1691676876246.jpg"
+ },
+ {
+  "id": 17,
+  "email": "juan10@gmail.com",
+  "password": "$2a$10$I9ZV890ueX5gSxhhJ7ThmuU.e/pivqp9ajdnFg9bIhiz2D7L7mzze",
+  "passwordD": "hola123",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691684112069.jpg"
+ },
+ {
+  "id": 18,
+  "email": "agustina22@gmail.com",
+  "password": "$2a$10$CLkkYs4GkSZCF0Z8JJPgtOeECd39fvOqf8DZXMYAsn0tcZ3Lr3K0K",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691684365752.jpg"
+ },
+ {
+  "id": 19,
+  "email": "juana22@gmail.com",
+  "password": "$2a$10$ixi1qvqrvU1A3tiPPh9IoO7jNZdq83zaf0onSo0ymNLuqJ0y0IZ6K",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691686315416.jpg"
+ },
+ {
+  "id": 20,
+  "email": "pablo12@gmail.com",
+  "password": "$2a$10$kvFXcX5lEaCr1j3lL8OZEeGhRKyGi4bmUsFLV/HuycbmPaPAL9fj6",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691689947027.jpg"
+ },
+ {
+  "id": 21,
+  "email": "hola123@gmail.com",
+  "password": "$2a$10$tam2gIibUWqMJk5p1g7L8OFWJVpq9ihlE1/R6dWGke.5SYaWyeqNS",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "1691691573314.jpg"
  }
 ]

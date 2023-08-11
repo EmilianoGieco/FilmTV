@@ -11,13 +11,20 @@ const controlador = {
         res.render('./user/login');
     },
 
-    //realizando
     procesarlogin: (req, res) => {
         const usuarioLogueo = User.findByField('email', req.body.email);
 
         if (usuarioLogueo) {
             let contrasenaOk = bcryptjs.compareSync(req.body.password, usuarioLogueo.password);
             if (contrasenaOk) {
+                //eliminacion de la contraseña en sesion para seguridad
+                delete usuarioLogueo.password;
+                req.session.userLogged = usuarioLogueo;
+
+                if(req.body.recordarUsuario) {
+					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+				}
+
                 return res.redirect("perfilUsuario");
             } else {
 
@@ -85,8 +92,10 @@ const controlador = {
     },
 
     perfilUsuario: function (req, res) {
-
-        return res.render("./user/perfilUsuario");
+        console.log(req.cookies.userEmail)
+        return res.render("./user/perfilUsuario", {
+            user: req.session.userLogged
+        });
     },
 
     getCrearFilm: (req, res) => {
@@ -96,8 +105,14 @@ const controlador = {
     postCrearFilm: function (req, res) {
 
         console.log(req.body)
-    }
+    },
 
+    cerrarSesion:function (req, res) {
+        res.clearCookie('userEmail');
+        req.session.destroy();
+        return res.redirect("/")
+       
+    }
 };
 
 module.exports = controlador;

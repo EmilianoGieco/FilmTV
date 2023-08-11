@@ -74,12 +74,18 @@
             <div class="btn-group dropstart">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <i class="fa-solid fa-circle-user"></i>
+                  <i class="fa-solid fa-circle-user"></i>
+                    
                 </button>
                 <ul class="dropdown-menu bg">
+                    <% if (locals.isLogged) { %>
+                    <li><a href="/usuarios/perfilUsuario" class="color"> Mi perfil </a></li>
+                    <li><a href="/usuarios/cerrarSesion" class="color"> Cerrar sesión </a></li>
+
+                    <% } else { %>
                     <li><a href="/usuarios/login" class="color"> Iniciar sesion </a></li>
                     <li><a href="/usuarios/register" class="color"> Registrate </a></li>
-                    <li><a href="/usuarios/perfilUsuario" class="color"> Mi perfil </a></li>
+                    <% } %>
                 </ul>
             </div>
 
