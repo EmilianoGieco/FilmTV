@@ -185,21 +185,5 @@
   "nombreUsuario": "NEaL",
   "terminos": "on",
   "imagen": "1691719304503.jpg"
- },
- {
-  "id": 23,
-  "email": "juegosps@hotmail.com",
-  "password": "$2a$10$.Dhq1.kTbxlhfAfbUmeV5OGNCgmfPD.H0LMZfSqjNeXNbdiipM/w6",
-  "nombreUsuario": "NEaL",
-  "terminos": "on",
-  "imagen": "1691777456373.jpg"
- },
- {
-  "id": 24,
-  "email": "emiliano@hotmail.com",
-  "password": "$2a$10$tBUIm4oxLOpICkd1sTl5SuZILbmBO3/b7jkzPuBH3KHdc2jRln9FK",
-  "nombreUsuario": "NEaL",
-  "terminos": "on",
-  "imagen": "1691800975864.jpg"
  }
 ]
