@@ -185,21 +185,5 @@
   "nombreUsuario": "NEaL",
   "terminos": "on",
   "imagen": "1691719304503.jpg"
- },
- {
-  "id": 23,
-  "email": "hola22@hotmail.com",
-  "password": "$2a$10$s1GRGYrKZCk7BxMLiFWGPewSmcx3oOykoCzd7i/SYsiXViW8EekBK",
-  "nombreUsuario": "abita22",
-  "terminos": "on",
-  "imagen": "1691778111907.jpg"
- },
- {
-  "id": 24,
-  "email": "carlita@gmail.com",
-  "password": "$2a$10$CkClCKj1R2U8obvsiAxzeuMD6xKyw/5hNROqbGskqSbScNXvdVCg2",
-  "nombreUsuario": "abita22",
-  "terminos": "on",
-  "imagen": "1691778176966.jpg"
  }
 ]
