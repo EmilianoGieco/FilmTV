@@ -6,6 +6,9 @@ let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
 let slideNoticia = require(".././data/slide.json");
 let noticiasPelis = require(".././data/noticiasPelis.json");
 
+//base de datos
+let db = require("../database/models");
+
 /*detalle de las noticias*/
 const controlador = {
   detallePelicula: (req, res) => {
@@ -31,7 +34,7 @@ const controlador = {
       imagen: req.file
         ? `/img/${req.file.filename}`
         : "/img/error-critico.jpg",
-        //en preceso de correccion
+      //en preceso de correccion
       descripcion: req.body.descripcion,
       video: req.body.video,
       fichatecnica: req.body.fichatecnica
