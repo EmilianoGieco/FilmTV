@@ -6,20 +6,9 @@ const path = require("path");
 
 console.log( path.join(__dirname,'../../public/img'))
 
-/*guardado de imagen */
-const storage = multer.diskStorage({
-    destination: function (req, file, cb)
-     {
-      cb(null, path.join(__dirname,'../../public/img'))
 
-      },
-    filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now()
-      cb(null, "imgFilm-" + uniqueSuffix + path.extname(file.originalname))
-    }
-  })
   
-  const upload = multer({ storage: storage })
+  const upload = multer();
 
 
 /* ruta carpeta detalle pelicula*/

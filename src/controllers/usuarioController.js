@@ -4,6 +4,18 @@ const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const User = require('../../models/User');
 //const { error } = require('console');
+const cloudinary = require('cloudinary').v2;
+const streamifier = require('streamifier');
+
+
+//cloudinary
+
+          
+cloudinary.config({ 
+  cloud_name: 'dlimugyad', 
+  api_key: '232418438234228', 
+  api_secret: 'APayZJi7Qqs1U4CbQS2gkE6h1k4' 
+});
 
 
 const controlador = {
@@ -53,45 +65,61 @@ const controlador = {
     registro: (req, res) => {
         res.render('./user/register');
     },
-
     procesarRegistro: (req, res) => {
+      const imageBuffer = req.file.buffer;
+      const customFilename = '';
+    
+      const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename}, (error, result) => {
+        if (error) {
+          console.error('Error:', error);
+          return res.render('user/register', {
+            errors: {
+              imagen: {
+                msg: "Error al subir la imagen"
+              }
+            },
+            oldData: req.body
+          });
+        }
+    
+   
         const validaciones = validationResult(req);
-
-        console.log(validaciones);
         const errors = validaciones.mapped();
-        console.log(errors);
-
+    
         if (!validaciones.isEmpty()) {
-            return res.render('user/register', {
-                errors: errors,
-                oldData: req.body
-            });
+          return res.render('user/register', {
+            errors: errors,
+            oldData: req.body
+          });
         }
-
+    
         let usuarioBD = User.findByField("email", req.body.email);
-
+    
         if (usuarioBD) {
-            return res.render('user/register', {
-                errors: {
-                    email: {
-                        msg: "Este email ya esta registrado"
-                    }
-                },
-                oldData: req.body
-            });
+          return res.render('user/register', {
+            errors: {
+              email: {
+                msg: "Este email ya está registrado"
+              }
+            },
+            oldData: req.body
+          });
         }
-
+    
         let usuarioCreacion = {
-            ...req.body,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            imagen: req.file.filename
-        }
-
+          ...req.body,
+          password: bcryptjs.hashSync(req.body.password, 10),
+          imagen: result.secure_url         
+        };
+    
         let nuevoUsuario = User.create(usuarioCreacion);
         return res.render('user/login');
-    },
-
-    perfilUsuario: function (req, res) {
+      });
+    
+      streamifier.createReadStream(imageBuffer).pipe(stream);
+  },
+  
+    perfilUsuario: (req, res) => {
         console.log(req.cookies.userEmail)
         return res.render("./user/perfilUsuario", {
             user: req.session.userLogged
