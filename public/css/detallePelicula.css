@@ -56,3 +56,51 @@
   background-color: red !important;
   border-color: red !important;
 }
+
+
+
+
+ /*puntuacion de estrellas*/
+ #form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  text-align: left;
+  font-size: 30px
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+
+.cantidad-estrellas {
+  font-size: 18px; /* Ajusta el tamaño de fuente para la cantidad de estrellas */
+  color: grey;
+  margin-left: 10px; /* Espacio entre las estrellas y la cantidad */
+}
