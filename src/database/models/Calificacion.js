@@ -22,7 +22,7 @@ function calificacion(sequelize, Datatypes) {
 
 
     // Timestamps
-    config = { tableName: "Calificacion", timestamps: false };
+    config = { tableName: "Calificación", timestamps: false };
 
     const calificacion = sequelize.define(alias, cols, config)
 
@@ -30,8 +30,7 @@ function calificacion(sequelize, Datatypes) {
         calificacion.belongsTo(models.productoFilm, {
             as: 'productoFilm',
             foreignKey: "id_productoFilm"
-        })
-    },
+        });
 
         calificacion.associate = function (models) {
             calificacion.belongsTo(models.usuario, {
@@ -39,6 +38,9 @@ function calificacion(sequelize, Datatypes) {
                 foreignKey: "usuario_id"
             })
         }
+    }
+
+
 
     return calificacion;
 

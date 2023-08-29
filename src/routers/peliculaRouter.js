@@ -36,7 +36,7 @@ router.put("/actualizarFilm/:id",upload.single("imagen"), peliculaController.pos
 /* delete pelicula */
 router.delete("/delete/:id", peliculaController.delete)
 
-/*peliculas de la carpetas estrenos*/
+///*peliculas de la carpetas estrenos*///
 router.get("/estrenos", peliculaController.estrenos);
 
 /*peliculas del archivo noticias*/

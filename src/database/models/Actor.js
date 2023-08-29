@@ -10,7 +10,7 @@ function actor(sequelize, Datatypes) {
         },
 
         nombre:
-            { type: Datatypes.STRING(50) },
+            { type: Datatypes.STRING(100) },
 
     }
 
