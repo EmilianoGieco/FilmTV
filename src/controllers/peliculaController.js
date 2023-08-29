@@ -5,6 +5,18 @@ const peliculaPath = path.join(__dirname, "../data/noticiasPelis.json");
 let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
 let slideNoticia = require(".././data/slide.json");
 let noticiasPelis = require(".././data/noticiasPelis.json");
+const cloudinary = require('cloudinary').v2;
+const streamifier = require('streamifier');
+
+
+//cloudinary
+
+          
+cloudinary.config({ 
+  cloud_name: 'dlimugyad', 
+  api_key: '232418438234228', 
+  api_secret: 'APayZJi7Qqs1U4CbQS2gkE6h1k4' 
+});
 
 //base de datos
 let db = require("../database/models");
@@ -21,11 +33,73 @@ const controlador = {
     res.render("movies/detallePelicula", { movie })
   },
 
+ /*prueba de metodo cloudinary*/ 
+
+ postCrearFilm: (req, res) => {
+  const imageBuffer = req.file.buffer;
+  const customFilename = '';
+
+  const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename}, (error, result) => {
+    if (error) {
+      console.error('Error:', error);
+    } else {
+      const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
+      console.log(req.body);
+      const nuevoFilm = {
+        id: uuidv4(),
+        nombre: req.body.nombre,
+        imagen: result.secure_url || "/img/error-critico.jpg",
+        descripcion: req.body.descripcion,
+        video: req.body.video,
+        fichatecnica: req.body.fichatecnica
+      };
+      peliculas.push(nuevoFilm);
+      const peliculasJSON = JSON.stringify(peliculas, null, " ");
+      fs.writeFile(peliculaPath, peliculasJSON, error => {
+        if (error) {
+          console.error(error);
+        } else {
+          res.redirect("/");
+        }
+      });
+    }
+  });
+
+  streamifier.createReadStream(imageBuffer).pipe(stream);
+},
+
+
+
+
+
+ /*carga de producto film (cloudinary)
+ postCrearFilm: (req, res) => {
+	
+  const imageBuffer = req.file.buffer;
+  const customFilename = '';
+
+  const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename}, (error, result) => {
+    if (error) {
+    console.error('Error during upload:', error);
+    } else {
+    console.log('Upload successful:', result);
+    }
+  });
+
+  streamifier.createReadStream(imageBuffer).pipe(stream);
+
+  res.redirect("/");
+
+},*/
+
+
+
   /*carga de producto film*/
+  
   getCrearFilm: function (req, res) {
     res.render("/CrearFilm")
   },
-
+/*
   postCrearFilm: function (req, res) {
     const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
     console.log(req.body);
@@ -50,7 +124,7 @@ const controlador = {
         res.redirect("/");
       }
     });
-  },
+  },*/
 
   getActualizarFilm: function (req, res) {
     const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
@@ -61,31 +135,36 @@ const controlador = {
     res.render("user/actualizarFilm", { movie })
   },
 
-
   postActualizarFilm: function (req, res) {
     const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
     const idM = req.params.id;
     let movie = peliculas.find((pelicula) => pelicula.id == idM);
-    console.log(movie);
+  
     if (movie) {
-      movie.nombre = req.body.nombre;
-      movie.imagen = req.file ? `/img/${req.file.filename}` : movie.imagen;
-      movie.genero = req.body.genero;
-      movie.descripcion = req.body.descripcion;
-      movie.video = req.body.video;
-      movie.fichatecnica = req.body.fichatecnica;
-      /* escribo el json nuevamente y redirecciono */
-      fs.writeFileSync(peliculaPath, JSON.stringify(peliculas, null, " "));
-      res.redirect("/");
+      const imageBuffer = req.file.buffer;
+      const customFilename = '';
+  
+      const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename}, (error, result) => {
+        if (error) {
+          console.error('Error:', error);
+        } else {
+          movie.imagen = result.secure_url || movie.imagen;
+  
+          /* Guardar los cambios y redireccionar */
+          fs.writeFileSync(peliculaPath, JSON.stringify(peliculas, null, " "));
+          res.redirect("/");
+        }
+      });
+  
+      streamifier.createReadStream(imageBuffer).pipe(stream);
     } else {
       res.send(`
       <div style="text-align: center; padding-top:30px">
-      <h1>El producto no se puede editar</h1>
+      <h1>La película no se puede editar</h1>
       <img style="width:40%;" src="/img/error-critico.jpg">
       </div>
       `);
     }
-
   },
 
   /* proceso de borrado */

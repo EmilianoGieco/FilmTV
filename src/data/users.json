@@ -185,5 +185,95 @@
   "nombreUsuario": "NEaL",
   "terminos": "on",
   "imagen": "1691719304503.jpg"
+ },
+ {
+  "id": 23,
+  "email": "sdf@hotmail.com",
+  "password": "$2a$10$.u.Zc4Bgd9pfOm3AF/DpEO9I2a6wdE.kK7ewpHBkrJZLI/zBhvtdq",
+  "nombreUsuario": "NEaL",
+  "terminos": "on",
+  "imagen": "1693083657572.jpg"
+ },
+ {
+  "id": 24,
+  "email": "tertet@hotmail.com",
+  "password": "$2a$10$JqADGmVa1wrmS0eJzgEbjuOgP7RuBOIA2iR7EeOj784zDr/MC/V8u",
+  "nombreUsuario": "NEaL",
+  "terminos": "on"
+ },
+ {
+  "id": 25,
+  "email": "hyhyhy@hotmail.com",
+  "password": "$2a$10$J1XwH2RpHkZKUO1YFb5Rxe8.wbuUktt4NwCyXmk1aA.GYVnKXV8Xi",
+  "nombreUsuario": "NEaL",
+  "terminos": "on"
+ },
+ {
+  "id": 26,
+  "email": "tutut@hotmail.com",
+  "password": "$2a$10$qd7F/4MdvOl20o1w/SH8V.e62YMCteZwd4L.UjNf.4qpcR1F4mH2i",
+  "nombreUsuario": "NEaL",
+  "imagen": "https://res.cloudinary.com/dlimugyad/image/upload/v1693163007/gzlfks596vbcej0zqhge.jpg",
+  "terminos": "on"
+ },
+ {
+  "id": 27,
+  "email": "rhrhh@hotmail.com",
+  "password": "$2a$10$HKMUC4TDGh58bLHRjcloAuRtFStxV7.LtQsINSjqjZTG2DFvp2Dp2",
+  "nombreUsuario": "NEaL",
+  "terminos": "on",
+  "imagen": {
+   "url": "http://res.cloudinary.com/dlimugyad/image/upload/v1693172357/gpwofh4xnu19ongbq9ho.jpg",
+   "public_id": "gpwofh4xnu19ongbq9ho"
+  }
+ },
+ {
+  "id": 28,
+  "email": "wfwrtrrr@hotmail.com",
+  "password": "$2a$10$HiBG8qjqQWL470UNT5/41ekdhRYTP8Cotug6IpEOYT9xhiQaRh.O6",
+  "nombreUsuario": "NEaL",
+  "terminos": "on",
+  "imagen": {
+   "url": "http://res.cloudinary.com/dlimugyad/image/upload/v1693172533/l8bvgabthsrgbimbsvaa.jpg"
+  }
+ },
+ {
+  "id": 29,
+  "email": "fgjfgj@hotmail.com",
+  "password": "$2a$10$zjWFSLkD.c8j9R8DVSDRcum1LtR6/C8.aWJlgssB2pGGabGR8IlNC",
+  "nombreUsuario": "NEaL",
+  "terminos": "on",
+  "imagen": {
+   "result": {
+    "asset_id": "9d7610bc644437d8b38a00a812fafcf0",
+    "public_id": "lfvbm1cjrqpuweqdc5ov",
+    "version": 1693172612,
+    "version_id": "3a6180310301507e01e62ea28132e7d7",
+    "signature": "3190d631123531b051753e9a7bba60f947ba3f88",
+    "width": 640,
+    "height": 360,
+    "format": "jpg",
+    "resource_type": "image",
+    "created_at": "2023-08-27T21:43:32Z",
+    "tags": [],
+    "bytes": 15451,
+    "type": "upload",
+    "etag": "3ab134f179f586458daf4cd8351d3024",
+    "placeholder": false,
+    "url": "http://res.cloudinary.com/dlimugyad/image/upload/v1693172612/lfvbm1cjrqpuweqdc5ov.jpg",
+    "secure_url": "https://res.cloudinary.com/dlimugyad/image/upload/v1693172612/lfvbm1cjrqpuweqdc5ov.jpg",
+    "folder": "",
+    "original_filename": "file",
+    "api_key": "232418438234228"
+   }
+  }
+ },
+ {
+  "id": 30,
+  "email": "cxvxcvxcv@hotmail.com",
+  "password": "$2a$10$2E29fjAZ0V0wbgkcop1Ifum8YfrU4S1cfNIma3BPJuXZMPeuiQD2m",
+  "nombreUsuario": "NEaL",
+  "terminos": "on",
+  "imagen": "https://res.cloudinary.com/dlimugyad/image/upload/v1693172760/ebbiyurec3zrijmz2usf.jpg"
  }
 ]
