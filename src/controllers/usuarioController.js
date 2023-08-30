@@ -1,22 +1,16 @@
-//const { log } = require('console');
 const bcryptjs = require('bcryptjs');
 //const path = require('path');
 const { validationResult } = require('express-validator');
 const User = require('../../models/User');
-//const { error } = require('console');
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 
-
-//cloudinary
-
-          
+//cloudinary         
 cloudinary.config({ 
   cloud_name: 'dlimugyad', 
   api_key: '232418438234228', 
   api_secret: 'APayZJi7Qqs1U4CbQS2gkE6h1k4' 
 });
-
 
 const controlador = {
     usuario: (req, res) => {
@@ -81,7 +75,6 @@ const controlador = {
             oldData: req.body
           });
         }
-    
    
         const validaciones = validationResult(req);
         const errors = validaciones.mapped();

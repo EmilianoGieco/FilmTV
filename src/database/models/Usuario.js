@@ -22,7 +22,7 @@ function usuario(sequelize, Datatypes) {
             { type: Datatypes.STRING.BINARY },
 
         imagen:
-            { type: Datatypes.STRING(50) },
+            { type: Datatypes.STRING(100) },
 
     }
 

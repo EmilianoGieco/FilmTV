@@ -8,8 +8,6 @@ function productoFilm(sequelize, Datatypes) {
             primaryKey: true,
             autoIncrement: true,
         },
-        imagen_sitio:
-            { type: Datatypes.STRING(50) },
 
         nombre:
             { type: Datatypes.STRING(255) },
@@ -40,6 +38,9 @@ function productoFilm(sequelize, Datatypes) {
 
         temporada:
             { type: Datatypes.INTEGER(2) },
+
+        video:
+            { type: Datatypes.STRING(150) },
 
         id_tipo:
             { type: Datatypes.INTEGER },
@@ -118,6 +119,14 @@ function productoFilm(sequelize, Datatypes) {
             })
         }
 
+        productoFilm.associate = function (models) {
+            productoFilm.belongsToMany(models.imagen, {
+                as: 'imagen',
+                through: 'imagenFilm', // tabla intermedia
+                foreignKey: 'id_productoFilm', // es el FK del modelo en el que estoy
+                otherKey: 'id_imagenFilm' // es el FK del otro modelo
+            })
+        }
     }
 
     return productoFilm;
