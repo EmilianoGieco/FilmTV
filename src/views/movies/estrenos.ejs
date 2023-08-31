@@ -1,55 +1,58 @@
 <!--HEAD-->
 <%- include(".././partials/headEstrenos") %>
 
-  <body class="bg1">
-    <!--HEADER-->
-    <%- include(".././partials/header") %>
+    <body class="bg1">
+        <!--HEADER-->
+        <%- include(".././partials/header") %>
 
-      <!--MAIN-->
-      <main>
-   
-          <!--EJS-->
-          <h1 class="tituloDetalle">Ultimos estrenos</h1>
-          <div class="row row-cols-1 row-cols-md-2 ">
+            <!--MAIN-->
+            <main>
 
-              <div class="col mb-4">
-                  <!-- Contenido -->
-                  <div class="card">
-                    
-                      <% for(let i=0; i<estrenos.length ; i++) {%>
-                          <!--Contenido imagen-->
-                          <div class="view overlay">
-                              <img class="card-img-top" src="<%= estrenos[i].imagen %>" alt="Card image cap">
-                              <a href="#!">
-                                  <div class="mask rgba-white-slight"></div>
-                              </a>
-                          </div>
+                <!--EJS-->
+                <h1 class="tituloDetalle">Ultimos estrenos</h1>
 
-                          <!--contenido-->
-                          <div class="card-body">
+                <!--ejemplo con bd-->
 
-                              <!--Titulo-->
-                              <h4 class="card-title">
-                                  <%= estrenos[i].titulo %>
-                              </h4>
-                              <!--Texto-->
-                              <p class="card-text">
-                                  <%=estrenos[i].descripcion%>
-                              </p>
-                              <h6 class="card-text">Fecha de estreno:
-                                <%=estrenos[i].fecha%>
-                              </h6>
-                              <h6 class="card-text"> Duración:
-                                <%=estrenos[i].duracion%>
-                              </h6>
-                          </div>
+                <div class="row row-cols-1 row-cols-md-2 ">
 
-                          <% } %>
-                      </div>
-      </main>
-      </main>
-      <!-- FOOTER -->
-      <%- include("../partials/footer") %>
-  </body>
+                    <div class="col mb-4">
+                        <!-- Contenido -->
 
-  </html>
+                        <% for(let i=0; i<estrenos.length ; i++) {%>
+
+                            <!--contenido-->
+                            <div class="card-body">
+
+                                <!--Titulo-->
+                                <h4 class="card-title">
+                                    <%= estrenos[i].nombre %>
+                                </h4>
+
+
+                                <!--Contenido imagen-->
+                                <div>
+                                    <img src="<%= estrenos[i].imagen%>">
+                                </div>
+
+                                <!--Texto-->
+                                <p class="card-text">
+                                    <%=estrenos[i].resumen%>
+                                </p>
+
+                                <h6 class="card-text">Fecha de estreno:
+                                    <%=estrenos[i].fecha_estreno%>
+                                </h6>
+
+                                <h6 class="card-text"> Duración:
+                                    <%=estrenos[i].duracion%>
+                                </h6>
+
+                                <%}%>
+                            </div>
+
+            </main>
+            <!-- FOOTER -->
+            <%- include("../partials/footer") %>
+    </body>
+
+    </html>
