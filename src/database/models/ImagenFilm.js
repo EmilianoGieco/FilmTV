@@ -8,7 +8,7 @@ function imagenFilm(sequelize, Datatypes) {
             primaryKey: true,
             autoIncrement: true,
         },
-
+        
         id_productoFilm:
             { type: Datatypes.INTEGER },
 

@@ -8,7 +8,6 @@ function imagen(sequelize, Datatypes) {
             primaryKey: true,
             autoIncrement: true,
         },
-
         nombre:
             { type: Datatypes.STRING(150) },
 
@@ -19,7 +18,7 @@ function imagen(sequelize, Datatypes) {
 
     const imagen = sequelize.define(alias, cols, config)
 
-    imagen.associate = function (models) {
+    imagen.associate = function(models) {
         imagen.belongsToMany(models.productoFilm, {
             as: 'productoFilm',
             through: 'imagenFilm', // tabla intermedia
@@ -27,7 +26,6 @@ function imagen(sequelize, Datatypes) {
             otherKey: 'id_productoFilm'  // es el FK del otro modelo
         })
     }
-
 
     return imagen;
 

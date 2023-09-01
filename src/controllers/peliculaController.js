@@ -190,18 +190,19 @@ const controlador = {
 
 
   ///*peliculas estrenos*///
-  estrenos: (req, res) => {
-
-    db.productoFilm.findAll(
-      {
-        offset: 5,
-        limit: 5
-      }, 
-      { include: [{ association: 'imagen' }] })
-      .then(function (estrenos) {
-        return res.render("movies/estrenos", { estrenos: estrenos })
-      });
-
+  estrenos: async (req, res) => {
+    try {
+      let estrenos = await db.productoFilm.findAll(
+        {
+          offset: 5,
+          limit: 5
+        })
+      let imagenes = await db.imagen.findAll()
+      let imagenesFilm = await db.imagenFilm.findAll()
+      return res.render("movies/estrenos", { estrenos: estrenos, imagenes: imagenes, imagenesFilm: imagenesFilm })
+    } catch (error) {
+      console.log(error)
+    }
     //res.render('movies/estrenos', { estrenos: ultimosEstrenos })
   },
 

@@ -11,44 +11,49 @@
                 <!--EJS-->
                 <h1 class="tituloDetalle">Ultimos estrenos</h1>
 
-                <!--ejemplo con bd-->
+             <!--ejemplo con bd-->
 
-                <div class="row row-cols-1 row-cols-md-2 ">
+             <div class="row row-cols-1 row-cols-md-2 ">
 
-                    <div class="col mb-4">
-                        <!-- Contenido -->
+                <div class="col mb-4">
+                    <!-- Contenido -->
 
-                        <% for(let i=0; i<estrenos.length ; i++) {%>
+                    <% for(const estreno of estrenos) {%>
 
-                            <!--contenido-->
-                            <div class="card-body">
+                        <!--contenido-->
+                        <div class="card-body">
 
-                                <!--Titulo-->
-                                <h4 class="card-title">
-                                    <%= estrenos[i].nombre %>
-                                </h4>
+                            <!--Titulo-->
+                            <h4 class="card-title">
+                                <%= estreno.nombre %>
+                            </h4>
 
+                            <!--Contenido imagen-->
+                            <% for( const imagenFilm of imagenesFilm) { %>
+                                <% if (imagenFilm.id_productoFilm === estreno.id) { %>
+                                    <%for (const imagen of imagenes) { %>
+                                        <% if (imagenFilm.id_imagenFilm === imagen.id) { %>
+                                            <img style="width: 100%" src="<%= imagen.nombre %>">
+                                        <% }%>        
+                                    <% }%>  
+                                <% }%> 
+                            <% }%> 
 
-                                <!--Contenido imagen-->
-                                <div>
-                                    <img src="<%= estrenos[i].imagen%>">
-                                </div>
+                            <!--Texto-->
+                            <p class="card-text">
+                                <%=estreno.resumen%>
+                            </p>
 
-                                <!--Texto-->
-                                <p class="card-text">
-                                    <%=estrenos[i].resumen%>
-                                </p>
+                            <h6 class="card-text">Fecha de estreno:
+                                <%=estreno.fecha_estreno%>
+                            </h6>
 
-                                <h6 class="card-text">Fecha de estreno:
-                                    <%=estrenos[i].fecha_estreno%>
-                                </h6>
+                            <h6 class="card-text"> Duración:
+                                <%=estreno.duracion%>
+                            </h6>
 
-                                <h6 class="card-text"> Duración:
-                                    <%=estrenos[i].duracion%>
-                                </h6>
-
-                                <%}%>
-                            </div>
+                            <%}%>
+                        </div>
 
             </main>
             <!-- FOOTER -->
