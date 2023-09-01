@@ -58,12 +58,11 @@
           <label for="inputGroupSelect01">Género</label>
           <select class="form-control" id="inputGroupSelect01" name="genero" required>
             <option selected disabled>Selecciona un género</option>
-            <option value="1">Acción</option>
-            <option value="2">Comedia</option>
-            <option value="3">Drama</option>
-            <option value="4">Ciencia ficción</option>
-            <option value="5">Terror</option>
-            <option value="6">Suspenso</option>
+            <% for (let i=0; i<generos.length; i++) {%>
+              <option value="<%=generos[i].id%>">
+                <%=generos[i].nombre%>
+              </option>
+              <%} %>
           </select>
         </div>
       </div>

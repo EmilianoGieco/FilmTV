@@ -5,6 +5,9 @@ const User = require('../../models/User');
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 
+//base de datos conexion
+let db = require("../database/models");
+
 //cloudinary         
 cloudinary.config({ 
   cloud_name: 'dlimugyad', 
@@ -119,12 +122,7 @@ const controlador = {
         });
     },
 
-    getCrearFilm: (req, res) => {
-        res.render('./user/CrearFilm')
-    },
-
     postCrearFilm: function (req, res) {
-
         console.log(req.body)
     },
 

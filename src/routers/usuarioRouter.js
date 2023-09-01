@@ -53,7 +53,5 @@ router.get('/perfilUsuario', autenticacionMiddleware, usuarioController.perfilUs
 //Cerrar sesión
 router.get('/cerrarSesion',usuarioController.cerrarSesion);
 
-router.get('/CrearFilm', usuarioController.getCrearFilm);
-router.post('/CrearFilm',  usuarioController.postCrearFilm);
 
 module.exports = router;

@@ -95,7 +95,10 @@ const controlador = {
   /*carga de producto film*/
 
   getCrearFilm: function (req, res) {
-    res.render("/CrearFilm")
+        db.genero.findAll()
+      .then(function (generos) {
+        return res.render("./user/CrearFilm", { generos: generos })
+      })
   },
   /*
     postCrearFilm: function (req, res) {
