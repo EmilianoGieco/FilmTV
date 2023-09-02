@@ -19,6 +19,7 @@ cloudinary.config({
 //base de datos conexion
 let db = require("../database/models");
 const { where } = require('sequelize');
+const { Op } = require('sequelize');
 
 /*detalle de las noticias*/
 const controlador = {
@@ -66,66 +67,14 @@ const controlador = {
     streamifier.createReadStream(imageBuffer).pipe(stream);
   },
 
-
-
-
-
-  /*carga de producto film (cloudinary)
-  postCrearFilm: (req, res) => {
- 	
-   const imageBuffer = req.file.buffer;
-   const customFilename = '';
- 
-   const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename}, (error, result) => {
-     if (error) {
-     console.error('Error during upload:', error);
-     } else {
-     console.log('Upload successful:', result);
-     }
-   });
- 
-   streamifier.createReadStream(imageBuffer).pipe(stream);
- 
-   res.redirect("/");
- 
- },*/
-
-
-
   /*carga de producto film*/
 
   getCrearFilm: function (req, res) {
-        db.genero.findAll()
+    db.genero.findAll()
       .then(function (generos) {
         return res.render("./user/CrearFilm", { generos: generos })
       })
   },
-  /*
-    postCrearFilm: function (req, res) {
-      const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
-      console.log(req.body);
-      const nuevoFilm = {
-        id: uuidv4(),
-        nombre: req.body.nombre,
-        imagen: req.file
-          ? `/img/${req.file.filename}`
-          : "/img/error-critico.jpg",
-        //en preceso de correccion
-        descripcion: req.body.descripcion,
-        video: req.body.video,
-        fichatecnica: req.body.fichatecnica
-  
-      };
-      peliculas.push(nuevoFilm);
-      const peliculasJSON = JSON.stringify(peliculas, null, " ");
-      fs.writeFile(peliculaPath, peliculasJSON, error => {
-        if (error) {
-          console.error(error);
-        } else {
-          res.redirect("/");
-        }
-      });
-    },*/
 
   getActualizarFilm: function (req, res) {
     const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
@@ -195,108 +144,139 @@ const controlador = {
   ///*peliculas estrenos*///
   estrenos: async (req, res) => {
     try {
-      let estrenos = await db.productoFilm.findAll(
-        {
-          offset: 5,
-          limit: 5
-        })
-      let imagenes = await db.imagen.findAll()
-      let imagenesFilm = await db.imagenFilm.findAll()
-      return res.render("movies/estrenos", { estrenos: estrenos, imagenes: imagenes, imagenesFilm: imagenesFilm })
+      // Consulta para encontrar películas con nombres específicos
+      const estrenos = await db.productoFilm.findAll({
+        where: {
+          nombre: {
+            [Op.or]: ["Contrareloj", "Escape bajo fuego", "Poderes ocultos", "Sonido de libertad"]
+          }
+        },
+        order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente
+      });
+  
+      // Consultas para obtener imágenes
+      const generos = await db.genero.findAll();
+      const generosFilm = await db.generoFilm.findAll();
+  
+      // Renderiza la vista y pasa los resultados a la plantilla
+      return res.render("movies/estrenos", { estrenos:estrenos, generos:generos, generosFilm: generosFilm });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    //res.render('movies/estrenos', { estrenos: ultimosEstrenos })
-  },
+    
+  }
+,
 
   /* peliculas noticias*/
-  noticia: (req, res) => {
-    res.render('movies/noticias.ejs', { noticias: slideNoticia });
+  noticia: async (req, res) => {
+    await db.productoFilm.findAll({
+      where: {
+        nombre: {
+          [Op.or]: ["The Flash", "Barbie", "La sirenita", "Transformers: el despertar de las bestias", "Rapidos y Furiosos x"]
+        }
+      },
+      order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente
+    })
+      .then(function (noticias) {
+        return res.render("movies/noticias", { noticias: noticias });
+      });
   },
 
-  /* peliculas 2023*/
-  peliculas2023: (req, res) => {
-    res.render('movies/peliculas2023.ejs', { datos: noticiasPelis });
-  },
+    /* peliculas 2023*/
+    peliculas2023: async (req, res) => {
 
-  /* noticias de peliculas slide principal*/
-  detalleNoticia: (req, res) => {
-    let datoP
-    for (let obj of slideNoticia) {
-      if (obj.id === parseInt(req.params.idN)) {
-        console.log(obj)
-        return res.render("movies/detalleNoticia", { data: obj });
-      }
-    }
-    // TODO: Aca estaria bueno mandar a una pagina de error
-  },
+      await db.productoFilm.findAll({
+        where: {
+          nombre: {
+            [Op.or]: ["Super Mario Bros.: la película", "John Wick: Capítulo 4", "Blondi", "Boogeyman: Tu miedo es real"]
+          }
+        },
+        order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente
+      })
+        .then(function (peliculas) {
+          return res.render("movies/peliculas2023", { peliculas: peliculas });
+        });
 
-  aspromonte: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/estrenos/aspromonte.ejs'))
-  },
+    },
 
-  blondi: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/estrenos/blondi.ejs'))
-  },
+      /* noticias de peliculas slide principal*/
+      detalleNoticia: (req, res) => {
+        let datoP
+        for (let obj of slideNoticia) {
+          if (obj.id === parseInt(req.params.idN)) {
+            console.log(obj)
+            return res.render("movies/detalleNoticia", { data: obj });
+          }
+        }
+        // TODO: Aca estaria bueno mandar a una pagina de error
+      },
 
-  boogeyman: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/estrenos/boogeyman.ejs'))
-  },
+        aspromonte: (req, res) => {
+          res.render(path.resolve(__dirname, '../views/movies/estrenos/aspromonte.ejs'))
+        },
 
-  elementos: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/estrenos/elementos.ejs'))
-  },
+          blondi: (req, res) => {
+            res.render(path.resolve(__dirname, '../views/movies/estrenos/blondi.ejs'))
+          },
 
-  maremoto: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/estrenos/maremoto.ejs'))
-  },
+            boogeyman: (req, res) => {
+              res.render(path.resolve(__dirname, '../views/movies/estrenos/boogeyman.ejs'))
+            },
 
-  misantropo: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/estrenos/misantropo.ejs'))
-  },
+              elementos: (req, res) => {
+                res.render(path.resolve(__dirname, '../views/movies/estrenos/elementos.ejs'))
+              },
 
-  /* rutas carpetas recomendacionesDeSeries*/
-  recomendacionesSerieNetflix: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/recomendacionesDeSeries/netflixtop.ejs'))
-  },
-  recomendacionesSerieAmazon: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/recomendacionesDeSeries/amazontop.ejs'))
-  },
-  recomendacionesSerisDisney: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/recomendacionesDeSeries/disneytop.ejs'))
-  },
+                maremoto: (req, res) => {
+                  res.render(path.resolve(__dirname, '../views/movies/estrenos/maremoto.ejs'))
+                },
 
-  /* rutas carpetas top NETFLIX*/
-  Top1: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/top/top1netflix.ejs'))
-  },
-  Top2: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/top/top2netflix.ejs'))
-  },
-  Top3: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/top/top3netflix.ejs'))
-  },
-  /* rutas carpetas top amazon*/
-  Topa1: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/top/top1amazon.ejs'))
-  },
-  Topa2: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/top/top2amazon.ejs'))
-  },
-  Topa3: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/top/top3amazon.ejs'))
-  },
+                  misantropo: (req, res) => {
+                    res.render(path.resolve(__dirname, '../views/movies/estrenos/misantropo.ejs'))
+                  },
 
-  /* rutas carpetas top DISNEY*/
-  Top1D: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/top/top1disney+.ejs'))
-  },
-  Top2D: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/top/top2disney.ejs'))
-  },
-  Top3D: (req, res) => {
-    res.render(path.resolve(__dirname, '../views/movies/top/top3disney.ejs'))
-  },
+                    /* rutas carpetas recomendacionesDeSeries*/
+                    recomendacionesSerieNetflix: (req, res) => {
+                      res.render(path.resolve(__dirname, '../views/movies/recomendacionesDeSeries/netflixtop.ejs'))
+                    },
+                      recomendacionesSerieAmazon: (req, res) => {
+                        res.render(path.resolve(__dirname, '../views/movies/recomendacionesDeSeries/amazontop.ejs'))
+                      },
+                        recomendacionesSerisDisney: (req, res) => {
+                          res.render(path.resolve(__dirname, '../views/movies/recomendacionesDeSeries/disneytop.ejs'))
+                        },
+
+                          /* rutas carpetas top NETFLIX*/
+                          Top1: (req, res) => {
+                            res.render(path.resolve(__dirname, '../views/movies/top/top1netflix.ejs'))
+                          },
+                            Top2: (req, res) => {
+                              res.render(path.resolve(__dirname, '../views/movies/top/top2netflix.ejs'))
+                            },
+                              Top3: (req, res) => {
+                                res.render(path.resolve(__dirname, '../views/movies/top/top3netflix.ejs'))
+                              },
+                                /* rutas carpetas top amazon*/
+                                Topa1: (req, res) => {
+                                  res.render(path.resolve(__dirname, '../views/movies/top/top1amazon.ejs'))
+                                },
+                                  Topa2: (req, res) => {
+                                    res.render(path.resolve(__dirname, '../views/movies/top/top2amazon.ejs'))
+                                  },
+                                    Topa3: (req, res) => {
+                                      res.render(path.resolve(__dirname, '../views/movies/top/top3amazon.ejs'))
+                                    },
+
+                                      /* rutas carpetas top DISNEY*/
+                                      Top1D: (req, res) => {
+                                        res.render(path.resolve(__dirname, '../views/movies/top/top1disney+.ejs'))
+                                      },
+                                        Top2D: (req, res) => {
+                                          res.render(path.resolve(__dirname, '../views/movies/top/top2disney.ejs'))
+                                        },
+                                          Top3D: (req, res) => {
+                                            res.render(path.resolve(__dirname, '../views/movies/top/top3disney.ejs'))
+                                          },
 }
 
 module.exports = controlador;

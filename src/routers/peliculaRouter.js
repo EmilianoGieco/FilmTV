@@ -25,10 +25,10 @@ router.put("/actualizarFilm/:id",upload.single("imagen"), peliculaController.pos
 /* delete pelicula */
 router.delete("/delete/:id", peliculaController.delete)
 
-///*peliculas de la carpetas estrenos*///
+/*peliculas de la carpetas estrenos cambiar las peliculas con los ultimos estrenos de ahora*/
 router.get("/estrenos", peliculaController.estrenos);
 
-/*peliculas del archivo noticias*/
+///*peliculas del archivo noticias*/// 
 router.get('/noticias', peliculaController.noticia );
 
 /*peliculas del archivo peliculas2023*/

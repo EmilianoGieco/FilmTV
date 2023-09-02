@@ -16,10 +16,10 @@ function productoFilm(sequelize, Datatypes) {
             { type: Datatypes.INTEGER(3) },
 
         resumen:
-            { type: Datatypes.STRING(255) },
+            { type: Datatypes.TEXT },
 
         critica:
-            { type: Datatypes.STRING(255) },
+            { type: Datatypes.TEXT },
 
         fecha_estreno:
             { type: Datatypes.DATE },
@@ -40,6 +40,9 @@ function productoFilm(sequelize, Datatypes) {
             { type: Datatypes.INTEGER(2) },
 
         video:
+            { type: Datatypes.STRING(150) },
+
+        imagen1:
             { type: Datatypes.STRING(150) },
 
         id_tipo:

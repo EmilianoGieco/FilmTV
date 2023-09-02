@@ -8,36 +8,40 @@
             <main>
                 <!--EJS-->
                 <h1 class="tituloDetalle">Noticias</h1>
-                <div class="row row-cols-1 row-cols-md-2 ">
+
+                  <!--ejemplo con bd-->
+
+                  <div class="row row-cols-1 row-cols-md-2 ">
 
                     <div class="col mb-4">
                         <!-- Contenido -->
-                        <div class="card">
-                            <% for(let i=0; i<noticias.length ; i++) {%>
+
+                        <% for(let i=0; i<noticias.length ; i++) {%>
+
+                            <!--contenido-->
+                            <div class="card-body">
+
+                                <!--Titulo-->
+                                <h4 class="card-title">
+                                    <%= noticias[i].nombre %>
+                                </h4>
+
                                 <!--Contenido imagen-->
                                 <div class="view overlay">
-                                    <img class="card-img-top" src="<%= noticias[i].imagen2 %>" alt="Card image cap">
-                                    <a href="#!">
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
+                                    <img style="width: 100%" src="<%= noticias[i].imagen1%>">
                                 </div>
 
-                                <!--contenido-->
-                                <div class="card-body">
-
-                                    <!--Titulo-->
-                                    <h4 class="card-title">
-                                        <%= noticias[i].titulo %>
-                                    </h4>
-                                    <!--Texto-->
-                                    <p class="card-text">
-                                        <%=noticias[i].texto%>
-                                    </p>
-
-                                </div>
-
-                                <% } %>
+                                <!--Texto-->
+                                <p class="card-text-r">
+                                    <%=noticias[i].critica%>
+                                </p>
+                                <h6 class="card-text-e">Fecha de estreno:
+                                    <%=noticias[i].fecha_estreno%>
+                                </h6>
                             </div>
+
+                            <% } %>
+                    </div>
             </main>
 
             <!-- FOOTER -->

@@ -18,7 +18,7 @@ function imagen(sequelize, Datatypes) {
 
     const imagen = sequelize.define(alias, cols, config)
 
-    imagen.associate = function(models) {
+    imagen.associate = function (models) {
         imagen.belongsToMany(models.productoFilm, {
             as: 'productoFilm',
             through: 'imagenFilm', // tabla intermedia

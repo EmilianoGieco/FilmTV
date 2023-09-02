@@ -30,3 +30,17 @@
 .card-body {
   color: white !important;
 }
+
+.card-title{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.card-text-3{
+  padding-bottom: 2.5rem;
+  border-bottom: 0.2px solid rgba(255, 0, 0, 0.4);
+}
+
+.card-text-1{
+  padding-top: 0.7rem;
+}
