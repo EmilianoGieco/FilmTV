@@ -147,11 +147,12 @@ const controlador = {
 
           },
           order: [['fecha_estreno', 'ASC']], // Ordenar por fecha de estreno en orden ascendente.
-          include: [{ association: "genero" }]
+          include: [{ association: "genero" }, { association: "actor" } ]
         })
 
       // Renderizar la vista y los resultados a la plantilla.
       return res.render("movies/estrenos", { estrenos: estrenos });
+      //res.send(estrenos)
     } catch (error) {
       console.log(error)
     }
@@ -160,14 +161,15 @@ const controlador = {
   ,
 
   /* peliculas noticias*/
-  noticia: async (req, res) => {
-    await db.productoFilm.findAll({
+  noticia:  (req, res) => {
+     db.productoFilm.findAll({
       where: {
         nombre: {
           [Op.or]: ["The Flash", "Barbie", "La sirenita", "Transformers: el despertar de las bestias", "Rapidos y Furiosos x"]
         }
       },
-      order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente
+      order: [['fecha_estreno', 'ASC']], // Ordenar por fecha de estreno en orden ascendente
+      include: [{ association: "genero" }, { association: "actor" }]
     })
       .then(function (noticias) {
         return res.render("movies/noticias", { noticias: noticias });
@@ -175,15 +177,16 @@ const controlador = {
   },
 
   /* peliculas 2023*/
-  peliculas2023: async (req, res) => {
+  peliculas2023:  (req, res) => {
 
-    await db.productoFilm.findAll({
+    db.productoFilm.findAll({
       where: {
         nombre: {
           [Op.or]: ["Super Mario Bros", "John Wick: Capítulo 4", "Blondi", "Boogeyman: Tu miedo es real"]
         }
       },
-      order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente
+      order: [['fecha_estreno', 'ASC']], // Ordenar por fecha de estreno en orden ascendente
+      include: [{ association: "genero" }, { association: "actor" }, { association: "director" }, { association: "guionista" }, { association: "productora" } ]
     })
       .then(function (peliculas) {
         return res.render("movies/peliculas2023", { peliculas: peliculas });

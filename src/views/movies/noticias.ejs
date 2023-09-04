@@ -35,6 +35,22 @@
                                 <p class="card-text-r">
                                     <%=noticias[i].resumen%>
                                 </p>
+
+                                <h6> Genero:
+                                    <%=noticias[i].genero[0].nombre %>
+                                </h6>
+
+                                <h6> Actores:
+                                    <% for (let j = 0; j < noticias[i].actor.length; j++) { %>
+                                        <%= noticias[i].actor[j].nombre %>
+                                        <% if (j < noticias[i].actor.length - 1) { %>, <% } %>
+                                    <% } %>
+                                </h6>
+
+                                <h6> Director:
+                                    <%=noticias[i].director[0].nombre %>
+                                </h6>
+
                                 <h6 class="card-text-e">Fecha de estreno:
                                     <%=noticias[i].fecha_estreno%>
                                 </h6>

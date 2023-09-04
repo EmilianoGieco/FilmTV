@@ -41,19 +41,17 @@
                                     <%=estrenos[i].resumen%>
                                 </p>
 
-
-                                <h6 class="card-text-2">Fecha de estreno:
-                                    <%=estrenos[i].fecha_estreno%>
-                                </h6>
-
                                 <h6> Genero:
-                                    <%=estrenos[i].genero.nombre%>
+                                    <%= estrenos[i].genero[0].nombre %>
                                 </h6>
 
-                                <h6 class="card-text-3"> Duración:
+                                <h6 > Duración:
                                     <%=estrenos[i].duracion%>min
                                 </h6>
-                                
+
+                                <h6 class="card-text-3">Fecha de estreno:
+                                    <%=estrenos[i].fecha_estreno%>
+                                </h6>
                                 
 
 
