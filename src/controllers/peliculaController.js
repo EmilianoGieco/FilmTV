@@ -23,7 +23,7 @@ const { where } = require('sequelize');
 
 /*detalle de las noticias*/
 const controlador = {
-  detallePelicula: (req, res) => {
+  detallePelicula:  (req, res) => {
     db.productoFilm.findByPk(req.params.id, {
         include: [{ association: "genero" }, { association: "actor" }]
     }).then(function (movie) {
