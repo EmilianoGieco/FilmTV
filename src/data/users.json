@@ -275,5 +275,13 @@
   "nombreUsuario": "NEaL",
   "terminos": "on",
   "imagen": "https://res.cloudinary.com/dlimugyad/image/upload/v1693172760/ebbiyurec3zrijmz2usf.jpg"
+ },
+ {
+  "id": 31,
+  "email": "jorge@gmail.com",
+  "password": "$2a$10$MRcllNa2cWgZuWsINM2Heu93QXR0bUXW7TNw/.Zwi9On.hnpiZuwq",
+  "nombreUsuario": "gggg",
+  "terminos": "on",
+  "imagen": "https://res.cloudinary.com/dlimugyad/image/upload/v1693858200/zpvopq4umq7h47szotcr.jpg"
  }
 ]
