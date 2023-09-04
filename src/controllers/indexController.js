@@ -8,7 +8,7 @@ const controlador = {
     index: async(req, res) => {
             try {
               // Consulta para encontrar películas con nombres específicos.
-              const slide = await db.productoFilm.findAll({
+            await db.productoFilm.findAll({
                 where: {
                   nombre: {
                     [Op.or]: ["The Flash", "Barbie", "La sirenita", "Transformers: el despertar de las bestias", "Rapidos y Furiosos x"]

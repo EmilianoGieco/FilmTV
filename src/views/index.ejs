@@ -55,8 +55,20 @@
 <!--final de slide -->
 
        <!--VISTA DINAMICA CON EJS-->
-        <h2 class="titulo3"> Mirá las noticias mas vistas</h2>
+        <h2 class="titulo3"> Mirá las últimas novedades</h2>
    <br>
+   <% for(let i=0; i < peliculasSlide.length ; i++) {%>
+    <div>
+      <img src=<%= peliculasSlide[i].imagen1 %> class="d-block w-30"
+        alt="<%= peliculasSlide[i].titulo %>">
+      <div class="texto">
+         <a href="./peliculas/detalle/<%=peliculasSlide[i].id%>" <%= peliculasSlide[i].titulo %>
+       </a>
+      </div>
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+  <% } %>
 
       </main>
 
