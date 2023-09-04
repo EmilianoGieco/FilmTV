@@ -55,17 +55,22 @@
 <!--final de slide -->
 
        <!--VISTA DINAMICA CON EJS-->
-        <h2 class="titulo3"> Mirá las ultimas novedades</h2>
+        <h2 class="titulo3"> Mirá las últimas novedades</h2>
    <br>
-               <% for(let i=0; i < movie.length ; i++) {%>
-             <div class="contenedor"> 
-             <h4 class="tituloSecundario"><%= movie[i].nombre %></h4>
-             <div class="contenido">
-             <a href="./peliculas/detalle/<%= movie[i].id %>"><img class="img444" src=" <%= movie[i].imagen %>"> </img></a> 
-                     </div>
-                  </div>
-    
-             </main>
+   <% for(let i=0; i < peliculasSlide.length ; i++) {%>
+    <div>
+      <img src=<%= peliculasSlide[i].imagen1 %> class="d-block w-30"
+        alt="<%= peliculasSlide[i].titulo %>">
+      <div class="texto">
+         <a href="./peliculas/detalle/<%=peliculasSlide[i].id%>" <%= peliculasSlide[i].titulo %>
+       </a>
+      </div>
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+  <% } %>
+
+      </main>
 
       <!--FOOTER-->
       <%- include("./partials/footer") %>

@@ -25,14 +25,12 @@ const { where } = require('sequelize');
 const controlador = {
   detallePelicula:  (req, res) => {
     db.productoFilm.findByPk(req.params.id, {
-        include: [{ association: "genero" }, { association: "actor" }]
     }).then(function (movie) {
         res.render("movies/detallePelicula", { movie: movie });
     });
 },
 
   /*prueba de metodo cloudinary*/
-
   postCrearFilm: (req, res) => {
     const imageBuffer = req.file.buffer;
     const customFilename = ''
@@ -57,10 +55,6 @@ const controlador = {
         res.redirect("/");
       }
     });
-
-
-   
-
     streamifier.createReadStream(imageBuffer).pipe(stream);
   },
 
