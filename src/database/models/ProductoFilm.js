@@ -45,6 +45,18 @@ function productoFilm(sequelize, Datatypes) {
         imagen1:
             { type: Datatypes.STRING(150) },
 
+        imagen2:
+            { type: Datatypes.STRING(150) },
+            
+        imagen3:
+            { type: Datatypes.STRING(150) },
+
+        titulo:
+            { type: Datatypes.STRING(100) },
+
+        titulo2:
+            { type: Datatypes.STRING(150) },
+
         id_tipo:
             { type: Datatypes.INTEGER },
 

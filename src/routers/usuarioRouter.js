@@ -5,12 +5,8 @@ const { body } = require("express-validator");
 const multer = require ("multer");
 
 const upload = multer();
-
-
 const autenticacionMiddleware = require('../middlewares/autenticacionMiddleware');
 const usuarioMiddleware = require('../middlewares/usuarioMiddleware');
-
-
 const usuarioController = require('./../controllers/usuarioController');
 
 //validaciones del registro

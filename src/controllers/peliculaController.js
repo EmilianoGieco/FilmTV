@@ -138,43 +138,71 @@ const controlador = {
   },
 
 
-  ///*peliculas estrenos*///
+  /*peliculas estrenos*/
   estrenos: async (req, res) => {
     try {
-      let estrenos = await db.productoFilm.findAll(
-        {
-          offset: 5,
-          limit: 5
-        })
-      let imagenes = await db.imagen.findAll()
-      let imagenesFilm = await db.imagenFilm.findAll()
-      return res.render("movies/estrenos", { estrenos: estrenos, imagenes: imagenes, imagenesFilm: imagenesFilm })
+      // Consulta para encontrar películas con nombres específicos.
+      const estrenos = await db.productoFilm.findAll({
+        where: {
+          nombre: {
+            [Op.or]: ["Contrareloj", "Escape bajo fuego", "Poderes ocultos", "Sonido de libertad"]
+          }
+        },
+        order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente.
+      });
+
+      // Consultas para obtener imágenes
+      const generos = await db.genero.findAll();
+      const generosFilm = await db.generoFilm.findAll();
+
+      // Renderizar la vista y los resultados a la plantilla.
+      return res.render("movies/estrenos", { estrenos: estrenos, generos: generos, generosFilm: generosFilm });
     } catch (error) {
       console.log(error)
     }
-    //res.render('movies/estrenos', { estrenos: ultimosEstrenos })
-  },
+
+  }
+  ,
 
   /* peliculas noticias*/
-  noticia: (req, res) => {
-    res.render('movies/noticias.ejs', { noticias: slideNoticia });
+  noticia: async (req, res) => {
+    await db.productoFilm.findAll({
+      where: {
+        nombre: {
+          [Op.or]: ["The Flash", "Barbie", "La sirenita", "Transformers: el despertar de las bestias", "Rapidos y Furiosos x"]
+        }
+      },
+      order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente
+    })
+      .then(function (noticias) {
+        return res.render("movies/noticias", { noticias: noticias });
+      });
   },
 
   /* peliculas 2023*/
-  peliculas2023: (req, res) => {
-    res.render('movies/peliculas2023.ejs', { datos: noticiasPelis });
+  peliculas2023: async (req, res) => {
+
+    await db.productoFilm.findAll({
+      where: {
+        nombre: {
+          [Op.or]: ["Super Mario Bros.: la película", "John Wick: Capítulo 4", "Blondi", "Boogeyman: Tu miedo es real"]
+        }
+      },
+      order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente
+    })
+      .then(function (peliculas) {
+        return res.render("movies/peliculas2023", { peliculas: peliculas });
+      });
+
   },
 
   /* noticias de peliculas slide principal*/
   detalleNoticia: (req, res) => {
-    let datoP
-    for (let obj of slideNoticia) {
-      if (obj.id === parseInt(req.params.idN)) {
-        console.log(obj)
-        return res.render("movies/detalleNoticia", { data: obj });
-      }
-    }
-    // TODO: Aca estaria bueno mandar a una pagina de error
+
+    db.productoFilm.findByPk(req.params.idN)
+      .then(function (noticiaDetalle) {
+        res.render("movies/detalleNoticia", { noticiaDetalle: noticiaDetalle })
+      })
   },
 
   aspromonte: (req, res) => {
