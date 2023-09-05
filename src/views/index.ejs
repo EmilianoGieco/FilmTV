@@ -56,16 +56,7 @@
 
        <!--VISTA DINAMICA CON EJS-->
         <h2 class="titulo3"> Mirá las últimas novedades</h2>
-   <br>
-   <% for (let i = 0; i < movie.length; i++) { %>
-    <div>
-      <img src=<%= peliculasSlide[i].imagen1 %> 
-        alt="<%= peliculasSlide[i].titulo %>">
-      <div class="texto">
-         <a href="./peliculas/detalle/<%=peliculasSlide[i].id%>" <%= peliculasSlide[i].titulo %> </a>
-      </div>
-    </div>
-  <% } %>
+  
 
       </main>
 
