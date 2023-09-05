@@ -8,8 +8,6 @@ let noticiasPelis = require(".././data/noticiasPelis.json");*/
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 
-
-
 //cloudinary       
 cloudinary.config({
   cloud_name: 'dlimugyad',
