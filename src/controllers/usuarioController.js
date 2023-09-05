@@ -25,31 +25,35 @@ const controlador = {
     try {
       const resultValidation = validationResult(req);
       if (resultValidation.errors.length > 0) {
+        console.log("hola3")
         return res.render('./user/login', {
           errors: resultValidation.mapped(),
           old: req.body
         });
       }
-
+      console.log("hola2")
       //buscar usuario
-      const userToLogin = await db.usuario.findOne({ where: { email: req.body.email } });
+      const userToLogin = await db.usuario.findOne({ where: { correo: req.body.email } });
       if (!userToLogin) {
+        console.log("hola4")
         return res.render('./user/login', {
           errors: { email: { msg: 'El email con el que intenta ingresar no existe' } }
         });
       }
-
+      
+      console.log(req.body.password)
       //comparar contraseñas
-      const correctPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-
+      const correctPassword = bcryptjs.compareSync(req.body.password, userToLogin.clave);
+      console.log("hola0")
       if (correctPassword) {
-        delete userToLogin.password;
+        //delete userToLogin.password;
         req.session.userLogged = userToLogin;
+        console.log("hola")
 
         if (req.body.remember) {
           res.cookie('userEmail', req.body.email, { maxAge: (((1000 * 60) * 60) * 24) });
         }
-        return res.redirect("./user/perfilUsuario");
+        return res.redirect("./perfilUsuario");
 
       } else {
         return res.render('./user/login', {

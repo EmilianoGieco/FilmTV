@@ -10,19 +10,19 @@ function usuario(sequelize, Datatypes) {
         },
 
         nombre:
-            { type: Datatypes.STRING(50) },
+            { type: Datatypes.STRING(255) },
 
         correo:
-            { type: Datatypes.STRING(50) },
+            { type: Datatypes.STRING(255) },
 
         clave:
-            { type: Datatypes.STRING(50) },
+            { type: Datatypes.STRING(255) },
 
         administrador:
             { type: Datatypes.STRING.BINARY },
 
         imagen:
-            { type: Datatypes.STRING(100) },
+            { type: Datatypes.STRING(255) },
 
     }
 
