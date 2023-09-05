@@ -57,16 +57,15 @@
        <!--VISTA DINAMICA CON EJS-->
         <h2 class="titulo3"> Mirá las últimas novedades</h2>
    <br>
-   <% for(let i=0; i < peliculasSlide.length ; i++) {%>
+   <% for (let i = 0; i < movie.length; i++) { %>
     <div>
-      <img src=<%= peliculasSlide[i].imagen1 %> class="d-block w-30"
-        alt="<%= peliculasSlide[i].titulo %>">
+      <img src="<%= movie[i].imagen1 %>" class="d-block w-30"
+           alt="<%= movie[i].titulo %>">
       <div class="texto">
-         <a href="./peliculas/detalle/<%=peliculasSlide[i].id%>" <%= peliculasSlide[i].titulo %>
+        <a href ="./peliculas/detalle/<%=movie[i].id%>" <%= movie[i].titulo %>
        </a>
       </div>
-      <div class="carousel-caption d-none d-md-block">
-      </div>
+s      </div>
     </div>
   <% } %>
 

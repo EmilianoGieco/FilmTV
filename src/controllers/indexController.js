@@ -1,4 +1,3 @@
-
 //base de datos conexion
 let db = require("../database/models");
 const { Op } = require('sequelize');
