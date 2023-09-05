@@ -37,6 +37,31 @@
                     <p class="card-text-r">
                         <%=peliculas[i].critica%>
                     </p>
+
+                    <h6> Genero:
+                        <%=peliculas[i].genero[0].nombre %>
+                    </h6>
+
+                    <h6> Actores:
+                        <% for (let j = 0; j < peliculas[i].actor.length; j++) { %>
+                            <%= peliculas[i].actor[j].nombre %>
+                            <% if (j < peliculas[i].actor.length - 1) { %>, <% } %>
+                        <% } %>
+                    </h6>
+
+                    <h6> Director:
+                        <%=peliculas[i].director[0].nombre %>
+                    </h6>
+
+                    <h6> Guionista:
+                        <%=peliculas[i].guionista[0].nombre %>
+                    </h6>
+
+                    <h6> Productora:
+                        <%=peliculas[i].productora[0].nombre %>
+                    </h6>
+
+
                     <h6 class="card-text-e">Fecha de estreno:
                         <%=peliculas[i].fecha_estreno%>
                     </h6>

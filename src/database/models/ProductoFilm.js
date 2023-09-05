@@ -47,7 +47,7 @@ function productoFilm(sequelize, Datatypes) {
 
         imagen2:
             { type: Datatypes.STRING(150) },
-            
+
         imagen3:
             { type: Datatypes.STRING(150) },
 
@@ -71,77 +71,62 @@ function productoFilm(sequelize, Datatypes) {
         productoFilm.belongsTo(models.tipo, {
             as: 'tipo',
             foreignKey: "id_tipo"
-        });
+        })
 
-        productoFilm.associate = function (models) {
             productoFilm.hasMany(models.calificacion, {
                 as: 'calificacion',
                 foreignKey: "id_productoFilm"
             });
-        }
-
-        productoFilm.associate = function (models) {
+        
             productoFilm.belongsToMany(models.actor, {
                 as: 'actor',
                 through: 'actorFilm', // tabla intermedia
                 foreignKey: 'id_productoFilm', // es el FK del modelo en el que estoy
                 otherKey: 'id_actor'// es el FK del otro modelo
             });
-        }
-
-        productoFilm.associate = function (models) {
+        
             productoFilm.belongsToMany(models.genero, {
                 as: 'genero',
                 through: 'generoFilm', // tabla intermedia
                 foreignKey: 'id_productoFilm', // es el FK del modelo en el que estoy
                 otherKey: 'id_genero'// es el FK del otro modelo
             });
-        }
-
-        productoFilm.associate = function (models) {
+        
             productoFilm.belongsToMany(models.productora, {
                 as: 'productora',
                 through: 'productoraFilm', // tabla intermedia
                 foreignKey: 'id_productoFilm', // es el FK del modelo en el que estoy
                 otherKey: 'id_productora'// es el FK del otro modelo
             });
-        }
-
-        productoFilm.associate = function (models) {
+        
             productoFilm.belongsToMany(models.director, {
                 as: 'director',
                 through: 'directorFilm', // tabla intermedia
                 foreignKey: 'id_productoFilm', // es el FK del modelo en el que estoy
                 otherKey: 'id_director' // es el FK del otro modelo
             });
-        }
-
-        productoFilm.associate = function (models) {
+        
             productoFilm.belongsToMany(models.guionista, {
                 as: 'guionista',
                 through: 'guionistaFilm', // tabla intermedia
                 foreignKey: 'id_productoFilm', // es el FK del modelo en el que estoy
                 otherKey: 'id_guionista' // es el FK del otro modelo
             });
-        }
-
-        productoFilm.associate = function (models) {
+        
             productoFilm.belongsToMany(models.plataforma, {
                 as: 'plataforma',
                 through: 'plataformaFilm', // tabla intermedia
                 foreignKey: 'id_productoFilm', // es el FK del modelo en el que estoy
                 otherKey: 'id_plataforma' // es el FK del otro modelo
             })
-        }
-
-        productoFilm.associate = function (models) {
+        
             productoFilm.belongsToMany(models.imagen, {
                 as: 'imagen',
                 through: 'imagenFilm', // tabla intermedia
                 foreignKey: 'id_productoFilm', // es el FK del modelo en el que estoy
                 otherKey: 'id_imagenFilm' // es el FK del otro modelo
             })
-        }
+        
     }
 
     return productoFilm;

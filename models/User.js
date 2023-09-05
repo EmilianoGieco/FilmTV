@@ -4,6 +4,7 @@
 //4.editar la informacion de un usuario
 //5.eliminar a un usuario de la BD
 //CRUD...create/read/update/delete
+//base de datos conexion
 const fs = require("fs");
 
 const User = {

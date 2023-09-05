@@ -59,13 +59,11 @@
    <br>
    <% for (let i = 0; i < movie.length; i++) { %>
     <div>
-      <img src="<%= movie[i].imagen1 %>" class="d-block w-30"
-           alt="<%= movie[i].titulo %>">
+      <img src=<%= peliculasSlide[i].imagen1 %> 
+        alt="<%= peliculasSlide[i].titulo %>">
       <div class="texto">
-        <a href ="./peliculas/detalle/<%=movie[i].id%>" <%= movie[i].titulo %>
-       </a>
+         <a href="./peliculas/detalle/<%=peliculasSlide[i].id%>" <%= peliculasSlide[i].titulo %> </a>
       </div>
-s      </div>
     </div>
   <% } %>
 

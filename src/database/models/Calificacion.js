@@ -32,12 +32,11 @@ function calificacion(sequelize, Datatypes) {
             foreignKey: "id_productoFilm"
         });
 
-        calificacion.associate = function (models) {
-            calificacion.belongsTo(models.usuario, {
-                as: 'usuario',
-                foreignKey: "usuario_id"
-            })
-        }
+        calificacion.belongsTo(models.usuario, {
+            as: 'usuario',
+            foreignKey: "usuario_id"
+        })
+
     }
 
 

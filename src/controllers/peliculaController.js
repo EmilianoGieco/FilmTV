@@ -20,33 +20,34 @@ cloudinary.config({
 //base de datos conexion
 let db = require("../database/models");
 const { where } = require('sequelize');
+const { Op } = require('sequelize');
 
 /*detalle de las noticias*/
 const controlador = {
   detallePelicula:  (req, res) => {
     db.productoFilm.findByPk(req.params.id, {
     }).then(function (movie) {
-        res.render("movies/detallePelicula", { movie: movie });
+      res.render("movies/detallePelicula", { movie: movie });
     });
-},
+  },
 
   /*prueba de metodo cloudinary*/
   postCrearFilm: (req, res) => {
     const imageBuffer = req.file.buffer;
     const customFilename = ''
-    
+
     const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename }, (error, result) => {
       if (error) {
-        console.error('Error en Cloudinary:', error); 
+        console.error('Error en Cloudinary:', error);
       } else {
         console.log('Imagen cargada con éxito')
         db.productoFilm.create({
-          
+
           nombre: req.body.nombre,
           imagen1: result.secure_url,
           resumen: req.body.resumen,
           fecha_estreno: req.body.fecha_estreno,
-          calificacion: req.body.calificacion, 
+          calificacion: req.body.calificacion,
           video: req.body.video,
           subidoPor: req.body.usuario,
           genero: req.body.genero,
@@ -60,12 +61,12 @@ const controlador = {
 
 
   getCrearFilm: function (req, res) {
-        db.genero.findAll()
+    db.genero.findAll()
       .then(function (generos) {
         return res.render("./user/CrearFilm", { generos: generos })
       })
   },
-  
+
 
   getActualizarFilm: function (req, res) {
     const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
@@ -136,21 +137,22 @@ const controlador = {
   estrenos: async (req, res) => {
     try {
       // Consulta para encontrar películas con nombres específicos.
-      const estrenos = await db.productoFilm.findAll({
-        where: {
-          nombre: {
-            [Op.or]: ["Contrareloj", "Escape bajo fuego", "Poderes ocultos", "Sonido de libertad"]
-          }
-        },
-        order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente.
-      });
+      const estrenos = await db.productoFilm.findAll(
 
-      // Consultas para obtener imágenes
-      const generos = await db.genero.findAll();
-      const generosFilm = await db.generoFilm.findAll();
+        {
+          where: {
+            nombre: {
+              [Op.or]: ["Contrareloj", "Escape bajo fuego", "Poderes ocultos", "Sonido de libertad"]
+            }
+
+          },
+          order: [['fecha_estreno', 'ASC']], // Ordenar por fecha de estreno en orden ascendente.
+          include: [{ association: "genero" }, { association: "actor" } ]
+        })
 
       // Renderizar la vista y los resultados a la plantilla.
-      return res.render("movies/estrenos", { estrenos: estrenos, generos: generos, generosFilm: generosFilm });
+      return res.render("movies/estrenos", { estrenos: estrenos });
+      //res.send(estrenos)
     } catch (error) {
       console.log(error)
     }
@@ -159,14 +161,15 @@ const controlador = {
   ,
 
   /* peliculas noticias*/
-  noticia: async (req, res) => {
-    await db.productoFilm.findAll({
+  noticia:  (req, res) => {
+     db.productoFilm.findAll({
       where: {
         nombre: {
           [Op.or]: ["The Flash", "Barbie", "La sirenita", "Transformers: el despertar de las bestias", "Rapidos y Furiosos x"]
         }
       },
-      order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente
+      order: [['fecha_estreno', 'ASC']], // Ordenar por fecha de estreno en orden ascendente
+      include: [{ association: "genero" }, { association: "actor" }]
     })
       .then(function (noticias) {
         return res.render("movies/noticias", { noticias: noticias });
@@ -174,15 +177,16 @@ const controlador = {
   },
 
   /* peliculas 2023*/
-  peliculas2023: async (req, res) => {
+  peliculas2023:  (req, res) => {
 
-    await db.productoFilm.findAll({
+    db.productoFilm.findAll({
       where: {
         nombre: {
-          [Op.or]: ["Super Mario Bros.: la película", "John Wick: Capítulo 4", "Blondi", "Boogeyman: Tu miedo es real"]
+          [Op.or]: ["Super Mario Bros", "John Wick: Capítulo 4", "Blondi", "Boogeyman: Tu miedo es real"]
         }
       },
-      order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente
+      order: [['fecha_estreno', 'ASC']], // Ordenar por fecha de estreno en orden ascendente
+      include: [{ association: "genero" }, { association: "actor" }, { association: "director" }, { association: "guionista" }, { association: "productora" } ]
     })
       .then(function (peliculas) {
         return res.render("movies/peliculas2023", { peliculas: peliculas });
@@ -192,7 +196,6 @@ const controlador = {
 
   /* noticias de peliculas slide principal*/
   detalleNoticia: (req, res) => {
-
     db.productoFilm.findByPk(req.params.idN)
       .then(function (noticiaDetalle) {
         res.render("movies/detalleNoticia", { noticiaDetalle: noticiaDetalle })

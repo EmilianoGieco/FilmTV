@@ -79,7 +79,6 @@ const controlador = {
             oldData: req.body
           });
         }
-   
         const validaciones = validationResult(req);
         const errors = validaciones.mapped();
     
