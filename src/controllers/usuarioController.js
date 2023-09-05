@@ -18,48 +18,53 @@ const controlador = {
     res.render('./user/login');
   },
 
+  //////////////////////////////////
   procesarlogin: async (req, res) => {
-    const usuarioLogueo = await db.usuario.findOne(
-      { where: { correo: req.body.email } });
-  
-    if (usuarioLogueo) {
-      if (usuarioLogueo.clave) {
-        let contrasenaOk = bcryptjs.compareSync(req.body.password, usuarioLogueo.clave);
-        if (contrasenaOk) {
-          // Eliminación de la contraseña en la sesión para seguridad
-          delete usuarioLogueo.clave; 
-          req.session.userLogged = usuarioLogueo;
-  
-          if (req.body.recordarUsuario) {
-            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-          }
-          // Redireccionar directamente al perfil del usuario
-          return res.redirect("/perfilUsuario"); 
 
-        } else {
-          // Eliminar la contraseña en el caso de un inicio de sesión fallido
-          delete req.body.password;
-  
-          return res.render('./user/login', {
-            errors: {
-              password: {
-                msg: "Contraseña incorrecta"
-              }
-            },
-            oldData: req.body
-          });
+    //validaciones de login
+    try {
+      const resultValidation = validationResult(req);
+      if (resultValidation.errors.length > 0) {
+        return res.render('./user/login', {
+          errors: resultValidation.mapped(),
+          old: req.body
+        });
+      }
+
+      //buscar usuario
+      const userToLogin = await db.usuario.findOne({ where: { email: req.body.email } });
+      if (!userToLogin) {
+        return res.render('./user/login', {
+          errors: { email: { msg: 'El email con el que intenta ingresar no existe' } }
+        });
+      }
+
+      //comparar contraseñas
+      const correctPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+
+      if (correctPassword) {
+        delete userToLogin.password;
+        req.session.userLogged = userToLogin;
+
+        if (req.body.remember) {
+          res.cookie('userEmail', req.body.email, { maxAge: (((1000 * 60) * 60) * 24) });
         }
+        return res.redirect("./user/perfilUsuario");
+
       } else {
         return res.render('./user/login', {
-          errors: {
-            email: {
-              msg: "El email con el que intenta ingresar no existe"
-            }
-          },
+          errors: { password: { msg: 'Contraseña incorrecta' } },
+          old: req.body
         });
-      }}
+      }
+
+      //busqueda de errores
+    } catch (error) {
+      console.log(error.message);
+    }
   },
-  
+
+  ///////////////////
   registro: (req, res) => {
     res.render('./user/register');
   },
@@ -107,7 +112,7 @@ const controlador = {
       });
 
       const nuevoUsuario = await db.usuario.create({
-        nombre:req.body.nombreUsuario,
+        nombre: req.body.nombreUsuario,
         correo: req.body.email,
         clave: hashedPassword,
         imagen: result.secure_url // Almacena la URL de la imagen de Cloudinary en la base de datos
