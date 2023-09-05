@@ -24,7 +24,10 @@
                 aria-label="Slide 0"></button>
             </div>
             <div class="carousel-inner">
-              <% for(let i=0; i < peliculasSlide.length ; i++) {%>
+             
+             
+             
+            <% for(let i=0; i < peliculasSlide.length ; i++) {%>
                 <div class="carousel-item <%if (i === 0) { %> active <% } %>">
                   <img src=<%= peliculasSlide[i].imagen2 %> class="d-block w-100"
                     alt="<%= peliculasSlide[i].titulo %>">
@@ -53,19 +56,20 @@
         </div>
 
 <!--final de slide -->
+                      <h2 class="titulo3">Mirá las últimas novedades</h2>
+                    <!--VISTA DINAMICA CON EJS-->
+       
+              <!-- Código para mostrar las películas en la lista de novedades -->
+                
 
-       <!--VISTA DINAMICA CON EJS-->
-        <h2 class="titulo3"> Mirá las últimas novedades</h2>
-   <br>
-   <% for (let i = 0; i < movie.length; i++) { %>
-    <div>
-      <img src=<%= peliculasSlide[i].imagen1 %> 
-        alt="<%= peliculasSlide[i].titulo %>">
-      <div class="texto">
-         <a href="./peliculas/detalle/<%=peliculasSlide[i].id%>" <%= peliculasSlide[i].titulo %> </a>
-      </div>
-    </div>
-  <% } %>
+              <% if (movie && movie.id) { %>
+                <!-- Código para mostrar detalles de la película aquí -->
+                <h2 class="nombre><%= movie.nombre %></h2>
+                <img src="<%= movie.imagen1 %>" class="d-block w-30" alt="<%= movie.nombre %>">
+                <!-- Resto de los detalles de la película aquí -->
+              <% } %>
+
+                
 
       </main>
 

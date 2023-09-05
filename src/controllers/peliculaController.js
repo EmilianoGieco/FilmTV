@@ -31,18 +31,18 @@ const controlador = {
     });
   },
 
+
   /*prueba de metodo cloudinary*/
   postCrearFilm: (req, res) => {
     const imageBuffer = req.file.buffer;
-    const customFilename = ''
-
+    const customFilename = '';
+  
     const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename }, (error, result) => {
       if (error) {
         console.error('Error en Cloudinary:', error);
       } else {
-        console.log('Imagen cargada con éxito')
+        console.log('Imagen cargada con éxito');
         db.productoFilm.create({
-
           nombre: req.body.nombre,
           imagen1: result.secure_url,
           resumen: req.body.resumen,
@@ -53,7 +53,14 @@ const controlador = {
           genero: req.body.genero,
           duracion: req.body.duracion
         })
-        res.redirect("/");
+          .then((movie) => {
+            console.log('Película guardada con éxito:', movie);
+            res.redirect("/");
+          })
+          .catch((error) => {
+            console.error('Error al crear la película:', error);
+            // Manejar el error adecuadamente, por ejemplo, redirigir a una página de error.
+          });
       }
     });
     streamifier.createReadStream(imageBuffer).pipe(stream);
