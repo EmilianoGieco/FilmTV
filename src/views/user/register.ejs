@@ -35,7 +35,7 @@
                                     </div>
                                     <%}%>
 
-                            <input type="text" name="email" id="email" 
+                            <input type="email" name="email" id="email" 
                             placeholder="email" 
                             class="form-control relleno <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.email : null %>"
