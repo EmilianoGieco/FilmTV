@@ -61,11 +61,15 @@
        
               <!-- Código para mostrar las películas en la lista de novedades -->
                 
-
-              <% if (movie && movie.id) { %>
-                <h2 class="nombre"><%= movie.nombre %></h2>
-                <img src="<%= movie.imagen1 %>" class="d-block w-30" alt="<%= movie.nombre %>">
-              <% } %>
+                
+              <ul>
+                <% for (let i = 0; i < movie.length; i++) { %>
+                  <li>
+                    <img src="<%= movie[i].imagen1 %>" class="d-block w-30">
+                    <%= movie[i].nombre %>
+                  </li>
+                <% } %>
+              </ul>
 
                 
 
