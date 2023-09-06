@@ -1,12 +1,13 @@
 <!--HEAD-->
 <%- include("./partials/head") %>
+
   <body class="bgPrincipal">
     <%- include("./partials/header") %>
 
       <!--MAIN-->
       <!--slide de las 5 peliculas mas esperadas-->
       <main>
-        <img class="baner" src="https://abisulkes.alwaysdata.net/banerPrincipal11.jpg" >
+        <img class="baner" src="https://abisulkes.alwaysdata.net/banerPrincipal11.jpg">
         <h2 class="titulo2">5 peliculas mas esperadas 2023</h2>
 
         <div class="carrucelcentral">
@@ -24,23 +25,24 @@
                 aria-label="Slide 0"></button>
             </div>
             <div class="carousel-inner">
-             
-             
-             
-            <% for(let i=0; i < peliculasSlide.length ; i++) {%>
+
+
+
+              <% for(let i=0; i < peliculasSlide.length ; i++) {%>
                 <div class="carousel-item <%if (i === 0) { %> active <% } %>">
-                  <img src=<%= peliculasSlide[i].imagen2 %> class="d-block w-100"
-                    alt="<%= peliculasSlide[i].titulo %>">
-                  <div class="texto">
-                     <a href="/peliculas/detalleNoticia/<%=peliculasSlide[i].id%>" class="textoenlasimagenes"> <%= peliculasSlide[i].titulo %>
-                   </a>
-                  </div>
-                  <div class="carousel-caption d-none d-md-block">
-  
-                  </div>
+                  <img src=<%=peliculasSlide[i].imagen2 %> class="d-block w-100"
+                  alt="<%= peliculasSlide[i].titulo %>">
+                    <div class="texto">
+                      <a href="/peliculas/detalleNoticia/<%=peliculasSlide[i].id%>" class="textoenlasimagenes">
+                        <%= peliculasSlide[i].titulo %>
+                      </a>
+                    </div>
+                    <div class="carousel-caption d-none d-md-block">
+
+                    </div>
                 </div>
-              <% } %>
-              
+                <% } %>
+
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
               data-bs-slide="prev">
@@ -55,23 +57,27 @@
           </div>
         </div>
 
-<!--final de slide -->
-                      <h2 class="titulo3">Mirá las últimas novedades</h2>
-                    <!--VISTA DINAMICA CON EJS-->
-       
-              <!-- Código para mostrar las películas en la lista de novedades -->
-                
-                
-              <ul>
-                <% for (let i = 0; i < movie.length; i++) { %>
-                  <li>
-                    <img src="<%= movie[i].imagen1 %>" class="d-block w-30">
-                    <%= movie[i].nombre %>
-                  </li>
-                <% } %>
-              </ul>
+        <!--final de slide -->
+        <h2 class="titulo3">Mirá las últimas novedades</h2>
+        <!--VISTA DINAMICA CON EJS-->
 
-                
+        <!-- Código para mostrar las películas en la lista de novedades -->
+
+
+        <ul>
+          <% for (let i=0; i < movie.length; i++) { %>
+            <li>
+
+              <a href="/peliculas/detalleNoticia/<%=movie[i].id%>">
+                <img src="<%= movie[i].imagen1 %>" class="d-block w-30">
+              </a>
+
+              <%= movie[i].nombre %>
+            </li>
+            <% } %>
+        </ul>
+
+
 
       </main>
 
