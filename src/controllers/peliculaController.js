@@ -209,7 +209,9 @@ const controlador = {
 
   /* noticias de peliculas slide principal*/
   detalleNoticia: (req, res) => {
-    db.productoFilm.findByPk(req.params.idN)
+    db.productoFilm.findByPk(req.params.idN , {
+      include: [{ association: "genero" }] // Esto incluirá los detalles de noticias asociados al producto
+    })
       .then(function (noticiaDetalle) {
         res.render("movies/detalleNoticia", { noticiaDetalle: noticiaDetalle })
       })

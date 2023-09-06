@@ -29,10 +29,11 @@ body {
     opacity: 1;
   }
 }
+
 .baner {
   animation-name: opacidad;
   animation-duration: 1200ms;
-  animation-iteration-count:initial;
+  animation-iteration-count: initial;
   animation-direction: normal;
 }
 
@@ -191,26 +192,31 @@ li:hover {
 }
 
 .pelicula {
-  flex: 0 0 calc(20% - 10px); /* Ajusta el ancho de cada película según tus necesidades */
+  flex: 0 0 calc(20% - 10px);
+  /* Ajusta el ancho de cada película según tus necesidades */
   margin-bottom: 20px;
   margin-top: 20px;
- 
+  border-radius: 2%;
 }
 
-.titulo4{
+.titulo4 {
   font-size: 1.5rem;
+  text-align: center;
   line-height: 1.2;
   padding-left: 9px;
   text-transform: uppercase;
-  margin: 2em 1em 0em 1em;
-  border-left: 3px solid #fa320a;
+  margin-top: 2em;
+  padding-bottom: 0.5em;
+  border-bottom: 0.4px solid #fa320a;
   color: white;
 
 }
 
-.tituloSecundario {
+.bajada {
   margin-top: 10px;
-   text-align: left;
+  text-align: left !important;
+  color: white;
+  text-transform: uppercase;
 }
 
 /*MAIN NOTICIAS*/
@@ -226,10 +232,11 @@ li:hover {
   border-radius: 2rem;
 }
 
-.contenido:hover{
-  filter: grayscale(80%);}
+.contenido:hover {
+  filter: grayscale(80%);
+}
 
-.contenido{
+.contenido {
   margin: 1rem 1rem 1rem 1rem;
 }
 
@@ -308,7 +315,7 @@ li:hover {
 .baner {
   animation-name: opacidad;
   animation-duration: 1200ms;
-  animation-iteration-count:initial;
+  animation-iteration-count: initial;
   animation-direction: normal;
 }
 

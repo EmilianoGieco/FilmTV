@@ -56,7 +56,6 @@
             </button>
           </div>
         </div>
-
         <!--final de slide -->
 
         <!-- Código para mostrar las películas en la lista de novedades -->
@@ -64,16 +63,16 @@
         <div class="peliculas-container">
           <% for (let i=0; i < movie.length; i++) { %>
             <div class="pelicula">
-              <a href="/peliculas/detalleNoticia/<%=movie[i].id%>">
-                <img src="<%= movie[i].imagen1 %>" class="d-block w-30">
+              <a href="./peliculas/detalle/<%=movie[i].id%>">
+                <img src="<%= movie[i].imagen1 %>" width="400px">
               </a>
-              <h6 class="tituloSecundario">
+              <h6 class="bajada">
                 <%= movie[i].nombre %>
               </h6>
             </div>
-          <% } %>
+            <% } %>
         </div>
-        
+
 
 
 

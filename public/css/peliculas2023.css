@@ -1,46 +1,48 @@
 /*MAIN NOTICIAS*/
 .body {
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /*color de fondo del cuerpo del sitio*/
 .bg1 {
-    background-color: #0d0d0d !important;
+  background-color: #0d0d0d !important;
 }
 
 .tituloDetalle {
-    margin-top: 2rem;
-    margin-left: 3rem;
-    margin-right: 28rem;
-    font-size: 1.5rem;
-    line-height: 1.2;
-    padding-left: 9px;
-    text-transform: uppercase;
-    border-bottom: 0.2px solid #fa320a;
-    color: white;
+  margin-top: 2rem;
+  margin-left: 3rem;
+  margin-right: 28rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  padding-left: 9px;
+  text-transform: uppercase;
+  border-bottom: 0.2px solid #fa320a;
+  color: white;
 }
 
 .row-cols-md-2>* {
-    flex: 0 0 auto;
-    width: 50%;
-    padding-top: 2rem;
-    margin: auto;
+  flex: 0 0 auto;
+  width: 50%;
+  padding-top: 2rem;
+  margin: auto;
 }
 
 .card-body {
-    color: white !important;
-  }
-  
-  .card-title{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  
-  .card-text-e{
-    padding-bottom: 2.5rem;
-    border-bottom: 0.2px solid rgba(255, 0, 0, 0.4);
-  }
-  
-  .card-text-r{
-    padding-top: 0.7rem;
-  }
+  color: white !important;
+}
+
+.card-title {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: large;
+}
+
+.card-text-e {
+  padding-bottom: 2.5rem;
+  border-bottom: 0.2px solid rgba(255, 0, 0, 0.4);
+}
+
+.card-text-r {
+  padding-top: 0.7rem;
+}

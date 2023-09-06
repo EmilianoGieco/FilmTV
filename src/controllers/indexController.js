@@ -7,8 +7,8 @@ const indexController = {
     try {
       {
         let movie = await db.productoFilm.findAll({
-          limit: 4,
-          order: [['fecha_estreno', 'DESC']] // Ordenar por fecha de estreno en orden descendente.}
+          limit: 8,
+          order: [['fecha_estreno', 'DESC']] // Ordenar por fecha de estreno en orden descendente.
         })
 
         // Consulta para encontrar películas con nombres específicos.

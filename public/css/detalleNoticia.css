@@ -51,6 +51,38 @@
     text-align: left;
   }
 
+.fondo{
+    background-color: rgb(23, 22, 22) !important;
+  }
 
+  .titulo{
+    color:white !important;
+    text-transform: uppercase;
+  }
 
+  .titulo1{
+    color:white !important;
+    text-transform: uppercase;
+    font-size: large;
+  }
+
+  .resumen{
+    color:white !important;
+  }
+
+  .duracion{
+    color:white !important;
+  }
+
+  .estreno{
+    color:white !important;
+  }
+
+  .calificacion{
+    color:white !important;
+  }
+
+  .genero{
+    color:white !important;
+  }
  
