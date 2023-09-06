@@ -25,8 +25,8 @@ const indexController = {
         order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente.
       });
 
-      console.log(movie);    
-      
+      console.log(movie);
+
       res.render("index", { peliculasSlide: peliculasSlide, movie: movie });
     } catch (error) {
       console.error('Error en indexController:', error);
@@ -41,5 +41,5 @@ module.exports = indexController;
 
 
         //res.render(path.resolve(__dirname, '../views/index.ejs'), { datos: noticiasPelis, masEsperadas: slideNoticia });
-    
+
 
