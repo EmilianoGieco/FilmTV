@@ -12,6 +12,7 @@ console.log( path.join(__dirname,'../../public/img'))
 /* ruta carpeta detalle pelicula*/
 router.get("/detalle/:id", peliculaController.detallePelicula); 
 
+
 /* ruta CrearFilm*/
 router.get("/CrearFilm", peliculaController.getCrearFilm);
 router.post("/CrearFilm",upload.single("imagen"), peliculaController.postCrearFilm );

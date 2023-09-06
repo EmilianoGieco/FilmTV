@@ -6,7 +6,7 @@ const { Op } = require('sequelize');
 const indexController = {
   index: async (req, res) => {
     try {
-      let movie = {};
+      let movie = null;
 
       if (req.params.id) {
         movie = await db.productoFilm.findByPk(req.params.id);
@@ -15,7 +15,6 @@ const indexController = {
           console.log('Película no encontrada');
         }
       }
-      console.log(movie);
       // Consulta para encontrar películas con nombres específicos.
       const peliculasSlide = await db.productoFilm.findAll({
         where: {

@@ -5,71 +5,91 @@
       <body class="bg1">
         <%- include("../partials/header") %>
 
-        <main class="container">
-          <form action="/peliculas/actualizarFilm/<%= movie.id %>?_method=PUT" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
-            <div class="form-row">
-              <div class="col-md-4 mb-3">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" required value="<%= movie.nombre %>">
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-        
-              <div class="col-md-4 mb-3">
-                <label for="imagen">Imagen</label>
-                <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-            </div>
-        
-            <div class="form-row">
-              <div class="col-md-4 mb-3">
-                <label for="descripcion">Descripción</label>
-                <input type="text" class="form-control" id="descripcion" placeholder="descripcion" name="descripcion" required value="<%= movie.descripcion %>">
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-        
-              <div class="col-md-4 mb-3">
-                <label for="video">Video</label>
-                <input type="text" class="form-control" id="video" placeholder="video" name="video" required value="<%= movie.video %>">
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-            </div>
-        
-            <div class="form-row">
-              <div class="col-md-4 mb-3">
-                <label for="validationCustomUsername">Subido Por</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+            <main class="container">
+              <form action="/peliculas/actualizarFilm/<%= movie.id %>?_method=PUT" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
+                    <div class="valid-feedback">
+                      ¡Se ve bien!
+                    </div>
                   </div>
-                  <input type="text" class="form-control" id="validationCustomUsername" placeholder="nombre de usuario" aria-describedby="inputGroupPrepend" required>
-                  <div class="invalid-feedback">
-                    Por favor, elija un nombre de usuario.
+              
+                  <div class="col-md-4 mb-3">
+                    <label for="imagen1">Imagen</label>
+                    <input type="file" class="form-control" id="imagen1" placeholder="Imagen1" name="imagen" required>
+                    <div class="valid-feedback">
+                      ¡Se ve bien!
+                    </div>
+                  </div>
+              
+                  <div class="col-md-4 mb-3">
+                    <label for="descripcion">Descripción</label>
+                    <input type="text" class="form-control" id="resumen" placeholder="resumen" name="resumen" required>
+                    <div class="valid-feedback">
+                      ¡Se ve bien!
+                    </div>
+                  </div>
+          
+                  <div class="col-md-4 mb-3">
+                    <label for="descripcion">fecha de estreno</label>
+                    <input type="date" class="form-control" id="fecha_estreno" placeholder="fecha_estreno" name="fecha_estreno" required>
+                    <div class="valid-feedback">
+                      ¡Se ve bien!
+                    </div>
+                  </div>
+          
+                  <div class="col-md-4 mb-3">
+                    <label for="descripcion">Duracion</label>
+                    <input type="text" class="form-control" id="duracion" placeholder="duracion" name="duracion" required>
+                    <div class="valid-feedback">
+                      ¡Se ve bien!
+                    </div>
+                  </div>
+          
+                  <div class="col-md-4 mb-3">
+                    <label for="descripcion">calificacion</label>
+                    <input type="text" class="form-control" id="calificacion" placeholder="calificacion" name="calificacion" required>
+                    <div class="valid-feedback">
+                      ¡Se ve bien!
+                    </div>
+                  </div>
+              
+                  <div class="col-md-4 mb-3">
+                    <label for="video">Enlace de Video</label>
+                    <input type="text" class="form-control" id="video" placeholder="video" name="video" required>
+                    <div class="valid-feedback">
+                    </div>
                   </div>
                 </div>
-              </div>
-        
-              <div class="col-md-4 mb-3">
-                <label for="inputGroupSelect01">Género</label>
-                <select class="form-control" id="inputGroupSelect01" name="genero">
-                  <option value="<%= movie.genero %>" selected></option>
-                  <option value="1">Acción</option>
-                  <option value="2">Comedia</option>
-                  <option value="3">Drama</option>
-                  <option value="4">Ciencia ficción</option>
-                  <option value="5">Terror</option>
-                  <option value="6">Suspenso</option>
-                </select>
-              </div>
-            </div>
+              
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="validationCustomUsername">Subido Por</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                      </div>
+                      <input type="text" class="form-control" id="validationCustomUsername" placeholder="usuario" name="usuario" aria-describedby="inputGroupPrepend" required>
+                      <div class="invalid-feedback">
+                        Por favor, elige un nombre de usuario.
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="col-md-4 mb-3">
+                    <label for="inputGroupSelect01">Género</label>
+                    <select class="form-control" id="inputGroupSelect01" name="genero" required>
+                      <option selected disabled>Selecciona un género</option>
+                      <% for (let i=0; i<generos.length; i++) {%>
+                        <option value="<%=generos[i].id%>">
+                          <%=generos[i].nombre%>
+                        </option>
+                        <%} %>
+                    </select>
+                  </div>
+                </div>
         
             <button class="btn btn-primary" type="submit">Actualizar</button>
           </form>

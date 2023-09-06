@@ -2,9 +2,7 @@ const path = require('path');
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 
-/*let ultimosEstrenos = require(".././data/ultimosEstrenos.json");
-let slideNoticia = require(".././data/slide.json");
-let noticiasPelis = require(".././data/noticiasPelis.json");*/
+
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 
@@ -57,7 +55,6 @@ const controlador = {
           })
           .catch((error) => {
             console.error('Error al crear la película:', error);
-            // Manejar el error adecuadamente, por ejemplo, redirigir a una página de error.
           });
       }
     });
@@ -73,69 +70,81 @@ const controlador = {
   },
 
 
-  getActualizarFilm: function (req, res) {
-    const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
+  getActualizarFilm: async function (req, res) {
     const idM = req.params.id;
-    let movie = peliculas.find((pelicula) => pelicula.id == idM);
-    console.log(movie);
-
-    res.render("user/actualizarFilm", { movie })
-  },
-
-  postActualizarFilm: function (req, res) {
-    const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
-    const idM = req.params.id;
-    let movie = peliculas.find((pelicula) => pelicula.id == idM);
-
-    if (movie) {
-      const imageBuffer = req.file.buffer;
-      const customFilename = '';
-
-      const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename }, (error, result) => {
-        if (error) {
-          console.error('Error:', error);
+    try {
+        const movie = await db.productoFilm.findByPk(idM);
+        if (movie) {
+            const generos = await db.genero.findAll();
+            return res.render("./user/actualizarFilm", { movie: movie, generos: generos });
         } else {
-          movie.imagen = result.secure_url || movie.imagen;
-
-          /* Guardar los cambios y redireccionar */
-          fs.writeFileSync(peliculaPath, JSON.stringify(peliculas, null, " "));
-          res.redirect("/");
+          
+            res.send('Película no encontrada');
         }
-      });
-
-      streamifier.createReadStream(imageBuffer).pipe(stream);
-    } else {
-      res.send(`
-      <div style="text-align: center; padding-top:30px">
-      <h1>La película no se puede editar</h1>
-      <img style="width:40%;" src="/img/error-critico.jpg">
-      </div>
-      `);
+    } catch (error) {
+        console.error('Error en getActualizarFilm:', error);
+        res.render('error', { message: 'Error al cargar la página' });
     }
-  },
+},
+
+  postActualizarFilm: async function (req, res) {
+    const idM = req.params.id;
+
+    try {
+        const movie = await db.productoFilm.findByPk(idM);
+
+        if (movie) {
+            const imageBuffer = req.file.buffer;
+            const customFilename = '';
+
+            const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename }, async (error, result) => {
+                if (error) {
+                    console.error('Error en Cloudinary:', error);
+                } else {
+                    // Actualizar la imagen en la base de datos
+                    movie.imagen1 = result.secure_url || movie.imagen1;
+                    await movie.save();
+
+                    res.redirect("/");
+                }
+            });
+
+            streamifier.createReadStream(imageBuffer).pipe(stream);
+        } else {
+            res.send(`
+            <div style="text-align: center; padding-top:30px">
+            <h1>La película no se puede editar</h1>
+            <img style="width:40%;" src="/img/error-critico.jpg">
+            </div>
+            `);
+        }
+    } catch (error) {
+        console.error('Error en postActualizarFilm:', error);
+        res.render('error', { message: 'Error al actualizar la película' });
+    }
+},
 
   /* proceso de borrado */
-  delete: (req, res) => {
-    /* Guardo en nuevoFilm todos los juegos que no quiero borrar */
-    const peliculas = JSON.parse(fs.readFileSync(peliculaPath, "utf-8"));
-    const nuevoFilm = peliculas.filter((movie) => movie.id != req.params.id);
-    /* busco el juego a borrar para eliminarle la imagen */
-    const filmtoDelete = peliculas.find((movie) => movie.id == req.params.id);
-    const publicPath = path.join(__dirname, "../../public");
-    /* utilizo fs.existsSync para saber si existe una imagen física en nuestra carpeta estatica, si la tiene que la borre con fsUnlink, sino que no haga nada */
-    if (
-      fs.existsSync(
-        path.join(publicPath, filmtoDelete.imagen)
-      )
-    ) {
-      fs.unlinkSync(
-        path.join(publicPath, filmtoDelete.imagen)
-      );
+  delete: async (req, res) => {
+    const idPelicula = req.params.id;
+
+    try {
+        // Buscar la película por su ID en la base de datos
+        const pelicula = await db.productoFilm.findByPk(idPelicula);
+
+        if (!pelicula) {
+            res.send('Película no encontrada');
+        } else {
+            // Borrar la película de la base de datos
+            await pelicula.destroy();
+
+            res.redirect("/");
+        }
+    } catch (error) {
+        console.error('Error en delete:', error);
+        res.render('error', { message: 'Error al eliminar la película' });
     }
-    /* reescribo ese listado de juegos excluyendo el que eliminamos y redirecciono */
-    fs.writeFileSync(peliculaPath, JSON.stringify(nuevoFilm, null, " "));
-    res.redirect("/");
-  },
+},
 
 
   /*peliculas estrenos*/
