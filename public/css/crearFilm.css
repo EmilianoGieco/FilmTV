@@ -1,0 +1,30 @@
+/*MAIN NOTICIAS DEL SLIDE*/
+.body {
+    font-family: "Poppins", sans-serif;
+
+}
+
+.bg1 {
+    background-color: #0d0d0d !important;
+}
+
+.container {
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.titulo {
+    padding-top: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 450;
+    color:white;
+    padding-bottom: 0.2rem;
+    
+}
+
+ .boton{
+    margin-top: 0.5rem !important;
+    padding: 0.8rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 450 !important;
+}

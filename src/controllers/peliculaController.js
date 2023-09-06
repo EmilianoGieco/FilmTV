@@ -20,7 +20,7 @@ const { Op } = require('sequelize');
 
 /*detalle de las noticias*/
 const controlador = {
-  detallePelicula:  (req, res) => {
+  detallePelicula: (req, res) => {
     db.productoFilm.findByPk(req.params.id, {
     }).then(function (movie) {
       res.render("movies/detallePelicula", { movie: movie });
@@ -32,7 +32,7 @@ const controlador = {
   postCrearFilm: (req, res) => {
     const imageBuffer = req.file.buffer;
     const customFilename = '';
-  
+
     const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename }, (error, result) => {
       if (error) {
         console.error('Error en Cloudinary:', error);
@@ -66,85 +66,84 @@ const controlador = {
     db.genero.findAll()
       .then(function (generos) {
         return res.render("./user/CrearFilm", { generos: generos })
-      })
+      });
   },
-
 
   getActualizarFilm: async function (req, res) {
     const idM = req.params.id;
     try {
-        const movie = await db.productoFilm.findByPk(idM);
-        if (movie) {
-            const generos = await db.genero.findAll();
-            return res.render("./user/actualizarFilm", { movie: movie, generos: generos });
-        } else {
-          
-            res.send('Película no encontrada');
-        }
+      const movie = await db.productoFilm.findByPk(idM);
+      if (movie) {
+        const generos = await db.genero.findAll();
+        return res.render("./user/actualizarFilm", { movie: movie, generos: generos });
+      } else {
+
+        res.send('Película no encontrada');
+      }
     } catch (error) {
-        console.error('Error en getActualizarFilm:', error);
-        res.render('error', { message: 'Error al cargar la página' });
+      console.error('Error en getActualizarFilm:', error);
+      res.render('error', { message: 'Error al cargar la página' });
     }
-},
+  },
 
   postActualizarFilm: async function (req, res) {
     const idM = req.params.id;
 
     try {
-        const movie = await db.productoFilm.findByPk(idM);
+      const movie = await db.productoFilm.findByPk(idM);
 
-        if (movie) {
-            const imageBuffer = req.file.buffer;
-            const customFilename = '';
+      if (movie) {
+        const imageBuffer = req.file.buffer;
+        const customFilename = '';
 
-            const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename }, async (error, result) => {
-                if (error) {
-                    console.error('Error en Cloudinary:', error);
-                } else {
-                    // Actualizar la imagen en la base de datos
-                    movie.imagen1 = result.secure_url || movie.imagen1;
-                    await movie.save();
+        const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename }, async (error, result) => {
+          if (error) {
+            console.error('Error en Cloudinary:', error);
+          } else {
+            // Actualizar la imagen en la base de datos
+            movie.imagen1 = result.secure_url || movie.imagen1;
+            await movie.save();
 
-                    res.redirect("/");
-                }
-            });
+            res.redirect("/");
+          }
+        });
 
-            streamifier.createReadStream(imageBuffer).pipe(stream);
-        } else {
-            res.send(`
+        streamifier.createReadStream(imageBuffer).pipe(stream);
+      } else {
+        res.send(`
             <div style="text-align: center; padding-top:30px">
             <h1>La película no se puede editar</h1>
             <img style="width:40%;" src="/img/error-critico.jpg">
             </div>
             `);
-        }
+      }
     } catch (error) {
-        console.error('Error en postActualizarFilm:', error);
-        res.render('error', { message: 'Error al actualizar la película' });
+      console.error('Error en postActualizarFilm:', error);
+      res.render('error', { message: 'Error al actualizar la película' });
     }
-},
+  },
 
   /* proceso de borrado */
   delete: async (req, res) => {
     const idPelicula = req.params.id;
 
     try {
-        // Buscar la película por su ID en la base de datos
-        const pelicula = await db.productoFilm.findByPk(idPelicula);
+      // Buscar la película por su ID en la base de datos
+      const pelicula = await db.productoFilm.findByPk(idPelicula);
 
-        if (!pelicula) {
-            res.send('Película no encontrada');
-        } else {
-            // Borrar la película de la base de datos
-            await pelicula.destroy();
+      if (!pelicula) {
+        res.send('Película no encontrada');
+      } else {
+        // Borrar la película de la base de datos
+        await pelicula.destroy();
 
-            res.redirect("/");
-        }
+        res.redirect("/");
+      }
     } catch (error) {
-        console.error('Error en delete:', error);
-        res.render('error', { message: 'Error al eliminar la película' });
+      console.error('Error en delete:', error);
+      res.render('error', { message: 'Error al eliminar la película' });
     }
-},
+  },
 
 
   /*peliculas estrenos*/
@@ -161,7 +160,7 @@ const controlador = {
 
           },
           order: [['fecha_estreno', 'ASC']], // Ordenar por fecha de estreno en orden ascendente.
-          include: [{ association: "genero" }, { association: "actor" } ]
+          include: [{ association: "genero" }, { association: "actor" }]
         })
 
       // Renderizar la vista y los resultados a la plantilla.
@@ -175,8 +174,8 @@ const controlador = {
   ,
 
   /* peliculas noticias*/
-  noticia:  (req, res) => {
-     db.productoFilm.findAll({
+  noticia: (req, res) => {
+    db.productoFilm.findAll({
       where: {
         nombre: {
           [Op.or]: ["The Flash", "Barbie", "La sirenita", "Transformers: el despertar de las bestias", "Rapidos y Furiosos x"]
@@ -191,7 +190,7 @@ const controlador = {
   },
 
   /* peliculas 2023*/
-  peliculas2023:  (req, res) => {
+  peliculas2023: (req, res) => {
 
     db.productoFilm.findAll({
       where: {
@@ -200,7 +199,7 @@ const controlador = {
         }
       },
       order: [['fecha_estreno', 'ASC']], // Ordenar por fecha de estreno en orden ascendente
-      include: [{ association: "genero" }, { association: "actor" }, { association: "director" }, { association: "guionista" }, { association: "productora" } ]
+      include: [{ association: "genero" }, { association: "actor" }, { association: "director" }, { association: "guionista" }, { association: "productora" }]
     })
       .then(function (peliculas) {
         return res.render("movies/peliculas2023", { peliculas: peliculas });

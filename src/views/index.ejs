@@ -58,24 +58,23 @@
         </div>
 
         <!--final de slide -->
-        <h2 class="titulo3">Mirá las últimas novedades</h2>
-        <!--VISTA DINAMICA CON EJS-->
 
         <!-- Código para mostrar las películas en la lista de novedades -->
-
-
-        <ul>
+        <h2 class="titulo3">Mirá las últimas novedades</h2>
+        <div class="peliculas-container">
           <% for (let i=0; i < movie.length; i++) { %>
-            <li>
-
+            <div class="pelicula">
               <a href="/peliculas/detalleNoticia/<%=movie[i].id%>">
                 <img src="<%= movie[i].imagen1 %>" class="d-block w-30">
               </a>
+              <h6 class="tituloSecundario">
+                <%= movie[i].nombre %>
+              </h6>
+            </div>
+          <% } %>
+        </div>
+        
 
-              <%= movie[i].nombre %>
-            </li>
-            <% } %>
-        </ul>
 
 
 

@@ -1,70 +1,76 @@
 <html>
 <!--HEAD-->
-<%- include("../partials/headDetallePelicula",) %>
+<%- include("../partials/headCrearFilm",) %>
 
-  <body>
+  <body class="bg1">
     <%- include("../partials/header") %>
 
-  <main class="container" >
-    <form action="/peliculas/CrearFilm" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
-      <div class="form-row">
-        <div class="col-md-4 mb-3">
-          <label for="nombre">Nombre</label>
-          <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
-          <div class="valid-feedback">
-            ¡Se ve bien!
-          </div>
-        </div>
-    
-        <div class="col-md-4 mb-3">
-          <label for="imagen1">Imagen</label>
-          <input type="file" class="form-control" id="imagen1" placeholder="Imagen1" name="imagen" required>
-          <div class="valid-feedback">
-            ¡Se ve bien!
-          </div>
-        </div>
-    
-        <div class="col-md-4 mb-3">
-          <label for="descripcion">Descripción</label>
-          <input type="text" class="form-control" id="resumen" placeholder="resumen" name="resumen" required>
-          <div class="valid-feedback">
-            ¡Se ve bien!
-          </div>
-        </div>
+      <main class="container">
+        <form action="/peliculas/CrearFilm" method="POST" class="needs-validation" novalidate
+          enctype="multipart/form-data">
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label class="titulo" for="nombre">Titulo película</label>
+              <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" required>
+              <div class="valid-feedback">
+                ¡Se ve bien!
+              </div>
+            </div>
 
-        <div class="col-md-4 mb-3">
-          <label for="descripcion">fecha de estreno</label>
-          <input type="date" class="form-control" id="fecha_estreno" placeholder="fecha_estreno" name="fecha_estreno" required>
-          <div class="valid-feedback">
-            ¡Se ve bien!
-          </div>
-        </div>
+            <div  class="col-md-4 mb-3">
+              <label class="titulo" for="imagen1">Imagen</label>
+              <input type="file" class="form-control" id="imagen1" placeholder="imagen" name="imagen" required>
+              <div class="valid-feedback">
+                ¡Se ve bien!
+              </div>
+            </div>
 
-        <div class="col-md-4 mb-3">
-          <label for="descripcion">Duracion</label>
-          <input type="text" class="form-control" id="duracion" placeholder="duracion" name="duracion" required>
-          <div class="valid-feedback">
-            ¡Se ve bien!
-          </div>
-        </div>
+            <div class="col-md-4 mb-3">
+              <label class="titulo" for="descripcion">Sinopsis</label>
+              <input type="text" class="form-control" id="resumen" placeholder="resumen" name="resumen" required>
+              <div class="valid-feedback">
+                ¡Se ve bien!
+              </div>
+            </div>
 
-        <div class="col-md-4 mb-3">
-          <label for="descripcion">calificacion</label>
-          <input type="text" class="form-control" id="calificacion" placeholder="calificacion" name="calificacion" required>
-          <div class="valid-feedback">
-            ¡Se ve bien!
+            <div class="col-md-4 mb-3">
+              <label class="titulo" for="descripcion">Fecha de estreno</label>
+              <input type="date" class="form-control" id="fecha_estreno" placeholder="fecha_estreno"
+                name="fecha_estreno" required>
+              <div class="valid-feedback">
+                ¡Se ve bien!
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label class="titulo" for="descripcion">Duración</label>
+              <input type="text" class="form-control" id="duracion" placeholder="duración" name="duracion" required>
+              <div class="valid-feedback">
+                ¡Se ve bien!
+              </div>
+            </div>
+
+           <!--ESTO LO AGREGA EL USUARIO, NO EL ADMINISTRADOR -->
+
+             <!--<div class="col-md-4 mb-3">
+              <label for="descripcion">Calificacion</label>
+              <input type="text" class="form-control" id="calificacion" placeholder="calificacion" name="calificacion"
+                required>
+              <div class="valid-feedback">
+                ¡Se ve bien!
+              </div>
+            </div>-->
+
+            <div class="col-md-4 mb-3">
+              <label class="titulo" for="video">Enlace de Video</label>
+              <input type="text" class="form-control" id="video" placeholder="video" name="video" required>
+              <div class="valid-feedback">
+              </div>
+            </div>
           </div>
-        </div>
-    
-        <div class="col-md-4 mb-3">
-          <label for="video">Enlace de Video</label>
-          <input type="text" class="form-control" id="video" placeholder="video" name="video" required>
-          <div class="valid-feedback">
-          </div>
-        </div>
-      </div>
-    
-      <div class="form-row">
+
+          <!--  ESTO LO SUBE EL ADMINISTRADOR, NO EL USUARIO-->
+          <!--  <div class="form-row">
         <div class="col-md-4 mb-3">
           <label for="validationCustomUsername">Subido Por</label>
           <div class="input-group">
@@ -76,50 +82,55 @@
               Por favor, elige un nombre de usuario.
             </div>
           </div>
-        </div>
-    
-        <div class="col-md-4 mb-3">
-          <label for="inputGroupSelect01">Género</label>
-          <select class="form-control" id="inputGroupSelect01" name="genero" required>
-            <option selected disabled>Selecciona un género</option>
-            <% for (let i=0; i<generos.length; i++) {%>
-              <option value="<%=generos[i].id%>">
-                <%=generos[i].nombre%>
-              </option>
-              <%} %>
-          </select>
-        </div>
-      </div>
-    
-      <button class="btn btn-primary" type="submit">Subir Película</button>
-    </form>
-      
-      <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
+        </div>-->
+
+          <div class="col-md-4 mb-3">
+            <label class="titulo" for="inputGroupSelect01">Género</label>
+            <select class="form-control" id="inputGroupSelect01" name="genero" required>
+              <option selected disabled>selecciona un género</option>
+              <% for (let i=0; i<generos.length; i++) {%>
+                <option value="<%=generos[i].id%>">
+                  <%=generos[i].nombre%>
+                </option>
+                <%} %>
+            </select>
+          </div>
+          </div>
+
+          <button class="btn btn-secondary boton" type="submit">Subir Película</button>
         
-      })();
-      </script>
+        </form>
+     
+        <script>
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+          (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              });
+            }, false);
 
-  </main>
+          })();
+        </script>
 
-    <!--FOOTER-->
-    <%- include("../partials/footer") %>
+</main>
+
+      <!--FOOTER-->
+      <%- include("../partials/footer") %>
+   
+  
 </body>
+
+</html>
 
 </html>

@@ -7,11 +7,11 @@ const indexController = {
     try {
       {
         let movie = await db.productoFilm.findAll({
-          limit: 5,
+          limit: 4,
           order: [['fecha_estreno', 'DESC']] // Ordenar por fecha de estreno en orden descendente.}
         })
 
-// Consulta para encontrar películas con nombres específicos.
+        // Consulta para encontrar películas con nombres específicos.
         const peliculasSlide = await db.productoFilm.findAll({
           where: {
             nombre: {
@@ -24,9 +24,10 @@ const indexController = {
 
         res.render("index", { peliculasSlide: peliculasSlide, movie: movie });
       }
-     } catch (error) {
+    } catch (error) {
       console.log(error)
-    }}
+    }
+  }
 };
 
 
@@ -34,6 +35,6 @@ const indexController = {
 module.exports = indexController;
 
 
-        //res.render(path.resolve(__dirname, '../views/index.ejs'), { datos: noticiasPelis, masEsperadas: slideNoticia });
+
 
 
