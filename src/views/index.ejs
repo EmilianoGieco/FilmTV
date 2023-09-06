@@ -62,14 +62,15 @@
               <!-- Código para mostrar las películas en la lista de novedades -->
                 
                 
-              <ul>
+              
                 <% for (let i = 0; i < movie.length; i++) { %>
-                  <li>
-                    <img src="<%= movie[i].imagen1 %>" class="d-block w-30">
                     <%= movie[i].nombre %>
-                  </li>
+                    <a href="./peliculas/detalle/<%= movie[i].id %>">
+                    <img src="<%= movie[i].imagen1 %>" class="d-block w-30">
+                   
+                  
                 <% } %>
-              </ul>
+              
 
                 
 
