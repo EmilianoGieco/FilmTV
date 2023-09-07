@@ -1,78 +1,88 @@
-  <html>
-  <!--HEAD-->
-  <%- include("../partials/headDetallePelicula") %>
+<html>
+<!--HEAD-->
+<%- include("../partials/headDetallePelicula") %>
 
-    <body class="bg1">
-      <%- include("../partials/header") %>
+  <body class="bg1">
+    <%- include("../partials/header") %>
 
-        <!--MAIN-->
-        <main>
-          <h1 class="tituloDetalle"><%= movie.nombre %></h1>
-          <div class="contenedorPrincipal">
-          
-            <div class="videodeyoutube">
-            <iframe width="1000" height="550" src="<%= movie.video %>"
-              title="YouTube video player" frameborder="0"
+      <!--MAIN-->
+      <main>
+
+        <div class="contenedorPrincipal">
+          <div class="videodeyoutube">
+            <iframe width="1000" height="550" src="<%= movie.video %>" title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen></iframe>
           </div>
-          
 
-              <div class="card mb-3" style="max-width: 1000px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="<%= movie.imagen1 %>" class="img-fluid rounded-start" alt="...">
+          <div class="card mb-3 fondo" style="max-width: 1000px;">
+            
+              
+                <div class="card-body espaciado">
 
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title"><%=movie.nombre%></h5>
-                      <p class="card-text"><%= movie.genero %></p>
-                      
-                      <p class="card-text"><%= movie.fecha_estreno %></p>
-                      <p class="card-text"><%= movie.duracion %></p>
-                      <p class="card-text"><%= movie.resumen %></p>
-                      <p class="card-text"><small class="text-muted"><%= movie.fichatecnica%></small></p>
-                      <p class="card-text"><small class="text-muted"><%= movie.fichatecnica2%></small></p>
-                      <p class="card-text"><small class="text-muted"><%= movie.fichatecnica3%></small></p>
-                      <p class="card-text"><small class="text-muted"><%= movie.fichatecnica9%></small></p>
+                  <h3 class="card-title titulo">
+                    <%=movie.nombre%>
+                  </h3>
 
-                     
-                      <a href="/peliculas/actualizarFilm/<%= movie.id %>"> <button class="btn btn-primary" type="submit">actualizar</button></a>
-                      <form action="/peliculas/delete/<%= movie.id %>?_method=DELETE" method="post">
-                        <br>
+            
+
+                  <p class=" resumen">
+                    <%= movie.resumen%>
+                  </p>
+
+
+                  <h6 class="card-title genero">Genero:
+                    <%= movie.genero[0].nombre %>
+                  </h6>
+
+                  <h6 class="card-title duracion"> Duración:
+                    <%=movie.duracion%>min
+                  </h6>
+
+                  <h6 class="card-title estreno">Fecha de estreno:
+                    <%=movie.fecha_estreno%>
+                  </h6>
+
+                  <h6 class="card-title calificacion">Calificación:
+                    <p class="clasificacion">
+                                <input id="radio1" type="radio" name="estrellas" value="5">
+                                <label for="radio1">★</label>
+                             <input id="radio2" type="radio" name="estrellas" value="4">
+                                <label for="radio2">★</label>
+                               <input id="radio3" type="radio" name="estrellas" value="3">
+                                <label for="radio3">★</label>
+                                <input id="radio4" type="radio" name="estrellas" value="2">
+                               <label for="radio4">★</label>
+                               <input id="radio5" type="radio" name="estrellas" value="1">
+                                <label for="radio5">★</label>
+                  </h6>
+
+                  <div style="display: flex; gap: 20px;">
+                    <a href="/peliculas/actualizarFilm/<%= movie.id %>" class="btn btn-primary">Actualizar</a>
+
+                    <form action="/peliculas/delete/<%= movie.id %>?_method=DELETE" method="post">
                       <button type="submit" class="btn btn-primary bg">Eliminar</button>
-                      <br>
-                      <br>
-                      <br>
-                      
+                    </form>
 
-                     <!-- <h4> PUNTUACION </h4>
-                      <p class="clasificacion">
-                        <input id="radio1" type="radio" name="estrellas" value="5">
-                        <label for="radio1">★</label>
-                     <input id="radio2" type="radio" name="estrellas" value="4">
-                        <label for="radio2">★</label>
-                       <input id="radio3" type="radio" name="estrellas" value="3">
-                        <label for="radio3">★</label>
-                        <input id="radio4" type="radio" name="estrellas" value="2">
-                       <label for="radio4">★</label>
-                       <input id="radio5" type="radio" name="estrellas" value="1">
-                        <label for="radio5">★</label>-->
-                           
-                      </p>
-                      
-                      
-                                     
-                  </form>
-                  
-                   
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-        </main>
+          </div>
+
+
+
+
+
+          </form>
+
+
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </main>
       <!--FOOTER-->
       <%- include("../partials/footer") %>
   </body>
