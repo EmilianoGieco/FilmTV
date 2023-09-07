@@ -21,7 +21,7 @@ const { Op } = require('sequelize');
 /*detalle de las noticias*/
 const controlador = {
   detallePelicula: (req, res) => {
-    db.productoFilm.findByPk(req.params.id, {
+    db.productoFilm.findByPk(req.params.id, {include: [{ association: "genero" }] 
     }).then(function (movie) {
       res.render("movies/detallePelicula", { movie: movie });
     });

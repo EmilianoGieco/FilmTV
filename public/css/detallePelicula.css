@@ -1,10 +1,9 @@
-/*MAIN NOTICIAS DETALLE*/
+/*MAIN NOTICIAS DEL SLIDE*/
 .body {
   font-family: "Poppins", sans-serif;
-  
+
 }
 
-/*color de fondo del cuerpo del sitio*/
 .bg1 {
   background-color: #0d0d0d !important;
 }
@@ -44,7 +43,6 @@
 
 .videodeyoutube {
   margin: 2rem 5rem 3rem 5rem;
-
 }
 
 .ficha {
@@ -52,15 +50,61 @@
   text-align: left;
 }
 
+.fondo{
+  background-color: rgb(23, 22, 22) !important;
+  position: relative;
+  top: -3rem;
+}
+
+.titulo{
+  color:white !important;
+  text-transform: uppercase;
+}
+
+.titulo1{
+  color:white !important;
+  text-transform: uppercase;
+  font-size: large;
+}
+
+.resumen{
+  color:white !important;
+}
+
+.duracion{
+  color:white !important;
+}
+
+.estreno{
+  color:white !important;
+}
+
+.calificacion{
+  color:white !important;
+}
+
+.genero{
+  color:white !important;
+}
+
+.espaciado{
+padding:2rem !important;
+}
+
+/*boton rojo*/
 .bg{
   background-color: red !important;
   border-color: red !important;
 }
 
+.btn{
+  margin-top: 0.5rem !important;
+  padding: 0.5rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 450 !important;
+}
 
-
-
- /*puntuacion de estrellas*/
+ /*ESTRELLAS DE PUNTUACION*/
  #form {
   width: 250px;
   margin: 0 auto;
