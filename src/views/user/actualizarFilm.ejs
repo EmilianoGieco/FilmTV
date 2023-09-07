@@ -9,90 +9,97 @@
               <form action="/peliculas/actualizarFilm/<%= movie.id %>?_method=PUT" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
                 <div class="form-row">
                   <div class="col-md-4 mb-3">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
+                    <label class="titulo" for="nombre">Titulo película</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" required value="<%= movie.nombre %>">>
                     <div class="valid-feedback">
                       ¡Se ve bien!
                     </div>
                   </div>
-              
-                  <div class="col-md-4 mb-3">
-                    <label for="imagen1">Imagen</label>
-                    <input type="file" class="form-control" id="imagen1" placeholder="Imagen1" name="imagen" required>
+      
+                  <div  class="col-md-4 mb-3">
+                    <label class="titulo" for="imagen1">Imagen</label>
+                    <input type="file" class="form-control" id="imagen1" placeholder="imagen" name="imagen" required value="<%= movie.imagen1 %>">>
                     <div class="valid-feedback">
                       ¡Se ve bien!
                     </div>
                   </div>
-              
+      
                   <div class="col-md-4 mb-3">
-                    <label for="descripcion">Descripción</label>
-                    <input type="text" class="form-control" id="resumen" placeholder="resumen" name="resumen" required>
+                    <label class="titulo" for="descripcion">Sinopsis</label>
+                    <input type="text" class="form-control" id="resumen" placeholder="resumen" name="resumen" required value="<%= movie.resumen %>">>
                     <div class="valid-feedback">
                       ¡Se ve bien!
                     </div>
                   </div>
-          
+      
                   <div class="col-md-4 mb-3">
-                    <label for="descripcion">fecha de estreno</label>
-                    <input type="date" class="form-control" id="fecha_estreno" placeholder="fecha_estreno" name="fecha_estreno" required>
+                    <label class="titulo" for="descripcion">Fecha de estreno</label>
+                    <input type="date" class="form-control" id="fecha_estreno" placeholder="fecha_estreno"
+                      name="fecha_estreno" required value="<%= movie.fecha_estreno %>">>
                     <div class="valid-feedback">
                       ¡Se ve bien!
                     </div>
                   </div>
-          
+      
                   <div class="col-md-4 mb-3">
-                    <label for="descripcion">Duracion</label>
-                    <input type="text" class="form-control" id="duracion" placeholder="duracion" name="duracion" required>
+                    <label class="titulo" for="descripcion">Duración</label>
+                    <input type="text" class="form-control" id="duracion" placeholder="duración" name="duracion" required value="<%= movie.duracion %>">>
                     <div class="valid-feedback">
                       ¡Se ve bien!
                     </div>
                   </div>
-          
-                  <div class="col-md-4 mb-3">
-                    <label for="descripcion">calificacion</label>
-                    <input type="text" class="form-control" id="calificacion" placeholder="calificacion" name="calificacion" required>
+      
+                 <!--ESTO LO AGREGA EL USUARIO, NO EL ADMINISTRADOR -->
+      
+                   <!--<div class="col-md-4 mb-3">
+                    <label for="descripcion">Calificacion</label>
+                    <input type="text" class="form-control" id="calificacion" placeholder="calificacion" name="calificacion"
+                      required>
                     <div class="valid-feedback">
                       ¡Se ve bien!
                     </div>
-                  </div>
-              
+                  </div>-->
+      
                   <div class="col-md-4 mb-3">
-                    <label for="video">Enlace de Video</label>
-                    <input type="text" class="form-control" id="video" placeholder="video" name="video" required>
+                    <label class="titulo" for="video">Enlace de Video</label>
+                    <input type="text" class="form-control" id="video" placeholder="video" name="video" required value="<%= movie.video %>">>
                     <div class="valid-feedback">
                     </div>
                   </div>
                 </div>
-              
-                <div class="form-row">
-                  <div class="col-md-4 mb-3">
-                    <label for="validationCustomUsername">Subido Por</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                      </div>
-                      <input type="text" class="form-control" id="validationCustomUsername" placeholder="usuario" name="usuario" aria-describedby="inputGroupPrepend" required>
-                      <div class="invalid-feedback">
-                        Por favor, elige un nombre de usuario.
-                      </div>
-                    </div>
+      
+                <!--  ESTO LO SUBE EL ADMINISTRADOR, NO EL USUARIO-->
+                <!--  <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationCustomUsername">Subido Por</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
                   </div>
-              
-                  <div class="col-md-4 mb-3">
-                    <label for="inputGroupSelect01">Género</label>
-                    <select class="form-control" id="inputGroupSelect01" name="genero" required>
-                      <option selected disabled>Selecciona un género</option>
-                      <% for (let i=0; i<generos.length; i++) {%>
-                        <option value="<%=generos[i].id%>">
-                          <%=generos[i].nombre%>
-                        </option>
-                        <%} %>
-                    </select>
+                  <input type="text" class="form-control" id="validationCustomUsername" placeholder="usuario" name="usuario" aria-describedby="inputGroupPrepend" required>
+                  <div class="invalid-feedback">
+                    Por favor, elige un nombre de usuario.
                   </div>
                 </div>
-        
-            <button class="btn btn-primary" type="submit">Actualizar</button>
-          </form>
+              </div>-->
+      
+                <div class="col-md-4 mb-3">
+                  <label class="titulo" for="inputGroupSelect01">Género</label>
+                  <select class="form-control" id="inputGroupSelect01" name="genero" required value="<%= movie.genero %>">>
+                    <option selected disabled>selecciona un género</option>
+                    <% for (let i=0; i<generos.length; i++) {%>
+                      <option value="<%=generos[i].id%>">
+                        <%=generos[i].nombre%>
+                      </option>
+                      <%} %>
+                  </select>
+                </div>
+                </div>
+      
+                <button class="btn btn-secondary boton" type="submit">Actualizar</button>
+              
+              </form>
+           
         </main>
         
               
