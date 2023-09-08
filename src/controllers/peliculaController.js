@@ -21,11 +21,16 @@ const { Op } = require('sequelize');
 /*detalle de las noticias*/
 const controlador = {
   detallePelicula: (req, res) => {
-    db.productoFilm.findByPk(req.params.id, {include: [{ association: "genero" }] 
+    db.productoFilm.findByPk(req.params.id, {
+      include: [{ association: "genero" }]
     }).then(function (movie) {
-      res.render("movies/detallePelicula", { movie: movie });
+        console.log("Movie:", movie);
+        console.log("genero:", movie.genero);
+        res.render("movies/detallePelicula", { movie: movie });
+
     });
-  },
+},
+
 
 
   /*prueba de metodo cloudinary*/

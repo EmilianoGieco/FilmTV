@@ -85,15 +85,15 @@
         </div>-->
 
           <div class="col-md-4 mb-3">
-            <label class="titulo" for="inputGroupSelect01">Género</label>
-            <select class="form-control" id="inputGroupSelect01" name="genero" required>
+            <label class="titulo" for="genero">Género</label>
+            <select class="form-control" id="genero" name="genero" required>
               <option selected disabled>selecciona un género</option>
               <% for (let i=0; i<generos.length; i++) {%>
                 <option value="<%=generos[i].id%>">
                   <%=generos[i].nombre%>
                 </option>
                 <%} %>
-            </select>
+           </select>
           </div>
           </div>
 

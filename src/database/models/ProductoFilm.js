@@ -60,6 +60,8 @@ function productoFilm(sequelize, Datatypes) {
         id_tipo:
             { type: Datatypes.INTEGER },
 
+                                
+
     }
 
     // Timestamps

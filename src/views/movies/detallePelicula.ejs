@@ -31,9 +31,14 @@
                   </p>
 
 
-                  <h6 class="card-title genero">Genero:
-                    <%= movie.genero[0].nombre %>
-                  </h6>
+                  <% if (movie.genero) { %>
+                    <h6 class="card-title genero">Género:
+                      <%= movie.genero.nombre %>
+                    </h6>
+                  <% } else { %>
+                    <p class="card-title genero">Género: No especificado</p>
+                  <% } %>
+                  
 
                   <h6 class="card-title duracion"> Duración:
                     <%=movie.duracion%>min
