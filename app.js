@@ -51,6 +51,7 @@ app.use('/peliculas', rutaPeliculas);
 const port = 3020
 app.listen(port, () => console.log('Servidor corriendo http://localhost:' + port));*/
 
+const port = process.env.PORT || 3020; // Utiliza el puerto proporcionado por Render o 3020 si no está definido
 app.listen(port, '0.0.0.0', () => console.log('Servidor corriendo en el puerto ' + port));
 
 
