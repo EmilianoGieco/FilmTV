@@ -4,7 +4,7 @@ const session = require('express-session');
 const cookies = require('cookie-parser');
 const path = require('path');
 const methodOverride = require("method-override");
-const usuarioLogueoMiddleware = require('./middlewares/usuarioLogueoMiddleware');
+const usuarioLogueoMiddleware = require('./src/middlewares/usuarioLogueoMiddleware');
 
 /* app */
 const app = express();
@@ -22,9 +22,9 @@ app.use(cookies());
 app.use(usuarioLogueoMiddleware);
 
 /* rutas importadas */
-const rutaIndex = require('./routers/indexRouter');
-const rutaUsuario = require('./routers/usuarioRouter');
-const rutaPeliculas = require('./routers/peliculaRouter');
+const rutaIndex = require('./src/routers/indexRouter');
+const rutaUsuario = require('./src/routers/usuarioRouter');
+const rutaPeliculas = require('./src/routers/peliculaRouter');
 
 /* config carpeta public */
 app.use(express.static(path.join(__dirname, '../public')));
