@@ -47,9 +47,12 @@ app.use('/', rutaIndex);
 app.use('/usuarios', rutaUsuario);
 app.use('/peliculas', rutaPeliculas);
 
-/* servidor */
+/* servidor 
 const port = 3020
-app.listen(port, () => console.log('Servidor corriendo http://localhost:' + port));
+app.listen(port, () => console.log('Servidor corriendo http://localhost:' + port));*/
+
+app.listen(port, '0.0.0.0', () => console.log('Servidor corriendo en el puerto ' + port));
+
 
 
 
