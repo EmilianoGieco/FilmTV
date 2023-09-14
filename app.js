@@ -48,8 +48,8 @@ app.use('/usuarios', rutaUsuario);
 app.use('/peliculas', rutaPeliculas);
 
 /* servidor */
-const port = process.env.PORT || 3020; // Utiliza el puerto proporcionado por Render o 3020 si no está definido
-app.listen(port, () => console.log('Servidor corriendo en el puerto ' + port));
+const port = 3020
+app.listen(port, () => console.log('Servidor corriendo http://localhost:' + port));
 
 
 
