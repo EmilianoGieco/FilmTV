@@ -21,13 +21,15 @@ const { Op } = require('sequelize');
 /*detalle de las noticias*/
 const controlador = {
   detallePelicula: (req, res) => {
-    db.productoFilm.findByPk(req.params.id, {
-      include: [{ association: "genero" }]
+    db.productoFilm.findByPk(req.params.id, {include: [{ association: "genero" }] 
     }).then(function (movie) {
-      res.render("movies/detallePelicula", { movie: movie });
-    });
+        console.log("Movie:", movie);
+        console.log("genero:", movie.genero);
+        res.render("movies/detallePelicula", { movie: movie });
 
+    });
   },
+
 
 
   /*prueba de metodo cloudinary*/
@@ -103,6 +105,14 @@ const controlador = {
             console.error('Error en Cloudinary:', error);
           } else {
             // Actualizar la imagen en la base de datos
+            movie.nombre = req.body.nombre;
+            movie.resumen = req.body.resumen;
+            movie.fecha_estreno = req.body.fecha_estreno;
+            movie.calificacion = req.body.calificacion;
+            movie.video = req.body.video;
+            movie.subidoPor = req.body.usuario;
+            movie.genero = req.body.genero;
+            movie.duracion = req.body.duracion;
             movie.imagen1 = result.secure_url || movie.imagen1;
             await movie.save();
 
