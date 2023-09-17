@@ -30,8 +30,9 @@ router.get("/estrenos", peliculaController.estrenos);
 /*peliculas del archivo noticias*/
 router.get('/noticias', peliculaController.noticia );
 
-/*peliculas del archivo peliculas2023*/
-router.get('/peliculas2023', peliculaController.peliculas2023 );
+//para finalizarlo  en un futuro proximo Emi
+/*peliculas del archivo peliculas2023
+router.get('/peliculas2023', peliculaController.peliculas2023 );*/
 
 ///* rutas carpetas las 5 mejores peliculas*///
 router.get("/detalleNoticia/:idN", peliculaController.detalleNoticia);

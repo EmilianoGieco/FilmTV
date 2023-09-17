@@ -21,10 +21,12 @@ const { Op } = require('sequelize');
 /*detalle de las noticias*/
 const controlador = {
   detallePelicula: (req, res) => {
-    db.productoFilm.findByPk(req.params.id, {include: [{ association: "genero" }] 
+    db.productoFilm.findByPk(req.params.id, {
+      include: [{ association: "genero" }]
     }).then(function (movie) {
       res.render("movies/detallePelicula", { movie: movie });
     });
+
   },
 
 
@@ -189,7 +191,8 @@ const controlador = {
       });
   },
 
-  /* peliculas 2023*/
+  //para finalizarlo  en un futuro proximo Emi
+  /* peliculas 2023
   peliculas2023: (req, res) => {
 
     db.productoFilm.findAll({
@@ -205,11 +208,11 @@ const controlador = {
         return res.render("movies/peliculas2023", { peliculas: peliculas });
       });
 
-  },
+  },*/
 
   /* noticias de peliculas slide principal*/
   detalleNoticia: (req, res) => {
-    db.productoFilm.findByPk(req.params.idN , {
+    db.productoFilm.findByPk(req.params.idN, {
       include: [{ association: "genero" }] // Esto incluirá los detalles de noticias asociados al producto
     })
       .then(function (noticiaDetalle) {
