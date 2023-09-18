@@ -166,7 +166,7 @@ const controlador = {
       const estrenos = await db.productoFilm.findAll(
 
         {
-          limit: 8,
+          limit: 13,
           order: [['fecha_estreno', 'DESC']] // Ordenar por fecha de estreno en orden descendente.
         })
 
@@ -180,7 +180,7 @@ const controlador = {
 
   /*detalle de los estrenos*/
   detalleEstrenos: (req, res) => {
-    db.productoFilm.findByPk(req.params.id)
+    db.productoFilm.findByPk(req.params.id,{include: [{ association: "genero" }, { association: "actor" }, { association: "guionista" }, { association: "director" }]})
       .then(function (pelicula) {
         res.render("movies/detalleEstrenos", { pelicula: pelicula })
       })

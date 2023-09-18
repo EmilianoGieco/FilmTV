@@ -7,7 +7,60 @@
 
             <!--MAIN-->
             <main>
-                <%= pelicula.nombre %>
+                <h1 class="titulo4">
+                    <%= pelicula.nombre %>
+                </h1>
+
+                <div class="contenedorPrincipal">
+                    <div class="videodeyoutube"><iframe width="1000" height="550" src="<%= pelicula.video %>"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></div> </iframe>
+
+                    <div class="card mb-3 fondo" style="max-width: 1000px;">
+
+
+
+                        <div >
+                            <div class="card-body" >
+                                <h3 class="card-title titulo">
+                                    <%=pelicula.nombre%>
+                                </h3>
+
+                                <p class="card-text resumen">
+                                    <%= pelicula.resumen%>
+                                </p>
+
+                                <h6 class="card-title duracion"> Duración:
+                                    <%=pelicula.duracion%>min
+                                </h6>
+
+                                <h6 class="card-title estreno">Fecha de estreno:
+                                    <%=pelicula.fecha_estreno%>
+                                </h6>
+
+                                <h6 class="card-title estreno">Dirección:
+                                    <%=pelicula.director[0].nombre%>
+                                </h6>
+
+                                <h6 class="card-title estreno">Guión:
+                                    <%=pelicula.guionista[0].nombre%>
+                                </h6>
+
+                                <h6 class="card-title estreno">Genero:
+                                    <%=pelicula.genero[0].nombre%>
+                                </h6>
+
+                                <h6 class="card-title estreno">Reparto:
+                                    <%=pelicula.actor[0].nombre%>
+                                </h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<br>
+<br>
             </main>
             <!-- FOOTER -->
             <%- include("../partials/footer") %>

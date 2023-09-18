@@ -1,4 +1,4 @@
-/*MAIN NOTICIAS*/
+/*MAIN estrenos y detalleEstrenos*/
 .body {
   font-family: "Poppins", sans-serif;
 }
@@ -8,49 +8,28 @@
   background-color: #0d0d0d !important;
 }
 
-.row-cols-md-2>* {
-  flex: 0 0 auto;
-  width: 50%;
-  padding-top: 2rem;
-  margin: auto;
-}
 
+/*contenedor de fondo de las peliculas*/
 .card-body {
   color: white !important;
+  max-width: 95% !important; /* Ajusta el ancho máximo según tus necesidades */
+  margin: 0 auto !important; /* Para centrar el contenido dentro del ancho máximo */
 }
 
-.card-title{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  text-transform: uppercase;
-  font-size:large;
-}
-
-.card-text-3{
-  padding-bottom: 2.5rem;
-  border-bottom: 0.2px solid rgba(255, 0, 0, 0.4);
-}
-
-.card-text-1{
-  padding-top: 0.7rem;
-}
-
-/*NOVEDADES*/
-/* CSS */
+/*contenedor de las peliculas*/
 .peliculas-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around; 
 }
 
 .pelicula {
-  flex: 0 0 calc(20% - 10px);
-  /* Ajusta el ancho de cada película según tus necesidades */
-  margin-bottom: 20px;
-  margin-top: 20px;
+  flex: 0 0 calc(20% - 20px);
+  margin: 10px; /* Ajusta el margen entre cada imagen */
   border-radius: 2%;
 }
 
+/*titulo de peliculas*/
 .bajada {
   margin-top: 10px;
   text-align: left !important;
@@ -58,6 +37,7 @@
   text-transform: uppercase;
 }
 
+/*titulo principal*/
 .titulo4 {
   font-size: 1.5rem;
   text-align: center;
@@ -70,4 +50,20 @@
   color: white;
 }
 
-.imagen:hover {filter: grayscale(70%);}
+.imagen:hover {
+  filter: grayscale(70%);
+}
+
+.fondo{
+  background-color: rgb(23, 22, 22) !important;
+}
+
+.contenedorPrincipal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.videodeyoutube{
+  padding-top: 2rem;
+}
