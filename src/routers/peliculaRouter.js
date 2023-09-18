@@ -24,13 +24,16 @@ router.put("/actualizarFilm/:id",upload.single("imagen"), peliculaController.pos
 /* delete pelicula */
 router.delete("/delete/:id", peliculaController.delete)
 
-/*peliculas de la carpetas estrenos cambiar las peliculas con los ultimos estrenos de ahora*/
+/*peliculas con los ultimos estrenos de ahora*/
 router.get("/estrenos", peliculaController.estrenos);
+
+/*detalle de ultimos estrenos*/
+router.get("/estrenos/:id", peliculaController.detalleEstrenos);
 
 /*peliculas del archivo noticias*/
 router.get('/noticias', peliculaController.noticia );
 
-//para finalizarlo  en un futuro proximo Emi
+//para finalizarlo en un futuro proximo Emi
 /*peliculas del archivo peliculas2023
 router.get('/peliculas2023', peliculaController.peliculas2023 );*/
 

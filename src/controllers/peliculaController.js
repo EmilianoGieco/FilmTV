@@ -21,11 +21,12 @@ const { Op } = require('sequelize');
 /*detalle de las noticias*/
 const controlador = {
   detallePelicula: (req, res) => {
-    db.productoFilm.findByPk(req.params.id, {include: [{ association: "genero" }] 
+    db.productoFilm.findByPk(req.params.id, {
+      include: [{ association: "genero" }]
     }).then(function (movie) {
-        console.log("Movie:", movie);
-        console.log("genero:", movie.genero);
-        res.render("movies/detallePelicula", { movie: movie });
+      console.log("Movie:", movie);
+      console.log("genero:", movie.genero);
+      res.render("movies/detallePelicula", { movie: movie });
 
     });
   },
@@ -165,14 +166,8 @@ const controlador = {
       const estrenos = await db.productoFilm.findAll(
 
         {
-          where: {
-            nombre: {
-              [Op.or]: ["Contrareloj", "Escape bajo fuego", "Poderes ocultos", "Sonido de libertad"]
-            }
-
-          },
-          order: [['fecha_estreno', 'ASC']], // Ordenar por fecha de estreno en orden ascendente.
-          include: [{ association: "genero" }, { association: "actor" }]
+          limit: 8,
+          order: [['fecha_estreno', 'DESC']] // Ordenar por fecha de estreno en orden descendente.
         })
 
       // Renderizar la vista y los resultados a la plantilla.
@@ -181,9 +176,15 @@ const controlador = {
     } catch (error) {
       console.log(error)
     }
+  },
 
-  }
-  ,
+  /*detalle de los estrenos*/
+  detalleEstrenos: (req, res) => {
+    db.productoFilm.findByPk(req.params.id)
+      .then(function (pelicula) {
+        res.render("movies/detalleEstrenos", { pelicula: pelicula })
+      })
+  },
 
   /* peliculas noticias*/
   noticia: (req, res) => {

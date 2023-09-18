@@ -9,57 +9,30 @@
             <main>
 
                 <!--EJS-->
-                <h1 class="tituloDetalle">Ultimos estrenos</h1>
+                <h1 class="titulo4">Últimos estrenos</h1>
 
                 <!--ejemplo con bd-->
 
-                <div class="row row-cols-1 row-cols-md-2 ">
-
-                    <div class="col mb-4">
-                        <!-- Contenido -->
-
-                        <% for(let i=0; i<estrenos.length ; i++) {%>
-
-                            <!--contenido-->
+                <div class="row row-cols-1 row-cols-md-3">
+                    <% for (let i = 0; i < estrenos.length; i++) { %>
+                        <div class="col mb-4">
                             <div class="card-body">
-
-                                <!--Titulo-->
-                                <h4 class="card-title">
-                                    <%= estrenos[i].nombre %>
-                                </h4>
-
-                                <!--Contenido video-->
-                                <div><iframe width="855" height="550" src="<%= estrenos[i].video%>"
-                                        title="YouTube video player" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        allowfullscreen></div> </iframe>
-                                <div class="mask rgba-white-slight"></div>
-
-                                <!--Texto-->
-
-                                <p class="card-text-1">
-                                    <%=estrenos[i].resumen%>
-                                </p>
-
-                                <h6> Genero:
-                                    <%= estrenos[i].genero[0].nombre %>
-                                </h6>
-
-                                <h6 > Duración:
-                                    <%=estrenos[i].duracion%>min
-                                </h6>
-
-                                <h6 class="card-text-3">Fecha de estreno:
-                                    <%=estrenos[i].fecha_estreno%>
-                                </h6>
-                                
-
-
+                                <div class="peliculas-container">
+                                    <div class="pelicula">
+                                        <a href="./estrenos/<%=estrenos[i].id%>">
+                                            <img  class="imagen" src="<%= estrenos[i].imagen1 %>" alt="<%= estrenos[i].nombre %>" width="450px">
+                                        </a>
+                                        <h6 class="bajada">
+                                            <%= estrenos[i].nombre %>
+                                        </h6>
+                                    </div>
+                                </div>
                             </div>
-
-
-                            <% } %>
-                    </div>
+                        </div>
+                    <% } %>
+                </div>
+                
+                
             </main>
             <!-- FOOTER -->
             <%- include("../partials/footer") %>
