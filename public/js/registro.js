@@ -69,7 +69,7 @@ window.addEventListener("load", function () {
 
         console.log(nombreUsuarioExiste);
         
-        if (c == 1) { return false; }
+        if (c == 1) { return; }
 
         // Si no hay errores, formulario enviado con éxito//
         alert("¡Formulario enviado con éxito!");

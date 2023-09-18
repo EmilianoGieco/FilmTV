@@ -42,11 +42,11 @@ const controlador = {
       }
       
       console.log(req.body.password)
+      
       //comparar contraseñas
       const correctPassword = bcryptjs.compareSync(req.body.password, userToLogin.clave);
       console.log("hola0")
       if (correctPassword) {
-        //delete userToLogin.password;
         req.session.userLogged = userToLogin;
         console.log("hola")
 
@@ -86,7 +86,6 @@ const controlador = {
       }
 
       const usuarioBD = await db.usuario.findOne({ where: { correo: req.body.email } });
-
       if (usuarioBD) {
         return res.render('user/register', {
           errors: {

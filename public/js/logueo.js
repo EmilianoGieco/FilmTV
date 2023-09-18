@@ -1,22 +1,15 @@
 window.addEventListener("load", function () {
-
     let formularioLogueo = document.querySelector("form.campo-negro");
+    let campoEmail = document.getElementById("email");
+    let campoContrasena = document.getElementById("password");
+    let error1 = document.getElementById("error1");
+    let error2 = document.getElementById("error2");
 
     formularioLogueo.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Selecciono los campos del formulario //
-        let campoEmail = document.getElementById("email");
-        let campoContrasena = document.getElementById("password");
-
-
-        // Errores //
-        let error1 = document.getElementById("error1");
-        let error2 = document.getElementById("error2");
-
         let c = 0;
 
-        // Limpiar errores previos //
         error1.innerText = "";
         error2.innerText = "";
 
@@ -32,14 +25,14 @@ window.addEventListener("load", function () {
             c = 1;
         }
 
-        if (c == 1) { return; }
+        if (c === 1) {
+            return;
+        }
 
-        // Si no hay errores, formulario enviado con éxito//
         alert("¡Nuevamente en tu perfil!");
         formularioLogueo.submit();
     });
-
-})
+});
 
 
 
