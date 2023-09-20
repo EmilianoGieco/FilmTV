@@ -6,12 +6,9 @@ const path = require("path");
 
 console.log( path.join(__dirname,'../../public/img'))
   const upload = multer();
-
-
-  
+ 
 /* ruta carpeta detalle pelicula*/
 router.get("/detalle/:id", peliculaController.detallePelicula); 
-
 
 /* ruta CrearFilm*/
 router.get("/CrearFilm", peliculaController.getCrearFilm);
@@ -28,10 +25,13 @@ router.delete("/delete/:id", peliculaController.delete)
 router.get("/estrenos", peliculaController.estrenos);
 
 /*detalle de ultimos estrenos*/
-router.get("/estrenos/:id", peliculaController.detalleEstrenos);
+router.get("/estrenos/detalle/:id", peliculaController.detalleEstrenos);
 
 /*peliculas del archivo noticias*/
 router.get('/noticias', peliculaController.noticia );
+
+/*peliculas del archivo noticias*/
+router.get('/noticias/detalle/:id', peliculaController.detalleNoti);
 
 //para finalizarlo en un futuro proximo Emi
 /*peliculas del archivo peliculas2023

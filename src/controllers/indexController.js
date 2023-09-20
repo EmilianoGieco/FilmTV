@@ -31,6 +31,7 @@ const indexController = {
       console.log(error);
     }
   }
+
 };
 
 module.exports = indexController;
