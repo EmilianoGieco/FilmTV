@@ -63,7 +63,7 @@
                   <div style="display: flex; gap: 20px;">
                     <a href="/peliculas/actualizarFilm/<%= movie.id %>" class="btn btn-primary">Actualizar</a>
 
-                    <form action="/peliculas/delete/<%= movie.id %>?_method=DELETE" method="post">
+                    <form id="eliminar" action="/peliculas/delete/<%= movie.id %>?_method=DELETE" method="POST">
                       <button type="submit" class="btn btn-primary bg">Eliminar</button>
                     </form>
 
@@ -79,7 +79,7 @@
 
           </form>
 
-
+          <script src="/js/deleteFilm.js"></script>
         </div>
         </div>
         </div>

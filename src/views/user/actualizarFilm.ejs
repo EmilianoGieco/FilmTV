@@ -5,8 +5,10 @@
       <body class="bg1">
         <%- include("../partials/header") %>
 
-            <main class="container">
-              <form action="/peliculas/actualizarFilm/<%= movie.id %>?_method=PUT" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+        <main class="container">
+          <form id="formu" action="/peliculas/actualizarFilm/<%= movie.id %>?_method=PUT" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+            <!-- Agregar el div para el mensaje de validación -->
+            
                 <div class="form-row">
                   <div class="col-md-4 mb-3">
                     <label class="titulo" for="nombre">Titulo película</label>
@@ -95,14 +97,16 @@
                   </select>
                 </div>
                 </div>
-      
+                 
+
+
                 <button class="btn btn-secondary boton" type="submit">Actualizar</button>
               
               </form>
            
         </main>
         
-              
+             <script src="/js/actualizarFilm.js"></script>
               <script>
               // Example starter JavaScript for disabling form submissions if there are invalid fields
               (function() {
