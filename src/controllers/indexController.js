@@ -21,14 +21,16 @@ const indexController = {
           order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente.
         });
 
-
+       
         res.render("index", { peliculasSlide: peliculasSlide, movie: movie });
       }
     } catch (error) {
       console.log(error)
     }
   }
+
 };
+
 
 
 

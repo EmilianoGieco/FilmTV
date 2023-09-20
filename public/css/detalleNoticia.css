@@ -29,15 +29,15 @@
     margin: 0.5rem 5rem 1rem 5rem;
   }
   
-  .tituloDetalle {
-    margin-top: 2rem;
-    margin-left: 3rem;
-    margin-right: 24rem;
+  .titulo4 {
     font-size: 1.5rem;
+    text-align: center;
     line-height: 1.2;
     padding-left: 9px;
     text-transform: uppercase;
-    border-bottom: 0.2px solid #fa320a;
+    margin-top: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 0.4px solid #fa320a;
     color: white;
   }
   
@@ -63,11 +63,13 @@
   .titulo1{
     color:white !important;
     text-transform: uppercase;
-    font-size: large;
+    font-size: 1.1rem;
   }
 
   .resumen{
     color:white !important;
+    font-size: 1.1rem;
+    
   }
 
   .duracion{

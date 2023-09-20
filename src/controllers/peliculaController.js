@@ -31,8 +31,6 @@ const controlador = {
     });
   },
 
-
-
   /*prueba de metodo cloudinary*/
   postCrearFilm: (req, res) => {
     const imageBuffer = req.file.buffer;
@@ -180,7 +178,7 @@ const controlador = {
 
   /*detalle de los estrenos*/
   detalleEstrenos: (req, res) => {
-    db.productoFilm.findByPk(req.params.id,{include: [{ association: "genero" }, { association: "actor" }, { association: "guionista" }, { association: "director" }]})
+    db.productoFilm.findByPk(req.params.id, { include: [{ association: "genero" }, { association: "actor" }, { association: "guionista" }, { association: "director" }] })
       .then(function (pelicula) {
         res.render("movies/detalleEstrenos", { pelicula: pelicula })
       })
@@ -202,6 +200,14 @@ const controlador = {
       });
   },
 
+
+  /*Detalle de las noticias*/
+  detalleNoti: (req, res) => {
+    db.productoFilm.findByPk(req.params.id, { include: [{ association: "genero" }, { association: "actor" }, { association: "guionista" }, { association: "director" }] })
+      .then(function (noticia) {
+        res.render("movies/detalleNoti", { noticia: noticia })
+      })
+  },
   //para finalizarlo  en un futuro proximo Emi
   /* peliculas 2023
   peliculas2023: (req, res) => {
