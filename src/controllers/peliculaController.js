@@ -33,24 +33,25 @@ const controlador = {
   guardado: async (req, res) => {
     try {
       const calificacion = req.body.calificacion;
-
-      // Aquí puedes validar la calificación según tus requerimientos
-      // Por ejemplo, puedes asegurarte de que sea un número o tiene un formato específico
-
+      const peliculaId = req.params.id;  // Obtener el ID de la película desde la URL
+  
       if (!calificacion) {
         return res.status(400).send('La calificación es requerida.');
       }
-
+  
+      // Crear la calificación asociada a la película
       await db.calificacion.create({
-        calificacion: calificacion
+        calificacion: calificacion,
+        id_productoFilm: peliculaId,  // Asociar la calificación con la película
+        usuario_id: null  // establecer el ID del usuario si es necesario
       });
-
+  console.log(calificacion)
       res.redirect('/');
     } catch (error) {
       console.error('Error al guardar la calificación:', error);
       res.status(500).send('Error al guardar la calificación');
     }
-  },
+  },  
 //guardado de calificacion final
 
 
