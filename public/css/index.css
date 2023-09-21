@@ -250,22 +250,27 @@ li:hover {
   color: #ececec;
 }
 
-.ADMIN {
+.button-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh; /*altura según sea necesario */
+}
+
+.ADMIN {
   text-transform: uppercase;
   line-height: 33px;
-  font-weight: 700;
-  font-size: 10px;
+  font-weight: 500;
+  font-size: 20px;
   color: white;
   text-decoration: none;
-  padding: 10px;
+  padding: 15px;
   background: url(https://1.bp.blogspot.com/-6HZShpiglrQ/YIRTOcJ3XPI/AAAAAAABPoI/MHP_FqyL9M0EP8rjKMZQRzGl_SNely9ugCLcBGAsYHQ/s185/2.gif);
   background-size: 3023px;
-  font-size: 20px;
-  padding: 0px 0px 6px 0px;
-  margin: 0px 0px 0px -5px;
-  
+  text-align: center;
+  border-radius: 10px;
 }
+
 
 
 /*RESPONSIVE DESKTOP*/
@@ -282,19 +287,21 @@ li:hover {
 
 }
 
-/*RESPONSIVE TABLET*/
+/* RESPONSIVE TABLET */
 @media only screen and (max-width: 1300px) and (min-width: 500px) {
-
+  /* Ajustes para las imágenes */
   .img444 {
     width: 100%;
     height: auto;
-
   }
 
+  /* Cambiar color de fondo y bordes del botón del navbar-toggler */
   .navbar-toggler {
-    background-color: white !important;
+    background-color: #343a40; /* Gris oscuro */
+    border: 1px solid #343a40; /* Borde gris oscuro */
   }
 
+  /* Ajustes para el contenedor principal */
   .contenedor {
     display: flex;
     flex-direction: column;
@@ -302,19 +309,20 @@ li:hover {
     padding: 0.2rem 1rem 1rem 1rem;
   }
 
+  /* Ajustes para el tamaño del título secundario */
   .tituloSecundario {
     font-size: 1.5rem;
     line-height: 1.2;
-
   }
 
+  /* Ajustes para las secciones desplegables */
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.texto {
-  position: absolute;
-  top: 65%;
 
-}
 
 /*ANIMACION*/
 @keyframes opacidad {
@@ -338,27 +346,32 @@ li:hover {
   animation-direction: normal;
 }
 
-/*RESPONSIVE MOBILE*/
+/* RESPONSIVE MOBILE */
 @media only screen and (max-width: 500px) and (min-width: 270px) {
+  /* Hacer el banner responsive */
   .baner {
     width: 100%;
     height: auto;
   }
 
+  /* Ajustes para el carrusel central */
   .carrucelcentral {
     width: 100%;
   }
 
+  /* Ajustes para las imágenes */
   .img444 {
     width: 100%;
     height: auto;
-
   }
 
+  /* Cambiar color de fondo y bordes del botón del navbar-toggler */
   .navbar-toggler {
-    background-color: white !important;
+    background-color: #343a40; /* Gris oscuro */
+    border: 1px solid #343a40; /* Borde gris oscuro */
   }
 
+  /* Ajustes para el contenedor principal */
   .contenedor {
     display: flex;
     flex-direction: column;
@@ -366,9 +379,16 @@ li:hover {
     padding: 0.2rem 1rem 1rem 1rem;
   }
 
+  /* Ajustes para el tamaño del título secundario */
   .tituloSecundario {
     font-size: 1.2rem;
     line-height: 1.2;
   }
 
+  /* Ajustes para las secciones desplegables */
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+  }
 }
+

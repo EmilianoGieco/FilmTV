@@ -1,105 +1,73 @@
 <!--HEADER-->
 <header>
-    <nav class="navbar navbar-dark bg-black">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid">
             <!--LOGO-->
-            <a href="/"> <img class="logoPrincipal" src="https://abisulkes.alwaysdata.net/cineTipsBlanco.png"
-                    class="logo"></a>
+            <a class="navbar-brand" href="/">
+                <img src="https://abisulkes.alwaysdata.net/cineTipsBlanco.png" class="logoPrincipal" alt="Logo">
+            </a>
             <!--FINAL LOGO-->
+
+            <!--BOTÓN TOGGLE PARA MÓVILES-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
             <!--SECCIONES-->
-            <nav class="navbar navbar-expand-lg ">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#"></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/peliculas/estrenos">Últimos
-                                    estrenos</a>
-                            </li>
-                            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page"
-                                            href="/peliculas/noticias">Noticias</a>
-                                    </li>
-                                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                                        <ul class="navbar-nav">
-
-                                            <!-- para finalizarlo  en un futuro proximo Emi-->
-                                            <!-- <li class="nav-item">
-                                                
-                                                <a class="nav-link active" aria-current="page"
-                                                    href="/peliculas/peliculas2023">Peliculas 2023</a>
-                                            </li>-->
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" role="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Top series
-                                                </a>
-
-                                                <ul class="dropdown-menu bgColor">
-                                                    <li><a class="dropdown-item"
-                                                            href="/peliculas/recomendacionesSerieNetflix">TOP
-                                                            NETFLIX</a></li>
-                                                    <li><a class="dropdown-item"
-                                                            href="/peliculas/recomendacionesSerieAmazon">TOP
-                                                            AMAZON PRIME</a></li>
-                                                    <li><a class="dropdown-item"
-                                                            href="/peliculas/recomendacionesSerisDisney">TOP
-                                                            Disney+ </a></li>
-                                                    <!--<li><a class="dropdown-item" href="/peliculas/star+">TOP START+ (en
-                                                            mantenimiento)</a></li>
-                                                    <li><a class="dropdown-item" href="/peliculas/paramount+">TOP Paramount+ (en
-                                                            mantenimiento)</a></li>
-                                                    <li><a class="dropdown-item" href="/peliculas/HBOMAX+">TOP HBO MAX+ (en
-                                                            mantenimiento)</a></li>-->
-                                                </ul>
-                                            <li>
-
-                                                <button type="button" class="btn btn-secondary ">
-                                                    <a class="nav-link active" aria-current="page"
-                                                        href="/peliculas/CrearFilm">CREAR FILM</a>
-                                                </button>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                            </div>
-            </nav>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/peliculas/estrenos"><b>ÚLTIMOS
+                                ESTRENOS</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/peliculas/noticias"><b>NOTICIAS</b></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <b>TOP SERIES</b>
+                        </a>
+                        <ul class="dropdown-menu bgColor">
+                            <li><a class="dropdown-item" href="/peliculas/recomendacionesSerieNetflix"><b>TOP
+                                        NETFLIX</b></a></li>
+                            <li><a class="dropdown-item" href="/peliculas/recomendacionesSerieAmazon"><b>TOP AMAZON
+                                        PRIME</b></a></li>
+                            <li><a class="dropdown-item" href="/peliculas/recomendacionesSerisDisney"><b>TOP
+                                        Disney+</b></a></li>
+                        </ul>
+                    </li>
+                    <!-- Otras secciones -->
+                </ul>
+            </div>
             <!--FINAL SECCIONES-->
+
 
             <!--BUSCADOR-->
             <form class="d-flex color" role="search">
                 <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                <button class="btn btn-outline-success" type="submit"><b>Buscar</b></button>
             </form>
             <!--FINAL BUSCADOR-->
 
             <!--LOGUEO Y REGISTRO-->
-            <div class="btn-group dropstart">
+            <div class="btn-group dropstart ms-2">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <i class="fa-solid fa-circle-user"></i>
-
                 </button>
                 <ul class="dropdown-menu bg">
                     <% if (locals.isLogged) { %>
-                        <li><a href="/usuarios/perfilUsuario" class="color"> Mi perfil </a></li>
-                        <li><a href="/usuarios/cerrarSesion" class="color"> Cerrar sesión </a></li>
-
+                        <li><a href="/usuarios/perfilUsuario" class="color"> <b>Mi perfil</b> </a></li>
+                        <li><a href="/usuarios/cerrarSesion" class="color"><b> Cerrar sesión</b> </a></li>
                         <% } else { %>
-                            <li><a href="/usuarios/login" class="color"> Iniciar sesion </a></li>
-                            <li><a href="/usuarios/register" class="color"> Registrate </a></li>
+                            <li><a href="/usuarios/login" class="color"><b>Iniciar sesión</b> </a></li>
+                            <li><a href="/usuarios/register" class="color"> <b>Registrarse</b> </a></li>
                             <% } %>
                 </ul>
             </div>
+            <!--FINAL LOGUEO Y REGISTRO-->
         </div>
-        <!--FINAL LOGUEO Y REGISTRO-->
     </nav>
 </header>

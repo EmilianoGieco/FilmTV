@@ -7,13 +7,12 @@
       <!--MAIN-->
       <!--slide de las 5 peliculas mas esperadas-->
       <main>
-        <div style="text-align: center;">
-             
-            <button type="button" class="ADMIN">
-              <a class="nav-link active" aria-current="page" href="/peliculas/CrearFilm">CREAR FILM</a>
-            </button>
-         
-      </div>
+
+<div class="button-container">
+  <button type="button" class="ADMIN">
+    <a class="nav-link active" aria-current="page" href="/peliculas/CrearFilm">CREAR FILM</a>
+  </button>
+</div>
 
         <img class="baner" src="https://abisulkes.alwaysdata.net/banerPrincipal11.jpg">
         <h2 class="titulo2">5 peliculas mas esperadas 2023</h2>
@@ -67,12 +66,7 @@
         <!--final de slide -->
 
         <!-- Código para mostrar las películas en la lista de novedades -->
-        <h2 class="titulo4">Mirá las últimas novedades
-
-
-
-          
-        </h2>
+        <h2 class="titulo4">Mirá las últimas novedades</h2>
         <div class="peliculas-container">
           <% for (let i=0; i < movie.length; i++) { %>
             <div class="pelicula">
@@ -85,9 +79,6 @@
             </div>
             <% } %>
         </div>
-
-
-
       </main>
 
       <!--FOOTER-->

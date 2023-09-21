@@ -40,11 +40,6 @@ router.get('/peliculas2023', peliculaController.peliculas2023 );*/
 ///* rutas carpetas las 5 mejores peliculas*///
 router.get("/detalleNoticia/:idN", peliculaController.detalleNoticia);
 
-/* rutas carpetas recomendacionesDeSeries*/
-router.get('/recomendacionesSerieNetflix', peliculaController.recomendacionesSerieNetflix );
-router.get('/recomendacionesSerieAmazon', peliculaController.recomendacionesSerieAmazon );
-router.get('/recomendacionesSerisDisney', peliculaController.recomendacionesSerisDisney );
-
 /* rutas carpetas top NETFLIX*/
 router.get('/Top1', peliculaController.Top1 );
 router.get('/Top2', peliculaController.Top2 );
