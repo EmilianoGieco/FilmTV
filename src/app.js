@@ -47,6 +47,8 @@ app.use('/', rutaIndex);
 app.use('/usuarios', rutaUsuario);
 app.use('/peliculas', rutaPeliculas);
 
+  
+
 /* servidor */
 const port = 3020
 app.listen(port, () => console.log('Servidor corriendo http://localhost:' + port));

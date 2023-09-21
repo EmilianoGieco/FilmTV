@@ -25,8 +25,8 @@ function usuario(sequelize, Datatypes) {
             { type: Datatypes.STRING(255) },
 
     }
-
-
+    
+  
     // Timestamps
     config = { tableName: "Usuario", timestamps: false };
 

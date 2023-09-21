@@ -237,6 +237,8 @@ const controlador = {
       })
   },
 
+  
+
   aspromonte: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/estrenos/aspromonte.ejs'))
   },

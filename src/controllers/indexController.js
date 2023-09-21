@@ -30,9 +30,29 @@ const indexController = {
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 
+  buscar: async (req, res) => {
+    try {
+      const { busqueda } = req.body;
+
+      // Realiza la búsqueda en la base de datos utilizando el valor de "busqueda"
+      const resultados = await db.productoFilm.findAll({
+        where: {
+          nombre: {
+            [Op.like]: `%${busqueda}%` // Buscar nombres que contengan la cadena de búsqueda
+          }
+        }
+      });
+
+      res.render("resultado", { resultados }); // Renderiza una página de resultados con los datos encontrados
+    } catch (error) {
+      console.log(error);
+    }
+  }
 };
+
+
 
 module.exports = indexController;
 
