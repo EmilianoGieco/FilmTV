@@ -6,7 +6,7 @@
     <%- include("../partials/header") %>
 
       <main class="container">
-        <form action="/peliculas/CrearFilm" method="POST" class="needs-validation" novalidate
+        <form id="CrearFilm" action="/peliculas/CrearFilm" method="POST" class="needs-validation" novalidate
           enctype="multipart/form-data">
           <div class="form-row">
             <div class="col-md-4 mb-3">
@@ -100,7 +100,7 @@
           <button class="btn btn-secondary boton" type="submit">Subir Película</button>
         
         </form>
-     
+        <script src="/js/CrearFilm.js"></script>
         <script>
           // Example starter JavaScript for disabling form submissions if there are invalid fields
           (function () {
