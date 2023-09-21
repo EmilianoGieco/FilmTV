@@ -39,8 +39,6 @@ function calificacion(sequelize, Datatypes) {
 
     }
 
-
-
     return calificacion;
 
 } module.exports = calificacion;

@@ -16,72 +16,79 @@
           </div>
 
           <div class="card mb-3 fondo" style="max-width: 1000px;">
-            
-              
-                <div class="card-body espaciado">
-
-                  <h3 class="card-title titulo">
-                    <%=movie.nombre%>
-                  </h3>
-
-                  <p class=" resumen">
-                    <%= movie.resumen%>
-                  </p>
 
 
-                  <% if (movie.genero) { %>
-                    <h6 class="card-title genero">Género:
-                      <%= movie.genero.nombre %>
-                    </h6>
-                  <% } else { %>
-                    <p class="card-title genero">Género: No especificado</p>
+            <div class="card-body espaciado">
+
+              <h3 class="card-title titulo">
+                <%=movie.nombre%>
+              </h3>
+
+              <p class=" resumen">
+                <%= movie.resumen%>
+              </p>
+
+
+              <% if (movie.genero) { %>
+                <h6 class="card-title genero">Género:
+                  <%= movie.genero.nombre %>
+                </h6>
+                <% } else { %>
+                  <p class="card-title genero">Género: No especificado</p>
                   <% } %>
-                  
 
-                  <h6 class="card-title duracion"> Duración:
-                    <%=movie.duracion%>min
-                  </h6>
 
-                  <h6 class="card-title estreno">Fecha de estreno:
-                    <%=movie.fecha_estreno%>
-                  </h6>
+                    <h6 class="card-title duracion"> Duración:
+                      <%=movie.duracion%>min
+                    </h6>
 
-                  <h6 class="card-title calificacion">Calificación:
-                    <p class="clasificacion">
-                                <input id="radio1" type="radio" name="estrellas" value="5">
-                                <label for="radio1">★</label>
-                             <input id="radio2" type="radio" name="estrellas" value="4">
-                                <label for="radio2">★</label>
-                               <input id="radio3" type="radio" name="estrellas" value="3">
-                                <label for="radio3">★</label>
-                                <input id="radio4" type="radio" name="estrellas" value="2">
-                               <label for="radio4">★</label>
-                               <input id="radio5" type="radio" name="estrellas" value="1">
-                                <label for="radio5">★</label>
-                  </h6>
-  
-                
+                    <h6 class="card-title estreno">Fecha de estreno:
+                      <%=movie.fecha_estreno%>
+                    </h6>
 
-                  <div style="display: flex; gap: 20px;">
-                    <a href="/peliculas/actualizarFilm/<%= movie.id %>" class="btn btn-primary">Actualizar</a>
-
-                    <form id="eliminar" action="/peliculas/delete/<%= movie.id %>?_method=DELETE" method="POST">
-                      <button type="submit" class="btn btn-primary bg">Eliminar</button>
+                    <!--INTENTO DE CALIFICACION-->
+                    <form action="/peliculas/detalle/<%= movie.id %>" method="POST">
+                      <div>
+                        <label for="calificacion">Calificación:</label>
+                        <input type="number" id="calificacion" name="calificacion" required>
+                      </div>
+                      <button type="submit">Enviar</button>
                     </form>
 
-                  </div>
-                </div>
-              </div>
+                    <!--FINAL CALIFICACION-->
+
+
+                    <!-- <h6 class="card-title calificacion">Calificación:
+                      <p class="clasificacion">
+                        <input id="radio1" type="radio" name="estrellas" value="5">
+                        <label for="radio1">★</label>
+                        <input id="radio2" type="radio" name="estrellas" value="4">
+                        <label for="radio2">★</label>
+                        <input id="radio3" type="radio" name="estrellas" value="3">
+                        <label for="radio3">★</label>
+                        <input id="radio4" type="radio" name="estrellas" value="2">
+                        <label for="radio4">★</label>
+                        <input id="radio5" type="radio" name="estrellas" value="1">
+                        <label for="radio5">★</label>
+                      </p>-->
+
+
+
+                    <div style="display: flex; gap: 20px;">
+                      <a href="/peliculas/actualizarFilm/<%= movie.id %>" class="btn btn-primary">Actualizar</a>
+
+                      <form id="eliminar" action="/peliculas/delete/<%= movie.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-primary bg">Eliminar</button>
+                      </form>
+
+                    </div>
             </div>
           </div>
+        </div>
+        </div>
+        </form>
 
-
-
-
-
-          </form>
-
-          <script src="/js/deleteFilm.js"></script>
+        <script src="/js/deleteFilm.js"></script>
         </div>
         </div>
         </div>

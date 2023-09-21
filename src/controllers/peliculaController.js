@@ -18,18 +18,42 @@ let db = require("../database/models");
 const { where } = require('sequelize');
 const { Op } = require('sequelize');
 
-/*detalle de las noticias*/
+/*detalle de las peliculas*/
 const controlador = {
   detallePelicula: (req, res) => {
     db.productoFilm.findByPk(req.params.id, {
       include: [{ association: "genero" }]
     }).then(function (movie) {
-      console.log("Movie:", movie);
-      console.log("genero:", movie.genero);
       res.render("movies/detallePelicula", { movie: movie });
 
     });
   },
+
+  //guardado de calificacion
+  guardado: async (req, res) => {
+    try {
+      const calificacion = req.body.calificacion;
+      const peliculaId = req.params.id;  // Obtener el ID de la película desde la URL
+  
+      if (!calificacion) {
+        return res.status(400).send('La calificación es requerida.');
+      }
+  
+      // Crear la calificación asociada a la película
+      await db.calificacion.create({
+        calificacion: calificacion,
+        id_productoFilm: peliculaId,  // Asociar la calificación con la película
+        usuario_id: null  // establecer el ID del usuario si es necesario
+      });
+  console.log(calificacion)
+      res.redirect('/');
+    } catch (error) {
+      console.error('Error al guardar la calificación:', error);
+      res.status(500).send('Error al guardar la calificación');
+    }
+  },  
+//guardado de calificacion final
+
 
   /*prueba de metodo cloudinary*/
   postCrearFilm: (req, res) => {
