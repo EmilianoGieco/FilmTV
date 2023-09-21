@@ -5,7 +5,7 @@ const { Op } = require('sequelize');
 const indexController = {
   index: async (req, res) => {
     try {
-      
+
       /*const usuario = await db.Usuario.findOne({
         where: { correo: "emiliano_jobs@hotmail.com" }
       });*/
@@ -26,12 +26,12 @@ const indexController = {
         order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente.
       });
 
-      res.render("index", { peliculasSlide: peliculasSlide, movie: movie, /*usuario: usuario*/ });
+      res.render("index", { peliculasSlide: peliculasSlide, movie: movie});
     } catch (error) {
       console.log(error);
     }
-  }
 
+  }
 };
 
 module.exports = indexController;

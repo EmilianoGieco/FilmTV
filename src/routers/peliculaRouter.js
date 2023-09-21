@@ -9,6 +9,8 @@ console.log( path.join(__dirname,'../../public/img'))
  
 /* ruta carpeta detalle pelicula*/
 router.get("/detalle/:id", peliculaController.detallePelicula); 
+//guardado de las calificaciones del usuario
+router.post("/detalle/:id", peliculaController.guardado); 
 
 /* ruta CrearFilm*/
 router.get("/CrearFilm", peliculaController.getCrearFilm);
@@ -18,7 +20,7 @@ router.post("/CrearFilm",upload.single("imagen"), peliculaController.postCrearFi
 router.get("/actualizarFilm/:id", peliculaController.getActualizarFilm);
 router.put("/actualizarFilm/:id",upload.single("imagen"), peliculaController.postActualizarFilm );
 
-/* delete pelicula */
+/* ruta de borrado pelicula */
 router.delete("/delete/:id", peliculaController.delete)
 
 /*peliculas con los ultimos estrenos de ahora*/
@@ -27,10 +29,10 @@ router.get("/estrenos", peliculaController.estrenos);
 /*detalle de ultimos estrenos*/
 router.get("/estrenos/detalle/:id", peliculaController.detalleEstrenos);
 
-/*peliculas del archivo noticias*/
+/*peliculas noticias*/
 router.get('/noticias', peliculaController.noticia );
 
-/*peliculas del archivo noticias*/
+/*peliculas noticias detalle*/
 router.get('/noticias/detalle/:id', peliculaController.detalleNoti);
 
 //para finalizarlo en un futuro proximo Emi
@@ -39,6 +41,11 @@ router.get('/peliculas2023', peliculaController.peliculas2023 );*/
 
 ///* rutas carpetas las 5 mejores peliculas*///
 router.get("/detalleNoticia/:idN", peliculaController.detalleNoticia);
+
+/* rutas carpetas recomendacionesDeSeries*/
+router.get('/recomendacionesSerieNetflix', peliculaController.recomendacionesSerieNetflix );
+router.get('/recomendacionesSerieAmazon', peliculaController.recomendacionesSerieAmazon );
+router.get('/recomendacionesSerisDisney', peliculaController.recomendacionesSerisDisney );
 
 /* rutas carpetas top NETFLIX*/
 router.get('/Top1', peliculaController.Top1 );
