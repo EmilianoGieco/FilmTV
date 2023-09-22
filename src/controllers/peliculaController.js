@@ -34,6 +34,7 @@ const controlador = {
     try {
       const calificacion = req.body.calificacion;
       const peliculaId = req.params.id;  // Obtener el ID de la película desde la URL
+      const usuarioId = calificacion; // Obtener el ID del usuario desde el body
   
       if (!calificacion) {
         return res.status(400).send('La calificación es requerida.');
@@ -43,7 +44,7 @@ const controlador = {
       await db.calificacion.create({
         calificacion: calificacion,
         id_productoFilm: peliculaId,  // Asociar la calificación con la película
-        usuario_id: null  // establecer el ID del usuario si es necesario
+        usuario_id: usuarioId  // establecer el ID del usuario 
       });
   console.log(calificacion)
       res.redirect('/');

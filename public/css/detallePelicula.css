@@ -1,4 +1,4 @@
-/*MAIN NOTICIAS DEL SLIDE*/
+/*MAIN peliculas*/
 .body {
   font-family: "Poppins", sans-serif;
 
@@ -98,11 +98,42 @@ padding:2rem !important;
 }
 
 .btn{
-  margin-top: 0.5rem !important;
   padding: 0.5rem !important;
   font-size: 1.1rem !important;
   font-weight: 450 !important;
 }
+
+.altura{
+  margin-top: 2rem !important;
+}
+.cFondo{
+  background-color: rgb(219, 143, 2) ;
+  margin-top: 0.5rem ;
+  padding: 0.5rem ;
+  font-size: 1.1rem ;
+  font-weight: 450 ;
+  border-radius: 10px;
+  color: white;
+}
+
+/* alineacion de las estrellas con el boton submit */
+.calificacion-form {
+  display: flex;
+  align-items: center;
+}
+
+.calificacion {
+  margin-right: 15px; /* Espacio entre las estrellas y el botón */
+}
+
+.clasificacion {
+  font-size: 36px; /* Tamaño de las estrellas */
+}
+
+.boton-enviar {
+  margin-top:26px; 
+}
+
 
  /*ESTRELLAS DE PUNTUACION*/
  #form {
