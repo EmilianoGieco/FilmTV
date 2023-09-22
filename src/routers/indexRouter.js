@@ -5,5 +5,8 @@ const router = express.Router();
 
 router.get('/', indexController.index);
 
+router.post("/buscar", indexController.buscar); 
+
+
 module.exports = router;
 
