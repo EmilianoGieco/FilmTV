@@ -24,25 +24,25 @@
                 <%=movie.nombre%>
               </h3>
 
-              <p class=" resumen">
+              <p class="linea">
                 <%= movie.resumen%>
               </p>
 
 
               <% if (movie.genero) { %>
-                <h6 class="card-title genero">Género:
+                <h6 class="card-title linea">Género:
                   <%= movie.genero.nombre %>
                 </h6>
                 <% } else { %>
-                  <p class="card-title genero">Género: No especificado</p>
+                  <p class="card-title linea">Género: No especificado</p>
                   <% } %>
 
 
-                    <h6 class="card-title duracion"> Duración:
+                    <h6 class="card-title linea"> Duración:
                       <%=movie.duracion%>min
                     </h6>
 
-                    <h6 class="card-title estreno">Fecha de estreno:
+                    <h6 class="card-title linea">Fecha de estreno:
                       <%=movie.fecha_estreno%>
                     </h6>
 
@@ -78,7 +78,6 @@
                           Logueate para calificar
                         </a>
                         <% }%>
-
                           <!--FINAL CALIFICACION-->
 
 
@@ -87,7 +86,7 @@
                               class="btn btn-primary altura">Actualizar</a>
 
                             <form id="eliminar" action="/peliculas/delete/<%= movie.id %>?_method=DELETE" method="POST">
-                              <button type="submit" class="btn btn-primary bg altura">Eliminar</button>
+                              <button type="submit" class="btn btn-primary br altura">Eliminar</button>
                             </form>
 
                           </div>

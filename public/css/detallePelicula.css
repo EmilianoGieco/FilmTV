@@ -8,6 +8,11 @@
   background-color: #0d0d0d !important;
 }
 
+.dropdown-menu, .bgColor {
+  background-color: black !important;
+  opacity: 0.7;
+}
+
 .contenedorPrincipal {
   display: flex;
   flex-direction: column;
@@ -67,23 +72,7 @@
   font-size: large;
 }
 
-.resumen {
-  color: white !important;
-}
-
-.duracion {
-  color: white !important;
-}
-
-.estreno {
-  color: white !important;
-}
-
-.calificacion {
-  color: white !important;
-}
-
-.genero {
+.linea {
   color: white !important;
 }
 
@@ -92,7 +81,7 @@
 }
 
 /*boton rojo*/
-.bg {
+.br {
   background-color: red !important;
   border-color: red !important;
 }
@@ -197,10 +186,9 @@ input[type="radio"]:checked~label {
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.5s;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   overflow: hidden;
   margin-right: 50px;
-
 }
 
 .validacion:hover {
