@@ -50,68 +50,69 @@
   text-align: left;
 }
 
-.fondo{
+.fondo {
   background-color: rgb(23, 22, 22) !important;
   position: relative;
   top: -3rem;
 }
 
-.titulo{
-  color:white !important;
+.titulo {
+  color: white !important;
   text-transform: uppercase;
 }
 
-.titulo1{
-  color:white !important;
+.titulo1 {
+  color: white !important;
   text-transform: uppercase;
   font-size: large;
 }
 
-.resumen{
-  color:white !important;
+.resumen {
+  color: white !important;
 }
 
-.duracion{
-  color:white !important;
+.duracion {
+  color: white !important;
 }
 
-.estreno{
-  color:white !important;
+.estreno {
+  color: white !important;
 }
 
-.calificacion{
-  color:white !important;
+.calificacion {
+  color: white !important;
 }
 
-.genero{
-  color:white !important;
+.genero {
+  color: white !important;
 }
 
-.espaciado{
-padding:2rem !important;
+.espaciado {
+  padding: 2rem !important;
 }
 
 /*boton rojo*/
-.bg{
+.bg {
   background-color: red !important;
   border-color: red !important;
 }
 
-.btn{
+.btn {
   padding: 0.5rem !important;
   font-size: 1.1rem !important;
   font-weight: 450 !important;
 }
 
-.altura{
+.altura {
   margin-top: 2rem !important;
 }
-.cFondo{
-  background-color: rgb(219, 143, 2) ;
-  margin-top: 0.5rem ;
-  padding: 0.5rem ;
-  font-size: 1.1rem ;
-  font-weight: 450 ;
+
+.cFondo {
+  background-color: rgb(219, 143, 2);
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 450;
   border-radius: 10px;
   color: white;
 }
@@ -123,20 +124,22 @@ padding:2rem !important;
 }
 
 .calificacion {
-  margin-right: 15px; /* Espacio entre las estrellas y el botón */
+  margin-right: 15px;
+  /* Espacio entre las estrellas y el botón */
 }
 
 .clasificacion {
-  font-size: 36px; /* Tamaño de las estrellas */
+  font-size: 36px;
+  /* Tamaño de las estrellas */
 }
 
 .boton-enviar {
-  margin-top:26px; 
+  margin-top: 26px;
 }
 
 
- /*ESTRELLAS DE PUNTUACION*/
- #form {
+/*ESTRELLAS DE PUNTUACION*/
+#form {
   width: 250px;
   margin: 0 auto;
   height: 50px;
@@ -166,16 +169,136 @@ label {
 }
 
 label:hover,
-label:hover ~ label {
+label:hover~label {
   color: orange;
 }
 
-input[type="radio"]:checked ~ label {
+input[type="radio"]:checked~label {
   color: orange;
 }
 
 .cantidad-estrellas {
-  font-size: 18px; /* Ajusta el tamaño de fuente para la cantidad de estrellas */
+  font-size: 18px;
+  /* Ajusta el tamaño de fuente para la cantidad de estrellas */
   color: grey;
-  margin-left: 10px; /* Espacio entre las estrellas y la cantidad */
+  margin-left: 10px;
+  /* Espacio entre las estrellas y la cantidad */
+}
+
+
+
+/*BOTON PARA LOGUERTE*/
+.validacion {
+  position: relative;
+  display: inline-block;
+  padding: 25px 30px;
+  margin: 40px 0;
+  color: #198754;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  margin-right: 50px;
+
+}
+
+.validacion:hover {
+  background: #198754;
+  color: white;
+  box-shadow: 0 0 5px #198754,
+    0 0 25px #198754,
+    0 0 50px #198754,
+    0 0 200px #198754;
+  -webkit-box-reflect: below 0.8px linear-gradient(transparent, #0005);
+}
+
+.validacion:nth-child(1) {
+  filter: hue-rotate(270deg);
+}
+
+.validacion span {
+  position: absolute;
+  display: block;
+}
+
+.validacion span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #198754);
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.validacion span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #198754);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.validacion span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #198754);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.50s;
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.validacion span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #198754);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
 }

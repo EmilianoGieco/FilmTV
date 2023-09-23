@@ -34,7 +34,7 @@ const controlador = {
     try {
       const calificacion = req.body.calificacion;
       const peliculaId = req.params.id;  // Obtener el ID de la película desde la URL
-      const usuarioId = calificacion; // Obtener el ID del usuario desde el body
+      const usuarioId = req.body.usuarioId; // Obtener el ID del usuario desde el body
   
       if (!calificacion) {
         return res.status(400).send('La calificación es requerida.');
