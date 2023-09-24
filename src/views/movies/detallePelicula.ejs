@@ -51,9 +51,9 @@
                     <!-- CALIFICACION-->
                     <% if (locals.isLogged) {%>
                       <form action="/peliculas/detalle/<%= movie.id %>" method="POST" class="calificacion-form">
-                        <input type="hidden" name="usuarioId" value="<%=req.session.userLogged.id %>" />
+                        <input type="hidden" name="usuarioId" value="<%=locals.isLogged.id %>" />
                         <div class="calificacion">
-                          <h6 class="card-title estreno" for="calificacion">Calificación:</h6>
+                          <h6 class="card-title linea" for="calificacion">Calificación:</h6>
                           <div class="clasificacion">
                             <input id="radio5" type="radio" name="calificacion" value="5" />
                             <label for="radio5">★</label>
