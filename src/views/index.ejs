@@ -9,21 +9,26 @@
       <main>
 
         <div class="button-container">
-          
 
-          <button type="button" class="ADMIN">
-            <a class="nav-link active" aria-current="page" href="/peliculas/CrearFilm">CREAR FILM</a>
-          </button>
-        
+          <!--Cambio de estilo de boton-->
+          <a class="ADMIN" aria-current="page" href="/peliculas/CrearFilm">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            CREAR FILM
+          </a>
+          <!--final boton-->
+          
           <!--   <% if (isLogged && userLogged.admin === 1) { %>
                Botón para administradores 
               <button type="button" class="ADMIN">
                 <a class="nav-link active" aria-current="page" href="/peliculas/CrearFilm">CREAR FILM</a>
               </button>
             <% } %>-->
-          </div>
-            
-          </div>
+        </div>
+
+        </div>
 
         <img class="baner" src="https://abisulkes.alwaysdata.net/banerPrincipal11.jpg">
         <h2 class="titulo2">5 peliculas mas esperadas 2023</h2>
@@ -81,7 +86,7 @@
         <div class="peliculas-container">
           <% for (let i=0; i < movie.length; i++) { %>
 
-            
+
 
             <div class="pelicula">
               <a href="./peliculas/detalle/<%=movie[i].id%>">

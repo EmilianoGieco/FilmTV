@@ -258,17 +258,114 @@ li:hover {
 }
 
 .ADMIN {
-  text-transform: uppercase;
-  line-height: 33px;
-  font-weight: 500;
-  font-size: 20px;
-  color: white;
+  position: relative;
+  display: inline-block;
+  padding: 25px 30px;
+  margin: 40px 0;
+  color: red;
   text-decoration: none;
-  padding: 15px;
-  background: url(https://1.bp.blogspot.com/-6HZShpiglrQ/YIRTOcJ3XPI/AAAAAAABPoI/MHP_FqyL9M0EP8rjKMZQRzGl_SNely9ugCLcBGAsYHQ/s185/2.gif);
-  background-size: 3023px;
-  text-align: center;
-  border-radius: 10px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  margin-right: 50px;
+  font-size: 18px;
+}
+
+.ADMIN:hover {
+  background: red;
+  color: white;
+  box-shadow: 0 0 5px red,
+    0 0 25px red,
+    0 0 50px red,
+    0 0 200px red;
+  -webkit-box-reflect: below 0.8px linear-gradient(transparent, #0005);
+}
+
+.ADMIN span {
+  position: absolute;
+  display: block;
+}
+
+.ADMIN span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, red);
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.ADMIN span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, red);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.ADMIN span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, red);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.50s;
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.ADMIN span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, red);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+
+  50%,
+  100% {
+    bottom: 100%;
+  }
 }
 
 
