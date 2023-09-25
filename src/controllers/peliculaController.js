@@ -46,7 +46,7 @@ const controlador = {
         id_productoFilm: peliculaId,  // Asociar la calificación con la película
         usuario_id: usuarioId  // establecer el ID del usuario 
       });
-  console.log(calificacion)
+
       res.redirect('/');
     } catch (error) {
       console.error('Error al guardar la calificación:', error);

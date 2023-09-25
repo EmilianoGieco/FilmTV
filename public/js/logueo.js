@@ -29,7 +29,18 @@ window.addEventListener("load", function () {
             return;
         }
 
-        alert("¡Nuevamente en tu perfil!");
+        // Muestra un mensaje de agradecimiento usando SweetAlert2
+        Swal.fire({
+            title: '¡Bienvenido de nuevo!',
+            confirmButtonText: 'Aceptar',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
+        
         formularioLogueo.submit();
     });
 });

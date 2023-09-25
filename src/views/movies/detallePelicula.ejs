@@ -51,7 +51,7 @@
                     <!-- CALIFICACION-->
                     <% if (locals.isLogged) {%>
                       <form action="/peliculas/detalle/<%= movie.id %>" method="POST" class="calificacion-form">
-                        <input type="hidden" name="usuarioId" value="<%=locals.isLogged.id %>" />
+                        <input type="hidden" name="usuarioId" value="<%=locals.userLogged.id %>" />
                         <div class="calificacion">
                           <h6 class="card-title linea" for="calificacion">Calificación:</h6>
                           <div class="clasificacion">
@@ -98,6 +98,29 @@
 
 
         <script src="/js/deleteFilm.js"></script>
+
+
+        <script>
+          // Agrega un evento 'click' al botón "Enviar"
+          document.querySelector('.boton-enviar').addEventListener('click', function (event) {
+            // Evita el comportamiento predeterminado del botón
+            event.preventDefault();
+
+            // Muestra un mensaje de agradecimiento usando SweetAlert2 con animación personalizada
+            Swal.fire({
+              title: '¡Gracias por tu voto cinefilo!',
+              text: 'Tu opinión es muy valiosa para nosotros.',
+              icon: 'success',
+              confirmButtonText: 'Aceptar',
+              showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+            });
+          });
+        </script>
 
 
         </div>

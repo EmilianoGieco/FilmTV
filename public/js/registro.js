@@ -71,8 +71,18 @@ window.addEventListener("load", function () {
         
         if (c == 1) { return; }
 
-        // Si no hay errores, formulario enviado con éxito//
-        alert("¡Formulario enviado con éxito!");
+        // Muestra un mensaje de agradecimiento usando SweetAlert2
+        Swal.fire({
+            title: '¡Gracias por registrarte!',
+            confirmButtonText: 'Aceptar',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
+
         formularioRegistro.submit();
     });
 });
