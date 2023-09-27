@@ -1,27 +1,31 @@
 <!--HEAD-->
-<%- include("./partials/head") %>
+<%- include("./partials/headResultado") %>
+
+  <!--HEADER-->
 
   <body class="bgPrincipal">
     <%- include("./partials/header") %>
 
-    <div class="container">
-        <h1>Resultados de la búsqueda</h1>
-        <ul>
+      <!--MAIN-->
+      <h1 class="titulo4">Resultados de la búsqueda</h1>
+      <div class="container">
+        <ul class="lista-resultados">
           <% resultados.forEach(function(resultado) { %>
-            <li>
+            <li >
               <a href="/peliculas/detalle/<%= resultado.id %>">
-                <%= resultado.nombre %>
+               <h6 class="bajada"> <%= resultado.nombre %> </h6>
               </a>
             </li>
-          <% }); %>
+            <% }); %>
         </ul>
       </div>
+      <!--FIN MAIN-->
 
+      <br>
+      <br>
+      <br>
+      <!--FOOTER-->
+      <%- include("./partials/footer") %>
+  </body>
 
-
-
-    <!--FOOTER-->
-    <%- include("./partials/footer") %>
-</body>
-
-</html>
+  </html>
