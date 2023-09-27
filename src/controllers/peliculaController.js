@@ -211,6 +211,34 @@ const controlador = {
       })
   },
 
+  /* guardado  en la base de datos de ultimos estrenos*/
+  guardadoEstrenos: async (req, res) =>{
+    try {
+      const calificacion = req.body.calificacion;
+      const peliculaId = req.params.id;  // Obtener el ID de la película desde la URL
+      const usuarioId = req.body.usuarioId; // Obtener el ID del usuario desde el body
+      const comentarioUsuario = req.body.comentarioUsuario // Obtener el comentario del cuerpo de la solicitud
+  
+      if (!calificacion) {
+        return res.status(400).send('La calificación es requerida.');
+      }
+  
+      // Crear la calificación y el comentario asociada a la película/serie
+      await db.calificacion.create({
+        calificacion: calificacion, // Guardar la calificacion en la base de datos
+        id_productoFilm: peliculaId,  // Asociar la calificación con la película
+        usuario_id: usuarioId,  // establecer el ID del usuario 
+        comentario: comentarioUsuario // Guardar el comentario en la base de datos
+      });
+
+      res.redirect('/');
+    } catch (error) {
+      console.error('Error al guardar la calificación:', error);
+      res.status(500).send('Error al guardar la calificación');
+    }
+  },
+
+
   /* peliculas noticias*/
   noticia: (req, res) => {
     db.productoFilm.findAll({

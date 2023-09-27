@@ -28,6 +28,8 @@ router.get("/estrenos", peliculaController.estrenos);
 
 /*detalle de ultimos estrenos*/
 router.get("/estrenos/detalle/:id", peliculaController.detalleEstrenos);
+///////////guardado de las calificaciones del usuario/////////////////
+router.post("/estrenos/detalle/:id", peliculaController.guardadoEstrenos); 
 
 /*peliculas noticias*/
 router.get('/noticias', peliculaController.noticia );
