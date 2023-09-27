@@ -35,16 +35,18 @@ const controlador = {
       const calificacion = req.body.calificacion;
       const peliculaId = req.params.id;  // Obtener el ID de la película desde la URL
       const usuarioId = req.body.usuarioId; // Obtener el ID del usuario desde el body
+      const comentarioUsuario = req.body.comentarioUsuario // Obtener el comentario del cuerpo de la solicitud
   
       if (!calificacion) {
         return res.status(400).send('La calificación es requerida.');
       }
   
-      // Crear la calificación asociada a la película
+      // Crear la calificación y el comentario asociada a la película/serie
       await db.calificacion.create({
-        calificacion: calificacion,
+        calificacion: calificacion, // Guardar la calificacion en la base de datos
         id_productoFilm: peliculaId,  // Asociar la calificación con la película
-        usuario_id: usuarioId  // establecer el ID del usuario 
+        usuario_id: usuarioId,  // establecer el ID del usuario 
+        comentario: comentarioUsuario // Guardar el comentario en la base de datos
       });
 
       res.redirect('/');
