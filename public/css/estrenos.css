@@ -50,9 +50,21 @@
   color: white;
 }
 
-.imagen:hover {
-  filter: grayscale(70%);
+/*TITULOS EN LAS PELICULAS*/
+.textoPeliculas{
+  font-size: 16px;
+  text-transform: uppercase;
+  border-left: 3px solid #fa320a;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.7em;
+  letter-spacing: 1px;
 }
+
+.textoPeliculas:hover {
+  border-left: 3px solid white;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+/* FIN TITULOS EN LAS PELICULAS*/
 
 .fondo{
   background-color: rgb(23, 22, 22) !important;

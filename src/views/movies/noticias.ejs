@@ -19,9 +19,11 @@
                                             <img class="imagen" src="<%= noticias[i].imagen1 %>"
                                                 alt="<%= noticias[i].nombre %>" width="470px">
                                         </a>
-                                        <h6 class="bajada">
-                                            <%= noticias[i].titulo %>
-                                        </h6>
+                                        <div class="textoPeliculas">
+                                            <a href="./noticias/detalle/<%=noticias[i].id%>" class="textoenlasimagenes">
+                                              <%= noticias[i].titulo %>
+                                            </a>
+                                          </div>
                                     </div>
                                 </div>
                             </div>
