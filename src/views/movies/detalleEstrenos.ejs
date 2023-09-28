@@ -39,23 +39,53 @@
                                     <%=pelicula.fecha_estreno%>
                                 </h6>
 
-                                <h6 class="card-title estreno">Dirección:
-                                    <%=pelicula.director[0].nombre%>
-                                </h6>
+<!-- Director -->
 
-                                <h6 class="card-title estreno">Guión:
-                                    <%=pelicula.guionista[0].nombre%>
-                                </h6>
+<h6 class="card-title estreno" >Dirección:
+<% if (pelicula.director && pelicula.director.length > 0) { %>
+  <% for (let i = 0; i < pelicula.director.length; i++) { %>
+   <%= pelicula.director[i].nombre %></h6>
+  <% } %>
+<% } else { %>
+  <p >No hay información de director disponible.</p>
+<% } %>
 
-                                <h6 class="card-title estreno">Genero:
-                                    <%=pelicula.genero[0].nombre%>
-                                </h6>
+<!-- Guiónista -->
 
-                                <h6 class="card-title estreno">Reparto:
-                                    <%=pelicula.actor[0].nombre%>
-                                </h6>
+<h6 class="card-title estreno">Guión:
+<% if (pelicula.guionista && pelicula.guionista.length > 0) { %>
+  <% for (let i = 0; i < pelicula.guionista.length; i++) { %>
+    <%= pelicula.guionista[i].nombre %></h6>
+  <% } %>
+<% } else { %>
+  <p >No hay información de guionista disponible.</p>
+<% } %>
+
+<!-- Genero -->
+
+<h6 class="card-title estreno">Genero:
+<% if (pelicula.genero && pelicula.genero.length > 0) { %>
+  <% for (let i = 0; i < pelicula.genero.length; i++) { %>
+    <%= pelicula.genero[i].nombre %></h6>
+  <% } %>
+<% } else { %>
+  <p >No hay información de genero disponible.</p>
+<% } %>
+
+<!-- Actores -->
+
+<h6 class="card-title estreno">Reparto:
+<% if (pelicula.actor && pelicula.actor.length > 0) { %>
+  <% for (let i = 0; i < pelicula.actor.length; i++) { %>
+    <%= pelicula.actor[i].nombre %></h6>
+  <% } %>
+<% } else { %>
+  <p >No hay información de reparto disponible.</p>
+<% } %>
 
 
+                            </div>
+                            
                                   <!-- CALIFICACION-->
                     <% if (locals.isLogged) {%>
                         <form action="/peliculas/estrenos/detalle/<%= pelicula.id %>" method="POST" class="calificacion-form">
@@ -91,7 +121,6 @@
                           </a>
                           <% }%>
                             <!--FINAL CALIFICACION-->
-                            </div>
                         </div>
                     </div>
                 </div>
