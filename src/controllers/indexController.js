@@ -7,7 +7,7 @@ const indexController = {
   index: async (req, res) => {
     try {
 
-      const isAdmin = req.session.userLogged && req.session.userLogged.admin === 1;
+      //const isAdmin = req.session.userLogged && req.session.userLogged.admin === 1;
       
       // Consulta para obtener las películas más recientes
       const movie = await db.productoFilm.findAll({
@@ -24,8 +24,10 @@ const indexController = {
         },
         order: [['fecha_estreno', 'ASC']] // Ordenar por fecha de estreno en orden ascendente.
       });
+        
+      
 
-      res.render("index", { peliculasSlide: peliculasSlide, movie: movie, isAdmin:isAdmin });
+      res.render("index", { peliculasSlide: peliculasSlide, movie: movie});
     } catch (error) {
       console.log(error);
     }
@@ -51,6 +53,9 @@ const indexController = {
   }
 };
 
+  
+
+  
 
 
 module.exports = indexController;

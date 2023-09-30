@@ -9,24 +9,21 @@
       <main>
 
         <div class="button-container">
-
-          <!--Cambio de estilo de boton-->
-          <a class="ADMIN" aria-current="page" href="/peliculas/CrearFilm">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            CREAR FILM
-          </a>
+          <!-- Cambio de estilo de boton -->
+          <% if (locals.userLogged && locals.userLogged.administrador === 1) { %>
+            <a class="ADMIN" aria-current="page" href="/peliculas/CrearFilm">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              CREAR FILM
+            </a>
+          <% } %>
+        </div>
           <!--final boton-->
           
-          <!--   <% if (isLogged && userLogged.admin === 1) { %>
-               Botón para administradores 
-              <button type="button" class="ADMIN">
-                <a class="nav-link active" aria-current="page" href="/peliculas/CrearFilm">CREAR FILM</a>
-              </button>
-            <% } %>-->
-        </div>
+          
+        
 
         </div>
 
@@ -101,5 +98,7 @@
       <!--FOOTER-->
       <%- include("./partials/footer") %>
   </body>
+
+ 
 
   </html>
