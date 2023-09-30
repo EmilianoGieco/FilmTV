@@ -25,7 +25,7 @@ function calificacion(sequelize, Datatypes) {
 
 
     // Timestamps
-    config = { tableName: "Calificación", timestamps: false };
+    config = { tableName: "calificacion", timestamps: false };
 
     const calificacion = sequelize.define(alias, cols, config)
 

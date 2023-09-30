@@ -28,7 +28,7 @@ function usuario(sequelize, Datatypes) {
     
   
     // Timestamps
-    config = { tableName: "Usuario", timestamps: false };
+    config = { tableName: "usuario", timestamps: false };
 
     const usuario = sequelize.define(alias, cols, config)
 

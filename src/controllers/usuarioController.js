@@ -146,7 +146,17 @@ const controlador = {
     res.clearCookie('userEmail');
     req.session.destroy();
     return res.redirect("/")
+  },
+
+
+//cantidad total de usuarios en mi sitio prueba API
+  cantidadUsuarios:function (req, res) {
+    db.usuario.findAll()
+    .then (usuarios =>{
+      return res.json(usuarios)
+    })
   }
+
 };
 
 module.exports = controlador;

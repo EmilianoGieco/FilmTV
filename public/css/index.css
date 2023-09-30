@@ -394,12 +394,10 @@ li:hover {
   .carrucelcentral {
     width: 100%;
   }
-
-
 }
 
 /* RESPONSIVE TABLET */
-@media only screen and (max-width: 1300px) and (min-width: 500px) {
+@media only screen and (max-width: 1300px) and (min-width: 630px) {
   /* Ajustes para las imágenes */
   .img444 {
     width: 100%;
@@ -458,7 +456,7 @@ li:hover {
 }
 
 /* RESPONSIVE MOBILE */
-@media only screen and (max-width: 500px) and (min-width: 270px) {
+@media only screen and (max-width: 630px) and (min-width: 270px) {
   /* Hacer el banner responsive */
   .baner {
     width: 100%;
@@ -501,4 +499,9 @@ li:hover {
     flex-direction: column;
     align-items: center;
   }
+}
+
+.boton2{
+  width: 90px; 
+  height: 100px;
 }
