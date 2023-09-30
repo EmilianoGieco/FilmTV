@@ -1,23 +1,30 @@
-const User = require('../../models/User');
+const { Usuario } = require('../database/models');
+const db = require("../database/models");
 
-function usuarioLogueoMiddleware(req, res, next) {
+async function usuarioLogueoMiddleware(req, res, next) {
     res.locals.isLogged = false;
 
     let emailCookie = req.cookies.userEmail;
-    let usuarioCookie = User.findByField("email", emailCookie)
-   
-    if(usuarioCookie){
-        req.session.userLogged = usuarioCookie;
-    }
 
-    if (req.session && req.session.userLogged) {
-        res.locals.isLogged = true;
-        //res.locals.userLogged = res.session.userLogged;
-        res.locals.userLogged = req.session.userLogged;
-    }
+    try {
+        if (req.cookies.userEmail) {
+            let usuarioCookie = await db.usuario.findOne({
+                where : {correo : req.cookies.userEmail}
+            })
+            req.session.userLogged = usuarioCookie
+        }
 
-    next();
+        if (req.session.userLogged) {
+            res.locals.isLogged = true
+            res.locals.userLogged = req.session.userLogged
+        }
+
+      
+        next();
+    } catch (error) {
+        console.error("Error");
+        next();
+    }
 }
 
 module.exports = usuarioLogueoMiddleware;
-

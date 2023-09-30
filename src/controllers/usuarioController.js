@@ -33,34 +33,35 @@ const controlador = {
       }
       console.log("hola2")
       //buscar usuario
-      const userToLogin = await db.usuario.findOne({ where: { correo: req.body.email } });
-      if (!userToLogin) {
-        console.log("hola4")
-        return res.render('./user/login', {
-          errors: { email: { msg: 'El email con el que intenta ingresar no existe' } }
-        });
-      }
-      
-      console.log(req.body.password)
-      
-      //comparar contraseñas
-      const correctPassword = bcryptjs.compareSync(req.body.password, userToLogin.clave);
-      console.log("hola0")
-      if (correctPassword) {
-        req.session.userLogged = userToLogin;
-        console.log("hola")
+    
+      const userToLogin = await db.usuario.findOne({ where : {correo: req.body.email} });
+      console.log('Usuario encontrado en la base de datos:', userToLogin);
 
-        if (req.body.remember) {
-          res.cookie('userEmail', req.body.email, { maxAge: (((1000 * 60) * 60) * 24) });
-        }
-        return res.redirect("./perfilUsuario");
+             if (!userToLogin) {
+              
+                return res.render('users/login', {
+                    errors: {email: {msg: 'El email con el que intenta ingresar no existe'}}
 
-      } else {
-        return res.render('./user/login', {
-          errors: { password: { msg: 'Contraseña incorrecta' } },
-          old: req.body
-        });
-      }
+                });
+            }
+            console.log('Usuario encontrado');
+            console.log('Contraseña proporcionada:', req.body.password);
+            console.log('Contraseña almacenada:', userToLogin.clave);
+            const correctPassword = bcryptjs.compareSync(req.body.password, userToLogin.clave);
+
+            if (correctPassword) {
+                delete userToLogin.password;
+                req.session.userLogged = userToLogin;
+                if (req.body.remember) {
+                    res.cookie('userEmail', req.body.email, {maxAge : (((1000 * 60) * 60)*24)});
+                }
+                return res.redirect('./perfilUsuario');
+            } else {
+                return res.render('./user/login', {
+                    errors: {password: {msg: 'Contraseña incorrecta'}},
+                    old : req.body
+                });
+            }
 
       //busqueda de errores
     } catch (error) {
@@ -147,6 +148,9 @@ const controlador = {
     req.session.destroy();
     return res.redirect("/")
   }
+
+  
+
 };
 
 module.exports = controlador;

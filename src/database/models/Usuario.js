@@ -1,45 +1,45 @@
-function usuario(sequelize, Datatypes) {
+function usuario(sequelize, DataTypes) {
 
     alias = 'usuario';
 
     cols = {
         id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
 
         nombre:
-            { type: Datatypes.STRING(255) },
+            { type: DataTypes.STRING(255) },
 
         correo:
-            { type: Datatypes.STRING(255) },
+            { type: DataTypes.STRING(255) },
 
         clave:
-            { type: Datatypes.STRING(255) },
+            { type: DataTypes.STRING(255) },
 
         administrador:
-            { type: Datatypes.STRING.BINARY },
+            { type: DataTypes.BOOLEAN },
 
         imagen:
-            { type: Datatypes.STRING(255) },
+            { type: DataTypes.STRING(255) },
 
     }
     
   
     // Timestamps
-    config = { tableName: "Usuario", timestamps: false };
+    config = { tableName: "usuario", timestamps: false };
 
-    const usuario = sequelize.define(alias, cols, config)
+    const usuario1 = sequelize.define(alias, cols, config)
 
-    usuario.associate = function (models) {
-        usuario.hasMany(models.calificacion, {
+    usuario1.associate = function (models) {
+        usuario1.hasMany(models.calificacion, {
             as: 'calificacion',
             foreignKey: "usuario_id"
         })
     }
 
-    return usuario;
+    return usuario1;
 
 } module.exports = usuario;
 
