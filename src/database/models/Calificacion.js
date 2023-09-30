@@ -12,6 +12,9 @@ function calificacion(sequelize, Datatypes) {
         calificacion:
             { type: Datatypes.INTEGER(10) },
 
+        comentario:
+            { type: Datatypes.TEXT },
+
         id_productoFilm:
             { type: Datatypes.INTEGER },
 

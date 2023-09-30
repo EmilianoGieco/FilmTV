@@ -39,28 +39,95 @@
                                     <%=pelicula.fecha_estreno%>
                                 </h6>
 
-                                <h6 class="card-title estreno">Dirección:
-                                    <%=pelicula.director[0].nombre%>
-                                </h6>
+<!-- Director -->
 
-                                <h6 class="card-title estreno">Guión:
-                                    <%=pelicula.guionista[0].nombre%>
-                                </h6>
+<h6 class="card-title estreno" >Dirección:
+<% if (pelicula.director && pelicula.director.length > 0) { %>
+  <% for (let i = 0; i < pelicula.director.length; i++) { %>
+   <%= pelicula.director[i].nombre %></h6>
+  <% } %>
+<% } else { %>
+  <p >No hay información de director disponible.</p>
+<% } %>
 
-                                <h6 class="card-title estreno">Genero:
-                                    <%=pelicula.genero[0].nombre%>
-                                </h6>
+<!-- Guiónista -->
 
-                                <h6 class="card-title estreno">Reparto:
-                                    <%=pelicula.actor[0].nombre%>
-                                </h6>
+<h6 class="card-title estreno">Guión:
+<% if (pelicula.guionista && pelicula.guionista.length > 0) { %>
+  <% for (let i = 0; i < pelicula.guionista.length; i++) { %>
+    <%= pelicula.guionista[i].nombre %></h6>
+  <% } %>
+<% } else { %>
+  <p >No hay información de guionista disponible.</p>
+<% } %>
+
+<!-- Genero -->
+
+<h6 class="card-title estreno">Genero:
+<% if (pelicula.genero && pelicula.genero.length > 0) { %>
+  <% for (let i = 0; i < pelicula.genero.length; i++) { %>
+    <%= pelicula.genero[i].nombre %></h6>
+  <% } %>
+<% } else { %>
+  <p >No hay información de genero disponible.</p>
+<% } %>
+
+<!-- Actores -->
+
+<h6 class="card-title estreno">Reparto:
+<% if (pelicula.actor && pelicula.actor.length > 0) { %>
+  <% for (let i = 0; i < pelicula.actor.length; i++) { %>
+    <%= pelicula.actor[i].nombre %></h6>
+  <% } %>
+<% } else { %>
+  <p >No hay información de reparto disponible.</p>
+<% } %>
+
 
                             </div>
+                            
+                                  <!-- CALIFICACION-->
+                    <% if (locals.isLogged) {%>
+                        <form action="/peliculas/estrenos/detalle/<%= pelicula.id %>" method="POST" class="calificacion-form">
+                          <input type="hidden" name="usuarioId" value="<%=locals.userLogged.id %>" />
+                          <div class="calificacion">
+                            <h6 class="card-title linea" for="calificacion">Calificación:</h6>
+                            <div class="clasificacion">
+                              <input id="radio5" type="radio" name="calificacion" value="5" />
+                              <label for="radio5">★</label>
+                              <input id="radio4" type="radio" name="calificacion" value="4" />
+                              <label for="radio4">★</label>
+                              <input id="radio3" type="radio" name="calificacion" value="3" />
+                              <label for="radio3">★</label>
+                              <input id="radio2" type="radio" name="calificacion" value="2" />
+                              <label for="radio2">★</label>
+                              <input id="radio1" type="radio" name="calificacion" value="1" />
+                              <label for="radio1">★</label>
+                            </div>
+                            <p id="error1"></p>
+                          </div>
+                          <h6 class="card-title linea" for="comentarioUsuario">Dejanos tu comentario:</h6>
+                          <textarea id="comentarioUsuario" name="comentarioUsuario"></textarea>
+                          <p id="error2"></p>
+                          <button class="cFondo boton-enviar" type="submit">Enviar</button>
+                        </form>
+                        <% } else {%>
+                          <a class="validacion" href="/usuarios/login">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Logueate para calificar
+                          </a>
+                          <% }%>
+                            <!--FINAL CALIFICACION-->
                         </div>
                     </div>
                 </div>
 <br>
 <br>
+
+<script src="/js/calificacion.js"></script>
             </main>
             <!-- FOOTER -->
             <%- include("../partials/footer") %>

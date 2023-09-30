@@ -1,0 +1,48 @@
+/* Estilos para el cuerpo y el contenedor principal */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Al menos el 100% del viewport height */
+    margin: 0;
+  }
+
+  .container {
+    flex: 1; /* Para que ocupe el espacio disponible y empuje el footer hacia abajo */
+  }
+
+
+/*titulo principal*/
+.titulo4 {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.2;
+    padding-left: 9px;
+    text-transform: uppercase;
+    margin-top: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 0.4px solid #fa320a;
+    color: white;
+  }
+
+
+
+/*titulo de peliculas*/
+.bajada {
+    margin-top: 10px;
+    text-align: left !important;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 1.2em;
+  }
+
+/* hacer que los puntos sean blancos */
+  .lista-resultados {
+    color:white;
+  }
+
+/* Estilo para quitar la línea de abajo de los elementos <li> */
+.lista-resultados li a {
+    text-decoration: none;
+  }
+  

@@ -82,21 +82,19 @@
         <h2 class="titulo4">Mirá las últimas novedades</h2>
         <div class="peliculas-container">
           <% for (let i=0; i < movie.length; i++) { %>
-
-
-
             <div class="pelicula">
-              <a href="./peliculas/detalle/<%=movie[i].id%>">
                 <img class="imagen" src="<%= movie[i].imagen1 %>" width="400px">
-              </a>
-              <h6 class="bajada">
-                <%= movie[i].nombre %>
-              </h6>
+              <div class="textoPeliculas">
+                <a href="/peliculas/detalle/<%=movie[i].id%>" class="textoenlasimagenes">
+                  <%= movie[i].nombre %>
+                </a>
+              </div>
             </div>
             <% } %>
         </div>
-      </main>
 
+
+      </main>
       <!--FOOTER-->
       <%- include("./partials/footer") %>
   </body>

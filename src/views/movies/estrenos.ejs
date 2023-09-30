@@ -17,9 +17,11 @@
                                         <a href="./estrenos/detalle/<%=estrenos[i].id%>">
                                             <img  class="imagen" src="<%= estrenos[i].imagen1 %>" alt="<%= estrenos[i].nombre %>" width="470px">
                                         </a>
-                                        <h6 class="bajada">
-                                            <%= estrenos[i].nombre %>
-                                        </h6>
+                                        <div class="textoPeliculas">
+                                            <a href="./estrenos/detalle/<%=estrenos[i].id%>" class="textoenlasimagenes">
+                                              <%= estrenos[i].nombre %>
+                                            </a>
+                                          </div>
                                     </div>
                                 </div>
                             </div>

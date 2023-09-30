@@ -177,6 +177,20 @@ li:hover {
   background-color: rgba(255, 0, 0, 0.5);
 }
 
+/*TITULOS EN LAS PELICULAS*/
+.textoPeliculas{
+  font-size: 16px;
+  text-transform: uppercase;
+  border-left: 3px solid #fa320a;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.7em;
+  letter-spacing: 1px;
+}
+
+.textoPeliculas:hover {
+  border-left: 3px solid white;
+  background-color: rgba(255, 0, 0, 0.5);
+}
 
 .baner {
   width: 100%;
@@ -219,7 +233,7 @@ li:hover {
   text-transform: uppercase;
 }
 
-.imagen:hover {filter: grayscale(70%);}
+
 /*MAIN NOTICIAS*/
 .contenedor {
   display: table-cell;

@@ -66,7 +66,11 @@
                             <input id="radio1" type="radio" name="calificacion" value="1" />
                             <label for="radio1">★</label>
                           </div>
+                          <p id="error1"></p>
                         </div>
+                        <h6 class="card-title linea" for="comentarioUsuario">Dejanos tu comentario:</h6>
+                        <textarea id="comentarioUsuario" name="comentarioUsuario"></textarea>
+                        <p id="error2"></p>
                         <button class="cFondo boton-enviar" type="submit">Enviar</button>
                       </form>
                       <% } else {%>
@@ -99,35 +103,9 @@
 
         <script src="/js/deleteFilm.js"></script>
 
-
-        <script>
-          // Agrega un evento 'click' al botón "Enviar"
-          document.querySelector('.boton-enviar').addEventListener('click', function (event) {
-            // Evita el comportamiento predeterminado del botón
-            event.preventDefault();
-
-            // Muestra un mensaje de agradecimiento usando SweetAlert2 con animación personalizada
-            Swal.fire({
-              title: '¡Gracias por tu voto cinefilo!',
-              text: 'Tu opinión es muy valiosa para nosotros.',
-              icon: 'success',
-              confirmButtonText: 'Aceptar',
-              showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-              },
-              hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-              }
-            });
-          });
-        </script>
+        <script src="/js/calificacion.js"></script>
 
 
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
       </main>
       <!--FOOTER-->
       <%- include("../partials/footer") %>
