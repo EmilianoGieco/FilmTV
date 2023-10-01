@@ -84,7 +84,7 @@
                         <% }%>
                           <!--FINAL CALIFICACION-->
 
-
+                          <% if (locals.isLogged && locals.userLogged && locals.userLogged.administrador === 1) { %>
                           <div style="display: flex; gap: 20px;">
                             <a href="/peliculas/actualizarFilm/<%= movie.id %>"
                               class="btn btn-primary altura">Actualizar</a>
@@ -94,6 +94,7 @@
                             </form>
 
                           </div>
+                          <% } %>
             </div>
           </div>
         </div>
