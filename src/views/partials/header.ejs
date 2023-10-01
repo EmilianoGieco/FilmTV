@@ -46,28 +46,36 @@
 
             <!--BUSCADOR-->
             <form class="d-flex color" role="search" method="POST" action="/buscar">
-                <input class="form-control me-2 " type="search" name="busqueda" placeholder="Buscar" aria-label="Buscar">
+                <input class="form-control me-2 " type="search" name="busqueda" placeholder="Buscar"
+                    aria-label="Buscar">
                 <button class="btn btn-outline-success" type="submit"><b>Buscar</b></button>
-              </form>
+            </form>
             <!--FINAL BUSCADOR-->
 
             <!--LOGUEO Y REGISTRO-->
-            <div class="btn-group dropstart ms-2">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="fa-solid fa-circle-user"></i>
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger"><i class="fa-solid fa-circle-user"></i></button>
+                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
-                <ul class="dropdown-menu bg">
+                <ul class="dropdown-menu">
                     <% if (locals.isLogged) { %>
-                        <li><a href="/usuarios/perfilUsuario" class="color"> <b>Mi perfil</b> </a></li>
-                        <li><a href="/usuarios/cerrarSesion" class="color"><b> Cerrar sesión</b> </a></li>
+                        <li><a class="dropdown-item" href="/usuarios/perfilUsuario" class="color"> <b>Mi perfil</b> </a>
+                        </li>
+                        <li><a class="dropdown-item" href="/usuarios/cerrarSesion" class="color"><b> Cerrar sesión</b>
+                            </a></li>
                         <% } else { %>
-                            <li><a href="/usuarios/login" class="color"><b>Iniciar sesión</b> </a></li>
-                            <li><a href="/usuarios/register" class="color"> <b>Registrarse</b> </a></li>
+                            <li><a class="dropdown-item" href="/usuarios/login" class="color"><b>Iniciar sesión</b> </a>
+                            </li>
+                            <li><a class="dropdown-item" href="/usuarios/register" class="color"> <b>Registrarse</b>
+                                </a></li>
                             <% } %>
                 </ul>
             </div>
-            <!--FINAL LOGUEO Y REGISTRO-->
+            <!--  final logue y registro -->
+
+            <div class="boton2"></div>
         </div>
     </nav>
 </header>
