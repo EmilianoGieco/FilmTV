@@ -49,8 +49,14 @@ router.get('/perfilUsuario', autenticacionMiddleware, usuarioController.perfilUs
 //Cerrar sesión
 router.get('/cerrarSesion',usuarioController.cerrarSesion);
 
-//ruta de la cantidad total de usuarios en mi sitio prueba API
-router.get('/usuarios',usuarioController.cantidadUsuarios);
 
+///////////////////////////////APIS/////////////////////////////////////////
+
+//USUARIOS 
+router.get('/usuarios',usuarioController.cantidadUsuarios);
+//USUARIO POR ID 
+router.get('/usuarios/:id',usuarioController.usuarioId);
+
+///////////////////////////////FIN APIS USUARIOS/////////////////////////////////////////
 
 module.exports = router;

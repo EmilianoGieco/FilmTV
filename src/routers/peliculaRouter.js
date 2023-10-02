@@ -61,4 +61,20 @@ router.get('/Top1D', peliculaController.Top1D);
 router.get('/Top2D', peliculaController.Top2D);
 router.get('/Top3D', peliculaController.Top3D);
 
+///////////////////////////////APIS/////////////////////////////////////////
+
+//PRODUCTO (PELICULAS Y SERIES)
+router.get('/productos',peliculaController.cantidadProductos);
+//PRODUCTO POR ID 
+router.get('/productos/:id',peliculaController.productoId);
+
+///////////////////////////////FIN APIS PRODUCTO (PELICULAS) /////////////////////////////////////////
+
+//CATEGORIA (GENERO)
+router.get('/generos',peliculaController.generosTotal);
+//GENERO POR ID 
+router.get('/generos/:id',peliculaController.generoId);
+
+///////////////////////////////FIN APIS CATEGORIA (GENERO) /////////////////////////////////////////
+
 module.exports = router;

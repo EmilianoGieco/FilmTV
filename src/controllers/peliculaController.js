@@ -36,11 +36,11 @@ const controlador = {
       const peliculaId = req.params.id;  // Obtener el ID de la película desde la URL
       const usuarioId = req.body.usuarioId; // Obtener el ID del usuario desde el body
       const comentarioUsuario = req.body.comentarioUsuario // Obtener el comentario del cuerpo de la solicitud
-  
+
       if (!calificacion) {
         return res.status(400).send('La calificación es requerida.');
       }
-  
+
       // Crear la calificación y el comentario asociada a la película/serie
       await db.calificacion.create({
         calificacion: calificacion, // Guardar la calificacion en la base de datos
@@ -54,8 +54,8 @@ const controlador = {
       console.error('Error al guardar la calificación:', error);
       res.status(500).send('Error al guardar la calificación');
     }
-  },  
-//guardado de calificacion final
+  },
+  //guardado de calificacion final
 
 
   /*prueba de metodo cloudinary*/
@@ -212,17 +212,17 @@ const controlador = {
   },
 
   /* guardado  en la base de datos de ultimos estrenos*/
-  guardadoEstrenos: async (req, res) =>{
+  guardadoEstrenos: async (req, res) => {
     try {
       const calificacion = req.body.calificacion;
       const peliculaId = req.params.id;  // Obtener el ID de la película desde la URL
       const usuarioId = req.body.usuarioId; // Obtener el ID del usuario desde el body
       const comentarioUsuario = req.body.comentarioUsuario // Obtener el comentario del cuerpo de la solicitud
-  
+
       if (!calificacion) {
         return res.status(400).send('La calificación es requerida.');
       }
-  
+
       // Crear la calificación y el comentario asociada a la película/serie
       await db.calificacion.create({
         calificacion: calificacion, // Guardar la calificacion en la base de datos
@@ -292,7 +292,7 @@ const controlador = {
       })
   },
 
-  
+
 
   aspromonte: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/estrenos/aspromonte.ejs'))
@@ -360,6 +360,102 @@ const controlador = {
   Top3D: (req, res) => {
     res.render(path.resolve(__dirname, '../views/movies/top/top3disney.ejs'))
   },
+
+
+  ///////////////////////////////APIS/////////////////////////////////////////
+
+  //PRODUCTO (PELICULAS Y SERIES)
+  cantidadProductos: (req, res) => {
+    db.productoFilm.findAll({ //obtengo todos los productos de la bd
+      include: [{ association: "tipo" }, { association: "genero" }] //incluyo la tabla asociada a productoFilm
+    })
+      .then(peliculas => {
+        const productosConTipo = peliculas.map(producto => ({
+          id: producto.id,
+          nombre: producto.nombre,
+          duracion: producto.duracion,
+          fecha_estreno: producto.fecha_estreno,
+          imagen: producto.imagen1,
+          tipo: producto.tipo && producto.tipo.nombre, // Obtenngo el nombre del tipo (película o serie)
+        }));
+
+        return res.status(200).json({
+          productoTotal: productosConTipo.length,
+          data: productosConTipo,
+          status: 200
+        });
+      })
+  },
+
+  //PRODUCTO POR ID 
+  productoId: (req, res) => {
+    db.productoFilm.findByPk(req.params.id, {
+      include: [{ association: "tipo" }]
+    })
+      .then(producto => {
+        return res.status(200).json({
+          id: producto.id,
+          nombre: producto.nombre,
+          duracion: producto.duracion,
+          fecha_estreno: producto.fecha_estreno,
+          imagen: producto.imagen1,
+          tipo: producto.tipo && producto.tipo.nombre,
+          status: 200
+        })
+      })
+  },
+
+  ///////////////////////////////FIN APIS PRODUCTO/////////////////////////////////////////
+
+  //CATEGORIAS (GENERO)
+  generosTotal: (req, res) => {
+    db.genero.findAll({ //obtengo todos los generos de la bd
+      include: [{ association: "productoFilm" }]
+    })
+      .then(generos => {
+        const generosConProductoFilm = generos.map(genero => ({
+          id: genero.id,
+          genero: genero.nombre,
+          productos: genero.productoFilm.map(producto => ({
+            id: producto.id,
+            nombre: producto.nombre
+          })),
+        }));
+
+        return res.status(200).json({
+          productoTotal: generosConProductoFilm.length,
+          data: generosConProductoFilm,
+          status: 200
+        });
+      })
+  },
+
+  //GENERO POR ID 
+  generoId: (req, res) => {
+    db.genero.findByPk(req.params.id, {
+      include: [{ association: "productoFilm" }]
+    })
+      .then(genero => {
+        if (!genero.productoFilm || genero.productoFilm.length === 0) {
+          return res.status(200).json({
+            mensaje: "No hay productos asociados a este género",
+            status: 200
+          });
+        }
+
+        return res.status(200).json({
+          id: genero.id,
+          genero: genero.nombre,
+          productos: genero.productoFilm.map(producto => ({
+            id: producto.id,
+            nombre: producto.nombre
+          })),
+          status: 200
+        });
+      });
+  }
+
+///////////////////////////////FIN APIS CATEGORIA (GENERO)/////////////////////////////////////////
 }
 
 module.exports = controlador;

@@ -33,35 +33,35 @@ const controlador = {
       }
       console.log("hola2")
       //buscar usuario
-    
-      const userToLogin = await db.usuario.findOne({ where : {correo: req.body.email} });
+
+      const userToLogin = await db.usuario.findOne({ where: { correo: req.body.email } });
       console.log('Usuario encontrado en la base de datos:', userToLogin);
 
-             if (!userToLogin) {
-              
-                return res.render('users/login', {
-                    errors: {email: {msg: 'El email con el que intenta ingresar no existe'}}
+      if (!userToLogin) {
 
-                });
-            }
-            console.log('Usuario encontrado');
-            console.log('Contraseña proporcionada:', req.body.password);
-            console.log('Contraseña almacenada:', userToLogin.clave);
-            const correctPassword = bcryptjs.compareSync(req.body.password, userToLogin.clave);
+        return res.render('users/login', {
+          errors: { email: { msg: 'El email con el que intenta ingresar no existe' } }
 
-            if (correctPassword) {
-                delete userToLogin.password;
-                req.session.userLogged = userToLogin;
-                if (req.body.remember) {
-                    res.cookie('userEmail', req.body.email, {maxAge : (((1000 * 60) * 60)*24)});
-                }
-                return res.redirect('./perfilUsuario');
-            } else {
-                return res.render('./user/login', {
-                    errors: {password: {msg: 'Contraseña incorrecta'}},
-                    old : req.body
-                });
-            }
+        });
+      }
+      console.log('Usuario encontrado');
+      console.log('Contraseña proporcionada:', req.body.password);
+      console.log('Contraseña almacenada:', userToLogin.clave);
+      const correctPassword = bcryptjs.compareSync(req.body.password, userToLogin.clave);
+
+      if (correctPassword) {
+        delete userToLogin.password;
+        req.session.userLogged = userToLogin;
+        if (req.body.remember) {
+          res.cookie('userEmail', req.body.email, { maxAge: (((1000 * 60) * 60) * 24) });
+        }
+        return res.redirect('./perfilUsuario');
+      } else {
+        return res.render('./user/login', {
+          errors: { password: { msg: 'Contraseña incorrecta' } },
+          old: req.body
+        });
+      }
 
       //busqueda de errores
     } catch (error) {
@@ -149,15 +149,41 @@ const controlador = {
     return res.redirect("/")
   },
 
+  ///////////////////////////////APIS/////////////////////////////////////////
 
-//cantidad total de usuarios en mi sitio prueba API
-  cantidadUsuarios:function (req, res) {
-    db.usuario.findAll()
-    .then (usuarios =>{
-      return res.json(usuarios)
-    })
+  //USUARIOS
+  cantidadUsuarios: function (req, res) {
+    db.usuario.findAll().then(usuarios => {
+      return res.status(200).json({
+        CantidadUsuarios: usuarios.length,
+        datosUsuario: usuarios,
+        status: 200
+      });
+    });
+  },
+
+  //USUARIO POR ID 
+  usuarioId: function (req, res) {
+    db.usuario.findByPk(req.params.id)
+      .then(usuario => {
+
+        if (!usuario) {
+          return res.status(200).json({
+            mensaje: "No hay usuario registrado con ese ID",
+            status: 200
+          });
+        }
+
+        return res.status(200).json({
+          id: usuario.id,
+          nombre: usuario.nombre,
+          correo: usuario.correo,
+          imagen: usuario.imagen,
+          status: 200
+        });
+      });
   }
-
+/////////////////////////////////FIN APIS USUARIOS/////////////////////////////////////////
 };
 
 module.exports = controlador;
