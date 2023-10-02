@@ -33,9 +33,9 @@ const controlador = {
       }
       console.log("hola2")
       //buscar usuario
-    
-      
-      const userToLogin = await db.usuario.findOne({ where : {correo: req.body.email} });
+
+
+      const userToLogin = await db.usuario.findOne({ where: { correo: req.body.email } });
       console.log('Usuario encontrado en la base de datos:', userToLogin);
 
       if (!userToLogin) {
@@ -45,9 +45,7 @@ const controlador = {
 
         });
       }
-      console.log('Usuario encontrado');
-      console.log('Contraseña proporcionada:', req.body.password);
-      console.log('Contraseña almacenada:', userToLogin.clave);
+
       const correctPassword = bcryptjs.compareSync(req.body.password, userToLogin.clave);
 
       if (correctPassword) {
@@ -155,36 +153,54 @@ const controlador = {
   //USUARIOS
   cantidadUsuarios: function (req, res) {
     db.usuario.findAll().then(usuarios => {
-      return res.status(200).json({
-        CantidadUsuarios: usuarios.length,
-        datosUsuario: usuarios,
+      const usuariosDetalle = usuarios.map(usuario => ({
+        id: usuario.id,
+        nombre: usuario.nombre,
+        correo: usuario.correo,
+        imagen: usuario.imagen
+      }));
+
+      const respuesta = {
+        Cantidad_usuarios: usuarios.length,
+        Usuarios: usuariosDetalle,
         status: 200
-      });
-    });
+      };
+
+      res.status(200).json(respuesta);
+    })
   },
 
   //USUARIO POR ID 
   usuarioId: function (req, res) {
     db.usuario.findByPk(req.params.id)
       .then(usuario => {
-
         if (!usuario) {
           return res.status(200).json({
             mensaje: "No hay usuario registrado con ese ID",
             status: 200
           });
         }
-
-        return res.status(200).json({
+  
+        const usuarioDetalle = {
           id: usuario.id,
           nombre: usuario.nombre,
           correo: usuario.correo,
           imagen: usuario.imagen,
           status: 200
-        });
+        };
+  
+        const respuesta = {
+          Usuario: usuarioDetalle
+        };
+  
+        res.status(200).json(respuesta);
+      })
+      .catch(error => {
+        res.status(500).json({ error: 'Error al obtener el usuario por ID.' });
       });
   }
-/////////////////////////////////FIN APIS USUARIOS/////////////////////////////////////////
+  
+  /////////////////////////////////FIN APIS USUARIOS/////////////////////////////////////////
 };
 
 module.exports = controlador;

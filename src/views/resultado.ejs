@@ -11,8 +11,10 @@
       <div class="container">
         <ul class="lista-resultados">
           <% resultados.forEach(function(resultado) { %>
+            <a href="/peliculas/detalle/<%= resultado.id %>"> 
+            <img class="imagen" src="<%= resultado.imagen1 %>" width="400px">
             <li >
-              <a href="/peliculas/detalle/<%= resultado.id %>">
+              
                <h6 class="bajada"> <%= resultado.nombre %> </h6>
               </a>
             </li>
