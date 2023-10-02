@@ -19,7 +19,7 @@ function usuario(sequelize, DataTypes) {
             { type: DataTypes.STRING(255) },
 
         administrador:
-            { type: DataTypes.BOOLEAN },
+            { type: DataTypes.INTEGER  },
 
         imagen:
             { type: DataTypes.STRING(255) },

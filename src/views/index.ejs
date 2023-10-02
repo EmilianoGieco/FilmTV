@@ -10,8 +10,10 @@
 
         <div class="button-container">
           <!-- Cambio de estilo de boton -->
-          <% if (locals.userLogged && locals.userLogged.administrador === 1) { %>
-            <a class="ADMIN" aria-current="page" href="/peliculas/CrearFilm">
+          <% console.log("isLogged:", locals.isLogged); %>
+          <% console.log("userLogged:", locals.userLogged); %>
+          <% if (locals.isLogged && locals.userLogged && locals.userLogged.administrador === 1) { %>       
+                 <a class="ADMIN" aria-current="page" href="/peliculas/CrearFilm">
               <span></span>
               <span></span>
               <span></span>

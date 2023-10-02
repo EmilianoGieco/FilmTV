@@ -33,8 +33,9 @@ const controlador = {
       }
       console.log("hola2")
       //buscar usuario
-
-      const userToLogin = await db.usuario.findOne({ where: { correo: req.body.email } });
+    
+      
+      const userToLogin = await db.usuario.findOne({ where : {correo: req.body.email} });
       console.log('Usuario encontrado en la base de datos:', userToLogin);
 
       if (!userToLogin) {
