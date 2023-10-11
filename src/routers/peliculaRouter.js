@@ -77,4 +77,8 @@ router.get('/generos/:id',peliculaController.generoId);
 
 ///////////////////////////////FIN APIS CATEGORIA (GENERO) /////////////////////////////////////////
 
+router.get("/todo",peliculaController.todo);
+
+router.get("/todo/:id",peliculaController.todoId);
+
 module.exports = router;

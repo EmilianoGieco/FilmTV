@@ -453,9 +453,34 @@ const controlador = {
           status: 200
         });
       });
-  }
+  },
 
 ///////////////////////////////FIN APIS CATEGORIA (GENERO)/////////////////////////////////////////
+
+todo: (req, res) => {
+  db.calificacion.findAll({
+    include: [{ association: "productoFilm" }]
+  })
+    .then(calificaciones => {  
+      return res.status(200).json({
+        total: calificaciones.length,
+        data: calificaciones,
+        status: 200
+      })
+     })
+},
+
+todoId: (req, res) => {
+  db.calificacion.findByPk(req.params.id, {
+    include: [{ association: "productoFilm" }]
+  })
+    .then(calificaciones => {
+        return res.status(200).json({
+         data: calificaciones
+      });
+    });
+}
+
 }
 
 module.exports = controlador;

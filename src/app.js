@@ -5,9 +5,11 @@ const cookies = require('cookie-parser');
 const path = require('path');
 const methodOverride = require("method-override");
 const usuarioLogueoMiddleware = require('./middlewares/usuarioLogueoMiddleware');
+const cors = require('cors');
 
 /* app */
 const app = express();
+app.use(cors())
 
 /* middleware de session */
 app.use(session( {
