@@ -118,6 +118,16 @@
                             Logueate para calificar
                           </a>
                           <% }%>
+
+                          <div>
+                            <h3>Comentarios:</h3>
+                            <% comentarios.forEach(comentario => { %>
+                              <p><%= comentario.comentario %></p>
+                              <p>Usuario: <%= comentario.usuario.nombre %></p>
+                              <p>Calificación: <%= comentario.calificacion %></p>
+                              <!-- Agrega cualquier otra información que desees mostrar -->
+                            <% }); %>
+                          </div>
                             <!--FINAL CALIFICACION-->
                         </div>
                     </div>

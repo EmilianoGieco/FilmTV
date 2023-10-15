@@ -18,6 +18,12 @@ let db = require("../database/models");
 const { where } = require('sequelize');
 const { Op } = require('sequelize');
 
+/*comentarios de ALL people*/ 
+
+
+
+
+
 /*detalle de las peliculas*/
 const controlador = {
   detallePelicula: (req, res) => {

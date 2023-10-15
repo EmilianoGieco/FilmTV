@@ -26,7 +26,7 @@ const controlador = {
       const resultValidation = validationResult(req);
       if (resultValidation.errors.length > 0) {
         console.log("hola3")
-        return res.render('./user/login', {
+        return res.render('user/login', {
           errors: resultValidation.mapped(),
           old: req.body
         });

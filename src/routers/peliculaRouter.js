@@ -4,6 +4,9 @@ const express = require('express');
 const router = express.Router();
 const path = require("path");
 
+const autenticacionMiddleware = require('../middlewares/autenticacionMiddleware');
+
+
 console.log(path.join(__dirname, '../../public/img'))
 const upload = multer();
 
@@ -12,13 +15,38 @@ router.get("/detalle/:id", peliculaController.detallePelicula);
 //guardado de las calificaciones del usuario
 router.post("/detalle/:id", peliculaController.guardado);
 
-//ruta CrearFilm
-router.get("/CrearFilm", peliculaController.getCrearFilm);
-router.post("/CrearFilm", upload.single("imagen"), peliculaController.postCrearFilm);
+
+router.get("/CrearFilm", autenticacionMiddleware, (req, res, next) => {
+    if (req.session.userLogged && req.session.userLogged.administrador === 1) {
+        return next();
+    } else {
+        return res.status(403).send("Acceso denegado. No eres un administrador.");
+    }
+}, peliculaController.getCrearFilm);
+
+router.post("/CrearFilm", upload.single("imagen"), autenticacionMiddleware, (req, res, next) => {
+    if (req.session.userLogged && req.session.userLogged.administrador === 1) {
+        return next();
+    } else {
+        return res.status(403).send("Acceso denegado. No eres un administrador.");
+    }
+}, peliculaController.postCrearFilm);
 
 //ruta actualizacionFilm
-router.get("/actualizarFilm/:id", peliculaController.getActualizarFilm);
-router.put("/actualizarFilm/:id", upload.single("imagen"), peliculaController.postActualizarFilm);
+router.get("/actualizarFilm/:id", autenticacionMiddleware, (req, res, next) => {
+      if (req.session.userLogged && req.session.userLogged.administrador === 1) {
+        return next();
+    } else {
+        return res.status(403).send("Acceso denegado. No eres un administrador.");
+    }
+}, peliculaController.getActualizarFilm);
+router.put("/actualizarFilm/:id", autenticacionMiddleware, (req, res, next) => {
+    if (req.session.userLogged && req.session.userLogged.administrador === 1) {
+        return next();
+    } else {
+        return res.status(403).send("Acceso denegado. No eres un administrador.");
+    }
+},  upload.single("imagen"), peliculaController.postActualizarFilm);
 
 //ruta de borrado pelicula
 router.delete("/delete/:id", peliculaController.delete)
