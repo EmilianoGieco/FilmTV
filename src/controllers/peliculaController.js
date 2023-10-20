@@ -193,17 +193,35 @@ const controlador = {
       if (!pelicula) {
         res.send('Película no encontrada');
       } else {
-        // Borrar la película de la base de datos
-        await pelicula.destroy();
+        // Verificar si hay calificaciones asociadas a la película
+        const calificacionesAsociadas = await db.calificacion.findAll({
+          where: { id_productoFilm: idPelicula },
+        });
 
-        res.redirect("/");
+        if (calificacionesAsociadas.length > 0) {
+          // Eliminar las calificaciones asociadas
+          await db.calificacion.destroy({
+            where: { id_productoFilm: idPelicula },
+          });
+
+          // Eliminar la película después de eliminar las calificaciones
+          await pelicula.destroy();
+
+          res.redirect("/");
+        } else {
+          // No hay calificaciones asociadas, eliminar la película directamente
+          await pelicula.destroy();
+          res.redirect("/");
+        }
       }
     } catch (error) {
       console.error('Error en delete:', error);
       res.render('error', { message: 'Error al eliminar la película' });
     }
-  },
-
+},
+  
+  
+  
   /*peliculas estrenos*/
   estrenos: async (req, res) => {
     try {
