@@ -18,11 +18,6 @@ let db = require("../database/models");
 const { where } = require('sequelize');
 const { Op } = require('sequelize');
 
-/*comentarios de ALL people*/ 
-
-
-
-
 
 /*detalle de las peliculas*/
 const controlador = {
@@ -34,6 +29,26 @@ const controlador = {
 
     });
   },
+
+  /*comentarios de ALL people*/
+
+  obtenerComentarios: async (req, res) => {
+    try {
+      const peliculaId = req.params.id;
+
+      // Obtener los comentarios asociados a la película
+      const comentarios = await db.calificacion.findAll({
+        where: { id_productoFilm: peliculaId },
+        attributes: ['id', 'comentario'],
+      });
+
+      res.json(comentarios);
+    } catch (error) {
+      console.error('Error al obtener comentarios:', error);
+      res.status(500).send('Error interno del servidor');
+    }
+  }, 
+    
 
   //guardado de calificacion
   guardado: async (req, res) => {
@@ -188,7 +203,6 @@ const controlador = {
       res.render('error', { message: 'Error al eliminar la película' });
     }
   },
-
 
   /*peliculas estrenos*/
   estrenos: async (req, res) => {

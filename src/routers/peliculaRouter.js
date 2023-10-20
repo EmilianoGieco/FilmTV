@@ -109,4 +109,11 @@ router.get("/todo",peliculaController.todo);
 
 router.get("/todo/:id",peliculaController.todoId);
 
+
+///////////////////////////////comentarios de ALL people /////////////////////////////////////////
+
+router.get("/:id/comentarios", peliculaController.obtenerComentarios);
+
+
+
 module.exports = router;
