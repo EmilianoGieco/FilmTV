@@ -30,6 +30,10 @@ window.addEventListener("load", function () {
         if (a === 1) {
             return;
         }
+
+
+
+        
         // Muestra un mensaje de agradecimiento usando SweetAlert2
         Swal.fire({
             title: '¡Gracias por tu voto cinefilo!',

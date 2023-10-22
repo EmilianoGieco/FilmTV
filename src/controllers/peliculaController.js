@@ -21,13 +21,24 @@ const { Op } = require('sequelize');
 
 /*detalle de las peliculas*/
 const controlador = {
-  detallePelicula: (req, res) => {
-    db.productoFilm.findByPk(req.params.id, {
-      include: [{ association: "genero" }]
-    }).then(function (movie) {
-      res.render("movies/detallePelicula", { movie: movie });
+  detallePelicula: async (req, res) => {
+    try {
+      const peliculaId = req.params.id;
 
-    });
+      // Obtener detalles de la película
+      const movie = await db.productoFilm.findByPk(peliculaId, {
+        include: [{ association: "genero" }]
+      });
+
+      // Obtener comentarios y calificaciones asociadas a la película
+      const comentarios = await controlador.obtenerComentarios(req, res) || [];
+
+      // Renderizar la vista y pasar los detalles de la película, comentarios y calificaciones
+      res.render("movies/detallePelicula", { movie: movie, comentarios: comentarios });
+    } catch (error) {
+      console.error(error);
+      res.render('error', { message: 'Error al cargar la página' });
+    }
   },
 
   /*comentarios de ALL people*/
@@ -39,37 +50,48 @@ const controlador = {
       // Obtener los comentarios asociados a la película
       const comentarios = await db.calificacion.findAll({
         where: { id_productoFilm: peliculaId },
-        attributes: ['id', 'comentario'],
+        limit: 150,
+        include: [{ model: db.usuario, as: 'usuario' }] // Asegúrate de que 'usuario' sea el alias correcto
       });
 
-      res.json(comentarios);
+      return comentarios || [];
     } catch (error) {
       console.error('Error al obtener comentarios:', error);
       res.status(500).send('Error interno del servidor');
     }
-  }, 
+  },
     
 
   //guardado de calificacion
   guardado: async (req, res) => {
     try {
       const calificacion = req.body.calificacion;
-      const peliculaId = req.params.id;  // Obtener el ID de la película desde la URL
-      const usuarioId = req.body.usuarioId; // Obtener el ID del usuario desde el body
-      const comentarioUsuario = req.body.comentarioUsuario // Obtener el comentario del cuerpo de la solicitud
-
+      const peliculaId = req.params.id;
+      const usuarioId = req.body.usuarioId;
+      const comentarioUsuario = req.body.comentarioUsuario;
+  
       if (!calificacion) {
         return res.status(400).send('La calificación es requerida.');
       }
-
-      // Crear la calificación y el comentario asociada a la película/serie
-      await db.calificacion.create({
-        calificacion: calificacion, // Guardar la calificacion en la base de datos
-        id_productoFilm: peliculaId,  // Asociar la calificación con la película
-        usuario_id: usuarioId,  // establecer el ID del usuario 
-        comentario: comentarioUsuario // Guardar el comentario en la base de datos
+  
+      // Verificar si el usuario ya ha calificado la película
+      const calificacionExistente = await db.calificacion.findOne({
+        where: { id_productoFilm: peliculaId, usuario_id: usuarioId },
       });
-
+  
+      if (calificacionExistente) {
+        return res.status(400).send('Ya has calificado esta película anteriormente.');
+      }
+      
+  
+      // Crear la calificación y el comentario asociados a la película
+      await db.calificacion.create({
+        calificacion: calificacion,
+        id_productoFilm: peliculaId,
+        usuario_id: usuarioId,
+        comentario: comentarioUsuario,
+      });
+  
       res.redirect('/');
     } catch (error) {
       console.error('Error al guardar la calificación:', error);
@@ -77,6 +99,25 @@ const controlador = {
     }
   },
   //guardado de calificacion final
+
+     //motrar comentarios
+     mostrarCalificaciones: async (req, res) => {
+    try {
+      const peliculaId = req.params.id;
+  
+      // Obtén calificaciones asociadas a la película
+      const calificaciones = await db.calificacion.findAll({
+        where: { id_productoFilm: peliculaId },
+        include: [{ model: db.usuario, as: 'usuario' }]
+      });
+  
+      // Renderiza tu vista con las calificaciones
+      res.render('movies/detallePelicula', { calificaciones: calificaciones });
+    } catch (error) {
+      console.error('Error al obtener calificaciones:', error);
+      res.status(500).send('Error al obtener calificaciones');
+    }
+  },
 
 
   /*prueba de metodo cloudinary*/

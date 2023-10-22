@@ -15,6 +15,9 @@ router.get("/detalle/:id", peliculaController.detallePelicula);
 //guardado de las calificaciones del usuario
 router.post("/detalle/:id", peliculaController.guardado);
 
+router.post("/detalle/:id", peliculaController.mostrarCalificaciones);
+
+
 
 router.get("/CrearFilm", autenticacionMiddleware, (req, res, next) => {
     if (req.session.userLogged && req.session.userLogged.administrador === 1) {
@@ -112,7 +115,7 @@ router.get("/todo/:id",peliculaController.todoId);
 
 ///////////////////////////////comentarios de ALL people /////////////////////////////////////////
 
-router.get("/:id/comentarios", peliculaController.obtenerComentarios);
+router.get("/comentarios/:id", peliculaController.obtenerComentarios);
 
 
 

@@ -50,6 +50,8 @@ router.get('/perfilUsuario', autenticacionMiddleware, usuarioController.perfilUs
 router.get('/cerrarSesion',usuarioController.cerrarSesion);
 
 
+
+
 ///////////////////////////////APIS/////////////////////////////////////////
 
 //USUARIOS 

@@ -48,41 +48,45 @@
 
 
 
-                    <!-- CALIFICACION-->
-                    <% if (locals.isLogged) {%>
-                      <form action="/peliculas/detalle/<%= movie.id %>" method="POST" class="calificacion-form">
-                        <input type="hidden" name="usuarioId" value="<%=locals.userLogged.id %>" />
-                        <div class="calificacion">
-                          <h6 class="card-title linea" for="calificacion">Calificación:</h6>
-                          <div class="clasificacion">
-                            <input id="radio5" type="radio" name="calificacion" value="5" />
-                            <label for="radio5">★</label>
-                            <input id="radio4" type="radio" name="calificacion" value="4" />
-                            <label for="radio4">★</label>
-                            <input id="radio3" type="radio" name="calificacion" value="3" />
-                            <label for="radio3">★</label>
-                            <input id="radio2" type="radio" name="calificacion" value="2" />
-                            <label for="radio2">★</label>
-                            <input id="radio1" type="radio" name="calificacion" value="1" />
-                            <label for="radio1">★</label>
-                          </div>
-                          <p id="error1"></p>
-                        </div>
-                        <h6 class="card-title linea" for="comentarioUsuario">Dejanos tu comentario:</h6>
-                        <textarea id="comentarioUsuario" name="comentarioUsuario"></textarea>
-                        <p id="error2"></p>
-                        <button class="cFondo boton-enviar" type="submit">Enviar</button>
-                      </form>
-                      <% } else {%>
-                        <a class="validacion" href="/usuarios/login">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          Logueate para calificar
-                        </a>
-                        <% }%>
-                          <!--FINAL CALIFICACION-->
+                   <!-- Detalle de la película -->
+
+                                  
+                                  <!-- CALIFICACION-->
+                                  <% if (locals.isLogged) {%>
+                                    <form action="/peliculas/detalle/<%= movie.id %>" method="POST" class="calificacion-form">
+                                      <input type="hidden" name="usuarioId" value="<%=locals.userLogged.id %>" />
+                                      <div class="calificacion">
+                                        <h6 class="card-title linea" for="calificacion">Calificación:</h6>
+                                        <div class="clasificacion">
+                                          <input id="radio5" type="radio" name="calificacion" value="5" />
+                                          <label for="radio5">★</label>
+                                          <input id="radio4" type="radio" name="calificacion" value="4" />
+                                          <label for="radio4">★</label>
+                                          <input id="radio3" type="radio" name="calificacion" value="3" />
+                                          <label for="radio3">★</label>
+                                          <input id="radio2" type="radio" name="calificacion" value="2" />
+                                          <label for="radio2">★</label>
+                                          <input id="radio1" type="radio" name="calificacion" value="1" />
+                                          <label for="radio1">★</label>
+                                        </div>
+                                        <p id="error1"></p>
+                                      </div>
+                                      <h6 class="card-title linea" for="comentarioUsuario">Dejanos tu comentario:</h6>
+                                      <textarea id="comentarioUsuario" name="comentarioUsuario"></textarea>
+                                      <p id="error2"></p>
+                                      <button class="cFondo boton-enviar" type="submit">Enviar</button>
+                                    </form>
+                                  <% } else { %>
+                                    <a class="validacion" href="/usuarios/login">
+                                      <span></span>
+                                      <span></span>
+                                      <span></span>
+                                      <span></span>
+                                      Logueate para calificar
+                                    </a>
+                                  <% } %>
+                                  <!-- FINAL CALIFICACION -->
+
 
                           <% if (locals.isLogged && locals.userLogged && locals.userLogged.administrador === 1) { %>
                           <div style="display: flex; gap: 20px;">
@@ -99,29 +103,35 @@
                            <!--cajita de comentarios de ALL user-->
 
                           <body>
-                           <div class="comment-box">
-                            <div class="comment">
-                                <img src="ruta/a/imagen1.jpg" alt="Imagen de Perfil 1" width="40" height="40">
-                                <div>
-                                    <p class="comment-content">Este es un comentario de ejemplo.</p>
-                                    <p class="comment-info">Usuario: Juan | Fecha: 10/11/2023</p>
-                                </div>
-                            </div>
-                    
-                            <div class="comment">
-                                <img src="ruta/a/imagen2.jpg" alt="Imagen de Perfil 2" width="40" height="40">
-                                <div>
-                                    <p class="comment-content">Otro comentario interesante.</p>
-                                    <p class="comment-info">Usuario: María | Fecha: 10/12/2023</p>
-                                </div>
-                            </div>
-                    
+                            <% if (comentarios && comentarios.length > 0) { %>
+                              <div class="comment-box">
+                                <% comentarios.reverse().forEach(comment => { %>
+                                  <div class="comment">
+                                    <!-- Verificación para asegurarse de que comment.usuario tenga un valor -->
+                                    <% if (comment.usuario) { %>
+                                      <img src="<%= comment.usuario.imagen %>" alt="Imagen de Perfil" width="40" height="40">
+                                      <div>
+                                        <p class="comment-content"><%= comment.comentario %></p>
+                                        <!-- Muestra la calificación del usuario -->
+                                        <p class="comment-info">Usuario: <%= comment.usuario.nombre %></p>
+                                        
+                                        <p class="comment-info">Califico a esta pelicula con un puntaje de: <%= comment.calificacion %></p>
+                                        <!-- Muestra el nombre del usuario si está disponible -->
+                                      </div>
+                                    <% } else { %>
+                                      <p class="comment-content"><%= comment.comentario %></p>
+                                      <!-- Puedes omitir la fecha si no es necesaria -->
+                                    <% } %>
+                                  </div>
+                                <% }); %>
+                              </div>
+                            <% } else { %>
+                              <p>No hay comentarios disponibles.</p>
+                            <% } %>
                             
-                            <form>
-                                <textarea name="new-comment" placeholder="Escribe tu comentario"></textarea>
-                                <button type="submit">Enviar Comentario</button>
-                            </form>
-                        </div>
+                            
+                            
+                            
                       </body>
             </div>
           </div>
@@ -133,11 +143,14 @@
         <script src="/js/deleteFilm.js"></script>
 
         <script src="/js/calificacion.js"></script>
+       
+        
 
-
+        
       </main>
       <!--FOOTER-->
       <%- include("../partials/footer") %>
   </body>
 
 </html>
+

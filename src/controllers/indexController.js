@@ -27,11 +27,33 @@ const indexController = {
         
       
 
-      res.render("index", { peliculasSlide: peliculasSlide, movie: movie});
+       console.log("User en controlador index:", req.session.userLogged);
+
+       res.render("index", { peliculasSlide, movie, fotoPerfil: req.session.userLogged || null });
+
+
     } catch (error) {
       console.log(error);
     }
   },
+
+  fotoPerfil: async (req, res) => {
+    try {
+      // Obtiene el id del usuario desde la sesión
+      const userId = req.session.userLogged ? req.session.userLogged.id : null;
+  
+      // Consulta para obtener la información del usuario por su id
+      const fotoPerfil = await db.usuario.findByPk(userId);
+  
+      // Renderiza la vista con la información del usuario
+      res.render("fotoPerfil", { fotoPerfil });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Error en el servidor");
+    }
+  },
+
+
 
   buscar: async (req, res) => {
     try {

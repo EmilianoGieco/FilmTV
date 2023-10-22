@@ -97,6 +97,19 @@ const controlador = {
         });
       }
 
+      const nombreUsuarioBD = await db.usuario.findOne({ where: { nombre: req.body.nombreUsuario } });
+
+          if (nombreUsuarioBD) {
+              return res.render('user/register', {
+                  errors: {
+                      nombreUsuario: {
+                          msg: "Este nombre de usuario ya está en uso"
+                      }
+                  },
+                  oldData: req.body
+              });
+          }
+
       const hashedPassword = bcryptjs.hashSync(req.body.password, 10);
 
       // Subir imagen a Cloudinary

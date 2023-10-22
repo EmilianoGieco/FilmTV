@@ -73,10 +73,24 @@
                             <% } %>
                 </ul>
             </div>
-              
+
+            <br>
+            <br>
+            <br>
             <!--foto de perfil del usuario -->
             
+            <!--foto de perfil del usuario -->
+                            <!--foto de perfil del usuario -->
+                            
+                                <div class="logo-container">
+                                    <% if (isLogged && userLogged && fotoPerfil && fotoPerfil.imagen) { %>
+                                      <img src="<%= fotoPerfil.imagen %>" alt="Imagen de Perfil" style="width: 50px; height: 50px;">
+                                    <% } %>
 
+                                </div>
+                                <!--final foto de perfil del usuario -->
+  
+                            <!--final foto de perfil del usuario -->
             <!--  final logue y registro -->
 
             <div class="cuadrado"></div>

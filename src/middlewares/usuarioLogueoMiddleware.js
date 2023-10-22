@@ -9,17 +9,19 @@ async function usuarioLogueoMiddleware(req, res, next) {
     try {
         if (req.cookies.userEmail) {
             let usuarioCookie = await db.usuario.findOne({
-                where : {correo : req.cookies.userEmail}
-            })
-            req.session.userLogged = usuarioCookie
+                where: { correo: req.cookies.userEmail }
+            });
+            req.session.userLogged = usuarioCookie;
         }
+
+        // Configura res.locals.fotoPerfil incluso si no hay cookie pero hay sesión
+        res.locals.fotoPerfil = req.session.userLogged;
 
         if (req.session.userLogged) {
-            res.locals.isLogged = true
-            res.locals.userLogged = req.session.userLogged
+            res.locals.isLogged = true;
+            res.locals.userLogged = req.session.userLogged;
         }
 
-      
         next();
     } catch (error) {
         console.error("Error");
