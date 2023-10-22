@@ -50,6 +50,17 @@
   <p >No hay información de director disponible.</p>
 <% } %>
 
+<!-- Actores -->
+
+<h6 class="card-title estreno">Reparto:
+  <% if (pelicula.actor && pelicula.actor.length > 0) { %>
+    <% for (let i = 0; i < pelicula.actor.length; i++) { %>
+      <%= pelicula.actor[i].nombre %></h6>
+    <% } %>
+  <% } else { %>
+    <p >No hay información de reparto disponible.</p>
+  <% } %>
+  
 <!-- Guiónista -->
 
 <h6 class="card-title estreno">Guión:
@@ -72,16 +83,7 @@
   <p >No hay información de genero disponible.</p>
 <% } %>
 
-<!-- Actores -->
 
-<h6 class="card-title estreno">Reparto:
-<% if (pelicula.actor && pelicula.actor.length > 0) { %>
-  <% for (let i = 0; i < pelicula.actor.length; i++) { %>
-    <%= pelicula.actor[i].nombre %></h6>
-  <% } %>
-<% } else { %>
-  <p >No hay información de reparto disponible.</p>
-<% } %>
                             
                             
                                   <!-- CALIFICACION-->
@@ -124,6 +126,8 @@
                         </div>
                     </div>
                 </div>
+
+                
 <br>
 <br>
 

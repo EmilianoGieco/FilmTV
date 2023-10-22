@@ -11,9 +11,6 @@ body {
   height: 100vh;
 }
 
-/*HEADER*/
-
-
 /*MAIN FORMULARIO*/
 .campo-negro {
   background: #111;
@@ -283,3 +280,4 @@ body {
     font-size: 17px;
   }
 }
+

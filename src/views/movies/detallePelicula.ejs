@@ -102,20 +102,20 @@
                             
                            <!--cajita de comentarios de ALL user-->
 
-                          <body>
+                         
                             <% if (comentarios && comentarios.length > 0) { %>
                               <div class="comment-box">
                                 <% comentarios.reverse().forEach(comment => { %>
                                   <div class="comment">
                                     <!-- Verificación para asegurarse de que comment.usuario tenga un valor -->
                                     <% if (comment.usuario) { %>
-                                      <img src="<%= comment.usuario.imagen %>" alt="Imagen de Perfil" width="40" height="40">
+                                      <img src="<%= comment.usuario.imagen %>" alt="Imagen de Perfil" width="50" height="50"  style="border-radius: 100%;">
                                       <div>
                                         <p class="comment-content"><%= comment.comentario %></p>
                                         <!-- Muestra la calificación del usuario -->
                                         <p class="comment-info">Usuario: <%= comment.usuario.nombre %></p>
                                         
-                                        <p class="comment-info">Califico a esta pelicula con un puntaje de: <%= comment.calificacion %></p>
+                                        <p class="comment-info">Calificación: <%= comment.calificacion %> estrellas</p>
                                         <!-- Muestra el nombre del usuario si está disponible -->
                                       </div>
                                     <% } else { %>
@@ -132,14 +132,11 @@
                             
                             
                             
-                      </body>
+                  
             </div>
           </div>
         </div>
-        </div>
-        </form>
-
-
+        
         <script src="/js/deleteFilm.js"></script>
 
         <script src="/js/calificacion.js"></script>

@@ -507,10 +507,8 @@ li:hover {
 }
 
 .logo-container {
-  background-color: white;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-left: 40px; 
+  background-color: #212529;
+  width: 45px;
+  height: 47px;
+  border-radius: 100%;
 }

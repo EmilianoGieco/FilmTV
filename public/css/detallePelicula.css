@@ -213,33 +213,29 @@ input[type="radio"]:checked~label {
 
 /*cajita de comentario */
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
 
 .comment-box {
   width: 80%;
   max-width: 600px;
-  margin: 20px auto;
+  
 }
 
 .comment {
-  background-color: #fff;
+  background-color: #212529;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  margin-top: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .comment-content {
   font-size: 16px;
+  color:#fff;
 }
 
 .comment-info {
-  font-size: 12px;
-  color: #888;
+  font-size: 16px;
+  color: #ababab;
 }
 
 

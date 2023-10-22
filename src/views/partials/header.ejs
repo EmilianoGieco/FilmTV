@@ -54,7 +54,14 @@
 
             <!--LOGUEO Y REGISTRO-->
             <div class="btn-group">
-                <button type="button" class="btn btn-danger"><i class="fa-solid fa-circle-user"></i></button>
+                <button type="button" class="btn btn-danger">
+                    <% if (isLogged && userLogged && fotoPerfil && fotoPerfil.imagen) { %>
+                        <img width="50" height="50"  style="border-radius: 100%;" src="<%= fotoPerfil.imagen %>" alt="Imagen de Perfil">
+                        <% } else { %>
+                            <i class="fa-solid fa-circle-user"></i>
+                            <% } %>
+                </button>
+
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
@@ -77,21 +84,6 @@
             <br>
             <br>
             <br>
-            <!--foto de perfil del usuario -->
-            
-            <!--foto de perfil del usuario -->
-                            <!--foto de perfil del usuario -->
-                            
-                                <div class="logo-container">
-                                    <% if (isLogged && userLogged && fotoPerfil && fotoPerfil.imagen) { %>
-                                      <img src="<%= fotoPerfil.imagen %>" alt="Imagen de Perfil" style="width: 50px; height: 50px;">
-                                    <% } %>
-
-                                </div>
-                                <!--final foto de perfil del usuario -->
-  
-                            <!--final foto de perfil del usuario -->
-            <!--  final logue y registro -->
 
             <div class="cuadrado"></div>
         </div>
