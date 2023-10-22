@@ -76,6 +76,11 @@
   color: white !important;
 }
 
+.tituloComentarios{
+  padding-top: 2rem;
+  color: white;
+}
+
 .espaciado {
   padding: 2rem !important;
 }
@@ -223,8 +228,8 @@ input[type="radio"]:checked~label {
 .comment {
   background-color: #212529;
   padding: 10px;
-  margin-bottom: 15px;
-  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-top: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
