@@ -114,8 +114,11 @@ router.get("/todo/:id",peliculaController.todoId);
 
 
 ///////////////////////////////comentarios de ALL people /////////////////////////////////////////
-
+//detallePelicula
 router.get("/comentarios/:id", peliculaController.obtenerComentarios);
+
+//detalleEstrenos
+router.get("/estrenos/detalle/comentarios/:id", peliculaController.obtenerComent);
 
 
 

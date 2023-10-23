@@ -283,12 +283,53 @@ const controlador = {
   },
 
   /*detalle de los estrenos*/
-  detalleEstrenos: (req, res) => {
-    db.productoFilm.findByPk(req.params.id, { include: [{ association: "genero" }, { association: "actor" }, { association: "guionista" }, { association: "director" }] })
-      .then(function (pelicula) {
-        res.render("movies/detalleEstrenos", { pelicula: pelicula })
-      })
-  },
+  /*detalle de los estrenos*/
+detalleEstrenos: async (req, res) => {
+  try {
+    const peliculaId = req.params.id;
+
+    // Obtener detalles de la película
+    const movie = await db.productoFilm.findByPk(peliculaId, {
+      include: [{ association: "genero" }, { association: "actor" }, { association: "guionista" }, { association: "director" }]
+    });
+
+    // Obtener comentarios y calificaciones asociadas a la película
+    const Coment = await controlador.obtenerComent(req, res) || [];
+
+    // Renderizar la vista y pasar los detalles de la película, comentarios y calificaciones
+    res.render("movies/detalleEstrenos", { pelicula: movie, Coment: Coment });
+  } catch (error) {
+    console.error(error);
+    res.render('error', { message: 'Error al cargar la página' });
+  }
+},
+
+
+obtenerComent: async (req, res, pelicula) => {
+  try {
+    const peliculaId = req.params.id;
+
+    // Obtener los comentarios asociados a la película
+    const Coment = await db.calificacion.findAll({
+      where: { id_productoFilm: peliculaId },
+      limit: 150,
+      include: [{ model: db.usuario, as: 'usuario' }]
+    });
+
+    console.log('Comentarios obtenidos correctamente:', Coment);
+
+    return Coment || [];
+
+  } catch (error) {
+    console.error('Error al obtener comentarios:', error);
+    res.status(500).send('Error interno del servidor');
+  }
+},
+
+
+  
+
+
 
   /* guardado  en la base de datos de ultimos estrenos*/
   guardadoEstrenos: async (req, res) => {

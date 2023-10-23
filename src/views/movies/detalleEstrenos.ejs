@@ -39,52 +39,9 @@
                                     <%=pelicula.fecha_estreno%>
                                 </h6>
 
-<!-- Director -->
+                                            <!-- Director -->
 
-<h6 class="card-title estreno" >Dirección:
-<% if (pelicula.director && pelicula.director.length > 0) { %>
-  <% for (let i = 0; i < pelicula.director.length; i++) { %>
-   <%= pelicula.director[i].nombre %></h6>
-  <% } %>
-<% } else { %>
-  <p >No hay información de director disponible.</p>
-<% } %>
-
-<!-- Actores -->
-
-<h6 class="card-title estreno">Reparto:
-  <% if (pelicula.actor && pelicula.actor.length > 0) { %>
-    <% for (let i = 0; i < pelicula.actor.length; i++) { %>
-      <%= pelicula.actor[i].nombre %></h6>
-    <% } %>
-  <% } else { %>
-    <p >No hay información de reparto disponible.</p>
-  <% } %>
-  
-<!-- Guiónista -->
-
-<h6 class="card-title estreno">Guión:
-<% if (pelicula.guionista && pelicula.guionista.length > 0) { %>
-  <% for (let i = 0; i < pelicula.guionista.length; i++) { %>
-    <%= pelicula.guionista[i].nombre %></h6>
-  <% } %>
-<% } else { %>
-  <p >No hay información de guionista disponible.</p>
-<% } %>
-
-<!-- Genero -->
-
-<h6 class="card-title estreno">Genero:
-<% if (pelicula.genero && pelicula.genero.length > 0) { %>
-  <% for (let i = 0; i < pelicula.genero.length; i++) { %>
-    <%= pelicula.genero[i].nombre %></h6>
-  <% } %>
-<% } else { %>
-  <p >No hay información de genero disponible.</p>
-<% } %>
-
-
-                            
+                                            
                             
                                   <!-- CALIFICACION-->
                     <% if (locals.isLogged) {%>
@@ -123,6 +80,38 @@
 
                         
                             <!--FINAL CALIFICACION-->
+
+                        <!--cajita de comentarios de ALL user-->
+
+                        <h5 class="tituloComentarios"> Comentarios
+                        </h5>
+                          <% if (Coment && Coment.length > 0) { %>
+                            <div class="comment-box">
+                              <% Coment.reverse().forEach(comment => { %>
+                                <div class="comment">
+                                  <!-- Verificación para asegurarse de que comment.usuario tenga un valor -->
+                                  <% if (comment.usuario) { %>
+                                    <img src="<%= comment.usuario.imagen %>" alt="Imagen de Perfil" width="50" height="50"  style="border-radius: 100%;">
+                                    <div>
+                                      <p class="comment-content"><%= comment.comentario %></p>
+                                      <!-- Muestra la calificación del usuario -->
+                                      <p class="comment-info">Usuario: <%= comment.usuario.nombre %></p>
+                                      
+                                      <p class="comment-info">Calificación: <%= comment.calificacion %> estrellas</p>
+                                      <!-- Muestra el nombre del usuario si está disponible -->
+                                    </div>
+                                  <% } else { %>
+                                    <p class="comment-content"><%= comment.comentario %></p>
+                                    <!-- Puedes omitir la fecha si no es necesaria -->
+                                  <% } %>
+                                </div>
+                              <% }); %>
+                            </div>
+                          <% } else { %>
+                            <p>No hay comentarios disponibles.</p>
+                          <% } %>
+
+
                         </div>
                     </div>
                 </div>
