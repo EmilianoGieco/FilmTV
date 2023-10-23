@@ -267,3 +267,30 @@ input[type="radio"]:checked~label {
     bottom: 100%;
   }
 }
+
+/*cajita de comentario */
+
+
+.comment-box {
+  width: 80%;
+  max-width: 600px;
+  
+}
+
+.comment {
+  background-color: #212529;
+  padding: 10px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment-content {
+  font-size: 16px;
+  color:#fff;
+}
+
+.comment-info {
+  font-size: 16px;
+  color: #ababab;
+}
