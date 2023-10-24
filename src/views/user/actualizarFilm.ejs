@@ -11,7 +11,7 @@
             
                 <div class="form-row">
                   <div class="col-md-4 mb-3">
-                    <label class="titulo" for="nombre">Titulo película</label>
+                    <label class="tituloActualizacion" for="nombre">Titulo película</label>
                     <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" required value="<%= movie.nombre %>">>
                     <div class="valid-feedback">
                       ¡Se ve bien!
@@ -19,7 +19,7 @@
                   </div>
       
                   <div  class="col-md-4 mb-3">
-                    <label class="titulo" for="imagen1">Imagen</label>
+                    <label class="tituloActualizacion" for="imagen1">Imagen</label>
                     <input type="file" class="form-control" id="imagen1" placeholder="imagen" name="imagen" required value="<%= movie.imagen1 %>">>
                     <div class="valid-feedback">
                       ¡Se ve bien!
@@ -27,7 +27,7 @@
                   </div>
       
                   <div class="col-md-4 mb-3">
-                    <label class="titulo" for="descripcion">Sinopsis</label>
+                    <label class="tituloActualizacion" for="descripcion">Sinopsis</label>
                     <input type="text" class="form-control" id="resumen" placeholder="resumen" name="resumen" required value="<%= movie.resumen %>">>
                     <div class="valid-feedback">
                       ¡Se ve bien!
@@ -35,7 +35,7 @@
                   </div>
       
                   <div class="col-md-4 mb-3">
-                    <label class="titulo" for="descripcion">Fecha de estreno</label>
+                    <label class="tituloActualizacion" for="descripcion">Fecha de estreno</label>
                     <input type="date" class="form-control" id="fecha_estreno" placeholder="fecha_estreno"
                       name="fecha_estreno" required value="<%= movie.fecha_estreno %>">>
                     <div class="valid-feedback">
@@ -44,7 +44,7 @@
                   </div>
       
                   <div class="col-md-4 mb-3">
-                    <label class="titulo" for="descripcion">Duración</label>
+                    <label class="tituloActualizacion" for="descripcion">Duración</label>
                     <input type="text" class="form-control" id="duracion" placeholder="duración" name="duracion" required value="<%= movie.duracion %>">>
                     <div class="valid-feedback">
                       ¡Se ve bien!
@@ -54,7 +54,7 @@
                 
       
                   <div class="col-md-4 mb-3">
-                    <label class="titulo" for="video">Enlace de Video</label>
+                    <label class="tituloActualizacion" for="video">Enlace de Video</label>
                     <input type="text" class="form-control" id="video" placeholder="video" name="video" required value="<%= movie.video %>">>
                     <div class="valid-feedback">
                     </div>
@@ -64,7 +64,7 @@
                 
       
                 <div class="col-md-4 mb-3">
-                  <label class="titulo" for="inputGroupSelect01">Género</label>
+                  <label class="tituloActualizacion" for="inputGroupSelect01">Género</label>
                   <select class="form-control" id="inputGroupSelect01" name="genero" required value="<%= movie.genero %>">>
                     <option selected disabled>selecciona un género</option>
                     <% for (let i=0; i<generos.length; i++) {%>
