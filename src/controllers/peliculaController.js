@@ -217,7 +217,22 @@ const controlador = {
             movie.genero = req.body.genero;
             movie.duracion = req.body.duracion;
             movie.imagen1 = result.secure_url || movie.imagen1;
+            const generoFilm = await db.generoFilm.findOne({ where: { id_productoFilm: movie.id } });
+
+            if (generoFilm) {
+              // Si ya existe una asociación, actualizar el género
+              generoFilm.id_genero = req.body.genero;
+              await generoFilm.save();
+            } else {
+              // Si no existe una asociación, crear una nueva
+              await db.generoFilm.create({
+                id_productoFilm: movie.id,
+                id_genero: req.body.genero
+              });
+            }
+            
             await movie.save();
+  
 
             res.redirect("/");
           }

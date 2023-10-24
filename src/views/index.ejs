@@ -87,7 +87,7 @@
         <div class="peliculas-container">
           <% for (let i=0; i < movie.length; i++) { %>
             <div class="pelicula">
-                <img class="imagen" src="<%= movie[i].imagen1 %>" width="400px">
+                <img class="imagen" src="<%= movie[i].imagen1 %>" width="400px" height="250px">
               <div class="textoPeliculas">
                 <a href="/peliculas/detalle/<%=movie[i].id%>" class="textoenlasimagenes">
                   <%= movie[i].nombre %>
