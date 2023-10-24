@@ -103,7 +103,7 @@ const controlador = {
               return res.render('user/register', {
                   errors: {
                       nombreUsuario: {
-                          msg: "Este nombre de usuario ya está en uso"
+                          msg: "Este nombre de usuario ya está en uso. Por favor, elija otro nuevamente"
                       }
                   },
                   oldData: req.body

@@ -29,13 +29,15 @@
               </p>
 
 
-              <% if (movie.genero) { %>
+              <% if (movie.genero && movie.genero.length > 0) { %>
                 <h6 class="card-title linea">Género:
-                  <%= movie.genero.nombre %>
+                  <%= movie.genero.map(gen => gen.nombre).join(', ') %>
                 </h6>
-                <% } else { %>
-                  <p class="card-title linea">Género: No especificado</p>
-                  <% } %>
+              <% } else { %>
+                <p class="card-title linea">Género: No especificado</p>
+              <% } %>
+              
+              
 
 
                     <h6 class="card-title linea"> Duración:

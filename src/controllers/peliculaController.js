@@ -30,6 +30,8 @@ const controlador = {
         include: [{ association: "genero" }]
       });
 
+      
+
       // Obtener comentarios y calificaciones asociadas a la película
       const comentarios = await controlador.obtenerComentarios(req, res) || [];
 
@@ -126,33 +128,46 @@ const controlador = {
     const customFilename = '';
 
     const stream = cloudinary.uploader.upload_stream({ resource_type: 'image', public_id: customFilename }, (error, result) => {
-      if (error) {
-        console.error('Error en Cloudinary:', error);
-      } else {
-        console.log('Imagen cargada con éxito');
-        db.productoFilm.create({
-          nombre: req.body.nombre,
-          imagen1: result.secure_url,
-          resumen: req.body.resumen,
-          fecha_estreno: req.body.fecha_estreno,
-          calificacion: req.body.calificacion,
-          video: req.body.video,
-          subidoPor: req.body.usuario,
-          genero: req.body.genero,
-          duracion: req.body.duracion
-        })
-          .then((movie) => {
-            console.log('Película guardada con éxito:', movie);
+        if (error) {
+            console.error('Error en Cloudinary:', error);
             res.redirect("/");
-          })
-          .catch((error) => {
-            console.error('Error al crear la película:', error);
-          });
-      }
+        } else {
+            console.log('Imagen cargada con éxito');
+
+            // Crear la película
+            db.productoFilm.create({
+                nombre: req.body.nombre,
+                imagen1: result.secure_url,
+                resumen: req.body.resumen,
+                fecha_estreno: req.body.fecha_estreno,
+                calificacion: req.body.calificacion,
+                video: req.body.video,
+                subidoPor: req.body.usuario,
+                duracion: req.body.duracion,
+            })
+            .then((movie) => {
+                // Crear la asociación con el género a través de generoFilm
+                db.generoFilm.create({
+                    id_productoFilm: movie.id,
+                    id_genero: req.body.genero
+                })
+                .then(() => {
+                    console.log('Película y asociación con género guardadas con éxito');
+                    res.redirect("/");
+                })
+                .catch((error) => {
+                    console.error('Error al crear la asociación con género:', error);
+                    res.redirect("/");
+                });
+            })
+            .catch((error) => {
+                console.error('Error al crear la película:', error);
+                res.redirect("/");
+            });
+        }
     });
     streamifier.createReadStream(imageBuffer).pipe(stream);
-  },
-
+},
 
   getCrearFilm: function (req, res) {
     db.genero.findAll()
