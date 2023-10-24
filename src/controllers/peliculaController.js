@@ -258,38 +258,34 @@ const controlador = {
     const idPelicula = req.params.id;
 
     try {
-      // Buscar la película por su ID en la base de datos
-      const pelicula = await db.productoFilm.findByPk(idPelicula);
+        // Buscar la película por su ID en la base de datos
+        const pelicula = await db.productoFilm.findByPk(idPelicula);
 
-      if (!pelicula) {
-        res.send('Película no encontrada');
-      } else {
-        // Verificar si hay calificaciones asociadas a la película
-        const calificacionesAsociadas = await db.calificacion.findAll({
-          where: { id_productoFilm: idPelicula },
+        if (!pelicula) {
+            res.send('Película no encontrada');
+            return;
+        }
+
+        // Buscar y eliminar las calificaciones asociadas a la película
+        await db.calificacion.destroy({
+            where: { id_productoFilm: idPelicula },
         });
 
-        if (calificacionesAsociadas.length > 0) {
-          // Eliminar las calificaciones asociadas
-          await db.calificacion.destroy({
+        // Buscar y eliminar los géneros asociados a la película
+        await db.generoFilm.destroy({
             where: { id_productoFilm: idPelicula },
-          });
+        });
 
-          // Eliminar la película después de eliminar las calificaciones
-          await pelicula.destroy();
+        // Eliminar la película después de eliminar las calificaciones y géneros
+        await pelicula.destroy();
 
-          res.redirect("/");
-        } else {
-          // No hay calificaciones asociadas, eliminar la película directamente
-          await pelicula.destroy();
-          res.redirect("/");
-        }
-      }
+        res.redirect("/");
     } catch (error) {
-      console.error('Error en delete:', error);
-      res.render('error', { message: 'Error al eliminar la película' });
+        console.error('Error en delete:', error);
+        res.render('error', { message: 'Error al eliminar la película' });
     }
 },
+
   
   
   
