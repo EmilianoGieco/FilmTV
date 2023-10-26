@@ -2,32 +2,32 @@
 <%- include("./partials/head") %>
 
 
-<body class="bgPrincipal">
-  <%- include("./partials/header") %>
+  <body class="bgPrincipal">
+    <%- include("./partials/header") %>
 
 
       <!--MAIN-->
-      <!--slide de las 5 peliculas mas esperadas-->
+
       <main>
 
         <div class="button-container">
           <!-- Cambio de estilo de boton -->
           <% console.log("isLogged:", locals.isLogged); %>
-          <% console.log("userLogged:", locals.userLogged); %>
-          <% if (locals.isLogged && locals.userLogged && locals.userLogged.administrador === 1) { %>       
-                 <a class="ADMIN" aria-current="page" href="/peliculas/CrearFilm">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              CREAR FILM
-            </a>
-          <% } %>
+            <% console.log("userLogged:", locals.userLogged); %>
+              <% if (locals.isLogged && locals.userLogged && locals.userLogged.administrador===1) { %>
+                <a class="ADMIN" aria-current="page" href="/peliculas/CrearFilm">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  CREAR FILM
+                </a>
+                <% } %>
         </div>
-          <!--final boton-->
-          
-          
-        
+        <!--final boton-->
+
+
+
 
         </div>
 
@@ -87,7 +87,7 @@
         <div class="peliculas-container">
           <% for (let i=0; i < movie.length; i++) { %>
             <div class="pelicula">
-                <img class="imagen" src="<%= movie[i].imagen1 %>" width="400px" height="230px">
+              <img class="imagen" src="<%= movie[i].imagen1 %>" width="400px" height="230px">
               <div class="textoPeliculas">
                 <a href="/peliculas/detalle/<%=movie[i].id%>" class="textoenlasimagenes">
                   <%= movie[i].nombre %>
@@ -96,13 +96,16 @@
             </div>
             <% } %>
         </div>
-
+        
+        <div class="baner1">
+          <img src="https://abisulkes.alwaysdata.net/banner-publicitario-cinetips.png">
+        </div>
 
       </main>
       <!--FOOTER-->
       <%- include("./partials/footer") %>
   </body>
 
- 
+
 
   </html>

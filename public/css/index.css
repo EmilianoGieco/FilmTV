@@ -197,6 +197,12 @@ li:hover {
   height: auto;
 }
 
+.baner1{
+  width: 100%;
+  height: auto;
+  text-align: center; 
+}
+
 /*NOVEDADES*/
 /* CSS */
 .peliculas-container {
@@ -462,6 +468,7 @@ li:hover {
     width: 100%;
     height: auto;
   }
+
 
   /* Ajustes para el carrusel central */
   .carrucelcentral {
